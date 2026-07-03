@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/market-update`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/market-insights`, priority: 0.9, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/market-insights/kcm-blog`, priority: 0.75, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/google-business`, priority: 0.9, changeFrequency: "monthly" as const },
+    { url: `${baseUrl}/google-business`, priority: 0.85, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/faq`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/resources`, priority: 0.85, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/las-vegas-zip-code-map`, priority: 0.85, changeFrequency: "monthly" as const },
@@ -64,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // 55+ community sub-pages
   const fiftyPlusCommunityPages = [
-    { url: `${baseUrl}/55-plus-communities/sun-city-summerlin`, priority: 0.8, changeFrequency: "monthly" as const },
+    { url: `${baseUrl}/55-plus-communities/sun-city-summerlin`, priority: 0.85, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/55-plus-communities/sun-city-anthem`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/55-plus-communities/sun-city-aliante`, priority: 0.75, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/55-plus-communities/solera-anthem`, priority: 0.75, changeFrequency: "monthly" as const },
@@ -79,7 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/neighborhoods/spring-valley`, priority: 0.95, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/neighborhoods/spring-valley/property-taxes`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/neighborhoods/enterprise`, priority: 0.85, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/paradise`, priority: 0.85, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/paradise`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/neighborhoods/summerlin`, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/neighborhoods/henderson`, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/neighborhoods/green-valley`, priority: 0.7, changeFrequency: "weekly" as const },

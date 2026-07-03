@@ -262,6 +262,9 @@ export function generateWebSiteSchema() {
     url: absoluteUrlForPath(item.href),
   }));
 
+  // No SearchAction: a urlTemplate like /listings?q={search_term_string} was
+  // crawled literally by Google (GSC "Crawled - currently not indexed"). MLS
+  // search is RealScout (external), not an on-site query endpoint.
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -273,14 +276,6 @@ export function generateWebSiteSchema() {
       "@id": REAL_ESTATE_AGENT_SCHEMA_ID,
     },
     hasPart,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${BASE_URL}/listings?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

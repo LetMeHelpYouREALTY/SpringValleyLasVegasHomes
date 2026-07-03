@@ -48,6 +48,7 @@ export const navbarServiceLinks: InternalNavLink[] = [
 export const footerQuickLinks: InternalNavLink[] = [
   { href: "/neighborhoods/spring-valley", label: seoPrimaryKeyword },
   { href: "/neighborhoods", label: "Neighborhoods" },
+  { href: "/neighborhoods/paradise", label: "Paradise NV homes near the Strip" },
   { href: "/las-vegas-zip-code-map", label: "Las Vegas zip code map" },
   { href: "/why-berkshire-hathaway", label: "Why Berkshire Hathaway" },
   { href: "/market-report", label: "Las Vegas housing market report" },
@@ -63,8 +64,11 @@ export const footerServiceLinks: InternalNavLink[] = [
   { href: "/sellers", label: "Selling your Las Vegas home" },
   { href: "/luxury-homes", label: "Luxury homes" },
   { href: "/55-plus-communities", label: "55+ communities" },
+  { href: "/55-plus-communities/sun-city-summerlin", label: "Sun City Summerlin homes" },
   { href: "/new-construction", label: "New construction homes" },
   { href: "/market-insights", label: "Market insights" },
+  { href: "/google-business", label: "Google Business Profile" },
+  { href: "/showing", label: "Schedule a home showing" },
 ];
 
 /**
@@ -75,8 +79,12 @@ export const sitelinkStructuredDataNav: InternalNavLink[] = [
   { href: "/listings", label: "Homes for sale — Las Vegas and Henderson" },
   { href: "/neighborhoods", label: "Las Vegas area neighborhoods" },
   { href: "/neighborhoods/spring-valley", label: `${seoPrimaryKeyword} guide` },
+  { href: "/neighborhoods/paradise", label: "Paradise NV homes near Strip and UNLV" },
+  { href: "/55-plus-communities/sun-city-summerlin", label: "Sun City Summerlin 55+ homes" },
   { href: "/buyers", label: "Home buying resources" },
   { href: "/sellers", label: "Home selling resources" },
+  { href: "/showing", label: "Schedule a home showing" },
+  { href: "/google-business", label: "Google Business Profile" },
   { href: "/contact", label: "Contact Dr. Jan Duffy" },
   { href: "/about", label: "About Dr. Jan Duffy" },
   { href: "/faq", label: "Real estate FAQ" },

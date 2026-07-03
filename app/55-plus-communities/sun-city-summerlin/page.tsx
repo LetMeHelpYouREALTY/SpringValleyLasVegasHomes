@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/55-plus-communities/sun-city-summerlin",
   },
+  robots: { index: true, follow: true },
   title: "Sun City Summerlin Homes for Sale",
   description:
     "Nevada's largest 55+ community. Sun City Summerlin homes from $320K-$850K. 3 golf courses, 4 rec centers, 100+ clubs. Dr. Jan Duffy, BHHS specialist. Call (702) 664-8424.",
@@ -30,6 +31,13 @@ export const metadata: Metadata = {
     "retirement community Las Vegas",
     "Berkshire Hathaway Sun City",
   ],
+  openGraph: {
+    title: "Sun City Summerlin Homes for Sale | 55+ Summerlin",
+    description:
+      "Tour Sun City Summerlin with Dr. Jan Duffy—golf, rec centers, and active-adult living in Summerlin.",
+    url: "/55-plus-communities/sun-city-summerlin",
+    type: "website",
+  },
 };
 
 const communitySchema = {

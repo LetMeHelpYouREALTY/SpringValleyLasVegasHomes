@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/neighborhoods/paradise",
   },
+  robots: { index: true, follow: true },
   title: "Paradise NV Homes Near Strip & UNLV",
   description: metaDescriptionWithKeyword(
     "Paradise NV real estate—homes near the Las Vegas Strip, Harry Reid International Airport, and UNLV. Search MLS and get local guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
@@ -31,6 +32,13 @@ export const metadata: Metadata = {
     "Paradise Nevada homes for sale",
     "east Las Vegas valley homes",
   ],
+  openGraph: {
+    title: "Paradise NV Homes Near Strip & UNLV",
+    description:
+      "Paradise Las Vegas real estate near the Strip, Harry Reid Airport, and UNLV—with Dr. Jan Duffy.",
+    url: "/neighborhoods/paradise",
+    type: "website",
+  },
 };
 
 const breadcrumbs = [

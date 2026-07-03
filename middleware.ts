@@ -42,6 +42,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // Literal SearchAction template crawled by Google:
+  // /listings?q={search_term_string}
+  if (pathname === "/listings") {
+    const q = searchParams.get("q");
+    if (q && (q.includes("{") || q.includes("search_term_string"))) {
+      const url = request.nextUrl.clone();
+      url.search = "";
+      return NextResponse.redirect(url, 301);
+    }
+  }
+
   // Calendly mis-embed used relative "showing" and produced
   // /showing?embed_domain=...&embed_type=Inline — keep clean /showing only.
   if (pathname === "/showing") {
