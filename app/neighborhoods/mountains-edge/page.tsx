@@ -6,6 +6,9 @@ import { Phone, Mountain, TreePine, DollarSign, Home as HomeIcon } from "lucide-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods/mountains-edge",
+  },
   title: "Mountains Edge Southwest Las Vegas",
   description:
     "Find Mountains Edge homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this southwest Las Vegas community. Median price $475K. Call (702) 664-8424.",

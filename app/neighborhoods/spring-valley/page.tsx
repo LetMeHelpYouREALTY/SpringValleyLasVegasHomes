@@ -35,6 +35,9 @@ const springValleyOgTwitter = ogTwitterImageFields(springValleyOgUrl, {
 });
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods/spring-valley",
+  },
   title: "Spring Valley NV Homes & West Valley Guide",
   description: metaDescriptionWithKeyword(
     "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",

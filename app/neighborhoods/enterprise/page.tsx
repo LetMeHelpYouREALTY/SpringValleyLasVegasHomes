@@ -20,6 +20,9 @@ import {
 import { metaDescriptionWithKeyword } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods/enterprise",
+  },
   title: "Enterprise Las Vegas Homes & Rhodes Ranch Area",
   description: metaDescriptionWithKeyword(
     "Enterprise NV real estate—southwest Las Vegas homes, Rhodes Ranch, and communities buyers compare with Spring Valley. MLS search and guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",

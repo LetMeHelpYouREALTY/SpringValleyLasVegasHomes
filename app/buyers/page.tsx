@@ -23,6 +23,9 @@ import type { Metadata } from "next";
 import { realScoutConfig } from "@/lib/integrations";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/buyers",
+  },
   title: "Home Buying Guide Las Vegas",
   description:
     "Looking to buy a home in Las Vegas? Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties guides you through every step. Free buyer consultation. Call (702) 664-8424.",

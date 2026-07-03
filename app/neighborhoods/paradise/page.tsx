@@ -15,6 +15,9 @@ import { agentInfo, officeInfo } from "@/lib/site-config";
 import { metaDescriptionWithKeyword } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods/paradise",
+  },
   title: "Paradise NV Homes Near Strip & UNLV",
   description: metaDescriptionWithKeyword(
     "Paradise NV real estate—homes near the Las Vegas Strip, Harry Reid International Airport, and UNLV. Search MLS and get local guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",

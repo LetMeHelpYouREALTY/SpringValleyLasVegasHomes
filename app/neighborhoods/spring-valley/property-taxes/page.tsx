@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "effective tax rate Spring Valley",
   ],
   alternates: {
-    canonical: pagePath,
+    canonical: "/neighborhoods/spring-valley/property-taxes",
   },
   openGraph: {
     title: "Spring Valley, NV Property Taxes & Rate | Dr. Jan Duffy",

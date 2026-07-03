@@ -14,6 +14,9 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/55-plus-communities/del-webb-lake-las-vegas",
+  },
   title: "Del Webb at Lake Las Vegas Homes",
   description:
     "Lakefront 55+ living at Del Webb Lake Las Vegas. Homes from $400K-$900K. Resort amenities, stunning lake and mountain views. Dr. Jan Duffy. Call (702) 664-8424.",

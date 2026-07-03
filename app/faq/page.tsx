@@ -22,6 +22,9 @@ const faqOgTwitter = ogTwitterImageFields(faqPreferredImageUrl, {
 });
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/faq",
+  },
   title: "Real Estate FAQ",
   description:
     "Frequently asked questions about Las Vegas real estate, Berkshire Hathaway HomeServices, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",

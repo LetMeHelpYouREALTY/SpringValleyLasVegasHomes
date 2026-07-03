@@ -8,6 +8,9 @@ import { siteConfig } from "@/lib/site-config";
 import { absoluteMediaUrl, faviconSrc } from "@/lib/site-media";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/why-berkshire-hathaway",
+  },
   title: "Why Choose Berkshire Hathaway HomeServices",
   description:
     "Discover why Berkshire Hathaway HomeServices is the most trusted name in real estate. Backed by Warren Buffett, with 50,000+ agents worldwide. Work with BHHS Nevada Properties today.",

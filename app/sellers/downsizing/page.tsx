@@ -16,6 +16,9 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/sellers/downsizing",
+  },
   title: "Downsizing in Las Vegas",
   description:
     "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 664-8424.",

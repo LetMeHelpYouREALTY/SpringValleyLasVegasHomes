@@ -21,6 +21,9 @@ import type { Metadata } from "next";
 import { officeInfo, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/buyers/california-relocator",
+  },
   title: "California to Las Vegas Relocation",
   description:
     "Moving from California to Las Vegas? Zero state income tax, 40-60% lower home prices, same sunshine. Dr. Jan Duffy helps CA relocators find their perfect Las Vegas home. Call (702) 664-8424.",

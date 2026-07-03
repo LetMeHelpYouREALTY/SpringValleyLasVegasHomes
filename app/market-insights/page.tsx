@@ -21,6 +21,9 @@ import { agentInfo, siteConfig } from "@/lib/site-config";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/market-insights",
+  },
   title: "Las Vegas Real Estate Market Insights 2026",
   description:
     "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 664-8424.",

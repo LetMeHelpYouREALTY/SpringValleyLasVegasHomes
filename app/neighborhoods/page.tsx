@@ -22,6 +22,9 @@ const neighborhoodsOgTwitter = ogTwitterImageFields(neighborhoodsGuideOgUrl, {
 });
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods",
+  },
   title: "Las Vegas Neighborhoods Guide",
   description: neighborhoodsDescription,
   keywords: [

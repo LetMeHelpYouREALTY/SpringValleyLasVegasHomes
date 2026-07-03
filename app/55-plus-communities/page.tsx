@@ -27,6 +27,9 @@ import { agentInfo, siteConfig } from "@/lib/site-config";
 import { realScoutConfig } from "@/lib/integrations";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/55-plus-communities",
+  },
   title: "55+ Active Adult Communities Las Vegas",
   description:
     "Find your perfect 55+ community in Las Vegas. Sun City Summerlin, Sun City Aliante, Del Webb Lake Las Vegas, Heritage at Stonebridge, Solera, Trilogy. Dr. Jan Duffy specializes in active adult living. Call (702) 664-8424.",

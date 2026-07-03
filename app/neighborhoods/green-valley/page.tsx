@@ -6,6 +6,9 @@ import { Phone, TreePine, ShoppingBag, GraduationCap, MapPin } from "lucide-reac
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods/green-valley",
+  },
   title: "Green Valley Henderson Real Estate",
   description:
     "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's most established community. Median price $520K. Call (702) 664-8424.",

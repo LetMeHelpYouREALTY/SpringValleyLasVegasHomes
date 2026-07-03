@@ -13,6 +13,9 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/neighborhoods/summerlin",
+  },
   title: "Summerlin Luxury Real Estate",
   description:
     "Find Summerlin homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy offers expert guidance in Las Vegas's premier master-planned community. Median price $625K. Call (702) 664-8424.",

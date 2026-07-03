@@ -23,6 +23,9 @@ import { absoluteMediaUrl, agentHeadshotSrc } from "@/lib/site-media";
 import { realScoutConfig } from "@/lib/integrations";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/about",
+  },
   title: "About Dr. Jan Duffy",
   description:
     "Meet Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent. Serving Las Vegas since 2008, $127M+ in transactions, Henderson & Summerlin specialist. Call (702) 664-8424.",

@@ -7,6 +7,9 @@ import { agentInfo } from "@/lib/site-config";
 import { metaDescriptionWithKeyword, seoPrimaryKeyword } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/resources",
+  },
   title: "Real Estate Resources & Guides",
   description: metaDescriptionWithKeyword(
     "Guides and tools for Spring Valley Las Vegas homes—neighborhood guide, market reports, MLS search, and contact Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",

@@ -2,13 +2,19 @@ import "./globals.css";
 
 import React from "react";
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
-import { Analytics } from "@vercel/analytics/react";
 import { cn } from "lib/utils";
-import AIChatWidget from "@/components/chat/AIChatWidget";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
+
+/** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
+const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), { ssr: false });
+const VercelAnalytics = dynamic(
+  () => import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
+  { ssr: false },
+);
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateRealEstateAgentSchema,
@@ -82,9 +88,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: url,
-  },
 };
 
 /** Mobile-friendly viewport + theme (Google / Page Experience baseline) */
@@ -133,10 +136,10 @@ export default function RootLayout({
           type="module"
           strategy="afterInteractive"
         />
-        {/* Calendly Widget Script - loaded once globally */}
+        {/* Calendly: idle load — badge still works; reduces contention with LCP/interaction */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </head>
       <body
@@ -155,7 +158,7 @@ export default function RootLayout({
         <GoogleAnalytics gaId={gaMeasurementId} />
         <AIChatWidget />
         <CalendlyBadge />
-        <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
