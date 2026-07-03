@@ -48,6 +48,9 @@ const medianDisplay = `$${Math.round(lv.medianPrice / 1000)}K`;
 const listingsDisplay = lv.activeListings.toLocaleString("en-US");
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
   title: {
     absolute: homePageTitleAbsolute,
   },
