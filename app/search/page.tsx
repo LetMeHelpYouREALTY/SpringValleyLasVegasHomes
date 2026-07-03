@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import { MapPin, Search, ExternalLink } from "lucide-react";
@@ -6,6 +7,10 @@ import type { Metadata } from "next";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { realScoutConfig } from "@/lib/integrations";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import {
+  PREFERRED_ZIP_COOKIE,
+  preferredZipFromCookie,
+} from "@/lib/preferred-zip";
 
 export const metadata: Metadata = {
   title: "Search homes by zip code",
@@ -13,22 +18,14 @@ export const metadata: Metadata = {
     "Find Las Vegas Valley MLS listings by zip code. Open the live home search to browse photos and map, or contact Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   robots: { index: true, follow: true },
   alternates: {
-    canonical: `${siteConfig.url}/search`,
+    canonical: "/search",
   },
 };
 
-function isValidZip(zip: string | undefined): zip is string {
-  return typeof zip === "string" && /^\d{5}$/.test(zip);
-}
-
-type SearchPageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
-};
-
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const raw = searchParams?.zip;
-  const zipParam = Array.isArray(raw) ? raw[0] : raw;
-  const validZip = isValidZip(zipParam) ? zipParam : null;
+export default function SearchPage() {
+  const validZip = preferredZipFromCookie(
+    cookies().get(PREFERRED_ZIP_COOKIE)?.value,
+  );
 
   return (
     <>
@@ -87,7 +84,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
               <ExternalLink className="h-4 w-4" aria-hidden />
             </a>
             <Link
-              href={validZip ? `/contact?zip=${validZip}` : "/contact"}
+              href="/contact"
               className="inline-flex items-center justify-center rounded-lg border-2 border-slate-200 bg-white px-6 py-3 font-semibold text-slate-800 transition-colors hover:border-blue-500 hover:text-blue-700"
             >
               Contact {agentInfo.name.split(" ")[0]}

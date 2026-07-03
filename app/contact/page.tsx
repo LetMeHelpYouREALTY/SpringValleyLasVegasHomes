@@ -5,6 +5,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield } from "lucide-react";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import {
   agentInfo,
@@ -14,6 +15,10 @@ import {
   siteConfig,
   teamInfo,
 } from "@/lib/site-config";
+import {
+  PREFERRED_ZIP_COOKIE,
+  preferredZipFromCookie,
+} from "@/lib/preferred-zip";
 
 const officeMapQuery = encodeURIComponent(
   `${officeInfo.address.street}, ${officeInfo.address.city}, ${officeInfo.address.state} ${officeInfo.address.zip}`,
@@ -30,6 +35,10 @@ export const metadata: Metadata = {
     "Las Vegas realtor contact",
     "schedule real estate appointment",
   ],
+  robots: { index: true, follow: true },
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const contactSchema = {
@@ -51,17 +60,10 @@ const contactSchema = {
   },
 };
 
-function parseZipParam(raw: string | string[] | undefined): string | null {
-  const v = Array.isArray(raw) ? raw[0] : raw;
-  return typeof v === "string" && /^\d{5}$/.test(v) ? v : null;
-}
-
-type ContactPageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
-};
-
-export default function ContactPage({ searchParams }: ContactPageProps) {
-  const zipFromQuery = parseZipParam(searchParams?.zip);
+export default function ContactPage() {
+  const zipFromQuery = preferredZipFromCookie(
+    cookies().get(PREFERRED_ZIP_COOKIE)?.value,
+  );
   const mailtoZip =
     zipFromQuery &&
     `mailto:${agentInfo.email}?subject=${encodeURIComponent(`Homes near zip ${zipFromQuery}`)}&body=${encodeURIComponent(
