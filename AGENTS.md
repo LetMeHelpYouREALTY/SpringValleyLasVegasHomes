@@ -24,6 +24,12 @@ In **Vercel → Project → Settings → Domains**: both `www.springvalleylasveg
 
 **Smoke test:** `curl -sI https://springvalleylasvegashomes.com` should show a redirect to `https://www.springvalleylasvegashomes.com/`; `curl -sI https://www.springvalleylasvegashomes.com` should return **200** with `Server: Vercel`.
 
+## PageSpeed Insights & Core Web Vitals
+
+- **Always test the canonical host** in [PageSpeed Insights](https://pagespeed.web.dev/): `https://www.springvalleylasvegashomes.com/` (not `http` apex — extra redirect skews lab metrics).
+- **Two different blocks in PSI:** (1) *Discover what your real users are experiencing* = Chrome UX Report **field** data — **“No Data”** for a URL is common when CrUX has insufficient public samples; it does not remove the **Diagnose performance issues** Lighthouse **lab** section below. (2) *Diagnose performance issues* = simulated **LCP, TBT, Opportunities** — use this for regressions after deploys.
+- **Field vitals over time:** prefer **Google Search Console → Core Web Vitals** at the **origin** or URL group when PSI shows no CrUX for a single URL.
+
 ## Cursor AI
 
 - Prefer **`pnpm`** over `npm`/`yarn` in commands and CI.
