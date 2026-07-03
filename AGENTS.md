@@ -10,7 +10,8 @@ Canonical production URL is **`https://www.springvalleylasvegashomes.com`** (see
 |--------|------|
 | **Vercel** | Primary production for `www.springvalleylasvegashomes.com` — use `vercel build` / `vercel deploy --prebuilt` for parity checks. Set `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` in the Vercel project to enable the interactive map on `/las-vegas-zip-code-map` (zip directory works without it). |
 | **Cloudflare** | **DNS provider** for the zone. For the **web** hostnames that point at Vercel (`A` apex and `www` **CNAME** to `*.vercel-dns-*`), keep **DNS only (gray cloud)** — do **not** enable orange-cloud proxying for those records. Proxying in front of Vercel commonly causes SSL/certificate edge cases; gray cloud matches Vercel + Cloudflare DNS-only setup. You still use Cloudflare for email (MX/TXT), verification TXT, DKIM, and products like **Cloudflare Images** (`imagedelivery.net`) — those are unrelated to HTTP proxy status. |
-| **Git** | `main` is deploy branch. See `CONTRIBUTING.md` for pnpm, branches, and PR checklist. |
+| **Git** | **Canonical remote:** `https://github.com/LetMeHelpYouREALTY/SpringValleyLasVegasHomes.git` (not `DrJanDuffy/…`). `main` is the production branch. See `CONTRIBUTING.md` for pnpm, branches, and PR checklist. |
+| **Vercel project** | Team **janet-duffys-projects**, project **`spring-valley-las-vegas-homes`**. Git integration must point at **LetMeHelpYouREALTY/SpringValleyLasVegasHomes** so `git push origin main` auto-deploys Production. If push does not deploy: `vercel link --project spring-valley-las-vegas-homes` then `vercel git connect https://github.com/LetMeHelpYouREALTY/SpringValleyLasVegasHomes.git` and/or `vercel --prod`. |
 
 ### DNS checklist (Cloudflare dashboard)
 
