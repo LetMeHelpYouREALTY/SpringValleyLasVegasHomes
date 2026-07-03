@@ -15,9 +15,11 @@ const APEX_HOST = "springvalleylasvegashomes.com";
  * those hosts must permanently land on https://www. Prefer 301 (not 307) so
  * Google consolidates ranking signals on the www property.
  *
- * Also strips /search?zip= and /contact?zip= to clean paths (cookie keeps UX).
+ * Also strips /search?zip= and /contact?zip= to clean paths (cookie keeps UX),
+ * and strips Calendly embed query junk from /showing.
  */
 const ZIP_PATHS = new Set(["/search", "/contact"]);
+const EMBED_QUERY_KEYS = ["embed_domain", "embed_type"];
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
@@ -30,6 +32,30 @@ export function middleware(request: NextRequest) {
     url.protocol = "https:";
     url.host = CANONICAL_HOST;
     return NextResponse.redirect(url, 301);
+  }
+
+  // Junk short path from GSC 404s — send to homepage permanently.
+  if (pathname === "/mo") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    url.search = "";
+    return NextResponse.redirect(url, 301);
+  }
+
+  // Calendly mis-embed used relative "showing" and produced
+  // /showing?embed_domain=...&embed_type=Inline — keep clean /showing only.
+  if (pathname === "/showing") {
+    let dirty = false;
+    const url = request.nextUrl.clone();
+    for (const key of EMBED_QUERY_KEYS) {
+      if (url.searchParams.has(key)) {
+        url.searchParams.delete(key);
+        dirty = true;
+      }
+    }
+    if (dirty) {
+      return NextResponse.redirect(url, 301);
+    }
   }
 
   if (!ZIP_PATHS.has(pathname)) {

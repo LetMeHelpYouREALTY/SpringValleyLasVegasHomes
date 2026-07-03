@@ -51,6 +51,12 @@ const nextConfig = {
         destination: 'https://www.springvalleylasvegashomes.com/:path*',
         permanent: true,
       },
+      // GSC 404: junk short URL — permanent to homepage
+      {
+        source: '/mo',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 

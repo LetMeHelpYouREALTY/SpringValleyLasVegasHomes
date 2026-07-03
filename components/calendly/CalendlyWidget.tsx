@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { CALENDLY_SHOWING_URL, resolveCalendlyUrl } from "@/lib/calendly";
 
 interface CalendlyWidgetProps {
   url?: string;
@@ -9,58 +10,49 @@ interface CalendlyWidgetProps {
 }
 
 export default function CalendlyWidget({
-  url = "https://calendly.com/drjanduffy/showing",
+  url = CALENDLY_SHOWING_URL,
   minWidth = "320px",
   height = "700px",
 }: CalendlyWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
+  const calendlyUrl = resolveCalendlyUrl(url);
 
   useEffect(() => {
-    // Ensure Calendly script is loaded and widget is initialized
     const initWidget = () => {
-      if (typeof window !== "undefined" && (window as any).Calendly && widgetRef.current) {
-        // Clear any existing content
+      if (typeof window !== "undefined" && window.Calendly && widgetRef.current) {
         widgetRef.current.innerHTML = "";
-        
-        // Create the widget div
+
         const widgetDiv = document.createElement("div");
         widgetDiv.className = "calendly-inline-widget";
-        widgetDiv.setAttribute("data-url", url);
+        widgetDiv.setAttribute("data-url", calendlyUrl);
         widgetDiv.style.minWidth = minWidth;
         widgetDiv.style.height = height;
         widgetDiv.style.width = "100%";
-        
+
         widgetRef.current.appendChild(widgetDiv);
-        
-        // Initialize the widget
-        (window as any).Calendly.initInlineWidget({
-          url: url,
+
+        window.Calendly.initInlineWidget({
+          url: calendlyUrl,
           parentElement: widgetDiv,
         });
       }
     };
 
-    // Try to initialize immediately if Calendly is already loaded
-    if ((window as any).Calendly) {
+    if (window.Calendly) {
       initWidget();
     } else {
-      // Wait for the script to load
       const checkCalendly = setInterval(() => {
-        if ((window as any).Calendly) {
+        if (window.Calendly) {
           clearInterval(checkCalendly);
           initWidget();
         }
       }, 100);
 
-      // Clean up interval after 10 seconds
       setTimeout(() => clearInterval(checkCalendly), 10000);
     }
-  }, [url, minWidth, height]);
+  }, [calendlyUrl, minWidth, height]);
 
   return (
-    <div 
-      ref={widgetRef} 
-      style={{ minWidth, height, width: "100%" }}
-    />
+    <div ref={widgetRef} style={{ minWidth, height, width: "100%" }} />
   );
 }
