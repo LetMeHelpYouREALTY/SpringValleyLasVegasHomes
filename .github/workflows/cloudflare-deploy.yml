@@ -69,7 +69,7 @@ jobs:
 
       - name: Comment PR (Cloudflare)
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const comment = `## Cloudflare Pages deployment
@@ -139,7 +139,7 @@ jobs:
           temporaryPublicStorage: true
 
       - name: Comment PR with performance note
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         if: always()
         with:
           script: |
