@@ -37,7 +37,7 @@
     "@anthropic-ai/sdk": "^0.80.0",
     "@hookform/resolvers": "^3.3.4",
     "@marsidev/react-turnstile": "^1.4.2",
-    "@next/third-parties": "^14.2.35",
+    "@next/third-parties": "^16.2.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@sentry/nextjs": "^10.46.0",
