@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
 import Link from "next/link";
 import { Phone, MapPin, Home, School, Car, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
@@ -15,13 +16,7 @@ import {
 } from "@/lib/schema";
 import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
-import {
-  agentInfo,
-  googleMyMapEmbedUrl,
-  googleMyMapViewerUrl,
-  officeInfo,
-  siteConfig,
-} from "@/lib/site-config";
+import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import { metaDescriptionWithKeyword, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
 
@@ -110,7 +105,8 @@ const springValleyFaqs = [
       "People often use “Spring Valley” for the broader west valley area. Smaller named pockets and subdivisions can have different HOA rules and price trends. When you tour Spring Valley Las Vegas homes, we review the specific community name, HOA budget, and recent comps—not just the mailing address.",
   },
   {
-    question: "How is the commute from Spring Valley to the Strip or Summerlin?",
+    question:
+      "How is the commute from Spring Valley to the Strip or Summerlin?",
     answer:
       "Many Spring Valley locations offer a practical commute to employment centers along I-15, the 215 Beltway, and Charleston Boulevard corridors. Exact drive times depend on your street and time of day. We map morning and evening routes when you are narrowing Spring Valley Las Vegas homes by workplace.",
   },
@@ -135,23 +131,22 @@ const springValleyFaqs = [
   },
   {
     question: "What is the effective property tax rate in Spring Valley, NV?",
-    answer:
-      `Third-party sources often cite an effective rate near 0.48% for Spring Valley (total tax relative to value)—useful for comparison, not your official bill. See the Spring Valley property tax guide for an illustrative calculator, citations, and Clark County resources: ${propertyTaxGuideUrl}`,
+    answer: `Third-party sources often cite an effective rate near 0.48% for Spring Valley (total tax relative to value)—useful for comparison, not your official bill. See the Spring Valley property tax guide for an illustrative calculator, citations, and Clark County resources: ${propertyTaxGuideUrl}`,
   },
   {
-    question: "How are Clark County property taxes calculated for Spring Valley homes?",
-    answer:
-      `Nevada property taxes use taxable assessed value and district levies—not a simple market value times one percentage. Spring Valley sits in unincorporated Clark County; verify assessments and bills with the Clark County Assessor. Full overview: ${propertyTaxGuideUrl}`,
+    question:
+      "How are Clark County property taxes calculated for Spring Valley homes?",
+    answer: `Nevada property taxes use taxable assessed value and district levies—not a simple market value times one percentage. Spring Valley sits in unincorporated Clark County; verify assessments and bills with the Clark County Assessor. Full overview: ${propertyTaxGuideUrl}`,
   },
   {
-    question: "Is market value the same as taxable value on my Nevada property tax bill?",
-    answer:
-      `Not necessarily. Your purchase price or online estimate is not the same as the county-assessed taxable value. Abatements and caps can apply to primary residences. Confirm on your assessment notice or the Assessor. More detail: ${propertyTaxGuideUrl}`,
+    question:
+      "Is market value the same as taxable value on my Nevada property tax bill?",
+    answer: `Not necessarily. Your purchase price or online estimate is not the same as the county-assessed taxable value. Abatements and caps can apply to primary residences. Confirm on your assessment notice or the Assessor. More detail: ${propertyTaxGuideUrl}`,
   },
   {
-    question: "Where can I learn more about Spring Valley property taxes before I buy?",
-    answer:
-      `Read the dedicated guide for effective rates, an illustrative calculator, and official Clark County links—then call ${agentInfo.phone} to fold taxes into your overall budget.`,
+    question:
+      "Where can I learn more about Spring Valley property taxes before I buy?",
+    answer: `Read the dedicated guide for effective rates, an illustrative calculator, and official Clark County links—then call ${agentInfo.phone} to fold taxes into your overall budget.`,
   },
 ];
 
@@ -234,10 +229,11 @@ export default function SpringValleyPage() {
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed">
               Spring Valley is one of the most searched areas for{" "}
-              <strong>Spring Valley Las Vegas homes</strong>—a broad, established west valley
-              community with diverse housing, mature neighborhoods, and convenient access to
-              employment corridors. Use this guide to orient your search, then explore live listings
-              or talk with Dr. Jan Duffy about timing, offers, and pricing.
+              <strong>Spring Valley Las Vegas homes</strong>—a broad,
+              established west valley community with diverse housing, mature
+              neighborhoods, and convenient access to employment corridors. Use
+              this guide to orient your search, then explore live listings or
+              talk with Dr. Jan Duffy about timing, offers, and pricing.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
               <a
@@ -249,8 +245,9 @@ export default function SpringValleyPage() {
                 Spring Valley homes for sale—live map search
               </a>
               <p className="text-sm text-slate-500 text-center sm:text-left max-w-xs">
-                Opens the MLS portal map with a Spring Valley city filter—refine by price, beds, and
-                baths on the same search Dr. Jan uses with buyers.
+                Opens the MLS portal map with a Spring Valley city filter—refine
+                by price, beds, and baths on the same search Dr. Jan uses with
+                buyers.
               </p>
             </div>
           </header>
@@ -266,64 +263,44 @@ export default function SpringValleyPage() {
               Where is Spring Valley in Las Vegas?
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              Spring Valley refers to a large section of unincorporated Clark County on the west side
-              of the Las Vegas Valley—generally west of the Strip and spanning many residential pockets.
-              Because the name covers a wide geography, <strong>Spring Valley Las Vegas homes</strong>{" "}
-              can feel very different from one ZIP or subdivision to the next. That is why we pair map
-              search with neighborhood-level detail before you write an offer.
+              Spring Valley refers to a large section of unincorporated Clark
+              County on the west side of the Las Vegas Valley—generally west of
+              the Strip and spanning many residential pockets. Because the name
+              covers a wide geography,{" "}
+              <strong>Spring Valley Las Vegas homes</strong> can feel very
+              different from one ZIP or subdivision to the next. That is why we
+              pair map search with neighborhood-level detail before you write an
+              offer.
             </p>
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">
               What types of properties will I find?
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              Buyers exploring Spring Valley Las Vegas homes often consider single-family homes with
-              pools, renovated mid-century properties, and low-maintenance townhomes—depending on budget
-              and lifestyle. Investment buyers may look at duplex opportunities where allowed. We help
-              you align property type with HOA rules, insurance considerations, and your long-term
-              plans—whether you are upsizing, relocating, or buying your first home.
+              Buyers exploring Spring Valley Las Vegas homes often consider
+              single-family homes with pools, renovated mid-century properties,
+              and low-maintenance townhomes—depending on budget and lifestyle.
+              Investment buyers may look at duplex opportunities where allowed.
+              We help you align property type with HOA rules, insurance
+              considerations, and your long-term plans—whether you are upsizing,
+              relocating, or buying your first home.
             </p>
           </section>
 
-          {/* Related search: Spring Valley Las Vegas map */}
-          <section className="max-w-4xl mx-auto mb-14" aria-labelledby="spring-valley-map-heading">
-            <h2
-              id="spring-valley-map-heading"
-              className="text-2xl font-bold text-slate-900 mb-3 text-center"
-            >
-              Spring Valley Las Vegas map
-            </h2>
-            <p className="text-slate-600 text-center mb-6 max-w-2xl mx-auto">
-              Use this layer to orient <strong>Spring Valley Nevada homes</strong> within the west
-              valley—major roads and nearby communities. For a specific address or tour route, we pair
-              maps with MLS data when you are under contract to buy or sell.
-            </p>
-            <div className="rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-              <iframe
-                src={googleMyMapEmbedUrl}
-                width={640}
-                height={480}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Spring Valley Las Vegas map — west valley orientation"
-                className="w-full border-0 aspect-[4/3] max-h-[min(480px,70vh)]"
-              />
-            </div>
-            <p className="text-center text-sm text-slate-500 mt-4">
-              <a
-                href={googleMyMapViewerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline font-medium"
-              >
-                Open the full map in Google Maps
-              </a>
-              {" · "}
-              <Link href="/contact" className="text-blue-600 hover:underline font-medium">
-                Office map &amp; directions
-              </Link>
-            </p>
-          </section>
+          <SpringValleyCdpMap
+            heading="Spring Valley Las Vegas map"
+            description="Official Google embed for Spring Valley, NV (satellite). The pin is Google’s Spring Valley place—Sahara Avenue, Decatur Boulevard, Warm Springs Road, and Hualapai Way—not the Tropicana office. For a specific address or tour route, we pair maps with MLS data when you are under contract to buy or sell."
+            footer={
+              <>
+                {" · "}
+                <Link
+                  href="/contact"
+                  className="text-blue-600 hover:underline font-medium"
+                >
+                  Office map &amp; directions
+                </Link>
+              </>
+            }
+          />
 
           {/* Related search: Spring Valley Nevada homes for sale */}
           <section
@@ -337,8 +314,9 @@ export default function SpringValleyPage() {
               Spring Valley Nevada homes for sale
             </h2>
             <p className="text-slate-700 text-center mb-6 max-w-2xl mx-auto">
-              Browse active inventory and filter by price, beds, baths, and more. When you are
-              serious about <strong>Spring Valley Nevada homes for sale</strong>, we narrow by
+              Browse active inventory and filter by price, beds, baths, and
+              more. When you are serious about{" "}
+              <strong>Spring Valley Nevada homes for sale</strong>, we narrow by
               subdivision, HOA, and recent comps—not just the zip code.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
@@ -370,24 +348,27 @@ export default function SpringValleyPage() {
               <Home className="h-8 w-8 text-blue-600 mb-3" />
               <h3 className="font-bold text-slate-900 mb-2">Housing variety</h3>
               <p className="text-sm text-slate-600">
-                Diverse product types across Spring Valley mean your search should be filtered by price,
-                beds, baths, and HOA—not just the word “Spring Valley.”
+                Diverse product types across Spring Valley mean your search
+                should be filtered by price, beds, baths, and HOA—not just the
+                word “Spring Valley.”
               </p>
             </div>
             <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
               <Car className="h-8 w-8 text-blue-600 mb-3" />
               <h3 className="font-bold text-slate-900 mb-2">Central access</h3>
               <p className="text-sm text-slate-600">
-                Many locations balance west valley living with commute options toward the 215, I-15,
-                and major employment hubs.
+                Many locations balance west valley living with commute options
+                toward the 215, I-15, and major employment hubs.
               </p>
             </div>
             <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
               <School className="h-8 w-8 text-blue-600 mb-3" />
-              <h3 className="font-bold text-slate-900 mb-2">Schools &amp; services</h3>
+              <h3 className="font-bold text-slate-900 mb-2">
+                Schools &amp; services
+              </h3>
               <p className="text-sm text-slate-600">
-                School assignments and services vary by address. We point you to official sources and
-                local contacts as part of due diligence.
+                School assignments and services vary by address. We point you to
+                official sources and local contacts as part of due diligence.
               </p>
             </div>
           </section>
@@ -403,9 +384,11 @@ export default function SpringValleyPage() {
               Spring Valley Property Taxes &amp; Clark County
             </h2>
             <p className="text-slate-700 text-center mb-6 max-w-2xl mx-auto text-sm md:text-base">
-              Third-party estimates often put the <strong>effective rate near 0.48%</strong>—useful
-              for budgeting, not your official bill. Use the guide for an illustrative calculator,
-              how Nevada assessments work, and Clark County Assessor links.
+              Third-party estimates often put the{" "}
+              <strong>effective rate near 0.48%</strong>—useful for budgeting,
+              not your official bill. Use the guide for an illustrative
+              calculator, how Nevada assessments work, and Clark County Assessor
+              links.
             </p>
             <div className="flex justify-center">
               <Link
@@ -429,44 +412,58 @@ export default function SpringValleyPage() {
               Areas buyers often compare with Spring Valley, NV
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-10 leading-relaxed">
-              <strong>Spring Valley Las Vegas homes</strong> sit in a large, established west valley
-              footprint. Buyers frequently cross-shop nearby pockets—pricing and inventory change
-              daily, so we use live MLS data for the exact community and address you choose.
+              <strong>Spring Valley Las Vegas homes</strong> sit in a large,
+              established west valley footprint. Buyers frequently cross-shop
+              nearby pockets—pricing and inventory change daily, so we use live
+              MLS data for the exact community and address you choose.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">West Sahara &amp; west corridors</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  West Sahara &amp; west corridors
+                </h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  Residential pockets along west Sahara and Charleston corridors mix older and newer
-                  stock with easy access to west valley shopping, parks like{" "}
-                  <span className="whitespace-nowrap">Desert Breeze</span>, and Red Rock views from
-                  select elevations. School zones and HOA rules vary—always verify on the listing
-                  you like.
+                  Residential pockets along west Sahara and Charleston corridors
+                  mix older and newer stock with easy access to west valley
+                  shopping, parks like{" "}
+                  <span className="whitespace-nowrap">Desert Breeze</span>, and
+                  Red Rock views from select elevations. School zones and HOA
+                  rules vary—always verify on the listing you like.
                 </p>
               </article>
               <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Rhodes Ranch &amp; Enterprise</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  Rhodes Ranch &amp; Enterprise
+                </h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  <strong>Rhodes Ranch</strong> is a guard-gated golf community in the{" "}
-                  <strong>Enterprise</strong> area—often searched alongside Spring Valley listings
-                  because both sit on the west side of the valley. If you want a single amenity-rich
-                  community, we narrow your search to MLS boundaries that match—not just the name.
+                  <strong>Rhodes Ranch</strong> is a guard-gated golf community
+                  in the <strong>Enterprise</strong> area—often searched
+                  alongside Spring Valley listings because both sit on the west
+                  side of the valley. If you want a single amenity-rich
+                  community, we narrow your search to MLS boundaries that
+                  match—not just the name.
                 </p>
               </article>
               <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Rancho Viejo &amp; condo pockets</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  Rancho Viejo &amp; condo pockets
+                </h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  Dense condo and townhome communities offer lower-maintenance options for
-                  first-time buyers and investors. We review HOA budgets, reserves, and rental rules
-                  when you compare these to single-family Spring Valley Nevada homes.
+                  Dense condo and townhome communities offer lower-maintenance
+                  options for first-time buyers and investors. We review HOA
+                  budgets, reserves, and rental rules when you compare these to
+                  single-family Spring Valley Nevada homes.
                 </p>
               </article>
               <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Chinatown / Spring Mountain</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  Chinatown / Spring Mountain
+                </h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  The Spring Mountain corridor is known for diverse dining and retail—many
-                  Spring Valley buyers want a short drive to this hub. If walkability to restaurants
-                  matters, we map realistic drive times from specific listings—not just distance.
+                  The Spring Mountain corridor is known for diverse dining and
+                  retail—many Spring Valley buyers want a short drive to this
+                  hub. If walkability to restaurants matters, we map realistic
+                  drive times from specific listings—not just distance.
                 </p>
               </article>
             </div>
@@ -485,7 +482,9 @@ export default function SpringValleyPage() {
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Search &amp; market</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">
+                  Search &amp; market
+                </h3>
                 <ul className="space-y-2">
                   <li>
                     <a
@@ -498,22 +497,34 @@ export default function SpringValleyPage() {
                     </a>
                   </li>
                   <li>
-                    <Link href="/listings" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/listings"
+                      className="text-blue-600 hover:underline"
+                    >
                       Spring Valley Nevada homes for sale (MLS)
                     </Link>
                   </li>
                   <li>
-                    <Link href="/search" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/search"
+                      className="text-blue-600 hover:underline"
+                    >
                       Search by zip code
                     </Link>
                   </li>
                   <li>
-                    <Link href="/las-vegas-zip-code-map" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/las-vegas-zip-code-map"
+                      className="text-blue-600 hover:underline"
+                    >
                       Las Vegas zip code map
                     </Link>
                   </li>
                   <li>
-                    <Link href="/market-report" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/market-report"
+                      className="text-blue-600 hover:underline"
+                    >
                       Las Vegas market report
                     </Link>
                   </li>
@@ -528,20 +539,31 @@ export default function SpringValleyPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Buyers &amp; sellers</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">
+                  Buyers &amp; sellers
+                </h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link href="/buyers" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/buyers"
+                      className="text-blue-600 hover:underline"
+                    >
                       Spring Valley home buyers
                     </Link>
                   </li>
                   <li>
-                    <Link href="/sellers" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/sellers"
+                      className="text-blue-600 hover:underline"
+                    >
                       Sell a home in Las Vegas
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/contact"
+                      className="text-blue-600 hover:underline"
+                    >
                       Contact Dr. Jan Duffy
                     </Link>
                   </li>
@@ -553,60 +575,94 @@ export default function SpringValleyPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Nearby neighborhoods</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">
+                  Nearby neighborhoods
+                </h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link href="/neighborhoods/enterprise" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/enterprise"
+                      className="text-blue-600 hover:underline"
+                    >
                       Enterprise &amp; Rhodes Ranch
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/paradise" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/paradise"
+                      className="text-blue-600 hover:underline"
+                    >
                       Paradise (Strip &amp; UNLV corridor)
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/summerlin" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/summerlin"
+                      className="text-blue-600 hover:underline"
+                    >
                       Summerlin homes
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/mountains-edge" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/mountains-edge"
+                      className="text-blue-600 hover:underline"
+                    >
                       Mountains Edge
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/centennial-hills" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/centennial-hills"
+                      className="text-blue-600 hover:underline"
+                    >
                       Centennial Hills
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/the-ridges" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/the-ridges"
+                      className="text-blue-600 hover:underline"
+                    >
                       The Ridges (luxury)
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">More cities &amp; communities</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">
+                  More cities &amp; communities
+                </h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link href="/neighborhoods/henderson" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/henderson"
+                      className="text-blue-600 hover:underline"
+                    >
                       Henderson real estate
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/green-valley" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/green-valley"
+                      className="text-blue-600 hover:underline"
+                    >
                       Green Valley
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods/north-las-vegas" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods/north-las-vegas"
+                      className="text-blue-600 hover:underline"
+                    >
                       North Las Vegas
                     </Link>
                   </li>
                   <li>
-                    <Link href="/neighborhoods" className="text-blue-600 hover:underline">
+                    <Link
+                      href="/neighborhoods"
+                      className="text-blue-600 hover:underline"
+                    >
                       All Las Vegas neighborhoods
                     </Link>
                   </li>
@@ -625,9 +681,14 @@ export default function SpringValleyPage() {
                   key={faq.question}
                   className="border border-slate-200 rounded-lg p-5 bg-white"
                 >
-                  <h3 className="font-semibold text-slate-900 mb-2">{faq.question}</h3>
+                  <h3 className="font-semibold text-slate-900 mb-2">
+                    {faq.question}
+                  </h3>
                   <p className="text-slate-700 text-sm leading-relaxed">
-                    <SpringValleyFaqAnswerBody text={faq.answer} mapUrl={springValleyCityMapUrl} />
+                    <SpringValleyFaqAnswerBody
+                      text={faq.answer}
+                      mapUrl={springValleyCityMapUrl}
+                    />
                   </p>
                 </div>
               ))}
@@ -636,10 +697,13 @@ export default function SpringValleyPage() {
 
           <section className="max-w-4xl mx-auto mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-10 text-center">
             <MapPin className="h-10 w-10 mx-auto mb-4 opacity-90" />
-            <h2 className="text-2xl font-bold mb-3">Talk with Dr. Jan Duffy about Spring Valley</h2>
+            <h2 className="text-2xl font-bold mb-3">
+              Talk with Dr. Jan Duffy about Spring Valley
+            </h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Get a clear plan for touring Spring Valley Las Vegas homes, pricing strategy, and
-              contract timelines—backed by Berkshire Hathaway HomeServices Nevada Properties.
+              Get a clear plan for touring Spring Valley Las Vegas homes,
+              pricing strategy, and contract timelines—backed by Berkshire
+              Hathaway HomeServices Nevada Properties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -668,15 +732,24 @@ export default function SpringValleyPage() {
             </h2>
             <p className="text-center text-slate-600 mb-6">
               Compare <strong>Spring Valley Las Vegas homes</strong> with{" "}
-              <Link href="/neighborhoods/summerlin" className="text-blue-600 hover:underline">
+              <Link
+                href="/neighborhoods/summerlin"
+                className="text-blue-600 hover:underline"
+              >
                 Summerlin
               </Link>
               ,{" "}
-              <Link href="/neighborhoods/green-valley" className="text-blue-600 hover:underline">
+              <Link
+                href="/neighborhoods/green-valley"
+                className="text-blue-600 hover:underline"
+              >
                 Green Valley
               </Link>
               , or{" "}
-              <Link href="/neighborhoods" className="text-blue-600 hover:underline">
+              <Link
+                href="/neighborhoods"
+                className="text-blue-600 hover:underline"
+              >
                 view all neighborhoods
               </Link>
               .

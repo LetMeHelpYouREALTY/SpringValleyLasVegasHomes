@@ -498,6 +498,22 @@ export const SPRING_VALLEY_OUTBOUND_NEIGHBORS: readonly SpringValleyOutboundNeig
 export const DESERT_SHORES_NOTE =
   "Desert Shores is in the northwest valley near Cheyenne Road. Some realtor guides wrongly list it as Spring Valley; it is not inside this CDP and is not a neighborhood on this site.";
 
+/**
+ * Official Google Maps place for the Spring Valley CDP.
+ * Short link: https://maps.app.goo.gl/rVTHoyMiusBuR46y5
+ * Embed: Google “Share → Embed a map” iframe for Spring Valley, NV (satellite).
+ */
+export const SPRING_VALLEY_GOOGLE_MAPS = {
+  shortUrl: "https://maps.app.goo.gl/rVTHoyMiusBuR46y5",
+  placeUrl:
+    "https://www.google.com/maps/place/Spring+Valley,+NV/@36.1080258,-115.2450006,12z/data=!3m1!1e3!4m6!3m5!1s0x80c8c7226ec7e811:0x872f0a37e2293533!8m2!3d36.1080258!4d-115.2450006!16zL20vMHhjbGY",
+  embedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84732.72101378185!2d-115.27082265351692!3d36.096275715059704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c7226ec7e811%3A0x872f0a37e2293533!2sSpring%20Valley%2C%20NV!5e1!3m2!1sen!2sus!4v1788529828937!5m2!1sen!2sus",
+  latitude: 36.1080258,
+  longitude: -115.2450006,
+  placeId: "0x80c8c7226ec7e811:0x872f0a37e2293533",
+} as const;
+
 export function springValleyZipStaticParams(): { zipcode: string }[] {
   return SPRING_VALLEY_ZIP_CODES.map((zipcode) => ({ zipcode }));
 }

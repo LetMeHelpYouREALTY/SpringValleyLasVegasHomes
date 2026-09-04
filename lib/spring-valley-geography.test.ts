@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   SPRING_VALLEY_EXCLUDED_ZIP_CODES,
+  SPRING_VALLEY_GOOGLE_MAPS,
   SPRING_VALLEY_SUBDIVISIONS,
   SPRING_VALLEY_ZIP_CODES,
   SPRING_VALLEY_ZIPS,
@@ -42,6 +43,22 @@ describe("Spring Valley ZIP generateStaticParams set", () => {
     const params = springValleyZipStaticParams();
     expect(params).toEqual(
       SPRING_VALLEY_ZIP_CODES.map((zipcode) => ({ zipcode })),
+    );
+  });
+});
+
+describe("Spring Valley Google Maps place", () => {
+  it("keeps the official Share → Embed iframe src", () => {
+    expect(SPRING_VALLEY_GOOGLE_MAPS.shortUrl).toBe(
+      "https://maps.app.goo.gl/rVTHoyMiusBuR46y5",
+    );
+    expect(SPRING_VALLEY_GOOGLE_MAPS.latitude).toBe(36.1080258);
+    expect(SPRING_VALLEY_GOOGLE_MAPS.longitude).toBe(-115.2450006);
+    expect(SPRING_VALLEY_GOOGLE_MAPS.placeId).toBe(
+      "0x80c8c7226ec7e811:0x872f0a37e2293533",
+    );
+    expect(SPRING_VALLEY_GOOGLE_MAPS.embedUrl).toBe(
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84732.72101378185!2d-115.27082265351692!3d36.096275715059704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c7226ec7e811%3A0x872f0a37e2293533!2sSpring%20Valley%2C%20NV!5e1!3m2!1sen!2sus!4v1788529828937!5m2!1sen!2sus",
     );
   });
 });

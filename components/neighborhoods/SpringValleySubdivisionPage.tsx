@@ -17,6 +17,7 @@ import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import { metaDescriptionWithKeyword } from "@/lib/seo";
 import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
+import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
 import {
   DESERT_SHORES_NOTE,
   SPRING_VALLEY_BOUNDARY,
@@ -155,6 +156,11 @@ export default function SpringValleySubdivisionPage({
               ))}
             </div>
           </header>
+
+          <SpringValleyCdpMap
+            heading={`${subdivision.name} on the Spring Valley map`}
+            description={`${subdivision.shortLocation}, inside unincorporated Spring Valley.`}
+          />
 
           <section className="max-w-4xl mx-auto mb-14 space-y-4">
             {subdivision.body.map((paragraph) => (

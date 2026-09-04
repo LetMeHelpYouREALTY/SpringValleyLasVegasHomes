@@ -10,6 +10,7 @@ import { generateWebPageSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
+import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
 import {
   DESERT_SHORES_NOTE,
   SPRING_VALLEY_BOUNDARY,
@@ -97,6 +98,8 @@ export default function NeighborhoodsPage() {
               {SPRING_VALLEY_BOUNDARY.squareMiles} square miles.
             </p>
           </div>
+
+          <SpringValleyCdpMap />
 
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">

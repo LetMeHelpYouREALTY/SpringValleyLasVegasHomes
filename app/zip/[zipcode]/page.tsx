@@ -1,5 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
@@ -147,6 +148,11 @@ export default function SpringValleyZipPage({ params }: ZipPageProps) {
               </p>
             ) : null}
           </header>
+
+          <SpringValleyCdpMap
+            heading={`${record.zip} in the Spring Valley CDP`}
+            description={`${record.zip} is one of seven ZIP codes that intersect the Spring Valley CDP (${SPRING_VALLEY_BOUNDARY.north}–${SPRING_VALLEY_BOUNDARY.south}, ${SPRING_VALLEY_BOUNDARY.east}–${SPRING_VALLEY_BOUNDARY.west}). The map is Google’s Spring Valley, NV place pin, not a ZIP polygon.`}
+          />
 
           <section className="max-w-4xl mx-auto mb-14">
             <h2 className="text-2xl font-bold text-slate-900 mb-3">
