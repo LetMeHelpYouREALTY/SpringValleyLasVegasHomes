@@ -30,7 +30,7 @@ export default function SearchPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto max-w-3xl px-4">
           <nav className="mb-8 text-sm text-slate-500" aria-label="Breadcrumb">
             <Link href="/" className="text-blue-600 hover:underline">

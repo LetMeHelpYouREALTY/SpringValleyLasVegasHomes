@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
 import HeroSection from "@/components/sections/HeroSection";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import ComingSoonListingSection from "@/components/sections/ComingSoonListingSection";
 import ServiceAreaMapSection from "@/components/sections/ServiceAreaMapSection";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -29,6 +30,8 @@ import {
 import { homePageFaqs } from "@/lib/home-faqs";
 import { combineHomepageStructuredData } from "@/lib/schema";
 import { absoluteMediaUrl, heroBackgroundSrcs } from "@/lib/site-media";
+import { luxuryImages } from "@/lib/luxury-media";
+import LuxurySectionPhoto from "@/components/sections/LuxurySectionPhoto";
 import { ogTwitterImageFields } from "@/lib/og-image";
 import { homePageTitleAbsolute } from "@/lib/seo";
 import {
@@ -100,6 +103,8 @@ export default function Home() {
 
         <BuyerEngagementStrip />
 
+        <ComingSoonListingSection />
+
         <RealScoutListings />
 
         <ServiceAreaMapSection />
@@ -110,6 +115,11 @@ export default function Home() {
           aria-labelledby="bhhs-heading"
         >
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.bhhs}
+              alt="Dark conference setting with gold light — Berkshire Hathaway HomeServices"
+              eyebrow="Berkshire Hathaway HomeServices"
+            />
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h2
                 id="bhhs-heading"
@@ -199,6 +209,11 @@ export default function Home() {
           aria-labelledby="market-snapshot-heading"
         >
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.market}
+              alt="West Las Vegas Valley at dusk from Spring Valley"
+              eyebrow="Market snapshot"
+            />
             <div className="text-center mb-12">
               <h2
                 id="market-snapshot-heading"
@@ -258,6 +273,11 @@ export default function Home() {
         {/* Neighborhoods Section */}
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.neighborhoods}
+              alt="Dusk streetscape in Spring Valley Las Vegas"
+              eyebrow="Subdivisions"
+            />
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                 Spring Valley Subdivisions
@@ -311,6 +331,11 @@ export default function Home() {
           aria-labelledby="spring-valley-property-tax-heading"
         >
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.guides}
+              alt="Brass keys and a dark folio on walnut"
+              eyebrow="Property taxes"
+            />
             <div className="max-w-4xl mx-auto rounded-2xl border border-emerald-100 bg-white px-6 py-8 md:px-10">
               <h2
                 id="spring-valley-property-tax-heading"
@@ -337,17 +362,49 @@ export default function Home() {
           </div>
         </section>
 
-        <WhyChooseUs />
-        <ReviewsSection />
-        <FAQSection
-          faqs={homePageFaqs}
-          title="Spring Valley Las Vegas Homes — FAQs"
-          subtitle="Straight answers about Spring Valley real estate, homes for sale, and working with Dr. Jan Duffy's team"
-        />
+        <section className="bg-[#12100c] pt-10">
+          <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.about}
+              alt="Stucco and tile architectural detail at golden hour"
+              eyebrow="Why choose us"
+            />
+          </div>
+          <WhyChooseUs />
+        </section>
+        <section className="bg-[#14110c]">
+          <div className="container mx-auto px-4 pt-10">
+            <LuxurySectionPhoto
+              src={luxuryImages.contact}
+              alt="Dark luxury lobby with champagne-gold lighting"
+              eyebrow="Client reviews"
+            />
+          </div>
+          <ReviewsSection />
+        </section>
+        <section className="bg-[#12100c]">
+          <div className="container mx-auto px-4 pt-10">
+            <LuxurySectionPhoto
+              src={luxuryImages.faq}
+              alt="Gold desk lamp on a dark notebook"
+              eyebrow="FAQs"
+            />
+          </div>
+          <FAQSection
+            faqs={homePageFaqs}
+            title="Spring Valley Las Vegas Homes — FAQs"
+            subtitle="Straight answers about Spring Valley real estate, homes for sale, and working with Dr. Jan Duffy's team"
+          />
+        </section>
 
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">
           <div className="container mx-auto px-4 text-center">
+            <LuxurySectionPhoto
+              src={luxuryImages.sellers}
+              alt="Twilight exterior of a Spring Valley home"
+              eyebrow="Work with Dr. Jan Duffy"
+            />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Work with Berkshire Hathaway HomeServices?
             </h2>

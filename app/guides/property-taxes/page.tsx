@@ -129,7 +129,7 @@ export default function SpringValleyPropertyTaxesPage() {
         id="spring-valley-property-tax-schema"
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto px-4">
           <nav
             className="mb-6 max-w-4xl text-sm text-slate-500"

@@ -68,7 +68,7 @@ export default function GoogleBusinessPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto px-4">
           {/* Hero - NAP Prominent */}
           <section className="max-w-5xl mx-auto mb-16">

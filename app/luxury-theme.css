@@ -1,0 +1,130 @@
+/* Ultra-luxury black + gold — unlayered so these beat Tailwind utilities sitewide. */
+
+:root {
+  --luxury-black: #070604;
+  --luxury-ink: #12100c;
+  --luxury-panel: #1a160f;
+  --luxury-gold: #c9a227;
+  --luxury-gold-bright: #e0c35c;
+  --luxury-cream: #f6edd8;
+  --luxury-muted: #cbbd96;
+}
+
+.bg-white {
+  background-color: var(--luxury-ink);
+}
+
+/* Light chips on gold bands (Call / Browse buttons) */
+.bg-blue-600 .bg-white,
+.bg-blue-600 a.bg-white,
+.from-blue-600 .bg-white {
+  background-color: #070604;
+  color: #e8d48a;
+}
+.bg-white\/95 {
+  background-color: rgb(7 6 4 / 0.95);
+}
+
+.bg-slate-50,
+.bg-slate-50\/90,
+.bg-slate-50\/80,
+.bg-slate-50\/70 {
+  background-color: #14110c;
+}
+.bg-slate-100 {
+  background-color: #1c1812;
+}
+.bg-slate-900 {
+  background-color: #050403;
+}
+
+.text-slate-900,
+.text-slate-800 {
+  color: var(--luxury-cream);
+}
+.text-slate-700,
+.text-slate-600 {
+  color: var(--luxury-muted);
+}
+.text-slate-500,
+.text-slate-400,
+.text-slate-300 {
+  color: #a89870;
+}
+
+.border-slate-100,
+.border-slate-200 {
+  border-color: rgb(201 162 39 / 0.22);
+}
+
+.bg-blue-50,
+.hover\:bg-blue-50:hover,
+.focus-visible\:bg-blue-50:focus-visible {
+  background-color: rgb(201 162 39 / 0.12);
+}
+.bg-blue-100 {
+  background-color: rgb(201 162 39 / 0.18);
+}
+.bg-blue-600,
+.hover\:bg-blue-600:hover {
+  background-color: var(--luxury-gold);
+  color: #070604;
+}
+.hover\:bg-blue-700:hover,
+.bg-blue-700,
+.hover\:bg-blue-800:hover {
+  background-color: #a6851c;
+  color: #070604;
+}
+.from-blue-600 {
+  --tw-gradient-from: #8a7014;
+  --tw-gradient-to: rgb(138 112 20 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.to-blue-700 {
+  --tw-gradient-to: #c9a227;
+}
+
+.text-blue-600,
+.text-blue-700,
+.text-blue-800,
+.hover\:text-blue-600:hover,
+.hover\:text-blue-700:hover,
+.group-hover\:text-blue-600:hover,
+.focus-visible\:text-blue-600:focus-visible {
+  color: var(--luxury-gold-bright);
+}
+.text-blue-400 {
+  color: var(--luxury-gold-bright);
+}
+
+.border-blue-200,
+.border-blue-100 {
+  border-color: rgb(201 162 39 / 0.4);
+}
+.ring-blue-600,
+.focus-visible\:ring-blue-600:focus-visible,
+.focus\:ring-blue-600:focus {
+  --tw-ring-color: var(--luxury-gold);
+}
+
+.bg-emerald-50,
+.bg-emerald-50\/70 {
+  background-color: #14110c;
+}
+.border-emerald-100 {
+  border-color: rgb(201 162 39 / 0.28);
+}
+.text-emerald-500 {
+  color: var(--luxury-gold);
+}
+
+.shadow-md,
+.shadow-lg,
+.shadow-sm {
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.45);
+}
+
+.bg-blue-50\/80 {
+  background-color: rgb(201 162 39 / 0.1);
+}

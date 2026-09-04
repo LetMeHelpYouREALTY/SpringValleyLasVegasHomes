@@ -132,7 +132,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
     <>
       <SchemaScript schema={listingJsonLd} id="listing-property-schema" />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="mb-6 text-sm">

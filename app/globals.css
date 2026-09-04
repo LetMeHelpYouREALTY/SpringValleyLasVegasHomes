@@ -9,12 +9,12 @@
   }
 
   a {
-    @apply text-emerald-500 underline hover:bg-emerald-100
-        outline-0 focus:ring-2 focus:ring-offset-1 focus:ring-emerald-500;
+    @apply outline-0 focus:ring-2 focus:ring-offset-1 focus:ring-[#c9a227] focus:ring-offset-[#070604];
   }
 
   ::selection {
-    @apply bg-emerald-200 text-emerald-950;
+    background-color: #c9a227;
+    color: #070604;
   }
 
   label,
@@ -36,7 +36,7 @@
 }
 
 /* Extra top offset when Navbar shows the RealScout simple-search strip (non-home routes) */
-body:has(nav[data-rs-nav-search="1"]) main.pt-24 {
+body:has(nav[data-rs-nav-search="1"]) .luxury-page-banner {
   padding-top: 9rem;
 }
 
@@ -44,17 +44,17 @@ body:has(nav[data-rs-nav-search="1"]) main.pt-24 {
 
 /* RealScout Simple Search - Desktop */
 realscout-simple-search {
-  --rs-ss-font-primary-color: #000000;
-  --rs-ss-searchbar-border-color: #8b572a;
-  --rs-ss-box-shadow: 0 10px 15px -3px #0000001a;
+  --rs-ss-font-primary-color: #f6edd8;
+  --rs-ss-searchbar-border-color: #c9a227;
+  --rs-ss-box-shadow: 0 10px 30px -3px #00000080;
   --rs-ss-widget-width: 500px !important;
   --rs-ss-border-radius: 9999px;
-  --rs-ss-background-color: rgba(255, 255, 255, 0.95);
+  --rs-ss-background-color: rgba(18, 16, 12, 0.94);
 }
 
 /* RealScout Office Listings */
 realscout-office-listings {
-  --rs-listing-divider-color: #2563eb;
+  --rs-listing-divider-color: #c9a227;
   width: 100%;
 }
 

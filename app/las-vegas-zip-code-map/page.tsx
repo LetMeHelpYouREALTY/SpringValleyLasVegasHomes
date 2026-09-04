@@ -226,7 +226,7 @@ export default function LasVegasZipCodeMapPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchemas) }}
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <nav
           className="border-b border-slate-200 bg-white"
           aria-label="Breadcrumb"

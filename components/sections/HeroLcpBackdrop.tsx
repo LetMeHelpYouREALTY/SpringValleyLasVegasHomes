@@ -20,7 +20,10 @@ export default function HeroLcpBackdrop() {
         fetchPriority="high"
         unoptimized={isCfDeliveryUrl(src)}
       />
-      <div className="absolute inset-0 bg-black/40" aria-hidden />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/25"
+        aria-hidden
+      />
     </div>
   );
 }

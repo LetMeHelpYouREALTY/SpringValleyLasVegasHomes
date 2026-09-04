@@ -157,7 +157,7 @@ export default function ListingsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listingsSchema) }}
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-12">
