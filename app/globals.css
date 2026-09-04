@@ -105,6 +105,20 @@ body:has(nav[data-rs-nav-search="1"]) main.pt-24 {
 
   .bg-blue-600 {
     background-color: #111111 !important;
+    color: #ffffff !important;
+  }
+
+  .bg-slate-900 .bg-blue-600,
+  .bg-slate-800 .bg-blue-600,
+  .bg-slate-700 .bg-blue-600,
+  .from-slate-900 .bg-blue-600,
+  .bg-slate-900 .btn-luxury:hover,
+  .bg-slate-800 .btn-luxury:hover,
+  .bg-slate-700 .btn-luxury:hover,
+  .from-slate-900 .btn-luxury:hover,
+  .bg-slate-900 .btn-luxury-solid,
+  .bg-slate-800 .btn-luxury-solid {
+    color: #ffffff !important;
   }
 
   section.bg-blue-600,
