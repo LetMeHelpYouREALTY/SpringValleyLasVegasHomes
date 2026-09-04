@@ -24,7 +24,7 @@ export default function AgentHeadshot({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl bg-slate-100 shadow-lg ring-1 ring-slate-200/80",
+        "relative overflow-hidden rounded-none bg-cream",
         frameClassName,
       )}
     >
