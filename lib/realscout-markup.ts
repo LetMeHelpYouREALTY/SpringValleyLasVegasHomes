@@ -8,17 +8,20 @@ function escapeAttr(value: string): string {
 }
 
 /**
- * RealScout `<realscout-office-listings>` body markup.
+ * RealScout `<realscout-office-listings>` body markup from the agent dashboard
+ * (agent-encoded-id QWdlbnQtMjI1MDUw, PRICE_LOW, For Sale, SFR, $600k–$900k).
  *
- * Attribute names match RealScout’s customizable widgets (support.realscout.com,
- * “Using the Customizable Widgets”, 2026): listing-status “For Sale”; property-types
- * SFR / MF / TC (single-family, multi-family, townhomes and condos).
- *
- * Do not prefix `property-types` with a leading comma — an empty first type returns
- * zero listings. Do not pin a tight price-min/price-max on Featured Properties;
- * a $500k–$800k band was emptying the homepage widget.
+ * The script tag belongs in root layout only (`type="module"`). Do not emit a
+ * second copy here. Strip a leading comma on `property-types` — RealScout’s
+ * generator outputs `,SFR`, and `property_types=,SFR` returns an empty list.
  */
 export function getRealScoutOfficeListingsMarkup(): string {
-  const id = escapeAttr(realScoutConfig.agentEncodedId);
-  return `<realscout-office-listings agent-encoded-id="${id}" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>`;
+  const { agentEncodedId, officeListings } = realScoutConfig;
+  const id = escapeAttr(agentEncodedId);
+  const types = escapeAttr(officeListings.propertyTypes);
+  const sort = escapeAttr(officeListings.sortOrder);
+  const status = escapeAttr(officeListings.listingStatus);
+  const min = escapeAttr(officeListings.priceMin);
+  const max = escapeAttr(officeListings.priceMax);
+  return `<realscout-office-listings agent-encoded-id="${id}" sort-order="${sort}" listing-status="${status}" property-types="${types}" price-min="${min}" price-max="${max}"></realscout-office-listings>`;
 }

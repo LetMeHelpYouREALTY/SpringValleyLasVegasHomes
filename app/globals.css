@@ -196,7 +196,7 @@ realscout-simple-search {
 }
 
 realscout-office-listings {
-  --rs-listing-divider-color: #374d6d;
+  --rs-listing-divider-color: rgb(101, 141, 172);
   width: 100%;
 }
 
