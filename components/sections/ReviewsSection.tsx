@@ -40,13 +40,13 @@ export default function ReviewsSection({
   className = "",
 }: ReviewsSectionProps) {
   return (
-    <section className={`py-16 md:py-24 bg-slate-50 ${className}`}>
+    <section className={`py-16 md:py-24 bg-cream ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-            {title}
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">{subtitle}</p>
+          <h2 className="text-3xl md:text-4xl text-ink mb-4">{title}</h2>
+          <p className="text-base text-neutral-600 max-w-3xl mx-auto font-light normal-case tracking-normal">
+            {subtitle}
+          </p>
           {/* Aggregate Rating Display */}
           <div className="flex items-center justify-center gap-2 mt-4">
             <div className="flex">
@@ -72,10 +72,7 @@ export default function ReviewsSection({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {reviews.map((review) => (
-            <div
-              key={review.id}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-            >
+            <div key={review.id} className="bg-white p-8 border border-black/5">
               <div className="flex items-center mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
                   {review.image ? (
@@ -84,11 +81,15 @@ export default function ReviewsSection({
                       alt={review.name}
                       fill
                       className="object-cover"
-                      unoptimized={review.image ? isCfDeliveryUrl(review.image) : false}
+                      unoptimized={
+                        review.image ? isCfDeliveryUrl(review.image) : false
+                      }
                     />
                   ) : (
                     <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                      <span className="text-slate-400 text-sm">{review.name[0]}</span>
+                      <span className="text-slate-400 text-sm">
+                        {review.name[0]}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -103,15 +104,19 @@ export default function ReviewsSection({
                   <Star
                     key={i}
                     className={`h-5 w-5 ${
-                      i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-300"
+                      i < review.rating
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-slate-300"
                     }`}
                   />
                 ))}
               </div>
 
               <div className="relative">
-                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
-                <p className="text-slate-700 relative z-10 pl-4">{review.text}</p>
+                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-cream" />
+                <p className="text-slate-700 relative z-10 pl-4">
+                  {review.text}
+                </p>
               </div>
             </div>
           ))}
@@ -123,7 +128,7 @@ export default function ReviewsSection({
             href={googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+            className="inline-flex items-center gap-2 text-ink uppercase tracking-luxury text-xs font-bold"
           >
             Read More Reviews on Google
             <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />

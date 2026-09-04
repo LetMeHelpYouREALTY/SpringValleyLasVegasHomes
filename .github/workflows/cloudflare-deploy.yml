@@ -20,6 +20,8 @@ concurrency:
 jobs:
   deploy:
     name: Deploy to Cloudflare Pages
+    # Primary production is Vercel. Skip when Images/Pages secrets are unset so PRs are not red.
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -32,8 +34,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -98,8 +98,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

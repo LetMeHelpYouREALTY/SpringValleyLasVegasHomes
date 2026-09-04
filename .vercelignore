@@ -1,0 +1,8 @@
+# Flask helpers under /api are local-only (pnpm flask-dev). Production is Next.js on Vercel.
+# Paths are rooted so we do not ignore app/api Next.js routes.
+# Including Python files in `vercel build` requires `uv` on PATH (Vercel Python runtime).
+/api/
+/requirements.txt
+/.agent
+/.cursor
+/coverage

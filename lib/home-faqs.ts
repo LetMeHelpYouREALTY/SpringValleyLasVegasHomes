@@ -33,6 +33,6 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "How do I contact Dr. Jan Duffy about Spring Valley real estate?",
     answer:
-      "Contact Team Leader Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com or buyer specialist Chance Fuller at Chance.Fuller@SpringValleyLasVegasHomes.com. Call or text (702) 664-8424. Office: Berkshire Hathaway HomeServices Nevada Properties, 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103.",
+      "Contact Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com. Call or text (702) 664-8424. Office: Berkshire Hathaway HomeServices Nevada Properties, 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103.",
   },
 ];

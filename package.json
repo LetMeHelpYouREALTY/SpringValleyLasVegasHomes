@@ -11,8 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format": "prettier --write --ignore-unknown app components lib hooks types tests middleware.ts",
+    "format:check": "prettier --check --ignore-unknown app components lib hooks types tests middleware.ts",
     "validate": "pnpm run type-check && pnpm run lint && pnpm run format:check",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -31,6 +31,7 @@
     "cloudflare:deploy": "wrangler deploy",
     "cloudflare:pages": "npx @cloudflare/next-on-pages",
     "cloudflare:build": "pnpm run cloudflare:pages",
+    "cloudflare:upload-heading-images": "node scripts/upload-heading-images-to-cloudflare.mjs",
     "build:cloudflare": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
@@ -70,6 +71,7 @@
     "@types/react": "18.2.63",
     "@types/react-dom": "18.2.20",
     "@vitejs/plugin-react": "^5.2.0",
+    "@vitest/coverage-v8": "^4.1.1",
     "autoprefixer": "^10.4.27",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",

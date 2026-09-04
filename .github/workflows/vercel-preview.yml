@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [main, develop]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -24,8 +28,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,6 +44,13 @@ jobs:
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
+      # Local Flask helpers (api/*.py + requirements.txt) are not production.
+      # Vercel still collects them as Python functions, which needs `uv` on PATH.
+      - name: Exclude local Flask helpers from Vercel Python runtime
+        run: |
+          rm -rf api
+          rm -f requirements.txt
+
       - name: Build Project Artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
@@ -53,6 +62,8 @@ jobs:
           echo "Deployed to: $url"
 
       - name: Comment PR with Preview URL
+        if: steps.deploy.outputs.url != ''
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
