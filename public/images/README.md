@@ -1,5 +1,28 @@
 # Image Assets Guide
 
+## Homepage heading photos (H1 / H2 / H3)
+
+JPEG backups in git; Cloudflare Images is the CDN when `NEXT_PUBLIC_CF_IMAGE_*_ID` is set.
+
+| Heading | File                                 | Use                                  |
+| ------- | ------------------------------------ | ------------------------------------ |
+| H1      | `hero/h1-spring-valley.jpg`          | Hero slide 1 — Spring Valley         |
+| H1      | `hero/h1-summerlin.jpg`              | Hero slide 2 — Summerlin / Red Rock  |
+| H1      | `hero/h1-henderson.jpg`              | Hero slide 3 — Henderson             |
+| H2      | `properties/h2-listings.jpg`         | Listings action card                 |
+| H2      | `properties/h2-home-search.jpg`      | Home Search action card              |
+| H2      | `properties/h2-contact.jpg`          | Contact action card                  |
+| H2      | `hero/h2-work-with-me.jpg`           | Work With Me band                    |
+| H3      | `neighborhoods/h3-spring-valley.jpg` | Featured Communities — Spring Valley |
+| H3      | `neighborhoods/h3-summerlin.jpg`     | Featured Communities — Summerlin     |
+| H3      | `neighborhoods/h3-henderson.jpg`     | Featured Communities — Henderson     |
+
+Upload to Cloudflare Images:
+
+```bash
+CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… node scripts/upload-heading-images-to-cloudflare.mjs
+```
+
 ## Folder Structure
 
 ```
@@ -20,18 +43,18 @@ images/
 
 ## Recommended Specifications
 
-| Folder | Size | Format | Notes |
-|--------|------|--------|-------|
-| hero/ | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB |
-| agent/ | 400x400+ | WebP, JPG | Square, professional headshot |
-| properties/ | 1200x800+ | WebP, JPG | Landscape, MLS-quality |
-| neighborhoods/ | 1200x800+ | WebP, JPG | Scenic community shots |
-| testimonials/ | 200x200 | WebP, JPG | Square, optional |
-| logos/ | Various | PNG, SVG | Transparent background |
-| og/ | 1200×630 | PNG, JPG | Social previews; match `metadata.openGraph` |
-| icons/ | 32–512px | PNG, ICO, SVG | Favicon / PWA sources |
-| photos/ | Flexible | WebP, JPG | Site sections, marketing |
-| graphics/ | Flexible | SVG, PNG | Icons, badges, non-photo art |
+| Folder         | Size       | Format        | Notes                                       |
+| -------------- | ---------- | ------------- | ------------------------------------------- |
+| hero/          | 1920x1080+ | WebP, JPG     | 16:9 ratio, compress <200KB                 |
+| agent/         | 400x400+   | WebP, JPG     | Square, professional headshot               |
+| properties/    | 1200x800+  | WebP, JPG     | Landscape, MLS-quality                      |
+| neighborhoods/ | 1200x800+  | WebP, JPG     | Scenic community shots                      |
+| testimonials/  | 200x200    | WebP, JPG     | Square, optional                            |
+| logos/         | Various    | PNG, SVG      | Transparent background                      |
+| og/            | 1200×630   | PNG, JPG      | Social previews; match `metadata.openGraph` |
+| icons/         | 32–512px   | PNG, ICO, SVG | Favicon / PWA sources                       |
+| photos/        | Flexible   | WebP, JPG     | Site sections, marketing                    |
+| graphics/      | Flexible   | SVG, PNG      | Icons, badges, non-photo art                |
 
 ## Naming Conventions
 
@@ -50,15 +73,15 @@ Before uploading, optimize images:
 ## Usage in Code
 
 ```tsx
-import Image from 'next/image'
+import Image from "next/image";
 
-<Image 
+<Image
   src="/images/hero/las-vegas-skyline.webp"
   alt="Las Vegas skyline at sunset"
   width={1920}
   height={1080}
   priority // for above-fold images
-/>
+/>;
 ```
 
 ## Notes

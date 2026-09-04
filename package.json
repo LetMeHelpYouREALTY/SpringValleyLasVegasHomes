@@ -31,6 +31,7 @@
     "cloudflare:deploy": "wrangler deploy",
     "cloudflare:pages": "npx @cloudflare/next-on-pages",
     "cloudflare:build": "pnpm run cloudflare:pages",
+    "cloudflare:upload-heading-images": "node scripts/upload-heading-images-to-cloudflare.mjs",
     "build:cloudflare": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {

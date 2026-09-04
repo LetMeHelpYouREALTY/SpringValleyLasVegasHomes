@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { heroBackgroundSrcs } from "@/lib/site-media";
+import { featuredCommunityImageSrcs } from "@/lib/site-media";
 
-const [imgSpring, imgSummerlin, imgHenderson] = heroBackgroundSrcs;
+const [imgSpring, imgSummerlin, imgHenderson] = featuredCommunityImageSrcs;
 
 const communities = [
   {

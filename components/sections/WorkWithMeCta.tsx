@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { heroBackgroundSrcs } from "@/lib/site-media";
+import { workWithMeImageSrc } from "@/lib/site-media";
 import { agentInfo } from "@/lib/site-config";
 
 export default function WorkWithMeCta() {
-  const src = heroBackgroundSrcs[2];
+  const src = workWithMeImageSrc;
 
   return (
     <section className="relative min-h-[480px] md:min-h-[620px] flex items-center justify-center text-center overflow-hidden">
