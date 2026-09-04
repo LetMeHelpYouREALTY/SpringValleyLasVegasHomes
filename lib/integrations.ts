@@ -6,6 +6,32 @@
 /** Default RealScout agent (Dr. Jan Duffy) — override with NEXT_PUBLIC_REALSCOUT_AGENT_ID in Vercel. */
 const DEFAULT_REALSCOUT_AGENT_ID = "QWdlbnQtMjI1MDUw";
 
+/**
+ * RealScout `agent-encoded-id` is base64("Agent-{numericId}").
+ * Simple-search accepts a raw numeric id (e.g. 225050); office listings
+ * `GET /widgets/api/office_properties` 404s on that form and the widget
+ * shows "No listings available". Normalize so both widgets share one id.
+ */
+export function toRealScoutAgentEncodedId(raw?: string): string {
+  const value = raw?.trim() || DEFAULT_REALSCOUT_AGENT_ID;
+  if (/^\d+$/.test(value)) {
+    return btoa(`Agent-${value}`);
+  }
+  if (/^Agent-\d+$/i.test(value)) {
+    return btoa(`Agent-${value.slice("Agent-".length)}`);
+  }
+  return value;
+}
+
+/** Drop empty segments so dashboard copy `,SFR` does not become `property_types=,SFR`. */
+export function sanitizeRealScoutPropertyTypes(raw: string): string {
+  return raw
+    .split(",")
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0)
+    .join(",");
+}
+
 /** City-scoped map search on the agent portal (Spring Valley / west valley focus). */
 const DEFAULT_REALSCOUT_SPRING_VALLEY_MAP_URL =
   "https://drjanduffy.realscout.com/homesearch/map?geo_type=city&geo_id=3268585";
@@ -16,8 +42,9 @@ export const realScoutConfig = {
     process.env.NEXT_PUBLIC_REALSCOUT_PORTAL_URL ??
     "https://drjanduffy.realscout.com"
   ).replace(/\/$/, ""),
-  agentEncodedId:
-    process.env.NEXT_PUBLIC_REALSCOUT_AGENT_ID ?? DEFAULT_REALSCOUT_AGENT_ID,
+  agentEncodedId: toRealScoutAgentEncodedId(
+    process.env.NEXT_PUBLIC_REALSCOUT_AGENT_ID,
+  ),
   widgetScriptSrc:
     "https://em.realscout.com/widgets/realscout-web-components.umd.js",
   /**

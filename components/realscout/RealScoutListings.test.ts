@@ -1,6 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { getRealScoutOfficeListingsMarkup } from "@/lib/realscout-markup";
-import { realScoutConfig } from "@/lib/integrations";
+import {
+  realScoutConfig,
+  sanitizeRealScoutPropertyTypes,
+  toRealScoutAgentEncodedId,
+} from "@/lib/integrations";
 
 describe("getRealScoutOfficeListingsMarkup", () => {
   it("matches the RealScout dashboard office-listings embed (without a leading property-types comma)", () => {
@@ -16,5 +20,25 @@ describe("getRealScoutOfficeListingsMarkup", () => {
     expect(html).not.toContain('property-types=",');
     expect(html).toMatch(/<\/realscout-office-listings>$/);
     expect(html.match(/<realscout-office-listings/g)?.length).toBe(1);
+    expect(html).toContain('agent-encoded-id="QWdlbnQtMjI1MDUw"');
+  });
+});
+
+describe("toRealScoutAgentEncodedId", () => {
+  it("encodes a raw numeric agent id used on production search", () => {
+    expect(toRealScoutAgentEncodedId("225050")).toBe("QWdlbnQtMjI1MDUw");
+  });
+
+  it("leaves an already-encoded dashboard id unchanged", () => {
+    expect(toRealScoutAgentEncodedId("QWdlbnQtMjI1MDUw")).toBe(
+      "QWdlbnQtMjI1MDUw",
+    );
+  });
+});
+
+describe("sanitizeRealScoutPropertyTypes", () => {
+  it("strips the leading comma RealScout’s generator inserts", () => {
+    expect(sanitizeRealScoutPropertyTypes(",SFR")).toBe("SFR");
+    expect(sanitizeRealScoutPropertyTypes(",SFR,MF,TC")).toBe("SFR,MF,TC");
   });
 });

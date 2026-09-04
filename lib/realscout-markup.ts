@@ -1,4 +1,7 @@
-import { realScoutConfig } from "@/lib/integrations";
+import {
+  realScoutConfig,
+  sanitizeRealScoutPropertyTypes,
+} from "@/lib/integrations";
 
 function escapeAttr(value: string): string {
   return value
@@ -18,7 +21,9 @@ function escapeAttr(value: string): string {
 export function getRealScoutOfficeListingsMarkup(): string {
   const { agentEncodedId, officeListings } = realScoutConfig;
   const id = escapeAttr(agentEncodedId);
-  const types = escapeAttr(officeListings.propertyTypes);
+  const types = escapeAttr(
+    sanitizeRealScoutPropertyTypes(officeListings.propertyTypes),
+  );
   const sort = escapeAttr(officeListings.sortOrder);
   const status = escapeAttr(officeListings.listingStatus);
   const min = escapeAttr(officeListings.priceMin);
