@@ -1,87 +1,67 @@
 #!/usr/bin/env node
 /**
- * Upload H1/H2/H3 homepage photos to Cloudflare Images.
- * Git already stores JPEG backups under public/images/.
+ * Upload H1/H2/H3 homepage photos to Cloudflare Images (primary CDN).
+ * Git JPEG backups live under public/images/ — this script is the live write.
  *
  * Usage:
  *   CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… node scripts/upload-heading-images-to-cloudflare.mjs
  *
+ * Optional: CF_IMAGES_REPLACE=1 to delete+reupload when a custom id already exists.
  * Token needs Account → Cloudflare Images → Edit.
- * Docs (Apr 2026): POST /accounts/{account_id}/images/v1
+ * Docs (2026): POST /accounts/{account_id}/images/v1
  */
 
 import { readFile } from "node:fs/promises";
-import { basename, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID?.trim();
 const TOKEN = process.env.CLOUDFLARE_API_TOKEN?.trim();
+const REPLACE = /^(1|true|yes)$/i.test(
+  process.env.CF_IMAGES_REPLACE?.trim() ?? "",
+);
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const manifest = JSON.parse(
+  await readFile(resolve(root, "lib/heading-images.json"), "utf8"),
+);
 
 /** @type {{ file: string, id: string, env: string, heading: string }[]} */
 const assets = [
-  {
-    file: "public/images/hero/h1-spring-valley.jpg",
-    id: "svlvh-h1-spring-valley",
-    env: "NEXT_PUBLIC_CF_IMAGE_HERO_1_ID",
-    heading: "H1 Spring Valley hero",
-  },
-  {
-    file: "public/images/hero/h1-summerlin.jpg",
-    id: "svlvh-h1-summerlin",
-    env: "NEXT_PUBLIC_CF_IMAGE_HERO_2_ID",
-    heading: "H1 Summerlin hero",
-  },
-  {
-    file: "public/images/hero/h1-henderson.jpg",
-    id: "svlvh-h1-henderson",
-    env: "NEXT_PUBLIC_CF_IMAGE_HERO_3_ID",
-    heading: "H1 Henderson hero",
-  },
-  {
-    file: "public/images/properties/h2-listings.jpg",
-    id: "svlvh-h2-listings",
-    env: "NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID",
-    heading: "H2 Listings",
-  },
-  {
-    file: "public/images/properties/h2-home-search.jpg",
-    id: "svlvh-h2-home-search",
-    env: "NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID",
-    heading: "H2 Home Search",
-  },
-  {
-    file: "public/images/properties/h2-contact.jpg",
-    id: "svlvh-h2-contact",
-    env: "NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID",
-    heading: "H2 Contact",
-  },
-  {
-    file: "public/images/hero/h2-work-with-me.jpg",
-    id: "svlvh-h2-work-with-me",
-    env: "NEXT_PUBLIC_CF_IMAGE_WORK_WITH_ME_ID",
-    heading: "H2 Work With Me",
-  },
-  {
-    file: "public/images/neighborhoods/h3-spring-valley.jpg",
-    id: "svlvh-h3-spring-valley",
-    env: "NEXT_PUBLIC_CF_IMAGE_COMMUNITY_1_ID",
-    heading: "H3 Spring Valley",
-  },
-  {
-    file: "public/images/neighborhoods/h3-summerlin.jpg",
-    id: "svlvh-h3-summerlin",
-    env: "NEXT_PUBLIC_CF_IMAGE_COMMUNITY_2_ID",
-    heading: "H3 Summerlin",
-  },
-  {
-    file: "public/images/neighborhoods/h3-henderson.jpg",
-    id: "svlvh-h3-henderson",
-    env: "NEXT_PUBLIC_CF_IMAGE_COMMUNITY_3_ID",
-    heading: "H3 Henderson",
-  },
+  ...manifest.hero,
+  ...manifest.featured,
+  manifest.workWithMe,
+  ...manifest.communities,
 ];
 
-async function uploadAsset(asset) {
-  const abs = resolve(asset.file);
+async function api(path, init) {
+  const res = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}${path}`,
+    {
+      ...init,
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        ...(init.headers ?? {}),
+      },
+    },
+  );
+  const json = await res.json().catch(() => ({}));
+  return { res, json };
+}
+
+async function deleteImage(id) {
+  const { res, json } = await api(`/images/v1/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+  if (!res.ok && res.status !== 404) {
+    throw new Error(
+      `delete ${id}: ${res.status} ${JSON.stringify(json.errors ?? json)}`,
+    );
+  }
+}
+
+async function uploadAsset(asset, retried = false) {
+  const abs = resolve(root, asset.file);
   const bytes = await readFile(abs);
   const blob = new Blob([bytes], { type: "image/jpeg" });
   const form = new FormData();
@@ -97,30 +77,32 @@ async function uploadAsset(asset) {
     }),
   );
 
-  const res = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/images/v1`,
-    {
-      method: "POST",
-      headers: { Authorization: `Bearer ${TOKEN}` },
-      body: form,
-    },
-  );
-  const json = await res.json();
-  if (!res.ok || json.success === false) {
-    const err = json.errors?.[0];
-    // Image already exists with this custom id — treat as success.
-    if (
-      res.status === 409 ||
-      err?.code === 5409 ||
-      /already exists/i.test(err?.message ?? "")
-    ) {
-      return { id: asset.id, reused: true };
-    }
-    throw new Error(
-      `${asset.heading}: ${res.status} ${JSON.stringify(json.errors ?? json)}`,
-    );
+  const { res, json } = await api("/images/v1", {
+    method: "POST",
+    body: form,
+  });
+  if (res.ok && json.success !== false) {
+    return { id: json.result?.id ?? asset.id, reused: false };
   }
-  return { id: json.result?.id ?? asset.id, reused: false };
+
+  const err = json.errors?.[0];
+  const exists =
+    res.status === 409 ||
+    err?.code === 5409 ||
+    /already exists/i.test(err?.message ?? "");
+
+  if (exists && REPLACE && !retried) {
+    await deleteImage(asset.id);
+    return uploadAsset(asset, true);
+  }
+
+  if (exists) {
+    return { id: asset.id, reused: true };
+  }
+
+  throw new Error(
+    `${asset.heading}: ${res.status} ${JSON.stringify(json.errors ?? json)}`,
+  );
 }
 
 async function main() {

@@ -22,7 +22,7 @@ import { homePageTitleAbsolute } from "@/lib/seo";
 
 const homePreferredImageUrl = absoluteMediaUrl(heroBackgroundSrcs[0]);
 const homeOgTwitter = ogTwitterImageFields(homePreferredImageUrl, {
-  alt: "Spring Valley Las Vegas homes and Las Vegas Valley real estate — hero image",
+  alt: "Contemporary Spring Valley Las Vegas home with a pool and mountain views",
 });
 
 const homeStructuredData = combineHomepageStructuredData({
@@ -82,7 +82,7 @@ export default function Home() {
         <FeaturedCommunitiesGrid />
         <ReviewsSection
           title="Testimonials"
-          subtitle="Clients who bought and sold with Dr. Jan Duffy across the Las Vegas Valley"
+          subtitle="Clients who bought and sold Spring Valley homes with Dr. Jan Duffy"
         />
         <TeamPreview />
         <WorkWithMeCta />

@@ -1,18 +1,24 @@
 /**
- * Site media: Cloudflare Images IDs (optional) + local fallbacks under /public.
- * Set NEXT_PUBLIC_CF_IMAGE_*_ID in Vercel after uploading assets to Cloudflare Images.
+ * Site media: Cloudflare Images is the primary CDN; git JPEGs under /public
+ * are backups for local/preview when `NEXT_PUBLIC_CF_IMAGE_*_ID` is unset.
  *
+ * Set those IDs in Vercel after `scripts/upload-heading-images-to-cloudflare.mjs`.
  * Uses direct `process.env.NEXT_PUBLIC_*` reads so Next.js can inline values at build time.
  */
 
 import { siteConfig } from "@/lib/site-config";
 import { cfImageUrl, isCfDeliveryUrl } from "@/lib/cf-image-delivery";
+import {
+  headingCommunityAssets,
+  headingFeaturedAssets,
+  headingHeroAssets,
+  headingWorkWithMeAsset,
+} from "@/lib/heading-images";
 
 /** Default variant names — create matching variants in Cloudflare dashboard (or use `public`). */
 const V = {
   public: process.env.NEXT_PUBLIC_CF_VARIANT_PUBLIC?.trim() || "public",
   hero: process.env.NEXT_PUBLIC_CF_VARIANT_HERO?.trim() || "public",
-  avatar: process.env.NEXT_PUBLIC_CF_VARIANT_AVATAR?.trim() || "public",
 } as const;
 
 function resolveCfOrLocal(
@@ -44,25 +50,31 @@ export function absoluteMediaUrl(src: string): string {
 export const agentHeadshotSrc = "/images/dr-jan-duffy.jpg";
 
 /**
- * H1 hero rotation — Spring Valley, Summerlin, Henderson.
- * Local JPEG backups live under `public/images/hero/`; Cloudflare IDs override when set.
+ * H1 hero rotation — Spring Valley pool home, Spanish Trail, Desert Breeze Park.
+ * Cloudflare IDs override git JPEGs when set.
  */
 export const heroBackgroundSrcs: [string, string, string] = [
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID,
-    "/images/hero/h1-spring-valley.jpg",
+    headingHeroAssets[0].local,
     V.hero,
   ),
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID,
-    "/images/hero/h1-summerlin.jpg",
+    headingHeroAssets[1].local,
     V.hero,
   ),
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID,
-    "/images/hero/h1-henderson.jpg",
+    headingHeroAssets[2].local,
     V.hero,
   ),
+];
+
+export const heroBackgroundAlts: [string, string, string] = [
+  headingHeroAssets[0].alt,
+  headingHeroAssets[1].alt,
+  headingHeroAssets[2].alt,
 ];
 
 /**
@@ -76,78 +88,76 @@ export const springValleyMarketingOgSrc = heroBackgroundSrcs[0];
  */
 export const mapHubOgImageSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_OG_MAP_HUB_ID,
-  "/images/hero/h1-spring-valley.jpg",
+  headingHeroAssets[0].local,
   V.hero,
 );
 
-/** H2 action cards: Listings, Home Search, Contact. */
+/** H2 realtor-service cards: Buy, Search MLS, Sell. */
 export const featuredPropertyImageSrcs: [string, string, string] = [
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID,
-    "/images/properties/h2-listings.jpg",
+    headingFeaturedAssets[0].local,
     V.hero,
   ),
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID,
-    "/images/properties/h2-home-search.jpg",
+    headingFeaturedAssets[1].local,
     V.hero,
   ),
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID,
-    "/images/properties/h2-contact.jpg",
+    headingFeaturedAssets[2].local,
     V.hero,
   ),
 ];
 
-/** H3 community tiles: Spring Valley, Summerlin, Henderson. */
+export const featuredPropertyImageAlts: [string, string, string] = [
+  headingFeaturedAssets[0].alt,
+  headingFeaturedAssets[1].alt,
+  headingFeaturedAssets[2].alt,
+];
+
+/** H3 community tiles: Spanish Trail, Desert Breeze, Chinatown / Spring Mountain. */
 export const featuredCommunityImageSrcs: [string, string, string] = [
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_COMMUNITY_1_ID,
-    "/images/neighborhoods/h3-spring-valley.jpg",
+    headingCommunityAssets[0].local,
     V.hero,
   ),
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_COMMUNITY_2_ID,
-    "/images/neighborhoods/h3-summerlin.jpg",
+    headingCommunityAssets[1].local,
     V.hero,
   ),
   resolveCfOrLocal(
     process.env.NEXT_PUBLIC_CF_IMAGE_COMMUNITY_3_ID,
-    "/images/neighborhoods/h3-henderson.jpg",
+    headingCommunityAssets[2].local,
     V.hero,
   ),
 ];
 
+export const featuredCommunityTiles = headingCommunityAssets.map(
+  (asset, index) => ({
+    name: asset.name,
+    href: asset.href,
+    image: featuredCommunityImageSrcs[index],
+    alt: asset.alt,
+  }),
+);
+
 /** H2 Work With Me full-bleed photo. */
 export const workWithMeImageSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_WORK_WITH_ME_ID,
-  "/images/hero/h2-work-with-me.jpg",
+  headingWorkWithMeAsset.local,
   V.hero,
 );
 
-/** Review section avatar placeholders. */
-export const reviewAvatarSrcs: [string, string, string] = [
-  resolveCfOrLocal(
-    process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_1_ID,
-    "/Image/person1.jpeg",
-    V.avatar,
-  ),
-  resolveCfOrLocal(
-    process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_2_ID,
-    "/Image/person_2-min.jpg",
-    V.avatar,
-  ),
-  resolveCfOrLocal(
-    process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_3_ID,
-    "/Image/person_4-min.jpg",
-    V.avatar,
-  ),
-];
+export const workWithMeImageAlt = headingWorkWithMeAsset.alt;
 
 /** Listing detail placeholder when API data is not wired. */
 export const listingPlaceholderSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_LISTING_PLACEHOLDER_ID,
-  "/images/properties/h2-listings.jpg",
+  headingFeaturedAssets[0].local,
   V.public,
 );
 

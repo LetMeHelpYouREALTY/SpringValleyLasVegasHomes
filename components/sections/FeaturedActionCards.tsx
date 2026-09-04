@@ -1,30 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { featuredPropertyImageSrcs } from "@/lib/site-media";
+import {
+  featuredPropertyImageAlts,
+  featuredPropertyImageSrcs,
+} from "@/lib/site-media";
 import { realScoutConfig } from "@/lib/integrations";
 
-const [imgListings, imgSearch, imgContact] = featuredPropertyImageSrcs;
+const [imgBuy, imgSearch, imgSell] = featuredPropertyImageSrcs;
+const [altBuy, altSearch, altSell] = featuredPropertyImageAlts;
 
 const cards = [
   {
-    title: "Listings",
-    href: "/listings",
-    image: imgListings,
-    alt: "Las Vegas homes for sale and current listings",
+    title: "Buy Spring Valley Homes",
+    href: "/buyers",
+    image: imgBuy,
+    alt: altBuy,
   },
   {
-    title: "Home Search",
+    title: "Search the MLS",
     href: realScoutConfig.portalUrl,
     image: imgSearch,
-    alt: "Search Spring Valley Las Vegas homes on the MLS",
+    alt: altSearch,
     external: true,
   },
   {
-    title: "Contact Dr. Jan Duffy",
-    href: "/contact",
-    image: imgContact,
-    alt: "Contact Dr. Jan Duffy, Berkshire Hathaway HomeServices",
+    title: "Sell Your Spring Valley Home",
+    href: "/sellers",
+    image: imgSell,
+    alt: altSell,
   },
 ] as const;
 
@@ -32,8 +36,17 @@ export default function FeaturedActionCards() {
   return (
     <section
       className="bg-white pb-16 md:pb-24"
-      aria-label="Quick destinations"
+      aria-label="Spring Valley realtor services"
     >
+      <div className="container mx-auto px-4 mb-8 md:mb-10 text-center">
+        <h2 className="text-3xl md:text-4xl text-ink">
+          Realtor Services in Spring Valley
+        </h2>
+        <p className="mt-4 text-base font-light normal-case tracking-normal text-neutral-600 max-w-2xl mx-auto">
+          Live MLS search, buyer representation, and listing strategy for the
+          unincorporated Spring Valley market — not a valley-wide portal.
+        </p>
+      </div>
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-3 md:gap-4 max-w-6xl mx-auto">
           {cards.map((card) => {

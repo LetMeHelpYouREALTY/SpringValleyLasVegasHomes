@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { workWithMeImageSrc } from "@/lib/site-media";
+import { workWithMeImageAlt, workWithMeImageSrc } from "@/lib/site-media";
 import { agentInfo } from "@/lib/site-config";
 
 export default function WorkWithMeCta() {
@@ -11,7 +11,7 @@ export default function WorkWithMeCta() {
     <section className="relative min-h-[480px] md:min-h-[620px] flex items-center justify-center text-center overflow-hidden">
       <Image
         src={src}
-        alt="Las Vegas Valley homes — work with Dr. Jan Duffy"
+        alt={workWithMeImageAlt}
         fill
         sizes="100vw"
         className="object-cover"
@@ -23,8 +23,10 @@ export default function WorkWithMeCta() {
           Work With Me
         </h2>
         <p className="text-white/90 font-light leading-relaxed mb-10 normal-case tracking-normal">
-          Buying or selling in Spring Valley, Summerlin, or Henderson? Call Dr.
-          Jan Duffy and we will walk the process from first search to closing.
+          Buying or selling inside Spring Valley — Spanish Trail, Desert Breeze,
+          Chinatown, and the west-valley streets between Sahara and Warm
+          Springs? Call Dr. Jan Duffy and we walk the deal from first search to
+          closing.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/contact" className="btn-luxury-light">

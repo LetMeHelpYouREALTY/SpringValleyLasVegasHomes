@@ -35,7 +35,7 @@ interface ReviewsSectionProps {
 export default function ReviewsSection({
   reviews = defaultHomeReviews,
   title = "What Our Clients Say",
-  subtitle = "Real testimonials from satisfied clients across Las Vegas and Henderson",
+  subtitle = "Clients who bought and sold Spring Valley homes with Dr. Jan Duffy",
   googleReviewsUrl = googleBusinessReviewUrl,
   className = "",
 }: ReviewsSectionProps) {

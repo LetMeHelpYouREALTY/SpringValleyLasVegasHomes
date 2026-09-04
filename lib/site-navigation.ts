@@ -34,10 +34,10 @@ export function buildMainNavLinks(portalRootUrl: string): MainNavEntry[] {
 /** Services dropdown — same-origin only */
 export const navbarServiceLinks: InternalNavLink[] = [
   { href: "/neighborhoods/spring-valley", label: "Spring Valley Homes" },
+  { href: "/services", label: "Realtor Services" },
   { href: "/buyers", label: "Home Buying" },
   { href: "/sellers", label: "Home Selling" },
-  { href: "/luxury-homes", label: "Luxury Homes" },
-  { href: "/55-plus-communities", label: "55+ Communities" },
+  { href: "/luxury-homes", label: "Spanish Trail Luxury" },
   { href: "/new-construction", label: "New Construction" },
   { href: "/market-report", label: "Market Report" },
   { href: "/market-insights", label: "Market Insights" },
@@ -62,18 +62,18 @@ export const footerQuickLinks: InternalNavLink[] = [
 
 /** Footer column: services */
 export const footerServiceLinks: InternalNavLink[] = [
-  { href: "/buyers", label: "Home buying in Las Vegas" },
+  { href: "/services", label: "Spring Valley realtor services" },
+  { href: "/buyers", label: "Buy a Spring Valley home" },
   {
     href: "/buyers/california-relocator",
-    label: "California to Las Vegas relocation",
+    label: "Relocate to Spring Valley Las Vegas",
   },
-  { href: "/sellers", label: "Selling your Las Vegas home" },
-  { href: "/luxury-homes", label: "Luxury homes" },
-  { href: "/55-plus-communities", label: "55+ communities" },
-  { href: "/new-construction", label: "New construction homes" },
-  { href: "/market-insights", label: "Market insights" },
+  { href: "/sellers", label: "Sell your Spring Valley home" },
+  { href: "/luxury-homes", label: "Spanish Trail luxury homes" },
+  { href: "/home-valuation", label: "Spring Valley home valuation" },
+  { href: "/new-construction", label: "New construction in Spring Valley" },
   { href: "/google-business", label: "Google Business Profile" },
-  { href: "/showing", label: "Schedule a home showing" },
+  { href: "/showing", label: "Schedule a Spring Valley showing" },
 ];
 
 /**
@@ -81,6 +81,7 @@ export const footerServiceLinks: InternalNavLink[] = [
  * Keep list focused; avoid noisy duplicates with identical destinations.
  */
 export const sitelinkStructuredDataNav: InternalNavLink[] = [
+  { href: "/services", label: "Spring Valley realtor services" },
   { href: "/listings", label: "Spring Valley homes for sale" },
   { href: "/neighborhoods", label: "Spring Valley neighborhoods" },
   { href: "/neighborhoods/spring-valley", label: `${seoPrimaryKeyword} guide` },

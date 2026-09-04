@@ -1,30 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { featuredCommunityImageSrcs } from "@/lib/site-media";
-
-const [imgSpring, imgSummerlin, imgHenderson] = featuredCommunityImageSrcs;
-
-const communities = [
-  {
-    name: "Spring Valley",
-    href: "/neighborhoods/spring-valley",
-    image: imgSpring,
-    alt: "Spring Valley Las Vegas homes and west valley neighborhoods",
-  },
-  {
-    name: "Summerlin",
-    href: "/neighborhoods/summerlin",
-    image: imgSummerlin,
-    alt: "Summerlin Las Vegas homes and master-planned communities",
-  },
-  {
-    name: "Henderson",
-    href: "/neighborhoods/henderson",
-    image: imgHenderson,
-    alt: "Henderson Nevada homes and neighborhoods",
-  },
-] as const;
+import { featuredCommunityTiles } from "@/lib/site-media";
 
 export default function FeaturedCommunitiesGrid() {
   return (
@@ -34,11 +11,15 @@ export default function FeaturedCommunitiesGrid() {
     >
       <div className="container mx-auto px-4 mb-10 md:mb-14 text-center">
         <h2 id="communities-heading" className="text-3xl md:text-4xl text-ink">
-          Featured Communities
+          Spring Valley Pockets
         </h2>
+        <p className="mt-4 text-base font-light normal-case tracking-normal text-neutral-600 max-w-2xl mx-auto">
+          Buyer and seller representation inside the Spring Valley CDP — Sahara
+          Avenue, Decatur Boulevard, Warm Springs Road, and Hualapai Way.
+        </p>
       </div>
       <div className="grid md:grid-cols-3">
-        {communities.map((community) => (
+        {featuredCommunityTiles.map((community) => (
           <Link
             key={community.href}
             href={community.href}
@@ -63,7 +44,7 @@ export default function FeaturedCommunitiesGrid() {
       </div>
       <div className="container mx-auto px-4 text-center pt-10">
         <Link href="/neighborhoods" className="btn-luxury">
-          View All Neighborhoods
+          All Spring Valley Neighborhoods
         </Link>
       </div>
     </section>

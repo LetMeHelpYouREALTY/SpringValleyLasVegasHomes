@@ -20,7 +20,7 @@ export const siteConfig = {
   /** Canonical production URL (www). Apex should 301 to this host. */
   url: "https://www.springvalleylasvegashomes.com",
   description:
-    "Spring Valley Las Vegas homes and west valley real estate with Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties. Homes for sale, buyer and seller representation, and local expertise for Spring Valley, Las Vegas, and Henderson—call (702) 664-8424.",
+    "Spring Valley Las Vegas homes with Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties. Buyer and seller representation, live MLS search, and listing strategy inside the Spring Valley CDP—call (702) 664-8424.",
 };
 
 /**
@@ -29,7 +29,7 @@ export const siteConfig = {
  */
 export const siteContentDates = {
   datePublished: "2025-03-01T12:00:00-08:00",
-  dateModified: "2026-09-04T12:00:00-07:00",
+  dateModified: "2026-09-04T09:40:00-07:00",
 } as const;
 
 /** Official social URLs — align footer, JSON-LD sameAs, and GBP-style data */
@@ -158,7 +158,7 @@ export const valuePropositions = {
   trust:
     "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
   expertise:
-    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
+    "Serving Spring Valley since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines street-level knowledge of this CDP with Berkshire Hathaway HomeServices resources.",
 };
 
 // Neighborhoods served

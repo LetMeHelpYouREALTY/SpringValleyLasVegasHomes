@@ -1,0 +1,44 @@
+name: Cloudflare Images (heading photos)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/images/hero/**"
+      - "public/images/properties/**"
+      - "public/images/neighborhoods/**"
+      - "lib/heading-images.json"
+      - "scripts/upload-heading-images-to-cloudflare.mjs"
+      - ".github/workflows/cloudflare-images.yml"
+  pull_request:
+    paths:
+      - "public/images/hero/**"
+      - "public/images/properties/**"
+      - "public/images/neighborhoods/**"
+      - "lib/heading-images.json"
+      - "scripts/upload-heading-images-to-cloudflare.mjs"
+      - ".github/workflows/cloudflare-images.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-images-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  upload:
+    name: Upload heading JPEGs to Cloudflare Images
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Upload (replace existing custom IDs on main)
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_IMAGES_REPLACE: ${{ github.ref == 'refs/heads/main' && '1' || '0' }}
+        run: node scripts/upload-heading-images-to-cloudflare.mjs

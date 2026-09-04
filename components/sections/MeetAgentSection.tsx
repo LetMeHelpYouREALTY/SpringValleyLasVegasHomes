@@ -24,12 +24,12 @@ export default function MeetAgentSection() {
               Meet Dr. Jan Duffy
             </h2>
             <p className="text-neutral-700 font-light leading-relaxed mb-4 normal-case tracking-normal">
-              As a top agent in Spring Valley and the west Las Vegas Valley, Dr.
-              Jan Duffy brings local market knowledge from{" "}
+              Dr. Jan Duffy represents buyers and sellers inside Spring Valley —
+              Spanish Trail, Desert Breeze, Chinatown, and the streets between
+              Sahara Avenue and Warm Springs Road. Local market knowledge from{" "}
               {agentStats.servingSince} and {agentStats.volumeClosed} in closed
-              transactions. She represents buyers and sellers across Las Vegas,
-              Henderson, and Summerlin with Berkshire Hathaway HomeServices
-              Nevada Properties.
+              transactions, with Berkshire Hathaway HomeServices Nevada
+              Properties.
             </p>
             <p className="text-neutral-700 font-light leading-relaxed mb-8 normal-case tracking-normal">
               {valuePropositions.expertise}
