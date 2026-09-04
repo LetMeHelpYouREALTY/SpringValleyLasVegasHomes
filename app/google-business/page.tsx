@@ -27,6 +27,10 @@ import {
 } from "@/lib/gbp-schema";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
 import { googleBusinessReviewUrl, siteConfig } from "@/lib/site-config";
+import {
+  siblingCommunityLinks,
+  springValleySubdivisions,
+} from "@/lib/spring-valley-ia";
 
 export const metadata: Metadata = {
   alternates: {
@@ -321,25 +325,25 @@ export default function GoogleBusinessPage() {
                   Neighborhood Expertise
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {[
-                    "Summerlin",
-                    "Henderson",
-                    "Green Valley",
-                    "The Ridges",
-                    "Southern Highlands",
-                    "Centennial Hills",
-                    "Skye Canyon",
-                    "Inspirada",
-                    "Mountains Edge",
-                    "North Las Vegas",
-                  ].map((area) => (
+                  {springValleySubdivisions.map((area) => (
                     <Link
-                      key={area}
-                      href={`/neighborhoods/${area.toLowerCase().replace(/\s+/g, "-")}`}
+                      key={area.slug}
+                      href={area.href}
                       className="bg-white px-3 py-1 rounded-full text-sm text-slate-700 hover:bg-blue-100 transition-colors"
                     >
-                      {area}
+                      {area.name}
                     </Link>
+                  ))}
+                  {siblingCommunityLinks.map((area) => (
+                    <a
+                      key={area.href}
+                      href={area.href}
+                      target="_blank"
+                      rel="noopener"
+                      className="bg-white px-3 py-1 rounded-full text-sm text-slate-700 hover:bg-blue-100 transition-colors"
+                    >
+                      {area.name}
+                    </a>
                   ))}
                 </div>
               </div>
