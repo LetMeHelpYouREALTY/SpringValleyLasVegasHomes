@@ -19,6 +19,14 @@ import { ogTwitterImageFields } from "@/lib/og-image";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import { metaDescriptionWithKeyword, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+import {
+  SPRING_VALLEY_BOUNDARY,
+  SPRING_VALLEY_OUTBOUND_NEIGHBORS,
+  SPRING_VALLEY_SCHOOLS,
+  SPRING_VALLEY_SUBDIVISIONS,
+  SPRING_VALLEY_ZIP_CODES,
+  SPRING_VALLEY_ZIPS,
+} from "@/lib/spring-valley-geography";
 
 const propertyTaxGuideUrl = `${siteConfig.url}/neighborhoods/spring-valley/property-taxes`;
 
@@ -33,9 +41,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/neighborhoods/spring-valley",
   },
-  title: "Spring Valley NV Homes & West Valley Guide",
+  title: "Spring Valley NV Homes Inside the CDP",
   description: metaDescriptionWithKeyword(
-    "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Spring Valley NV real estate guide—Sahara, Decatur, Warm Springs, and Hualapai boundary, seven ZIP codes, Spanish Trail and other in-CDP pockets, MLS search with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
     true,
   ),
   keywords: [
@@ -45,17 +53,14 @@ export const metadata: Metadata = {
     "Spring Valley Nevada homes",
     "Spring Valley Nevada homes for sale",
     "Spring Valley NV real estate",
-    "west Las Vegas homes",
+    "Spanish Trail Spring Valley",
     "Spring Valley neighborhood",
     "homes for sale Spring Valley Las Vegas",
-    "Enterprise Las Vegas homes",
-    "West Sahara Las Vegas",
-    "Rhodes Ranch Las Vegas",
   ],
   openGraph: {
-    title: "Spring Valley NV Homes & West Valley Guide | Dr. Jan Duffy",
+    title: "Spring Valley NV Homes Inside the CDP | Dr. Jan Duffy",
     description: metaDescriptionWithKeyword(
-      "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Spring Valley NV real estate guide—Sahara, Decatur, Warm Springs, and Hualapai boundary, seven ZIP codes, Spanish Trail and other in-CDP pockets, MLS search with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
       true,
     ),
     url: `${siteConfig.url}/neighborhoods/spring-valley`,
@@ -64,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Spring Valley NV Homes & West Valley Guide | Dr. Jan Duffy",
+    title: "Spring Valley NV Homes Inside the CDP | Dr. Jan Duffy",
     description: metaDescriptionWithKeyword(
-      "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Spring Valley NV real estate guide—Sahara, Decatur, Warm Springs, and Hualapai boundary, seven ZIP codes, Spanish Trail and other in-CDP pockets, MLS search with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
       true,
     ),
     ...springValleyOgTwitter.twitter,
@@ -79,16 +84,21 @@ const breadcrumbs = [
   { name: "Spring Valley", url: "/neighborhoods/spring-valley" },
 ];
 
+const zipList = SPRING_VALLEY_ZIP_CODES.join(", ");
+const zipCaveats = SPRING_VALLEY_ZIPS.filter((entry) => entry.caveat)
+  .map((entry) => entry.caveat)
+  .join(" ");
+
 const springValleyFaqs = [
   {
     question: "Where can I see a Spring Valley Las Vegas map?",
     answer:
-      "A Spring Valley Las Vegas map helps you see how the community sits on the west side of the valley versus the Strip, Summerlin, and major roads. This guide includes an interactive map layer for orientation; for turn-by-turn directions to a specific Spring Valley Nevada homes address, we use MLS mapping and tour planning once you pick listings you want to see.",
+      "The map on this page is Google’s official Spring Valley, NV embed (Sahara Avenue north, Decatur Boulevard east, Warm Springs Road south, Hualapai Way west). For turn-by-turn directions to a specific address, we use MLS mapping once you pick listings to tour.",
   },
   {
     question: "What are Spring Valley Nevada homes like?",
     answer:
-      "Spring Valley Nevada homes span many subdivisions and price points—single-family homes, townhomes, and condos—within unincorporated Clark County. Because “Spring Valley” covers a wide area, Spring Valley Nevada homes can differ sharply by block, school zone, and HOA. We help you compare comps in the same pocket, not just the neighborhood name.",
+      "Spring Valley Nevada homes include single-family houses, townhomes, and condos inside unincorporated Clark County. Product type, HOA, and lot size change by subdivision—Spanish Trail is not Rancho Viejo. Compare comps in the same pocket, not just the name Spring Valley.",
   },
   {
     question: "How do I search Spring Valley Nevada homes for sale?",
@@ -97,37 +107,36 @@ const springValleyFaqs = [
   {
     question: "What are Spring Valley Las Vegas homes like?",
     answer:
-      "Spring Valley Las Vegas homes include single-family houses, townhomes, and condos across a large unincorporated area on the west side of the Las Vegas Valley. You will find everything from mid-century properties to newer infill builds, with price points that often differ by block and HOA. Searching Spring Valley Las Vegas homes by ZIP and subdivision helps compare apples to apples.",
+      "Spring Valley Las Vegas homes include single-family houses, townhomes, and condos across the census-designated place west of Decatur Boulevard. Searching by subdivision (Spanish Trail, Canyon Gate, Desert Breeze) and ZIP helps compare apples to apples.",
   },
   {
     question: "Is Spring Valley the same as Spring Valley Ranch?",
     answer:
-      "People often use “Spring Valley” for the broader west valley area. Smaller named pockets and subdivisions can have different HOA rules and price trends. When you tour Spring Valley Las Vegas homes, we review the specific community name, HOA budget, and recent comps—not just the mailing address.",
+      "This site does not treat Spring Valley Ranch as a confirmed in-CDP subdivision. “Spring Valley” here means the census-designated place. When you tour, we review the subdivision name, HOA, and comps on the listing—not just the mailing city.",
   },
   {
     question:
       "How is the commute from Spring Valley to the Strip or Summerlin?",
     answer:
-      "Many Spring Valley locations offer a practical commute to employment centers along I-15, the 215 Beltway, and Charleston Boulevard corridors. Exact drive times depend on your street and time of day. We map morning and evening routes when you are narrowing Spring Valley Las Vegas homes by workplace.",
+      "Drive times depend on the street and time of day. From inside the CDP, I-15, the 215 Beltway, and Tropicana, Spring Mountain, Sahara, and Decatur corridors are the usual routes. We map morning and evening times from the listing address.",
   },
   {
     question: "Who can help me buy or sell Spring Valley Las Vegas homes?",
-    answer: `Dr. Jan Duffy and the team at Berkshire Hathaway HomeServices Nevada Properties represent buyers and sellers across Spring Valley and the Las Vegas Valley. Call ${agentInfo.phone} or email ${agentInfo.email}. Office: ${officeInfo.address.full}.`,
+    answer: `Dr. Jan Duffy and the team at Berkshire Hathaway HomeServices Nevada Properties represent buyers and sellers in Spring Valley. Call ${agentInfo.phone} or email ${agentInfo.email}. Office: ${officeInfo.address.full}.`,
   },
   {
     question: "Is Rhodes Ranch the same as Spring Valley?",
     answer:
-      "Not exactly. Rhodes Ranch is a well-known guard-gated golf community in the Enterprise area of the southwest valley. Buyers often compare Rhodes Ranch listings with Spring Valley Las Vegas homes because both sit on the west side of the valley, but MLS boundaries and mailing addresses are not identical to everyday neighborhood names. We align your search to the communities and commute you want—not just a label on a map.",
+      "No. Rhodes Ranch is in Enterprise, south of Warm Springs Road—the south boundary of Spring Valley. This site links it out rather than listing it as a Spring Valley neighborhood.",
   },
   {
     question: "What ZIP codes are used for Spring Valley, NV?",
-    answer:
-      "Spring Valley spans multiple ZIP codes (commonly including areas such as 89103, 89117, 89146, and 89147—always confirm on a specific listing). Schools, HOA rules, and insurance can change block by block, so we verify details on the property you choose rather than assuming one ZIP tells the whole story.",
+    answer: `This site generates pages for seven ZIPs that intersect the Spring Valley CDP: ${zipList}. ${zipCaveats} We still confirm jurisdiction on the listing, not the ZIP alone.`,
   },
   {
     question: "What are popular pockets buyers compare to Spring Valley?",
     answer:
-      "West-side buyers often compare Spring Valley with nearby corridors and communities—examples include west Sahara and Charleston corridors, The Lakes and Chinatown/Spring Mountain dining, Enterprise-area communities like Rhodes Ranch, and condo or townhome pockets such as Rancho Viejo. Inventory and pricing change weekly; we run live MLS comps for the pocket you care about.",
+      "Inside the CDP, buyers often compare Spanish Trail, Tiburon, Granada Hills, Canyon Gate, Desert Breeze, Buffalo Ranch, The Foothills, Rancho Viejo, Section 10, the Spring Mountain and Fort Apache Lewis Homes streets, and the Chinatown / Spring Mountain corridor west of Decatur. Rancho Viejo is a Spring Valley condo pocket—not a neighboring city. Peccole Ranch (north of Sahara), Rhodes Ranch (Enterprise), and The Lakes (City of Las Vegas) are outbound, not this site’s neighborhood set.",
   },
   {
     question: "What is the effective property tax rate in Spring Valley, NV?",
@@ -153,9 +162,9 @@ const springValleyFaqs = [
 const pageSchemas = combineSchemas(
   generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
-    name: "Spring Valley Las Vegas Homes & West Valley Real Estate",
+    name: "Spring Valley Las Vegas Homes",
     description:
-      "Spring Valley, NV—large west Las Vegas Valley area in Clark County. Spring Valley Las Vegas homes span diverse ZIP codes and pockets. Search Spring Valley Nevada homes for sale with MLS-backed guidance.",
+      "Spring Valley, NV census-designated place in unincorporated Clark County—Sahara Avenue, Decatur Boulevard, Warm Springs Road, and Hualapai Way. Seven intersecting ZIP codes and eleven in-boundary subdivisions.",
     url: "/neighborhoods/spring-valley",
     primaryImageOfPage: springValleyOgUrl,
   }),
@@ -163,9 +172,9 @@ const pageSchemas = combineSchemas(
     name: "Spring Valley",
     slug: "spring-valley",
     description:
-      "Spring Valley, NV—large west Las Vegas Valley area in Clark County. Spring Valley Las Vegas homes span diverse ZIP codes and pockets (including west Sahara corridors, Enterprise-adjacent communities buyers compare such as Rhodes Ranch, and condo areas like Rancho Viejo). Search Spring Valley Nevada homes for sale with MLS-backed guidance.",
-    latitude: 36.107,
-    longitude: -115.245,
+      "Unincorporated Spring Valley, NV (census-designated place): Sahara Avenue north, Decatur Boulevard east, Warm Springs Road south, Hualapai Way west. Spanish Trail, Canyon Gate, Desert Breeze, and related pockets sit inside this box—not Rhodes Ranch, Paradise, or The Ridges.",
+    latitude: 36.1080258,
+    longitude: -115.2450006,
     containedIn: "Las Vegas",
   }),
   generateFAQSchema(springValleyFaqs),
@@ -225,15 +234,15 @@ export default function SpringValleyPage() {
               {seoPrimaryKeyword}
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Spring Valley Las Vegas Homes &amp; West Valley Real Estate
+              Spring Valley Las Vegas Homes
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Spring Valley is one of the most searched areas for{" "}
-              <strong>Spring Valley Las Vegas homes</strong>—a broad,
-              established west valley community with diverse housing, mature
-              neighborhoods, and convenient access to employment corridors. Use
-              this guide to orient your search, then explore live listings or
-              talk with Dr. Jan Duffy about timing, offers, and pricing.
+              Unincorporated Spring Valley is bounded by{" "}
+              {SPRING_VALLEY_BOUNDARY.north}, {SPRING_VALLEY_BOUNDARY.east},{" "}
+              {SPRING_VALLEY_BOUNDARY.south}, and {SPRING_VALLEY_BOUNDARY.west}
+              —about {SPRING_VALLEY_BOUNDARY.squareMiles} square miles. Use this
+              guide for the CDP, then search live listings or call Dr. Jan Duffy
+              about a specific subdivision and ZIP.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
               <a
@@ -263,14 +272,15 @@ export default function SpringValleyPage() {
               Where is Spring Valley in Las Vegas?
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              Spring Valley refers to a large section of unincorporated Clark
-              County on the west side of the Las Vegas Valley—generally west of
-              the Strip and spanning many residential pockets. Because the name
-              covers a wide geography,{" "}
-              <strong>Spring Valley Las Vegas homes</strong> can feel very
-              different from one ZIP or subdivision to the next. That is why we
-              pair map search with neighborhood-level detail before you write an
-              offer.
+              Spring Valley is a census-designated place in unincorporated Clark
+              County. The inclusion test for this site is{" "}
+              {SPRING_VALLEY_BOUNDARY.north} on the north,{" "}
+              {SPRING_VALLEY_BOUNDARY.east} on the east,{" "}
+              {SPRING_VALLEY_BOUNDARY.south} on the south, and{" "}
+              {SPRING_VALLEY_BOUNDARY.west} on the west.{" "}
+              <strong>Spring Valley Las Vegas homes</strong> still differ by
+              subdivision and ZIP inside that box—that is why we pair the map
+              with neighborhood pages before you write an offer.
             </p>
             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">
               What types of properties will I find?
@@ -367,8 +377,12 @@ export default function SpringValleyPage() {
                 Schools &amp; services
               </h3>
               <p className="text-sm text-slate-600">
-                School assignments and services vary by address. We point you to
-                official sources and local contacts as part of due diligence.
+                School names and addresses only. Confirm assignment with Clark
+                County School District for a specific street.{" "}
+                {SPRING_VALLEY_SCHOOLS.map(
+                  (school) => `${school.name}, ${school.address}`,
+                ).join("; ")}
+                .
               </p>
             </div>
           </section>
@@ -400,7 +414,6 @@ export default function SpringValleyPage() {
             </div>
           </section>
 
-          {/* GEO: pockets & corridors buyers compare (entity + internal linking) */}
           <section
             className="max-w-6xl mx-auto mb-16"
             aria-labelledby="spring-valley-pockets-heading"
@@ -409,64 +422,58 @@ export default function SpringValleyPage() {
               id="spring-valley-pockets-heading"
               className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 text-center"
             >
-              Areas buyers often compare with Spring Valley, NV
+              Neighborhoods inside the Spring Valley CDP
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-10 leading-relaxed">
-              <strong>Spring Valley Las Vegas homes</strong> sit in a large,
-              established west valley footprint. Buyers frequently cross-shop
-              nearby pockets—pricing and inventory change daily, so we use live
-              MLS data for the exact community and address you choose.
+              These eleven pockets sit inside Sahara, Decatur, Warm Springs, and
+              Hualapai. Spanish Trail belongs on this site. Pricing and HOA
+              rules change by tract—we use live MLS comps for the street you
+              choose.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  West Sahara &amp; west corridors
-                </h3>
-                <p className="text-slate-700 text-sm leading-relaxed">
-                  Residential pockets along west Sahara and Charleston corridors
-                  mix older and newer stock with easy access to west valley
-                  shopping, parks like{" "}
-                  <span className="whitespace-nowrap">Desert Breeze</span>, and
-                  Red Rock views from select elevations. School zones and HOA
-                  rules vary—always verify on the listing you like.
-                </p>
-              </article>
-              <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Rhodes Ranch &amp; Enterprise
-                </h3>
-                <p className="text-slate-700 text-sm leading-relaxed">
-                  <strong>Rhodes Ranch</strong> is a guard-gated golf community
-                  in the <strong>Enterprise</strong> area—often searched
-                  alongside Spring Valley listings because both sit on the west
-                  side of the valley. If you want a single amenity-rich
-                  community, we narrow your search to MLS boundaries that
-                  match—not just the name.
-                </p>
-              </article>
-              <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Rancho Viejo &amp; condo pockets
-                </h3>
-                <p className="text-slate-700 text-sm leading-relaxed">
-                  Dense condo and townhome communities offer lower-maintenance
-                  options for first-time buyers and investors. We review HOA
-                  budgets, reserves, and rental rules when you compare these to
-                  single-family Spring Valley Nevada homes.
-                </p>
-              </article>
-              <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Chinatown / Spring Mountain
-                </h3>
-                <p className="text-slate-700 text-sm leading-relaxed">
-                  The Spring Mountain corridor is known for diverse dining and
-                  retail—many Spring Valley buyers want a short drive to this
-                  hub. If walkability to restaurants matters, we map realistic
-                  drive times from specific listings—not just distance.
-                </p>
-              </article>
+              {SPRING_VALLEY_SUBDIVISIONS.map((neighborhood) => (
+                <article
+                  key={neighborhood.slug}
+                  className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                >
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    <Link
+                      href={`/neighborhoods/${neighborhood.slug}`}
+                      className="text-blue-700 hover:underline"
+                    >
+                      {neighborhood.name}
+                    </Link>
+                  </h3>
+                  <p className="text-slate-500 text-xs mb-2">
+                    {neighborhood.shortLocation}
+                  </p>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    {neighborhood.summary}
+                  </p>
+                </article>
+              ))}
             </div>
+            <h3 className="text-lg font-bold text-slate-900 mt-10 mb-4 text-center">
+              Next to Spring Valley—not this site’s neighborhood set
+            </h3>
+            <ul className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {SPRING_VALLEY_OUTBOUND_NEIGHBORS.map((neighbor) => (
+                <li
+                  key={neighbor.href}
+                  className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm"
+                >
+                  <a
+                    href={neighbor.href}
+                    className="font-semibold text-blue-700 hover:underline"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {neighbor.name}
+                  </a>
+                  <p className="mt-2 text-slate-600">{neighbor.whyOutbound}</p>
+                </li>
+              ))}
+            </ul>
           </section>
 
           {/* GEO hub: internal links (AEO + crawl paths) */}
@@ -576,94 +583,44 @@ export default function SpringValleyPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-3">
-                  Nearby neighborhoods
+                  Spring Valley ZIPs
                 </h3>
                 <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/neighborhoods/enterprise"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Enterprise &amp; Rhodes Ranch
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/paradise"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Paradise (Strip &amp; UNLV corridor)
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/summerlin"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Summerlin homes
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/mountains-edge"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Mountains Edge
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/centennial-hills"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Centennial Hills
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/the-ridges"
-                      className="text-blue-600 hover:underline"
-                    >
-                      The Ridges (luxury)
-                    </Link>
-                  </li>
+                  {SPRING_VALLEY_ZIPS.map((entry) => (
+                    <li key={entry.zip}>
+                      <Link
+                        href={`/zip/${entry.zip}`}
+                        className="text-blue-600 hover:underline"
+                      >
+                        {entry.zip} Spring Valley homes
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-3">
-                  More cities &amp; communities
+                  Outbound neighbors
                 </h3>
                 <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/neighborhoods/henderson"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Henderson real estate
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/green-valley"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Green Valley
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/neighborhoods/north-las-vegas"
-                      className="text-blue-600 hover:underline"
-                    >
-                      North Las Vegas
-                    </Link>
-                  </li>
+                  {SPRING_VALLEY_OUTBOUND_NEIGHBORS.map((neighbor) => (
+                    <li key={neighbor.href}>
+                      <a
+                        href={neighbor.href}
+                        className="text-blue-600 hover:underline"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {neighbor.name}
+                      </a>
+                    </li>
+                  ))}
                   <li>
                     <Link
                       href="/neighborhoods"
                       className="text-blue-600 hover:underline"
                     >
-                      All Las Vegas neighborhoods
+                      All Spring Valley neighborhoods
                     </Link>
                   </li>
                 </ul>
@@ -728,29 +685,22 @@ export default function SpringValleyPage() {
 
           <section className="max-w-4xl mx-auto mb-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">
-              Explore more Las Vegas neighborhoods
+              Spring Valley neighborhoods and ZIPs
             </h2>
             <p className="text-center text-slate-600 mb-6">
-              Compare <strong>Spring Valley Las Vegas homes</strong> with{" "}
-              <Link
-                href="/neighborhoods/summerlin"
-                className="text-blue-600 hover:underline"
-              >
-                Summerlin
-              </Link>
-              ,{" "}
-              <Link
-                href="/neighborhoods/green-valley"
-                className="text-blue-600 hover:underline"
-              >
-                Green Valley
-              </Link>
-              , or{" "}
+              See every in-boundary pocket on the{" "}
               <Link
                 href="/neighborhoods"
                 className="text-blue-600 hover:underline"
               >
-                view all neighborhoods
+                Spring Valley neighborhoods hub
+              </Link>
+              , or start with{" "}
+              <Link
+                href="/neighborhoods/spanish-trail"
+                className="text-blue-600 hover:underline"
+              >
+                Spanish Trail
               </Link>
               .
             </p>

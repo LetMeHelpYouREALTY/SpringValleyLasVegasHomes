@@ -33,7 +33,8 @@ export default function Footer() {
           <div>
             <h3 className="text-sm tracking-luxury mb-4">Dr. Jan Duffy</h3>
             <p className="text-neutral-600 mb-6 text-sm normal-case tracking-normal font-light leading-relaxed">
-              {seoPrimaryKeyword}, Las Vegas, Henderson, and Summerlin.
+              {seoPrimaryKeyword} inside unincorporated Clark County—Sahara
+              Avenue, Decatur Boulevard, Warm Springs Road, and Hualapai Way.
               Berkshire Hathaway HomeServices Nevada Properties.
             </p>
             <div className="flex space-x-3">

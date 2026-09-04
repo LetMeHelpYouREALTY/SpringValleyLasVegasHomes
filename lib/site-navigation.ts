@@ -47,8 +47,11 @@ export const navbarServiceLinks: InternalNavLink[] = [
 /** Footer column: quick links (order = priority for users + crawlers) */
 export const footerQuickLinks: InternalNavLink[] = [
   { href: "/neighborhoods/spring-valley", label: seoPrimaryKeyword },
-  { href: "/neighborhoods", label: "Neighborhoods" },
-  { href: "/neighborhoods/paradise", label: "Paradise NV homes near the Strip" },
+  { href: "/neighborhoods", label: "Spring Valley neighborhoods" },
+  {
+    href: "/neighborhoods/spanish-trail",
+    label: "Spanish Trail Spring Valley homes",
+  },
   { href: "/las-vegas-zip-code-map", label: "Las Vegas zip code map" },
   { href: "/why-berkshire-hathaway", label: "Why Berkshire Hathaway" },
   { href: "/market-report", label: "Las Vegas housing market report" },
@@ -60,11 +63,13 @@ export const footerQuickLinks: InternalNavLink[] = [
 /** Footer column: services */
 export const footerServiceLinks: InternalNavLink[] = [
   { href: "/buyers", label: "Home buying in Las Vegas" },
-  { href: "/buyers/california-relocator", label: "California to Las Vegas relocation" },
+  {
+    href: "/buyers/california-relocator",
+    label: "California to Las Vegas relocation",
+  },
   { href: "/sellers", label: "Selling your Las Vegas home" },
   { href: "/luxury-homes", label: "Luxury homes" },
   { href: "/55-plus-communities", label: "55+ communities" },
-  { href: "/55-plus-communities/sun-city-summerlin", label: "Sun City Summerlin homes" },
   { href: "/new-construction", label: "New construction homes" },
   { href: "/market-insights", label: "Market insights" },
   { href: "/google-business", label: "Google Business Profile" },
@@ -76,11 +81,13 @@ export const footerServiceLinks: InternalNavLink[] = [
  * Keep list focused; avoid noisy duplicates with identical destinations.
  */
 export const sitelinkStructuredDataNav: InternalNavLink[] = [
-  { href: "/listings", label: "Homes for sale — Las Vegas and Henderson" },
-  { href: "/neighborhoods", label: "Las Vegas area neighborhoods" },
+  { href: "/listings", label: "Spring Valley homes for sale" },
+  { href: "/neighborhoods", label: "Spring Valley neighborhoods" },
   { href: "/neighborhoods/spring-valley", label: `${seoPrimaryKeyword} guide` },
-  { href: "/neighborhoods/paradise", label: "Paradise NV homes near Strip and UNLV" },
-  { href: "/55-plus-communities/sun-city-summerlin", label: "Sun City Summerlin 55+ homes" },
+  {
+    href: "/neighborhoods/spanish-trail",
+    label: "Spanish Trail Spring Valley homes",
+  },
   { href: "/buyers", label: "Home buying resources" },
   { href: "/sellers", label: "Home selling resources" },
   { href: "/showing", label: "Schedule a home showing" },
