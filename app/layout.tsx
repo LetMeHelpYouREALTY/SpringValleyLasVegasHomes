@@ -16,6 +16,13 @@ const VercelAnalytics = dynamic(
     import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
   { ssr: false },
 );
+const SpeedInsights = dynamic(
+  () =>
+    import("@vercel/speed-insights/next").then((m) => ({
+      default: m.SpeedInsights,
+    })),
+  { ssr: false },
+);
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateRealEstateAgentSchema,
@@ -163,6 +170,7 @@ export default function RootLayout({
         <AIChatWidget />
         <CalendlyBadge />
         <VercelAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );
