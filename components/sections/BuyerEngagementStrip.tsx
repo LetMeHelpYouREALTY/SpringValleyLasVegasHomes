@@ -20,7 +20,7 @@ export default function BuyerEngagementStrip({
       icon: Search,
     },
     {
-      href: "/neighborhoods/spring-valley",
+      href: "/",
       label: "Spring Valley",
       sub: "Homes & local guide",
       icon: Home,
@@ -38,7 +38,7 @@ export default function BuyerEngagementStrip({
       icon: BookOpen,
     },
     {
-      href: "/market-insights/kcm-blog",
+      href: "/market-report",
       label: "Market articles",
       sub: "KCM weekly feed",
       icon: Newspaper,
@@ -64,7 +64,9 @@ export default function BuyerEngagementStrip({
               <span className="mb-2 rounded-full bg-blue-50 p-2.5 text-blue-600 group-hover:bg-blue-100">
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
-              <span className="font-semibold text-slate-900 text-sm md:text-base">{label}</span>
+              <span className="font-semibold text-slate-900 text-sm md:text-base">
+                {label}
+              </span>
               <span className="mt-0.5 text-xs text-slate-500">{sub}</span>
             </Link>
           ))}

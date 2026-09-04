@@ -24,22 +24,33 @@ export default function HeroSectionInteractive({
       <div className="flex h-full flex-col items-center justify-center px-4 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           <span className="block">{headlinePrimary}</span>
-          <span className="block text-blue-400 mt-1">{headlineSecondary}</span>
+          {headlineSecondary ? (
+            <span className="block text-blue-400 mt-1">
+              {headlineSecondary}
+            </span>
+          ) : null}
         </h1>
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">{intro}</p>
+        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+          {intro}
+        </p>
 
         <p className="mb-3 max-w-xl text-center text-sm font-medium text-white/95 md:text-base">
-          Search live MLS homes by city, zip, or neighborhood—results update as you type.
+          Search live MLS homes by city, zip, or neighborhood—results update as
+          you type.
         </p>
         <RealScoutSimpleSearch className="mb-4 max-w-2xl py-0" />
 
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-white/90 text-sm">
           <div className="flex items-center gap-2">
-            <span className="font-semibold">{agentStats.transactionsClosed}+</span>
+            <span className="font-semibold">
+              {agentStats.transactionsClosed}+
+            </span>
             <span>Properties Sold</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-semibold">Since {agentStats.servingSince}</span>
+            <span className="font-semibold">
+              Since {agentStats.servingSince}
+            </span>
             <span>Serving Las Vegas</span>
           </div>
           <div className="flex items-center gap-2">

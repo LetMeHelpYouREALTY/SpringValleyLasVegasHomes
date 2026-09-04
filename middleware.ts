@@ -21,9 +21,28 @@ const APEX_HOST = "springvalleylasvegashomes.com";
 const ZIP_PATHS = new Set(["/search", "/contact"]);
 const EMBED_QUERY_KEYS = ["embed_domain", "embed_type"];
 
+const GONE_PATHS = new Set([
+  "/neighborhoods/paradise",
+  "/neighborhoods/southern-highlands",
+]);
+
+function normalizePathname(pathname: string): string {
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    return pathname.slice(0, -1);
+  }
+  return pathname;
+}
+
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
   const { pathname, searchParams } = request.nextUrl;
+
+  if (GONE_PATHS.has(normalizePathname(pathname))) {
+    return new NextResponse("Gone", {
+      status: 410,
+      headers: { "content-type": "text/plain; charset=utf-8" },
+    });
+  }
 
   // Apex → www (permanent). Covers https://apex; http://apex is usually
   // upgraded to https by the platform first, then this hop runs.

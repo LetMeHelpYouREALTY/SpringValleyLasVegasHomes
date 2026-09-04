@@ -84,14 +84,15 @@ export function KcmFeedSection({
     locale === "en" ? (
       <p className="text-center text-slate-700 max-w-3xl mx-auto mb-8 text-sm md:text-base">
         For{" "}
-        <Link
-          href="/neighborhoods/spring-valley"
-          className="text-blue-600 font-medium hover:underline"
-        >
+        <Link href="/" className="text-blue-600 font-medium hover:underline">
           Spring Valley
         </Link>
-        , Henderson, and the Las Vegas Valley, use these national themes as context—then{" "}
-        <Link href="/contact" className="text-blue-600 font-medium hover:underline">
+        , Henderson, and the Las Vegas Valley, use these national themes as
+        context—then{" "}
+        <Link
+          href="/contact"
+          className="text-blue-600 font-medium hover:underline"
+        >
           talk with your local agent
         </Link>{" "}
         about price, neighborhood, and negotiation.
@@ -99,14 +100,15 @@ export function KcmFeedSection({
     ) : (
       <p className="text-center text-slate-700 max-w-3xl mx-auto mb-8 text-sm md:text-base">
         En{" "}
-        <Link
-          href="/neighborhoods/spring-valley"
-          className="text-blue-600 font-medium hover:underline"
-        >
+        <Link href="/" className="text-blue-600 font-medium hover:underline">
           Spring Valley
         </Link>
-        , Henderson y el valle de Las Vegas, use estos temas como contexto nacional y{" "}
-        <Link href="/contact" className="text-blue-600 font-medium hover:underline">
+        , Henderson y el valle de Las Vegas, use estos temas como contexto
+        nacional y{" "}
+        <Link
+          href="/contact"
+          className="text-blue-600 font-medium hover:underline"
+        >
           hable con su agente local
         </Link>{" "}
         para aplicarlos a su precio, vecindario y negociación.
@@ -163,7 +165,9 @@ export function KcmFeedSection({
                     </time>
                   ) : null}
                   {item.excerpt ? (
-                    <p className="mt-2 text-sm text-slate-600 line-clamp-4">{item.excerpt}</p>
+                    <p className="mt-2 text-sm text-slate-600 line-clamp-4">
+                      {item.excerpt}
+                    </p>
                   ) : null}
                   <span className="mt-auto pt-3 text-sm font-medium text-blue-600">
                     {locale === "en" ? "Read on KCM →" : "Leer en KCM →"}

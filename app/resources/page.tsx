@@ -2,7 +2,14 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { BookOpen, MapPin, LineChart, Home, Phone, DollarSign } from "lucide-react";
+import {
+  BookOpen,
+  MapPin,
+  LineChart,
+  Home,
+  Phone,
+  DollarSign,
+} from "lucide-react";
 import { agentInfo } from "@/lib/site-config";
 import { metaDescriptionWithKeyword, seoPrimaryKeyword } from "@/lib/seo";
 
@@ -19,7 +26,7 @@ export const metadata: Metadata = {
 
 const cards = [
   {
-    href: "/neighborhoods/spring-valley",
+    href: "/",
     title: "Spring Valley neighborhood guide",
     body: `Deep dive on ${seoPrimaryKeyword}, west valley context, and FAQs before you tour.`,
     icon: MapPin,
@@ -37,7 +44,7 @@ const cards = [
     icon: LineChart,
   },
   {
-    href: "/neighborhoods/spring-valley/property-taxes",
+    href: "/guides/property-taxes",
     title: "Spring Valley property taxes",
     body: "Effective rate context, illustrative calculator, and Clark County Assessor resources—not tax advice.",
     icon: DollarSign,
@@ -65,9 +72,9 @@ export default function ResourcesPage() {
               {seoPrimaryKeyword} — tools &amp; guides
             </h1>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Start with the Spring Valley guide, search listings, review the market, then reach out for
-              a personalized plan with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada
-              Properties.
+              Start with the Spring Valley guide, search listings, review the
+              market, then reach out for a personalized plan with Dr. Jan Duffy
+              at Berkshire Hathaway HomeServices Nevada Properties.
             </p>
           </header>
 
@@ -91,13 +98,15 @@ export default function ResourcesPage() {
           </div>
 
           <section className="mt-14 bg-slate-50 rounded-xl p-8 border border-slate-100">
-            <h2 className="text-lg font-bold text-slate-900 mb-2">More topics</h2>
+            <h2 className="text-lg font-bold text-slate-900 mb-2">
+              More topics
+            </h2>
             <ul className="flex flex-wrap gap-3 text-sm">
               {[
                 ["/buyers", "Buyers"],
                 ["/sellers", "Sellers"],
                 ["/home-valuation", "Home valuation"],
-                ["/luxury-homes", "Luxury homes"],
+                ["/guides", "Guides"],
                 ["/55-plus-communities", "55+ communities"],
                 ["/faq", "FAQ"],
               ].map(([href, label]) => (

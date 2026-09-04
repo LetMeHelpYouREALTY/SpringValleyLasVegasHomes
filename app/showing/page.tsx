@@ -134,8 +134,9 @@ export default function ShowingPage() {
             Schedule a home showing in Las Vegas
           </h1>
           <p className="mb-8 max-w-3xl text-lg text-slate-600">
-            Book a private showing for Spring Valley, Summerlin, Henderson, and Las Vegas Valley
-            homes with {agentInfo.name}, REALTOR® at {officeInfo.name}. Prefer to call?{" "}
+            Book a private showing for Spring Valley, Summerlin, Henderson, and
+            Las Vegas Valley homes with {agentInfo.name}, REALTOR® at{" "}
+            {officeInfo.name}. Prefer to call?{" "}
             <a
               href={agentInfo.phoneTel}
               className="font-semibold text-blue-600 hover:underline"
@@ -164,7 +165,8 @@ export default function ShowingPage() {
             <div className="bg-blue-600 px-4 py-4 text-center text-white">
               <h2 className="text-2xl font-bold">Book your showing</h2>
               <p className="mt-1 text-sm text-blue-100">
-                Inline scheduler — same calendar used for private tours and consultations
+                Inline scheduler — same calendar used for private tours and
+                consultations
               </p>
             </div>
             <CalendlyWidget url={CALENDLY_SHOWING_URL} height="700px" />
@@ -177,8 +179,12 @@ export default function ShowingPage() {
                 Before you tour
               </h2>
               <ul className="space-y-2 text-sm text-slate-700">
-                <li>Browse live inventory on our{" "}
-                  <Link href="/listings" className="font-medium text-blue-600 hover:underline">
+                <li>
+                  Browse live inventory on our{" "}
+                  <Link
+                    href="/listings"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
                     MLS listings
                   </Link>{" "}
                   page.
@@ -186,7 +192,7 @@ export default function ShowingPage() {
                 <li>
                   Explore{" "}
                   <Link
-                    href="/neighborhoods/spring-valley"
+                    href="/"
                     className="font-medium text-blue-600 hover:underline"
                   >
                     Spring Valley
@@ -195,7 +201,10 @@ export default function ShowingPage() {
                 </li>
                 <li>
                   Relocating? Read our{" "}
-                  <Link href="/relocation" className="font-medium text-blue-600 hover:underline">
+                  <Link
+                    href="/relocation"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
                     relocation guide
                   </Link>
                   .
@@ -226,7 +235,10 @@ export default function ShowingPage() {
           </div>
 
           <section aria-labelledby="showing-faq-heading" className="mb-8">
-            <h2 id="showing-faq-heading" className="mb-4 text-2xl font-bold text-slate-900">
+            <h2
+              id="showing-faq-heading"
+              className="mb-4 text-2xl font-bold text-slate-900"
+            >
               Showing FAQs
             </h2>
             <dl className="space-y-4">
@@ -235,8 +247,8 @@ export default function ShowingPage() {
                   How do I schedule a home showing in Las Vegas?
                 </dt>
                 <dd className="mt-1 text-sm text-slate-600">
-                  Use the calendar above or call {agentInfo.phone}. Share the homes or areas you
-                  want to see and we will confirm access.
+                  Use the calendar above or call {agentInfo.phone}. Share the
+                  homes or areas you want to see and we will confirm access.
                 </dd>
               </div>
               <div className="rounded-lg border border-slate-200 p-4">
@@ -244,8 +256,9 @@ export default function ShowingPage() {
                   Do I need a pre-approval before touring homes?
                 </dt>
                 <dd className="mt-1 text-sm text-slate-600">
-                  Pre-approval is strongly recommended for occupied homes and strong offers. We can
-                  still plan early tours while financing is in progress.
+                  Pre-approval is strongly recommended for occupied homes and
+                  strong offers. We can still plan early tours while financing
+                  is in progress.
                 </dd>
               </div>
               <div className="rounded-lg border border-slate-200 p-4">
@@ -253,8 +266,8 @@ export default function ShowingPage() {
                   Can I tour Spring Valley and Summerlin homes in one day?
                 </dt>
                 <dd className="mt-1 text-sm text-slate-600">
-                  Yes. We build efficient routes across Spring Valley, Summerlin, Henderson, and
-                  nearby communities.
+                  Yes. We build efficient routes across Spring Valley,
+                  Summerlin, Henderson, and nearby communities.
                 </dd>
               </div>
             </dl>

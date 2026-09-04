@@ -20,14 +20,17 @@ export default function ServiceAreaMapSection() {
             Where we help buyers & sellers
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed">
-            Explore Spring Valley, the west valley, and the wider Las Vegas area—then use search
-            above or{" "}
-            <Link href="/contact" className="text-blue-600 font-semibold hover:underline">
+            Explore Spring Valley, the west valley, and the wider Las Vegas
+            area—then use search above or{" "}
+            <Link
+              href="/contact"
+              className="text-blue-600 font-semibold hover:underline"
+            >
               get in touch
             </Link>
             . For schools, pockets, and west-side context, read the{" "}
             <Link
-              href="/neighborhoods/spring-valley"
+              href="/"
               className="text-blue-600 font-semibold hover:underline"
             >
               {seoPrimaryKeyword} guide
