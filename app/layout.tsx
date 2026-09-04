@@ -13,7 +13,7 @@ const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), {
 });
 const VercelAnalytics = dynamic(
   () =>
-    import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
+    import("@vercel/analytics/next").then((m) => ({ default: m.Analytics })),
   { ssr: false },
 );
 import SchemaScript from "@/components/SchemaScript";
