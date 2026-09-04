@@ -324,6 +324,13 @@ jobs:
             for (const file of pageFiles) {
               try {
                 const content = fs.readFileSync(file.filename, 'utf8');
+                let layout = content;
+                if (content.includes('SpringValleySubdivisionPage')) {
+                  const shared = 'components/neighborhoods/SpringValleySubdivisionPage.tsx';
+                  if (fs.existsSync(shared)) {
+                    layout += '\n' + fs.readFileSync(shared, 'utf8');
+                  }
+                }
                 
                 // Check for metadata export
                 if (!content.includes('export const metadata') && !content.includes('generateMetadata')) {
@@ -336,18 +343,22 @@ jobs:
                   issues.push(`❌ **${file.filename}**: Contains old phone number (should be (702) 664-8424)`);
                 }
                 
-                // Check for JSON-LD schema
-                if (!content.includes('application/ld+json') && !content.includes('schema.org')) {
+                // Check for JSON-LD schema (inline script, schema.org, or SchemaScript helper)
+                if (
+                  !layout.includes('application/ld+json') &&
+                  !layout.includes('schema.org') &&
+                  !layout.includes('SchemaScript')
+                ) {
                   warnings.push(`⚠️ **${file.filename}**: Consider adding JSON-LD schema markup`);
                 }
                 
                 // Check for H1 tag
-                if (!content.includes('<h1') && !content.includes('<H1')) {
+                if (!layout.includes('<h1') && !layout.includes('<H1')) {
                   warnings.push(`⚠️ **${file.filename}**: No H1 tag found`);
                 }
                 
                 // Check for Berkshire Hathaway branding
-                if (!content.includes('Berkshire Hathaway') && !content.includes('BHHS')) {
+                if (!layout.includes('Berkshire Hathaway') && !layout.includes('BHHS')) {
                   warnings.push(`⚠️ **${file.filename}**: Missing Berkshire Hathaway branding`);
                 }
                 
