@@ -1,0 +1,12 @@
+# Generated / vendor / non-app trees — CI format check uses the same ignore list
+.agent/**
+.cursor/**
+.next/**
+node_modules/**
+coverage/**
+.vercel/**
+public/**
+workers/**
+*.md
+pnpm-lock.yaml
+package-lock.json

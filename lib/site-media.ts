@@ -1,18 +1,24 @@
 /**
- * Site media: Cloudflare Images IDs (optional) + local fallbacks under /public.
- * Set NEXT_PUBLIC_CF_IMAGE_*_ID in Vercel after uploading assets to Cloudflare Images.
+ * Site media: Cloudflare Images is the primary CDN; git JPEGs under /public
+ * are backups for local/preview when `NEXT_PUBLIC_CF_IMAGE_*_ID` is unset.
  *
+ * Set those IDs in Vercel after `scripts/upload-heading-images-to-cloudflare.mjs`.
  * Uses direct `process.env.NEXT_PUBLIC_*` reads so Next.js can inline values at build time.
  */
 
 import { siteConfig } from "@/lib/site-config";
 import { cfImageUrl, isCfDeliveryUrl } from "@/lib/cf-image-delivery";
+import {
+  headingCommunityAssets,
+  headingFeaturedAssets,
+  headingHeroAssets,
+  headingWorkWithMeAsset,
+} from "@/lib/heading-images";
 
 /** Default variant names — create matching variants in Cloudflare dashboard (or use `public`). */
 const V = {
   public: process.env.NEXT_PUBLIC_CF_VARIANT_PUBLIC?.trim() || "public",
   hero: process.env.NEXT_PUBLIC_CF_VARIANT_HERO?.trim() || "public",
-  avatar: process.env.NEXT_PUBLIC_CF_VARIANT_AVATAR?.trim() || "public",
 } as const;
 
 function resolveCfOrLocal(
@@ -24,7 +30,9 @@ function resolveCfOrLocal(
   if (id) {
     return cfImageUrl(id, variant);
   }
-  return localPublicPath.startsWith("/") ? localPublicPath : `/${localPublicPath}`;
+  return localPublicPath.startsWith("/")
+    ? localPublicPath
+    : `/${localPublicPath}`;
 }
 
 /** Absolute URL for JSON-LD / Open Graph (same-origin or imagedelivery). */
@@ -34,18 +42,39 @@ export function absoluteMediaUrl(src: string): string {
   return `${siteConfig.url}${path}`;
 }
 
-/** Dr. Jan Duffy headshot — `next/image` src (local path or Cloudflare delivery URL). */
-export const agentHeadshotSrc = resolveCfOrLocal(
-  process.env.NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID,
-  "/images/dr-jan-duffy.jpg",
-  V.public,
-);
+/**
+ * Dr. Jan Duffy headshot — rectangular 3:4 portrait (gold circular frame removed).
+ * Local JPEG until a matching Cloudflare Images upload exists. Do not point
+ * `NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID` at the legacy circular badge.
+ */
+export const agentHeadshotSrc = "/images/dr-jan-duffy.jpg";
 
-/** Hero background rotation (same order as previous HeroSection). */
+/**
+ * H1 hero rotation — Spring Valley pool home, Spanish Trail, Desert Breeze Park.
+ * Cloudflare IDs override git JPEGs when set.
+ */
 export const heroBackgroundSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID,
+    headingHeroAssets[0].local,
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID,
+    headingHeroAssets[1].local,
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID,
+    headingHeroAssets[2].local,
+    V.hero,
+  ),
+];
+
+export const heroBackgroundAlts: [string, string, string] = [
+  headingHeroAssets[0].alt,
+  headingHeroAssets[1].alt,
+  headingHeroAssets[2].alt,
 ];
 
 /**
@@ -59,28 +88,76 @@ export const springValleyMarketingOgSrc = heroBackgroundSrcs[0];
  */
 export const mapHubOgImageSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_OG_MAP_HUB_ID,
-  "/Image/hero_bg_1.jpg",
+  headingHeroAssets[0].local,
   V.hero,
 );
 
-/** Featured properties cards (same imagery as hero in current site). */
+/** H2 realtor-service cards: Buy, Search MLS, Sell. */
 export const featuredPropertyImageSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID,
+    headingFeaturedAssets[0].local,
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID,
+    headingFeaturedAssets[1].local,
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID,
+    headingFeaturedAssets[2].local,
+    V.hero,
+  ),
 ];
 
-/** Review section avatar placeholders. */
-export const reviewAvatarSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_1_ID, "/Image/person1.jpeg", V.avatar),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_2_ID, "/Image/person_2-min.jpg", V.avatar),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_3_ID, "/Image/person_4-min.jpg", V.avatar),
+export const featuredPropertyImageAlts: [string, string, string] = [
+  headingFeaturedAssets[0].alt,
+  headingFeaturedAssets[1].alt,
+  headingFeaturedAssets[2].alt,
 ];
+
+/** H3 community tiles: Spanish Trail, Desert Breeze, Chinatown / Spring Mountain. */
+export const featuredCommunityImageSrcs: [string, string, string] = [
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_COMMUNITY_1_ID,
+    headingCommunityAssets[0].local,
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_COMMUNITY_2_ID,
+    headingCommunityAssets[1].local,
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_COMMUNITY_3_ID,
+    headingCommunityAssets[2].local,
+    V.hero,
+  ),
+];
+
+export const featuredCommunityTiles = headingCommunityAssets.map(
+  (asset, index) => ({
+    name: asset.name,
+    href: asset.href,
+    image: featuredCommunityImageSrcs[index],
+    alt: asset.alt,
+  }),
+);
+
+/** H2 Work With Me full-bleed photo. */
+export const workWithMeImageSrc = resolveCfOrLocal(
+  process.env.NEXT_PUBLIC_CF_IMAGE_WORK_WITH_ME_ID,
+  headingWorkWithMeAsset.local,
+  V.hero,
+);
+
+export const workWithMeImageAlt = headingWorkWithMeAsset.alt;
 
 /** Listing detail placeholder when API data is not wired. */
 export const listingPlaceholderSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_LISTING_PLACEHOLDER_ID,
-  "/Image/hero_bg_1.jpg",
+  headingFeaturedAssets[0].local,
   V.public,
 );
 
@@ -98,12 +175,14 @@ const faviconAppleVariant =
  * Absolute `imagedelivery.net` URL — Google Search may show it in results; keep URL stable.
  */
 export const faviconSrc = cfImageUrl(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() || DEFAULT_CF_IMAGE_FAVICON_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() ||
+    DEFAULT_CF_IMAGE_FAVICON_ID,
   faviconVariant,
 );
 
 /** Optional larger touch icon; defaults to same variant as `faviconSrc` if unset. */
 export const faviconAppleSrc = cfImageUrl(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() || DEFAULT_CF_IMAGE_FAVICON_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() ||
+    DEFAULT_CF_IMAGE_FAVICON_ID,
   faviconAppleVariant,
 );

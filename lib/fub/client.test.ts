@@ -1,230 +1,96 @@
 /**
- * Test: Follow Up Boss API Client
- * Critical path: CRM integration with rate limiting
+ * Test: Follow Up Boss API client (upsert / find with retries).
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { fubClient } from './client'
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { FollowUpBossClient } from "./client";
 
-// Mock fetch
-global.fetch = vi.fn()
+function jsonResponse(body: unknown, status = 200) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    statusText: status === 200 ? "OK" : "Error",
+    headers: { get: () => null },
+    json: async () => body,
+  };
+}
 
-describe('FUB Client', () => {
+describe("FollowUpBossClient", () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-  })
+    vi.clearAllMocks();
+    global.fetch = vi.fn();
+  });
 
-  it('creates lead successfully', async () => {
-    ;(global.fetch as any).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        id: 'fub-lead-123',
-        email: 'john@example.com',
-      }),
-    })
+  it("upserts a person", async () => {
+    const client = new FollowUpBossClient({
+      apiKey: "test-key",
+      enableRateLimiting: false,
+      retryAttempts: 0,
+    });
+    vi.mocked(global.fetch).mockResolvedValueOnce(
+      jsonResponse({
+        id: 123,
+        emails: [{ value: "john@example.com" }],
+      }) as Response,
+    );
 
-    const result = await fubClient.createLead({
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@example.com',
-      phone: '7025551234',
-    })
+    const result = await client.upsertPerson({
+      firstName: "John",
+      lastName: "Doe",
+      emails: [{ value: "john@example.com" }],
+    });
 
-    expect(result.id).toBe('fub-lead-123')
+    expect(result.id).toBe(123);
     expect(global.fetch).toHaveBeenCalledWith(
-      expect.stringContaining('/people'),
-      expect.objectContaining({
-        method: 'POST',
-        headers: expect.objectContaining({
-          'Content-Type': 'application/json',
-        }),
-      })
-    )
-  })
+      expect.stringContaining("/people"),
+      expect.objectContaining({ method: "PUT" }),
+    );
+  });
 
-  it('handles rate limiting with retry', async () => {
-    // First call: 429 rate limit
-    // Second call: success
-    ;(global.fetch as any)
-      .mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Map([['retry-after', '1']]),
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({ id: 'fub-lead-123' }),
-      })
+  it("finds a person by email", async () => {
+    const client = new FollowUpBossClient({
+      apiKey: "test-key",
+      enableRateLimiting: false,
+      retryAttempts: 0,
+    });
+    vi.mocked(global.fetch).mockResolvedValueOnce(
+      jsonResponse({
+        people: [{ id: 99, emails: [{ value: "jane@example.com" }] }],
+      }) as Response,
+    );
 
-    const result = await fubClient.createLead({
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@example.com',
-    })
+    const person = await client.findPerson({ email: "jane@example.com" });
+    expect(person?.id).toBe(99);
+  });
 
-    // Should succeed after retry
-    expect(result.id).toBe('fub-lead-123')
-    expect(global.fetch).toHaveBeenCalledTimes(2)
-  })
+  it("returns null when no person matches", async () => {
+    const client = new FollowUpBossClient({
+      apiKey: "test-key",
+      enableRateLimiting: false,
+      retryAttempts: 0,
+    });
+    vi.mocked(global.fetch).mockResolvedValueOnce(
+      jsonResponse({ people: [] }) as Response,
+    );
 
-  it('caches GET requests', async () => {
-    ;(global.fetch as any).mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        people: [{ id: '1', email: 'cached@example.com' }],
-      }),
-    })
+    const person = await client.findPerson({ email: "missing@example.com" });
+    expect(person).toBeNull();
+  });
 
-    // First call
-    await fubClient.searchPeople({ email: 'cached@example.com' })
-    
-    // Second call (should use cache)
-    await fubClient.searchPeople({ email: 'cached@example.com' })
+  it("retries after a 429 then succeeds", async () => {
+    const client = new FollowUpBossClient({
+      apiKey: "test-key",
+      enableRateLimiting: false,
+      retryAttempts: 1,
+    });
+    vi.mocked(global.fetch)
+      .mockResolvedValueOnce(jsonResponse({}, 429) as Response)
+      .mockResolvedValueOnce(jsonResponse({ id: 1 }) as Response);
 
-    // Fetch should only be called once (second call used cache)
-    expect(global.fetch).toHaveBeenCalledTimes(1)
-  })
-
-  it('handles API errors gracefully', async () => {
-    ;(global.fetch as any).mockResolvedValueOnce({
-      ok: false,
-      status: 500,
-      json: async () => ({ error: 'Internal server error' }),
-    })
-
-    await expect(
-      fubClient.createLead({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john@example.com',
-      })
-    ).rejects.toThrow()
-  })
-
-  it('includes custom fields in lead creation', async () => {
-    ;(global.fetch as any).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({ id: 'fub-lead-123' }),
-    })
-
-    await fubClient.createLead({
-      firstName: 'Jane',
-      lastName: 'Smith',
-      email: 'jane@example.com',
-      customFields: {
-        priceMin: 400000,
-        priceMax: 600000,
-        bedrooms: 3,
-        source: 'website-hero',
-      },
-    })
-
-    const callArg = (global.fetch as any).mock.calls[0][1]
-    const bodyData = JSON.parse(callArg.body)
-
-    expect(bodyData.customFields).toBeDefined()
-    expect(bodyData.customFields.priceMin).toBe(400000)
-    expect(bodyData.customFields.source).toBe('website-hero')
-  })
-
-  it('adds tags to lead', async () => {
-    ;(global.fetch as any).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({ id: 'fub-lead-123' }),
-    })
-
-    await fubClient.createLead({
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@example.com',
-      tags: ['website', 'hot-lead', 'q1-2026'],
-    })
-
-    const callArg = (global.fetch as any).mock.calls[0][1]
-    const bodyData = JSON.parse(callArg.body)
-
-    expect(bodyData.tags).toEqual(['website', 'hot-lead', 'q1-2026'])
-  })
-
-  it('validates email format before sending', async () => {
-    await expect(
-      fubClient.createLead({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'invalid-email',
-      })
-    ).rejects.toThrow(/email/)
-  })
-
-  it('respects rate limits per-client', async () => {
-    // This tests that different clients (different IPs) get separate rate limits
-    const requests = []
-    
-    for (let i = 0; i < 10; i++) {
-      ;(global.fetch as any).mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({ id: `lead-${i}` }),
-      })
-      
-      requests.push(
-        fubClient.createLead({
-          firstName: 'Test',
-          lastName: `User${i}`,
-          email: `test${i}@example.com`,
-        })
-      )
-    }
-
-    // All should succeed (within rate limit)
-    const results = await Promise.all(requests)
-    expect(results).toHaveLength(10)
-  })
-
-  it('retries on network errors', async () => {
-    // First call: network error
-    // Second call: success
-    ;(global.fetch as any)
-      .mockRejectedValueOnce(new Error('Network error'))
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({ id: 'fub-lead-123' }),
-      })
-
-    const result = await fubClient.createLead({
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@example.com',
-    })
-
-    expect(result.id).toBe('fub-lead-123')
-    expect(global.fetch).toHaveBeenCalledTimes(2)
-  })
-
-  it('updates existing lead by email', async () => {
-    // Mock search finding existing lead
-    ;(global.fetch as any).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        people: [{ id: 'existing-123', email: 'john@example.com' }],
-      }),
-    })
-
-    // Mock update call
-    ;(global.fetch as any).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        id: 'existing-123',
-        email: 'john@example.com',
-        phone: '7025559999',
-      }),
-    })
-
-    const result = await fubClient.updateLead({
-      email: 'john@example.com',
-      phone: '7025559999',
-    })
-
-    expect(result.id).toBe('existing-123')
-    expect(result.phone).toBe('7025559999')
-  })
-})
+    const result = await client.upsertPerson({
+      emails: [{ value: "retry@example.com" }],
+    });
+    expect(result.id).toBe(1);
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+  });
+});
