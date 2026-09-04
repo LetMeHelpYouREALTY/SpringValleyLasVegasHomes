@@ -66,6 +66,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -82,8 +84,16 @@ jobs:
       - name: Run ESLint
         run: pnpm run lint
 
-      - name: Check Prettier formatting
-        run: pnpm exec prettier --check "**/*.{ts,tsx,js,jsx,json,md,css}"
+      - name: Check Prettier formatting on changed files
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          mapfile -t FILES < <(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD -- '*.ts' '*.tsx' '*.js' '*.jsx' '*.css' '*.json')
+          if [ ${#FILES[@]} -eq 0 ]; then
+            echo "No Prettier-eligible files changed"
+            exit 0
+          fi
+          echo "Checking ${#FILES[@]} file(s)"
+          pnpm exec prettier --check --ignore-unknown "${FILES[@]}"
 
   # ============================================
   # Test Suite

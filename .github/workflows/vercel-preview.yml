@@ -40,6 +40,13 @@ jobs:
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
+      # Local Flask helpers (api/*.py + requirements.txt) are not production.
+      # Vercel still collects them as Python functions, which needs `uv` on PATH.
+      - name: Exclude local Flask helpers from Vercel Python runtime
+        run: |
+          rm -rf api
+          rm -f requirements.txt
+
       - name: Build Project Artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
