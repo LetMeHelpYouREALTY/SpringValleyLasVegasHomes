@@ -3,8 +3,6 @@ name: Cloudflare Pages Deployment
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 env:
   NODE_VERSION: "20"
@@ -59,14 +57,21 @@ jobs:
           NEXT_PUBLIC_REALSCOUT_AGENT_ID: ${{ secrets.NEXT_PUBLIC_REALSCOUT_AGENT_ID }}
 
       - name: Deploy to Cloudflare Pages
+        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy .vercel/output/static --project-name=${{ env.CF_PAGES_PROJECT }} --branch=${{ github.ref_name }}
 
+      - name: Skip Cloudflare deploy when secrets are missing
+        if: env.CLOUDFLARE_API_TOKEN == '' || env.CLOUDFLARE_ACCOUNT_ID == ''
+        run: |
+          echo "CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN are not set."
+          echo "Vercel is the primary host; skipping Cloudflare Pages deploy."
+
       - name: Comment PR (Cloudflare)
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
         uses: actions/github-script@v7
         with:
           script: |

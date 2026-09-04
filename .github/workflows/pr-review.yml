@@ -87,7 +87,7 @@ jobs:
       - name: Check Prettier formatting
         run: |
           BASE="origin/${{ github.base_ref }}"
-          git fetch origin "${{ github.base_ref }}" --depth=1
+          git fetch origin "${{ github.base_ref }}" --no-tags
           files=$(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD | grep -E '\.(ts|tsx|js|jsx|json|md|css)$' || true)
           existing=""
           while IFS= read -r file; do
