@@ -89,8 +89,8 @@ export default function SpringValleyHubContent() {
           <h3 className="mb-2 font-bold text-slate-900">Housing variety</h3>
           <p className="text-sm text-slate-600">
             Diverse product types across Spring Valley mean your search should
-            be filtered by price, beds, baths, and HOA—not just the word
-            “Spring Valley.”
+            be filtered by price, beds, baths, and HOA—not just the word “Spring
+            Valley.”
           </p>
         </div>
         <div className="rounded-xl border border-slate-100 bg-slate-50 p-6">
@@ -137,9 +137,10 @@ export default function SpringValleyHubContent() {
             <p className="text-sm leading-relaxed text-slate-700">
               Residential pockets along west Sahara and Charleston corridors mix
               older and newer stock with easy access to west valley shopping,
-              parks like <span className="whitespace-nowrap">Desert Breeze</span>
-              , and Red Rock views from select elevations. School zones and HOA
-              rules vary—always verify on the listing you like.
+              parks like{" "}
+              <span className="whitespace-nowrap">Desert Breeze</span>, and Red
+              Rock views from select elevations. School zones and HOA rules
+              vary—always verify on the listing you like.
             </p>
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -206,7 +207,10 @@ export default function SpringValleyHubContent() {
                 </a>
               </li>
               <li>
-                <Link href="/homes-for-sale" className="text-blue-600 hover:underline">
+                <Link
+                  href="/homes-for-sale"
+                  className="text-blue-600 hover:underline"
+                >
                   Spring Valley Nevada homes for sale (MLS)
                 </Link>
               </li>
@@ -224,7 +228,10 @@ export default function SpringValleyHubContent() {
                 </Link>
               </li>
               <li>
-                <Link href="/market-report" className="text-blue-600 hover:underline">
+                <Link
+                  href="/market-report"
+                  className="text-blue-600 hover:underline"
+                >
                   Las Vegas market report
                 </Link>
               </li>
@@ -310,7 +317,10 @@ export default function SpringValleyHubContent() {
                 </li>
               ))}
               <li>
-                <Link href="/neighborhoods" className="text-blue-600 hover:underline">
+                <Link
+                  href="/neighborhoods"
+                  className="text-blue-600 hover:underline"
+                >
                   Spring Valley subdivision index
                 </Link>
               </li>
