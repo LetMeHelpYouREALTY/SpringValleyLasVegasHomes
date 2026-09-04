@@ -2,7 +2,15 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { Shield, Users, Globe, Award, TrendingUp, CheckCircle, Phone } from "lucide-react";
+import {
+  Shield,
+  Users,
+  Globe,
+  Award,
+  TrendingUp,
+  CheckCircle,
+  Phone,
+} from "lucide-react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteMediaUrl, faviconSrc } from "@/lib/site-media";
@@ -58,9 +66,11 @@ export default function WhyBerkshireHathawayPage() {
               Why Choose Berkshire Hathaway HomeServices?
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              When you work with a <strong>Berkshire Hathaway HomeServices</strong> agent, you're
-              backed by a name synonymous with trust, ethical standards, and financial strength—the
-              same principles that built Warren Buffett's empire.
+              When you work with a{" "}
+              <strong>Berkshire Hathaway HomeServices</strong> agent, you're
+              backed by a name synonymous with trust, ethical standards, and
+              financial strength—the same principles that built Warren Buffett's
+              empire.
             </p>
           </div>
 
@@ -72,21 +82,24 @@ export default function WhyBerkshireHathawayPage() {
                   Backed by Warren Buffett's Legacy
                 </h2>
                 <p className="text-slate-300 mb-6">
-                  <strong>Berkshire Hathaway HomeServices</strong> is the only real estate brand
-                  backed by Berkshire Hathaway Inc., Warren Buffett's legendary holding company.
-                  This means unmatched financial stability and a commitment to ethical business
+                  <strong>Berkshire Hathaway HomeServices</strong> is the only
+                  real estate brand backed by Berkshire Hathaway Inc., Warren
+                  Buffett's legendary holding company. This means unmatched
+                  financial stability and a commitment to ethical business
                   practices that spans decades.
                 </p>
                 <p className="text-slate-300">
-                  When you see the Berkshire Hathaway name, you know you're working with
-                  professionals who uphold the highest standards in the industry.
+                  When you see the Berkshire Hathaway name, you know you're
+                  working with professionals who uphold the highest standards in
+                  the industry.
                 </p>
               </div>
               <div className="bg-slate-800 rounded-lg p-8 text-center">
                 <div className="text-6xl mb-4">🏛️</div>
                 <p className="text-2xl font-bold mb-2">Fortune #1</p>
                 <p className="text-slate-400">
-                  Berkshire Hathaway Inc. consistently ranks among the top companies in the world
+                  Berkshire Hathaway Inc. consistently ranks among the top
+                  companies in the world
                 </p>
               </div>
             </div>
@@ -102,10 +115,13 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Shield className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Unmatched Trust</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Unmatched Trust
+                </h3>
                 <p className="text-slate-600">
-                  The Berkshire Hathaway name represents integrity and reliability. Our agents
-                  uphold these values in every transaction.
+                  The Berkshire Hathaway name represents integrity and
+                  reliability. Our agents uphold these values in every
+                  transaction.
                 </p>
               </div>
 
@@ -113,10 +129,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Users className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Global Network</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Global Network
+                </h3>
                 <p className="text-slate-600">
-                  50,000+ agents worldwide means seamless referrals for relocations and connections
-                  to buyers from across the globe.
+                  50,000+ agents worldwide means seamless referrals for
+                  relocations and connections to buyers from across the globe.
                 </p>
               </div>
 
@@ -124,10 +142,13 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Globe className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">World-Class Marketing</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  World-Class Marketing
+                </h3>
                 <p className="text-slate-600">
-                  Your property gets exposure through the most recognized real estate brand in the
-                  world, reaching qualified buyers everywhere.
+                  Your property gets exposure through the most recognized real
+                  estate brand in the world, reaching qualified buyers
+                  everywhere.
                 </p>
               </div>
 
@@ -135,10 +156,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Award className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Ethical Standards</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Ethical Standards
+                </h3>
                 <p className="text-slate-600">
-                  BHHS agents adhere to strict ethical guidelines that go beyond industry
-                  requirements. Your interests always come first.
+                  BHHS agents adhere to strict ethical guidelines that go beyond
+                  industry requirements. Your interests always come first.
                 </p>
               </div>
 
@@ -146,10 +169,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <TrendingUp className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Financial Strength</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Financial Strength
+                </h3>
                 <p className="text-slate-600">
-                  Backed by one of the most financially secure companies in the world. Our stability
-                  means we'll be here for you long-term.
+                  Backed by one of the most financially secure companies in the
+                  world. Our stability means we'll be here for you long-term.
                 </p>
               </div>
 
@@ -157,10 +182,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <CheckCircle className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Proven Results</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Proven Results
+                </h3>
                 <p className="text-slate-600">
-                  BHHS Nevada Properties has helped thousands of families achieve their real estate
-                  goals in Southern Nevada.
+                  BHHS Nevada Properties has helped thousands of families
+                  achieve their real estate goals in Southern Nevada.
                 </p>
               </div>
             </div>
@@ -177,11 +204,15 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="text-blue-200">Agents Worldwide</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">1,500+</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">
+                  1,500+
+                </div>
                 <div className="text-blue-200">Offices Globally</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">$138B+</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">
+                  $138B+
+                </div>
                 <div className="text-blue-200">Sales Volume (2024)</div>
               </div>
               <div className="text-center">
@@ -199,10 +230,11 @@ export default function WhyBerkshireHathawayPage() {
                   Your Local BHHS Expert in Las Vegas
                 </h2>
                 <p className="text-lg text-slate-700 mb-6">
-                  Dr. Jan Duffy brings the power of <strong>Berkshire Hathaway HomeServices</strong>{" "}
-                  to Las Vegas, Henderson, Summerlin, and all of Southern Nevada. Serving the area 
-                  since 2008 with $127M+ in closed transactions, you get global brand strength
-                  with hometown expertise.
+                  Dr. Jan Duffy brings the power of{" "}
+                  <strong>Berkshire Hathaway HomeServices</strong> to Las Vegas,
+                  Henderson, Summerlin, and all of Southern Nevada. Serving the
+                  area since 2008 with $127M+ in closed transactions, you get
+                  global brand strength with hometown expertise.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
@@ -227,9 +259,11 @@ export default function WhyBerkshireHathawayPage() {
               </div>
               <div className="bg-slate-100 rounded-lg p-8">
                 <blockquote className="text-lg text-slate-700 italic mb-4">
-                  "When clients ask why they should choose a Berkshire Hathaway HomeServices agent,
-                  I tell them: you're not just getting me—you're getting a global network of 50,000
-                  agents, world-class marketing, and a brand that's synonymous with trust."
+                  "When clients ask why they should choose a Berkshire Hathaway
+                  HomeServices agent, I tell them: you're not just getting
+                  me—you're getting a global network of 50,000 agents,
+                  world-class marketing, and a brand that's synonymous with
+                  trust."
                 </blockquote>
                 <cite className="text-slate-900 font-semibold">
                   — Dr. Jan Duffy, BHHS Nevada Properties
@@ -276,7 +310,8 @@ export default function WhyBerkshireHathawayPage() {
               Experience the Berkshire Hathaway Difference
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Ready to work with the most trusted name in real estate? Contact Dr. Jan Duffy today.
+              Ready to work with the most trusted name in real estate? Contact
+              Dr. Jan Duffy today.
             </p>
             <a
               href="tel:+17026648424"
@@ -292,7 +327,9 @@ export default function WhyBerkshireHathawayPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <RealScoutListings />
       <Footer />

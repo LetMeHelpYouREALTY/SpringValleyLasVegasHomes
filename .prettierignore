@@ -1,0 +1,7 @@
+# Vendor skill copies and generated dumps — not part of app format gate
+.agent/**
+.agents/**
+.claude/**
+.cursor/skills/**
+.windsurf/**
+audit-report.json
