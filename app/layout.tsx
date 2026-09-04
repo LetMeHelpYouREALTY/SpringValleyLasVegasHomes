@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./luxury-theme.css";
 
 import React from "react";
 import type { Metadata, Viewport } from "next";
@@ -10,9 +11,12 @@ import { cn } from "lib/utils";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
 /** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
-const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), { ssr: false });
+const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), {
+  ssr: false,
+});
 const VercelAnalytics = dynamic(
-  () => import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
+  () =>
+    import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
   { ssr: false },
 );
 import SchemaScript from "@/components/SchemaScript";
@@ -94,13 +98,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#070604",
 };
 
 // Combined site-wide schemas using the schema utility
 const siteWideSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
-  generateWebSiteSchema()
+  generateWebSiteSchema(),
 );
 
 export default function RootLayout({
@@ -119,11 +123,19 @@ export default function RootLayout({
   })();
 
   return (
-    <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
+    <html
+      lang="en"
+      className="scroll-smooth antialiased"
+      style={{ colorScheme: "dark" }}
+    >
       <head>
-        <meta name="color-scheme" content="light" />
+        <meta name="color-scheme" content="dark" />
         {/* Early connections for third-party origins (reduces LCP / script latency) */}
-        <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://em.realscout.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         {homebotPrefetchOrigin ? (
           <link rel="dns-prefetch" href={homebotPrefetchOrigin} />
@@ -145,12 +157,12 @@ export default function RootLayout({
       <body
         className={cn(
           GeistSans.variable,
-          "antialiased bg-white text-sm md:text-base text-slate-800",
+          "antialiased bg-[#070604] text-sm md:text-base text-[#f6edd8]",
         )}
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[#12100c] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#f6edd8] focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#c9a227]"
         >
           Skip to main content
         </a>

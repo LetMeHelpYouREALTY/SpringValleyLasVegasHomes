@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
 import HeroSection from "@/components/sections/HeroSection";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import ComingSoonListingSection from "@/components/sections/ComingSoonListingSection";
 import ServiceAreaMapSection from "@/components/sections/ServiceAreaMapSection";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -10,7 +11,13 @@ import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Home as HomeIcon, TrendingUp, Shield, Users, Phone } from "lucide-react";
+import {
+  Home as HomeIcon,
+  TrendingUp,
+  Shield,
+  Users,
+  Phone,
+} from "lucide-react";
 import SchemaScript from "@/components/SchemaScript";
 import SiteBylineDate from "@/components/shared/SiteBylineDate";
 import {
@@ -23,8 +30,14 @@ import {
 import { homePageFaqs } from "@/lib/home-faqs";
 import { combineHomepageStructuredData } from "@/lib/schema";
 import { absoluteMediaUrl, heroBackgroundSrcs } from "@/lib/site-media";
+import { luxuryImages } from "@/lib/luxury-media";
+import LuxurySectionPhoto from "@/components/sections/LuxurySectionPhoto";
 import { ogTwitterImageFields } from "@/lib/og-image";
 import { homePageTitleAbsolute } from "@/lib/seo";
+import {
+  siblingCommunityLinks,
+  springValleySubdivisions,
+} from "@/lib/spring-valley-ia";
 
 const homePreferredImageUrl = absoluteMediaUrl(heroBackgroundSrcs[0]);
 const homeOgTwitter = ogTwitterImageFields(homePreferredImageUrl, {
@@ -74,7 +87,10 @@ export default function Home() {
       <SchemaScript schema={homeStructuredData} id="home-structured-data" />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
-        <HeroSection />
+        <HeroSection
+          headlinePrimary="Spring Valley Las Vegas Homes for Sale"
+          headlineSecondary=""
+        />
 
         <div
           className="border-b border-slate-200 bg-slate-50 py-2.5"
@@ -87,13 +103,23 @@ export default function Home() {
 
         <BuyerEngagementStrip />
 
+        <ComingSoonListingSection />
+
         <RealScoutListings />
 
         <ServiceAreaMapSection />
 
         {/* Berkshire Hathaway — copy aligned with site-config value props; details on /why-berkshire-hathaway */}
-        <section className="py-16 md:py-20 bg-white" aria-labelledby="bhhs-heading">
+        <section
+          className="py-16 md:py-20 bg-white"
+          aria-labelledby="bhhs-heading"
+        >
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.bhhs}
+              alt="Dark conference setting with gold light — Berkshire Hathaway HomeServices"
+              eyebrow="Berkshire Hathaway HomeServices"
+            />
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h2
                 id="bhhs-heading"
@@ -101,7 +127,9 @@ export default function Home() {
               >
                 The Berkshire Hathaway HomeServices difference
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed">{valuePropositions.main}</p>
+              <p className="text-lg text-slate-700 leading-relaxed">
+                {valuePropositions.main}
+              </p>
               <p className="mt-4">
                 <Link
                   href="/why-berkshire-hathaway"
@@ -119,8 +147,8 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Trusted Brand</h3>
                 <p className="text-slate-600 text-sm">
-                  Berkshire Hathaway HomeServices is the only major real estate brand backed by Warren
-                  Buffett&apos;s Berkshire Hathaway Inc.
+                  Berkshire Hathaway HomeServices is the only major real estate
+                  brand backed by Warren Buffett&apos;s Berkshire Hathaway Inc.
                 </p>
               </div>
               <div className="text-center p-6">
@@ -138,8 +166,8 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Market Expertise</h3>
                 <p className="text-slate-600 text-sm">
-                  Serving Las Vegas since {agentStats.servingSince} with {agentStats.volumeClosed} in
-                  closed transactions.
+                  Serving Las Vegas since {agentStats.servingSince} with{" "}
+                  {agentStats.volumeClosed} in closed transactions.
                 </p>
               </div>
               <div className="text-center p-6">
@@ -161,9 +189,10 @@ export default function Home() {
                 />
                 <div>
                   <blockquote className="text-lg text-slate-700 italic mb-4">
-                    &ldquo;When clients ask why they should choose a Berkshire Hathaway HomeServices
-                    agent, I tell them: you&apos;re not just getting me—you&apos;re getting a global
-                    network and a brand that&apos;s synonymous with trust.&rdquo;
+                    &ldquo;When clients ask why they should choose a Berkshire
+                    Hathaway HomeServices agent, I tell them: you&apos;re not
+                    just getting me—you&apos;re getting a global network and a
+                    brand that&apos;s synonymous with trust.&rdquo;
                   </blockquote>
                   <cite className="text-slate-900 font-semibold not-italic">
                     — Dr. Jan Duffy, BHHS Nevada Properties
@@ -175,22 +204,37 @@ export default function Home() {
         </section>
 
         {/* Market snapshot — figures from site-config `marketStats` (update with source of truth) */}
-        <section className="py-16 bg-slate-900 text-white" aria-labelledby="market-snapshot-heading">
+        <section
+          className="py-16 bg-slate-900 text-white"
+          aria-labelledby="market-snapshot-heading"
+        >
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.market}
+              alt="West Las Vegas Valley at dusk from Spring Valley"
+              eyebrow="Market snapshot"
+            />
             <div className="text-center mb-12">
-              <h2 id="market-snapshot-heading" className="text-3xl md:text-4xl font-bold mb-4">
+              <h2
+                id="market-snapshot-heading"
+                className="text-3xl md:text-4xl font-bold mb-4"
+              >
                 Las Vegas Real Estate Market | {marketStats.lastUpdated}
               </h2>
               <p className="text-slate-300">
-                Snapshot for general Las Vegas market context—see the full report for methodology and
-                the latest detail.
+                Snapshot for general Las Vegas market context—see the full
+                report for methodology and the latest detail.
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">{medianDisplay}</div>
+                <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
+                  {medianDisplay}
+                </div>
                 <div className="text-slate-300 text-sm">Median Home Price</div>
-                <div className="text-green-400 text-sm">{lv.yearOverYearChange} YoY</div>
+                <div className="text-green-400 text-sm">
+                  {lv.yearOverYearChange} YoY
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
@@ -212,8 +256,8 @@ export default function Home() {
               </div>
             </div>
             <p className="text-center text-slate-400 text-sm max-w-2xl mx-auto mt-6">
-              Not financial advice; figures are for general market context. For methodology and
-              detail, see the full report.
+              Not financial advice; figures are for general market context. For
+              methodology and detail, see the full report.
             </p>
             <div className="text-center mt-8">
               <Link
@@ -229,51 +273,47 @@ export default function Home() {
         {/* Neighborhoods Section */}
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.neighborhoods}
+              alt="Dusk streetscape in Spring Valley Las Vegas"
+              eyebrow="Subdivisions"
+            />
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Las Vegas Neighborhoods We Serve
+                Spring Valley Subdivisions
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Berkshire Hathaway HomeServices Nevada Properties covers all of Southern Nevada
+                Browse Spring Valley communities, then compare nearby valley
+                markets on their own sites
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
-              {(
-                [
-                  {
-                    name: "Spring Valley",
-                    detail: "Spring Valley Las Vegas homes",
-                    href: "/neighborhoods/spring-valley",
-                  },
-                  { name: "Enterprise", detail: "Rhodes Ranch area", slug: "enterprise" },
-                  { name: "Paradise", detail: "Strip & UNLV area", slug: "paradise" },
-                  { name: "Summerlin", detail: "From $625K", slug: "summerlin" },
-                  { name: "Henderson", detail: "From $485K", slug: "henderson" },
-                  { name: "Green Valley", detail: "From $520K", slug: "green-valley" },
-                  { name: "The Ridges", detail: "From $2.5M", slug: "the-ridges" },
-                  { name: "Southern Highlands", detail: "From $750K", slug: "southern-highlands" },
-                  { name: "North Las Vegas", detail: "From $385K", slug: "north-las-vegas" },
-                  { name: "Skye Canyon", detail: "From $550K", slug: "skye-canyon" },
-                  { name: "Centennial Hills", detail: "From $495K", slug: "centennial-hills" },
-                  { name: "Inspirada", detail: "From $525K", slug: "inspirada" },
-                  { name: "Mountains Edge", detail: "From $475K", slug: "mountains-edge" },
-                ] as const
-              ).map((area) => {
-                const href = "href" in area ? area.href : `/neighborhoods/${area.slug}`;
-                const key = "href" in area ? area.href : area.slug;
-                return (
-                  <Link
-                    key={key}
-                    href={href}
-                    className="bg-slate-50 hover:bg-blue-50 rounded-lg p-4 text-center transition-colors group"
-                  >
-                    <h3 className="font-semibold text-slate-900 group-hover:text-blue-600">
-                      {area.name}
-                    </h3>
-                    <p className="text-sm text-slate-500">{area.detail}</p>
-                  </Link>
-                );
-              })}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              {springValleySubdivisions.map((area) => (
+                <Link
+                  key={area.slug}
+                  href={area.href}
+                  className="bg-slate-50 hover:bg-blue-50 rounded-lg p-4 text-center transition-colors group"
+                >
+                  <h3 className="font-semibold text-slate-900 group-hover:text-blue-600">
+                    {area.name}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mt-6">
+              {siblingCommunityLinks.map((area) => (
+                <a
+                  key={area.href}
+                  href={area.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="bg-slate-50 hover:bg-blue-50 rounded-lg p-4 text-center transition-colors group"
+                >
+                  <h3 className="font-semibold text-slate-900 group-hover:text-blue-600">
+                    {area.name}
+                  </h3>
+                </a>
+              ))}
             </div>
             <div className="text-center mt-8">
               <Link
@@ -286,23 +326,91 @@ export default function Home() {
           </div>
         </section>
 
-        <WhyChooseUs />
-        <ReviewsSection />
-        <FAQSection
-          faqs={homePageFaqs}
-          title="Spring Valley Las Vegas Homes — FAQs"
-          subtitle="Straight answers about Spring Valley real estate, homes for sale, and working with Dr. Jan Duffy's team"
-        />
+        <section
+          className="py-12 bg-emerald-50/70"
+          aria-labelledby="spring-valley-property-tax-heading"
+        >
+          <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.guides}
+              alt="Brass keys and a dark folio on walnut"
+              eyebrow="Property taxes"
+            />
+            <div className="max-w-4xl mx-auto rounded-2xl border border-emerald-100 bg-white px-6 py-8 md:px-10">
+              <h2
+                id="spring-valley-property-tax-heading"
+                className="text-xl font-bold text-slate-900 mb-3 text-center md:text-2xl"
+              >
+                Spring Valley Property Taxes &amp; Clark County
+              </h2>
+              <p className="text-slate-700 text-center mb-6 max-w-2xl mx-auto text-sm md:text-base">
+                Third-party estimates often put the{" "}
+                <strong>effective rate near 0.48%</strong>—useful for budgeting,
+                not your official bill. Use the guide for an illustrative
+                calculator, how Nevada assessments work, and Clark County
+                Assessor links.
+              </p>
+              <div className="flex justify-center">
+                <Link
+                  href="/guides/property-taxes"
+                  className="inline-flex items-center justify-center bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+                >
+                  Spring Valley property tax guide
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#12100c] pt-10">
+          <div className="container mx-auto px-4">
+            <LuxurySectionPhoto
+              src={luxuryImages.about}
+              alt="Stucco and tile architectural detail at golden hour"
+              eyebrow="Why choose us"
+            />
+          </div>
+          <WhyChooseUs />
+        </section>
+        <section className="bg-[#14110c]">
+          <div className="container mx-auto px-4 pt-10">
+            <LuxurySectionPhoto
+              src={luxuryImages.contact}
+              alt="Dark luxury lobby with champagne-gold lighting"
+              eyebrow="Client reviews"
+            />
+          </div>
+          <ReviewsSection />
+        </section>
+        <section className="bg-[#12100c]">
+          <div className="container mx-auto px-4 pt-10">
+            <LuxurySectionPhoto
+              src={luxuryImages.faq}
+              alt="Gold desk lamp on a dark notebook"
+              eyebrow="FAQs"
+            />
+          </div>
+          <FAQSection
+            faqs={homePageFaqs}
+            title="Spring Valley Las Vegas Homes — FAQs"
+            subtitle="Straight answers about Spring Valley real estate, homes for sale, and working with Dr. Jan Duffy's team"
+          />
+        </section>
 
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">
           <div className="container mx-auto px-4 text-center">
+            <LuxurySectionPhoto
+              src={luxuryImages.sellers}
+              alt="Twilight exterior of a Spring Valley home"
+              eyebrow="Work with Dr. Jan Duffy"
+            />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Work with Berkshire Hathaway HomeServices?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Whether you're buying, selling, or investing in Las Vegas real estate, Dr. Jan Duffy
-              is here to help.
+              Whether you're buying, selling, or investing in Las Vegas real
+              estate, Dr. Jan Duffy is here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -320,16 +428,16 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada
-              Properties
+              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway
+              HomeServices Nevada Properties
             </p>
           </div>
         </section>
 
         {/* Last Updated */}
         <div className="bg-slate-100 py-4 text-center text-sm text-slate-500">
-          Last Updated: January 2026 | {siteConfig.name} — Berkshire Hathaway HomeServices Nevada
-          Properties
+          Last Updated: January 2026 | {siteConfig.name} — Berkshire Hathaway
+          HomeServices Nevada Properties
         </div>
       </main>
       <Footer />

@@ -46,7 +46,7 @@ export default function HeroBackgroundCarousel() {
               fetchPriority="low"
               unoptimized={isCfDeliveryUrl(src)}
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/25" />
           </div>
         );
       })}

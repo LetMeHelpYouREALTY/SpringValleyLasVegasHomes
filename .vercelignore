@@ -1,0 +1,4 @@
+# Legacy Flask starter under /api (chat and leads use Next.js App Router routes).
+# Excluding it keeps `vercel build` from requiring uv/Python on GitHub runners.
+/api/
+requirements.txt

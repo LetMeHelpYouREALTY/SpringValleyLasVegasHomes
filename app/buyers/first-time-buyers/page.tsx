@@ -83,14 +83,18 @@ export default function FirstTimeBuyersPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
               {" / "}
-              <Link href="/buyers" className="hover:text-blue-600">Buyers</Link>
+              <Link href="/buyers" className="hover:text-blue-600">
+                Buyers
+              </Link>
               {" / "}
               <span className="text-slate-900">First-Time Buyers</span>
             </nav>
@@ -103,11 +107,13 @@ export default function FirstTimeBuyersPage() {
               Down Payment Assistance Available
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Your First Home in Las Vegas<br />
+              Your First Home in Las Vegas
+              <br />
               <span className="text-blue-600">Starts Here</span>
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              Down payment assistance. Builder incentives. Expert guidance every step of the way.
+              Down payment assistance. Builder incentives. Expert guidance every
+              step of the way.
             </p>
             <a
               href="tel:+17026648424"
@@ -150,9 +156,7 @@ export default function FirstTimeBuyersPage() {
                 <p className="text-sm text-slate-600 mb-3">
                   Zero down payment for eligible veterans & military
                 </p>
-                <div className="text-xs text-slate-500">
-                  No PMI required
-                </div>
+                <div className="text-xs text-slate-500">No PMI required</div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
                 <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -170,7 +174,9 @@ export default function FirstTimeBuyersPage() {
                 <div className="bg-amber-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="h-8 w-8 text-amber-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Down Payment Help</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Down Payment Help
+                </h3>
                 <p className="text-sm text-slate-600 mb-3">
                   Nevada programs offer up to $15,000 in assistance
                 </p>
@@ -189,13 +195,20 @@ export default function FirstTimeBuyersPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-lg text-slate-900">North Las Vegas</h3>
-                  <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">Best Value</span>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    North Las Vegas
+                  </h3>
+                  <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">
+                    Best Value
+                  </span>
                 </div>
-                <div className="text-2xl font-bold text-blue-600 mb-2">$350K - $450K</div>
+                <div className="text-2xl font-bold text-blue-600 mb-2">
+                  $350K - $450K
+                </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Most affordable new construction in the valley. Growing rapidly with new schools,
-                  shopping, and infrastructure investments.
+                  Most affordable new construction in the valley. Growing
+                  rapidly with new schools, shopping, and infrastructure
+                  investments.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
@@ -211,23 +224,31 @@ export default function FirstTimeBuyersPage() {
                     Strong appreciation
                   </li>
                 </ul>
-                <Link
-                  href="/neighborhoods/north-las-vegas"
+                <a
+                  href="https://www.searchnorthlasvegashomes.com/"
+                  target="_blank"
+                  rel="noopener"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
                   Explore North Las Vegas →
-                </Link>
+                </a>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-lg text-slate-900">Mountains Edge</h3>
-                  <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">Great Parks</span>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    Mountains Edge
+                  </h3>
+                  <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">
+                    Great Parks
+                  </span>
                 </div>
-                <div className="text-2xl font-bold text-blue-600 mb-2">$380K - $480K</div>
+                <div className="text-2xl font-bold text-blue-600 mb-2">
+                  $380K - $480K
+                </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Southwest Las Vegas with the valley's largest park. Great community feel,
-                  mountain views, and easy freeway access.
+                  Southwest Las Vegas with the valley's largest park. Great
+                  community feel, mountain views, and easy freeway access.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
@@ -243,23 +264,31 @@ export default function FirstTimeBuyersPage() {
                     Family-friendly
                   </li>
                 </ul>
-                <Link
-                  href="/neighborhoods/mountains-edge"
+                <a
+                  href="https://www.mountainedgehomes.com/"
+                  target="_blank"
+                  rel="noopener"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
                   Explore Mountains Edge →
-                </Link>
+                </a>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-lg text-slate-900">Centennial Hills</h3>
-                  <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">Top Schools</span>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    Centennial Hills
+                  </h3>
+                  <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">
+                    Top Schools
+                  </span>
                 </div>
-                <div className="text-2xl font-bold text-blue-600 mb-2">$398K Median</div>
+                <div className="text-2xl font-bold text-blue-600 mb-2">
+                  $398K Median
+                </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Northwest Las Vegas near Centennial Hills Hospital. Excellent schools,
-                  family parks, and Red Rock Canyon proximity.
+                  Northwest Las Vegas near Centennial Hills Hospital. Excellent
+                  schools, family parks, and Red Rock Canyon proximity.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
@@ -275,12 +304,14 @@ export default function FirstTimeBuyersPage() {
                     Medical facilities nearby
                   </li>
                 </ul>
-                <Link
-                  href="/neighborhoods/centennial-hills"
+                <a
+                  href="https://www.centennialhillshomesforsale.com/"
+                  target="_blank"
+                  rel="noopener"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
                   Explore Centennial Hills →
-                </Link>
+                </a>
               </div>
             </div>
           </section>
@@ -289,11 +320,14 @@ export default function FirstTimeBuyersPage() {
           <section className="mb-16 bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="flex items-center justify-center mb-6">
               <Building className="h-8 w-8 mr-3" />
-              <h2 className="text-3xl font-bold">New Construction Incentives</h2>
+              <h2 className="text-3xl font-bold">
+                New Construction Incentives
+              </h2>
             </div>
             <p className="text-center text-green-100 mb-8 max-w-2xl mx-auto">
-              Las Vegas builders are offering incredible incentives that can make new homes more
-              affordable than resale properties. These incentives are available NOW:
+              Las Vegas builders are offering incredible incentives that can
+              make new homes more affordable than resale properties. These
+              incentives are available NOW:
             </p>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 rounded-xl p-6 text-center">
@@ -365,10 +399,10 @@ export default function FirstTimeBuyersPage() {
               </div>
             </div>
             <p className="text-center text-sm text-slate-600 mt-8 max-w-2xl mx-auto">
-              Your monthly budget should include property taxes and insurance, not only P&amp;I. For
-              west valley context, see the{" "}
+              Your monthly budget should include property taxes and insurance,
+              not only P&amp;I. For west valley context, see the{" "}
               <Link
-                href="/neighborhoods/spring-valley/property-taxes"
+                href="/guides/property-taxes"
                 className="text-blue-600 font-semibold hover:underline"
               >
                 Spring Valley property tax guide
@@ -388,10 +422,13 @@ export default function FirstTimeBuyersPage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Get Pre-Approved (1-3 days)</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Get Pre-Approved (1-3 days)
+                  </h3>
                   <p className="text-slate-600">
-                    We connect you with trusted lenders who specialize in first-time buyers. Know exactly
-                    what you can afford before you start looking.
+                    We connect you with trusted lenders who specialize in
+                    first-time buyers. Know exactly what you can afford before
+                    you start looking.
                   </p>
                 </div>
               </div>
@@ -400,10 +437,13 @@ export default function FirstTimeBuyersPage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Find Your Home (2-8 weeks)</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Find Your Home (2-8 weeks)
+                  </h3>
                   <p className="text-slate-600">
-                    Dr. Jan shows you homes that fit your budget and wishlist. She'll explain what to look
-                    for and help you avoid common first-time buyer mistakes.
+                    Dr. Jan shows you homes that fit your budget and wishlist.
+                    She'll explain what to look for and help you avoid common
+                    first-time buyer mistakes.
                   </p>
                 </div>
               </div>
@@ -412,10 +452,13 @@ export default function FirstTimeBuyersPage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Make an Offer & Negotiate (1-5 days)</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Make an Offer & Negotiate (1-5 days)
+                  </h3>
                   <p className="text-slate-600">
-                    We craft a competitive offer and negotiate on your behalf. Dr. Jan's experience means
-                    you don't overpay and get favorable terms.
+                    We craft a competitive offer and negotiate on your behalf.
+                    Dr. Jan's experience means you don't overpay and get
+                    favorable terms.
                   </p>
                 </div>
               </div>
@@ -424,10 +467,12 @@ export default function FirstTimeBuyersPage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Inspections & Due Diligence (10-14 days)</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Inspections & Due Diligence (10-14 days)
+                  </h3>
                   <p className="text-slate-600">
-                    Professional inspections ensure you know exactly what you're buying. We negotiate
-                    repairs or credits if issues are found.
+                    Professional inspections ensure you know exactly what you're
+                    buying. We negotiate repairs or credits if issues are found.
                   </p>
                 </div>
               </div>
@@ -436,9 +481,12 @@ export default function FirstTimeBuyersPage() {
                   5
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Close & Get Your Keys (30-45 days total)</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Close & Get Your Keys (30-45 days total)
+                  </h3>
                   <p className="text-slate-600">
-                    Sign the final paperwork, get your keys, and celebrate! You're officially a homeowner.
+                    Sign the final paperwork, get your keys, and celebrate!
+                    You're officially a homeowner.
                   </p>
                 </div>
               </div>
@@ -457,9 +505,10 @@ export default function FirstTimeBuyersPage() {
                   How much down payment do I need?
                 </h3>
                 <p className="text-slate-600">
-                  Down payment requirements vary: FHA loans require 3.5%, conventional can be as low as
-                  3%, VA loans require 0% for eligible veterans. Nevada assistance programs can provide
-                  up to $15,000 for qualified buyers.
+                  Down payment requirements vary: FHA loans require 3.5%,
+                  conventional can be as low as 3%, VA loans require 0% for
+                  eligible veterans. Nevada assistance programs can provide up
+                  to $15,000 for qualified buyers.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -468,9 +517,10 @@ export default function FirstTimeBuyersPage() {
                   What credit score do I need?
                 </h3>
                 <p className="text-slate-600">
-                  FHA loans accept scores as low as 580 (3.5% down) or 500 (10% down). Conventional loans
-                  typically require 620+. Better scores mean better rates. Dr. Jan can connect you with
-                  lenders who work with all credit situations.
+                  FHA loans accept scores as low as 580 (3.5% down) or 500 (10%
+                  down). Conventional loans typically require 620+. Better
+                  scores mean better rates. Dr. Jan can connect you with lenders
+                  who work with all credit situations.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -479,9 +529,10 @@ export default function FirstTimeBuyersPage() {
                   Do I pay for Dr. Jan's services as a buyer?
                 </h3>
                 <p className="text-slate-600">
-                  No! Buyer's agent services are typically free to buyers—the seller pays the commission.
-                  You get full professional representation from Berkshire Hathaway HomeServices at no
-                  cost to you.
+                  No! Buyer's agent services are typically free to buyers—the
+                  seller pays the commission. You get full professional
+                  representation from Berkshire Hathaway HomeServices at no cost
+                  to you.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -490,9 +541,10 @@ export default function FirstTimeBuyersPage() {
                   Should I buy new construction or resale?
                 </h3>
                 <p className="text-slate-600">
-                  Both have advantages. New construction offers modern features, warranties, and current
-                  builder incentives. Resales may have established landscaping and lower HOA dues.
-                  Dr. Jan helps you weigh options based on your specific situation.
+                  Both have advantages. New construction offers modern features,
+                  warranties, and current builder incentives. Resales may have
+                  established landscaping and lower HOA dues. Dr. Jan helps you
+                  weigh options based on your specific situation.
                 </p>
               </div>
             </div>
@@ -502,14 +554,17 @@ export default function FirstTimeBuyersPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Buying your first home is exciting AND overwhelming. My job is to make it less
-                overwhelming. I walk first-time buyers through every step, explain everything in
-                plain English, and make sure you're confident in your decision. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent, I have resources and
-                connections that independent agents simply don't have."
+                "Buying your first home is exciting AND overwhelming. My job is
+                to make it less overwhelming. I walk first-time buyers through
+                every step, explain everything in plain English, and make sure
+                you're confident in your decision. As a{" "}
+                <strong>Berkshire Hathaway HomeServices</strong> agent, I have
+                resources and connections that independent agents simply don't
+                have."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada
+                Properties
               </cite>
             </div>
           </section>
@@ -520,8 +575,9 @@ export default function FirstTimeBuyersPage() {
               Ready to Stop Renting?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Let's talk about your options. Dr. Jan Duffy will help you understand what you can
-              afford and create a plan to make homeownership happen.
+              Let's talk about your options. Dr. Jan Duffy will help you
+              understand what you can afford and create a plan to make
+              homeownership happen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -543,7 +599,9 @@ export default function FirstTimeBuyersPage() {
             </p>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <Footer />
     </>

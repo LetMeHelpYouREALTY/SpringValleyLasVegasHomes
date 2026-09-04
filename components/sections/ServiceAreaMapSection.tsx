@@ -1,34 +1,48 @@
 import Link from "next/link";
-import { googleMyMapEmbedUrl, googleMyMapViewerUrl } from "@/lib/site-config";
+import LuxurySectionPhoto from "@/components/sections/LuxurySectionPhoto";
+import {
+  springValley89147MapEmbedUrl,
+  springValley89147MapViewerUrl,
+  luxuryImages,
+} from "@/lib/luxury-media";
 import { seoPrimaryKeyword } from "@/lib/seo";
 
 /**
- * Embedded Google My Maps layer — service area / buyer context. URLs from site-config.
+ * 89147 / Spring Valley Google Map — lazy iframe + aerial photo.
+ * Office GBP pin remains on /contact (NAP). This layer is the hyperlocal service area.
  */
 export default function ServiceAreaMapSection() {
   return (
     <section
-      className="py-14 md:py-20 bg-white border-y border-slate-100"
+      className="border-y border-[#c9a227]/20 bg-[#12100c] py-14 md:py-20"
       aria-labelledby="service-area-map-heading"
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
+        <LuxurySectionPhoto
+          src={luxuryImages.zipAerial}
+          alt="Aerial dusk view of Spring Valley Las Vegas ZIP 89147"
+          eyebrow="ZIP 89147 · Spring Valley"
+        />
+        <div className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
           <h2
             id="service-area-map-heading"
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3"
+            className="mb-3 text-2xl font-bold text-[#f6edd8] md:text-3xl lg:text-4xl"
           >
-            Where we help buyers & sellers
+            Spring Valley ZIP 89147 on the map
           </h2>
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed">
-            Explore Spring Valley, the west valley, and the wider Las Vegas area—then use search
-            above or{" "}
-            <Link href="/contact" className="text-blue-600 font-semibold hover:underline">
+          <p className="text-base leading-relaxed text-[#cbbd96] md:text-lg">
+            Explore the 89147 grid—generally west of Decatur, with Desert Breeze
+            Park and the 215 on the west edge—then{" "}
+            <Link
+              href="/contact"
+              className="font-semibold text-[#e8d48a] hover:underline"
+            >
               get in touch
             </Link>
             . For schools, pockets, and west-side context, read the{" "}
             <Link
-              href="/neighborhoods/spring-valley"
-              className="text-blue-600 font-semibold hover:underline"
+              href="/"
+              className="font-semibold text-[#e8d48a] hover:underline"
             >
               {seoPrimaryKeyword} guide
             </Link>
@@ -36,10 +50,10 @@ export default function ServiceAreaMapSection() {
           </p>
         </div>
 
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-lg aspect-[4/3] max-h-[min(70vh,560px)]">
+        <div className="relative mx-auto aspect-[4/3] max-h-[min(70vh,560px)] max-w-5xl overflow-hidden rounded-2xl border border-[#c9a227]/35 bg-black shadow-[0_0_40px_rgba(201,162,39,0.08)]">
           <iframe
-            src={googleMyMapEmbedUrl}
-            title="Las Vegas area map — Dr. Jan Duffy service area and locations"
+            src={springValley89147MapEmbedUrl}
+            title="Google Map of Spring Valley Las Vegas ZIP code 89147"
             className="absolute inset-0 h-full w-full border-0"
             loading="lazy"
             allowFullScreen
@@ -49,12 +63,12 @@ export default function ServiceAreaMapSection() {
 
         <p className="mt-4 text-center">
           <a
-            href={googleMyMapViewerUrl}
+            href={springValley89147MapViewerUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline"
+            className="text-sm font-semibold text-[#e8d48a] hover:underline"
           >
-            Open full map in Google Maps
+            Open ZIP 89147 in Google Maps
           </a>
         </p>
       </div>

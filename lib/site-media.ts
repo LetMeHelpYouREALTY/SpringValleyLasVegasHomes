@@ -24,7 +24,9 @@ function resolveCfOrLocal(
   if (id) {
     return cfImageUrl(id, variant);
   }
-  return localPublicPath.startsWith("/") ? localPublicPath : `/${localPublicPath}`;
+  return localPublicPath.startsWith("/")
+    ? localPublicPath
+    : `/${localPublicPath}`;
 }
 
 /** Absolute URL for JSON-LD / Open Graph (same-origin or imagedelivery). */
@@ -43,9 +45,21 @@ export const agentHeadshotSrc = resolveCfOrLocal(
 
 /** Hero background rotation (same order as previous HeroSection). */
 export const heroBackgroundSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID,
+    "/Image/luxury/luxury-hero-1-dusk-estate.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID,
+    "/Image/luxury/luxury-hero-2-night-pool.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID,
+    "/Image/luxury/luxury-hero-3-kitchen.jpg",
+    V.hero,
+  ),
 ];
 
 /**
@@ -59,28 +73,52 @@ export const springValleyMarketingOgSrc = heroBackgroundSrcs[0];
  */
 export const mapHubOgImageSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_OG_MAP_HUB_ID,
-  "/Image/hero_bg_1.jpg",
+  "/Image/luxury/luxury-section-zip-aerial.jpg",
   V.hero,
 );
 
 /** Featured properties cards (same imagery as hero in current site). */
 export const featuredPropertyImageSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID,
+    "/Image/luxury/luxury-hero-1-dusk-estate.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID,
+    "/Image/luxury/luxury-featured-living.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID,
+    "/Image/luxury/luxury-featured-patio.jpg",
+    V.hero,
+  ),
 ];
 
 /** Review section avatar placeholders. */
 export const reviewAvatarSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_1_ID, "/Image/person1.jpeg", V.avatar),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_2_ID, "/Image/person_2-min.jpg", V.avatar),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_3_ID, "/Image/person_4-min.jpg", V.avatar),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_1_ID,
+    "/Image/person1.jpeg",
+    V.avatar,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_2_ID,
+    "/Image/person_2-min.jpg",
+    V.avatar,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_REVIEW_3_ID,
+    "/Image/person_4-min.jpg",
+    V.avatar,
+  ),
 ];
 
 /** Listing detail placeholder when API data is not wired. */
 export const listingPlaceholderSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_LISTING_PLACEHOLDER_ID,
-  "/Image/hero_bg_1.jpg",
+  "/Image/luxury/luxury-listing-placeholder.jpg",
   V.public,
 );
 
@@ -98,12 +136,14 @@ const faviconAppleVariant =
  * Absolute `imagedelivery.net` URL — Google Search may show it in results; keep URL stable.
  */
 export const faviconSrc = cfImageUrl(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() || DEFAULT_CF_IMAGE_FAVICON_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() ||
+    DEFAULT_CF_IMAGE_FAVICON_ID,
   faviconVariant,
 );
 
 /** Optional larger touch icon; defaults to same variant as `faviconSrc` if unset. */
 export const faviconAppleSrc = cfImageUrl(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() || DEFAULT_CF_IMAGE_FAVICON_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() ||
+    DEFAULT_CF_IMAGE_FAVICON_ID,
   faviconAppleVariant,
 );

@@ -30,7 +30,7 @@ export default function SearchPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto max-w-3xl px-4">
           <nav className="mb-8 text-sm text-slate-500" aria-label="Breadcrumb">
             <Link href="/" className="text-blue-600 hover:underline">
@@ -51,9 +51,10 @@ export default function SearchPage() {
             {validZip ? `Homes near zip ${validZip}` : "Search Las Vegas homes"}
           </h1>
           <p className="mb-8 text-lg text-slate-600">
-            Browse <strong className="text-slate-800">live MLS homes</strong> across the Las Vegas
-            Valley—photos, prices, and map—in one place. Open search below, then type your city or
-            zip in the box to zero in on the area you care about.
+            Browse <strong className="text-slate-800">live MLS homes</strong>{" "}
+            across the Las Vegas Valley—photos, prices, and map—in one place.
+            Open search below, then type your city or zip in the box to zero in
+            on the area you care about.
           </p>
         </div>
 
@@ -65,8 +66,9 @@ export default function SearchPage() {
               <p className="flex items-start gap-2 text-sm font-medium">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
                 <span>
-                  You opened this page for zip <strong>{validZip}</strong>. In the search field, enter{" "}
-                  <strong>{validZip}</strong> or the city name to focus results on that area.
+                  You opened this page for zip <strong>{validZip}</strong>. In
+                  the search field, enter <strong>{validZip}</strong> or the
+                  city name to focus results on that area.
                 </span>
               </p>
             </div>
@@ -99,7 +101,10 @@ export default function SearchPage() {
 
           <p className="mt-10 text-sm text-slate-500">
             Prefer a direct line? Call{" "}
-            <a href={agentInfo.phoneTel} className="font-medium text-blue-600 hover:underline">
+            <a
+              href={agentInfo.phoneTel}
+              className="font-medium text-blue-600 hover:underline"
+            >
               {agentInfo.phone}
             </a>
             .

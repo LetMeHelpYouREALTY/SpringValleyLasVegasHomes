@@ -191,7 +191,7 @@ const allFaqs = faqCategories.flatMap((category) =>
   category.faqs.map((faq) => ({
     question: faq.q,
     answer: faq.a,
-  }))
+  })),
 );
 
 // Combined page schemas including all FAQs
@@ -205,7 +205,7 @@ const pageSchemas = combineSchemas(
     dateModified: "2026-01-25",
     primaryImageOfPage: faqPreferredImageUrl,
   }),
-  generateFAQSchema(allFaqs)
+  generateFAQSchema(allFaqs),
 );
 
 export default function FAQPage() {
@@ -214,7 +214,7 @@ export default function FAQPage() {
       {/* Combined JSON-LD Schema: Breadcrumb + WebPage + FAQPage (all categories) */}
       <SchemaScript schema={pageSchemas} id="faq-page-schema" />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pb-16">
         <div className="container mx-auto px-4">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
@@ -251,10 +251,12 @@ export default function FAQPage() {
 
           {/* CTA */}
           <section className="mt-16 text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Still Have Questions?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Still Have Questions?
+            </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy is happy to answer any questions about Las Vegas real estate or working
-              with Berkshire Hathaway HomeServices.
+              Dr. Jan Duffy is happy to answer any questions about Las Vegas
+              real estate or working with Berkshire Hathaway HomeServices.
             </p>
             <a
               href="tel:+17026648424"
