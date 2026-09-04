@@ -36,12 +36,12 @@ export function absoluteMediaUrl(src: string): string {
   return `${siteConfig.url}${path}`;
 }
 
-/** Dr. Jan Duffy headshot — `next/image` src (local path or Cloudflare delivery URL). */
-export const agentHeadshotSrc = resolveCfOrLocal(
-  process.env.NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID,
-  "/images/dr-jan-duffy.jpg",
-  V.public,
-);
+/**
+ * Dr. Jan Duffy headshot — rectangular 3:4 portrait (gold circular frame removed).
+ * Local JPEG until a matching Cloudflare Images upload exists. Do not point
+ * `NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID` at the legacy circular badge.
+ */
+export const agentHeadshotSrc = "/images/dr-jan-duffy.jpg";
 
 /**
  * H1 hero rotation — Spring Valley, Summerlin, Henderson.

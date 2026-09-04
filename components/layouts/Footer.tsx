@@ -136,7 +136,7 @@ export default function Footer() {
             <p className="text-mist text-[11px] uppercase tracking-luxury mb-2">
               {teamInfo.teamLeader.role}
             </p>
-            <ul className="space-y-2 mb-4">
+            <ul className="space-y-2">
               <li className="flex items-center">
                 <Phone className="h-4 w-4 mr-3 text-ink flex-shrink-0" />
                 <Link
@@ -153,29 +153,6 @@ export default function Footer() {
                   className="text-neutral-600 hover:text-ink text-sm font-light break-all"
                 >
                   {teamInfo.teamLeader.email}
-                </Link>
-              </li>
-            </ul>
-            <p className="text-mist text-[11px] uppercase tracking-luxury mb-2">
-              {teamInfo.buyerAgent.role}
-            </p>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <Phone className="h-4 w-4 mr-3 text-ink flex-shrink-0" />
-                <Link
-                  href={teamInfo.buyerAgent.phoneTel}
-                  className="text-neutral-600 hover:text-ink text-sm font-light"
-                >
-                  {teamInfo.buyerAgent.phone}
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-4 w-4 mr-3 text-ink flex-shrink-0" />
-                <Link
-                  href={`mailto:${teamInfo.buyerAgent.email}`}
-                  className="text-neutral-600 hover:text-ink text-sm font-light break-all"
-                >
-                  {teamInfo.buyerAgent.email}
                 </Link>
               </li>
             </ul>

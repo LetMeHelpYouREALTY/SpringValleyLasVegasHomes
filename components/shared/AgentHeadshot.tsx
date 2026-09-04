@@ -32,7 +32,7 @@ export default function AgentHeadshot({
         src={agentHeadshotSrc}
         alt={`${agentInfo.name}, ${agentInfo.title} — ${agentInfo.brokerage}`}
         width={960}
-        height={960}
+        height={1280}
         className={cn("h-full w-full object-cover object-top", className)}
         sizes={sizes ?? "(max-width: 768px) 100vw, 28rem"}
         priority={priority}

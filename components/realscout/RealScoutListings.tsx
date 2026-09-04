@@ -1,6 +1,7 @@
 "use client";
 
 import { realScoutConfig } from "@/lib/integrations";
+import { getRealScoutOfficeListingsMarkup } from "@/lib/realscout-markup";
 
 export default function RealScoutListings() {
   return (
@@ -33,14 +34,7 @@ export default function RealScoutListings() {
         {/* RealScout Widget - using dangerouslySetInnerHTML per rules */}
         <div
           dangerouslySetInnerHTML={{
-            __html: `<realscout-office-listings 
-              agent-encoded-id="${realScoutConfig.agentEncodedId}" 
-              sort-order="NEWEST" 
-              listing-status="For Sale" 
-              property-types=",SFR,MF,TC" 
-              price-min="500000" 
-              price-max="800000"
-            ></realscout-office-listings>`,
+            __html: getRealScoutOfficeListingsMarkup(),
           }}
         />
       </div>

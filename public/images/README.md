@@ -46,7 +46,7 @@ images/
 | Folder         | Size       | Format        | Notes                                       |
 | -------------- | ---------- | ------------- | ------------------------------------------- |
 | hero/          | 1920x1080+ | WebP, JPG     | 16:9 ratio, compress <200KB                 |
-| agent/         | 400x400+   | WebP, JPG     | Square, professional headshot               |
+| agent/         | 960×1280+  | WebP, JPG     | 3:4 rectangular portrait, no circular frame |
 | properties/    | 1200x800+  | WebP, JPG     | Landscape, MLS-quality                      |
 | neighborhoods/ | 1200x800+  | WebP, JPG     | Scenic community shots                      |
 | testimonials/  | 200x200    | WebP, JPG     | Square, optional                            |
