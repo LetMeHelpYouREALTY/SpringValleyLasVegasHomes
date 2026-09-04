@@ -321,16 +321,43 @@ jobs:
               f.status !== 'removed'
             );
             
+            const resolveImport = (spec) => {
+              const candidates = [
+                spec + '.tsx',
+                spec + '.ts',
+                spec + '/index.tsx',
+                spec + '/index.ts',
+              ];
+              return candidates.find((rel) => fs.existsSync(rel));
+            };
+
+            const collectLayout = (entryContent, maxDepth = 2) => {
+              let layout = entryContent;
+              const seen = new Set();
+              const queue = [{ src: entryContent, depth: maxDepth }];
+              const importRe = /from ["']@\/([^"']+)["']/g;
+
+              while (queue.length) {
+                const { src, depth } = queue.shift();
+                if (depth <= 0) continue;
+                importRe.lastIndex = 0;
+                let match;
+                while ((match = importRe.exec(src))) {
+                  const rel = resolveImport(match[1]);
+                  if (!rel || seen.has(rel)) continue;
+                  seen.add(rel);
+                  const next = fs.readFileSync(rel, 'utf8');
+                  layout += '\n' + next;
+                  queue.push({ src: next, depth: depth - 1 });
+                }
+              }
+              return layout;
+            };
+
             for (const file of pageFiles) {
               try {
                 const content = fs.readFileSync(file.filename, 'utf8');
-                let layout = content;
-                if (content.includes('SpringValleySubdivisionPage')) {
-                  const shared = 'components/neighborhoods/SpringValleySubdivisionPage.tsx';
-                  if (fs.existsSync(shared)) {
-                    layout += '\n' + fs.readFileSync(shared, 'utf8');
-                  }
-                }
+                const layout = collectLayout(content);
                 
                 // Check for metadata export
                 if (!content.includes('export const metadata') && !content.includes('generateMetadata')) {
@@ -352,7 +379,7 @@ jobs:
                   warnings.push(`⚠️ **${file.filename}**: Consider adding JSON-LD schema markup`);
                 }
                 
-                // Check for H1 tag
+                // Check for H1 tag (page or imported section/layout)
                 if (!layout.includes('<h1') && !layout.includes('<H1')) {
                   warnings.push(`⚠️ **${file.filename}**: No H1 tag found`);
                 }
