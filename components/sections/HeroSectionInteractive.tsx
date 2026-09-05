@@ -2,6 +2,7 @@
 
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { heroSeo } from "@/lib/seo";
+import { greatVibes } from "@/lib/fonts";
 import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
 
 type HeroSectionInteractiveProps = {
@@ -23,7 +24,9 @@ export default function HeroSectionInteractive({
   return (
     <div className="relative z-20 h-full w-full">
       <div className="flex h-full flex-col items-center justify-center px-4 text-center pt-16">
-        <p className="font-script mb-4 text-4xl leading-none text-white md:text-5xl lg:text-6xl">
+        <p
+          className={`${greatVibes.className} mb-5 text-5xl leading-none text-white md:text-6xl lg:text-7xl`}
+        >
           {signature}
         </p>
         <h1 className="text-white mb-4 leading-none">

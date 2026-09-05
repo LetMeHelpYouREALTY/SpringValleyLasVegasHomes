@@ -5,7 +5,6 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Great_Vibes } from "next/font/google";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
 /** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
@@ -27,14 +26,7 @@ import { siteConfig } from "@/lib/site-config";
 import { faviconAppleSrc, faviconSrc } from "@/lib/site-media";
 import { seoKeywordVariations, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
-
-/** Script signature for hero / brand lockups (self-hosted via next/font). */
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-great-vibes",
-  display: "swap",
-});
+import { greatVibes } from "@/lib/fonts";
 
 const title = siteConfig.name;
 const description = siteConfig.description;

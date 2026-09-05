@@ -22,6 +22,7 @@ module.exports = {
           "system-ui",
           "sans-serif",
         ],
+        script: ["var(--font-great-vibes)", "cursive"],
       },
       letterSpacing: {
         luxury: "0.12em",
