@@ -30,8 +30,8 @@ export const seoKeywordVariations = [
 
 /** Homepage hero — one H1 topic cluster; visible copy matches metadata intent */
 export const heroSeo = {
-  headlinePrimary: "Spring Valley Las Vegas Homes",
-  headlineSecondary: "Las Vegas Valley & Henderson",
+  headlinePrimary: "Spring Valley Las Vegas",
+  headlineSecondary: "Luxury Real Estate",
   intro:
     "Search Spring Valley Las Vegas homes and explore real estate across the west valley with Dr. Jan Duffy's team at Berkshire Hathaway HomeServices Nevada Properties—buying, selling, and local market guidance you can trust.",
 } as const;

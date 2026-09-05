@@ -34,7 +34,7 @@ export const siteConfig = {
  */
 export const siteContentDates = {
   datePublished: "2025-03-01T12:00:00-08:00",
-  dateModified: "2026-03-24T12:00:00-07:00",
+  dateModified: "2026-09-04T17:00:00-07:00",
 } as const;
 
 /** Official social URLs — align footer, JSON-LD sameAs, and GBP-style data */
