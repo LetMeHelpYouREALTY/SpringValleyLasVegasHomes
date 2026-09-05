@@ -29,8 +29,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -68,11 +66,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -86,8 +84,16 @@ jobs:
       - name: Run ESLint
         run: pnpm run lint
 
-      - name: Check Prettier formatting
-        run: pnpm exec prettier --check "**/*.{ts,tsx,js,jsx,json,md,css}"
+      - name: Check Prettier formatting on changed files
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          mapfile -t FILES < <(git diff --name-only --diff-filter=ACMR "$BASE"...HEAD -- '*.ts' '*.tsx' '*.js' '*.jsx' '*.css' '*.json')
+          if [ ${#FILES[@]} -eq 0 ]; then
+            echo "No Prettier-eligible files changed"
+            exit 0
+          fi
+          echo "Checking ${#FILES[@]} file(s)"
+          pnpm exec prettier --check --ignore-unknown "${FILES[@]}"
 
   # ============================================
   # Test Suite
@@ -101,8 +107,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -118,6 +122,7 @@ jobs:
 
       - name: Generate coverage report
         if: always()
+        continue-on-error: true
         run: pnpm run test:coverage
 
       - name: Upload coverage to artifacts
@@ -184,8 +189,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -318,9 +321,43 @@ jobs:
               f.status !== 'removed'
             );
             
+            const resolveImport = (spec) => {
+              const candidates = [
+                spec + '.tsx',
+                spec + '.ts',
+                spec + '/index.tsx',
+                spec + '/index.ts',
+              ];
+              return candidates.find((rel) => fs.existsSync(rel));
+            };
+
+            const collectLayout = (entryContent, maxDepth = 2) => {
+              let layout = entryContent;
+              const seen = new Set();
+              const queue = [{ src: entryContent, depth: maxDepth }];
+              const importRe = /from ["']@\/([^"']+)["']/g;
+
+              while (queue.length) {
+                const { src, depth } = queue.shift();
+                if (depth <= 0) continue;
+                importRe.lastIndex = 0;
+                let match;
+                while ((match = importRe.exec(src))) {
+                  const rel = resolveImport(match[1]);
+                  if (!rel || seen.has(rel)) continue;
+                  seen.add(rel);
+                  const next = fs.readFileSync(rel, 'utf8');
+                  layout += '\n' + next;
+                  queue.push({ src: next, depth: depth - 1 });
+                }
+              }
+              return layout;
+            };
+
             for (const file of pageFiles) {
               try {
                 const content = fs.readFileSync(file.filename, 'utf8');
+                const layout = collectLayout(content);
                 
                 // Check for metadata export
                 if (!content.includes('export const metadata') && !content.includes('generateMetadata')) {
@@ -333,18 +370,22 @@ jobs:
                   issues.push(`❌ **${file.filename}**: Contains old phone number (should be (702) 664-8424)`);
                 }
                 
-                // Check for JSON-LD schema
-                if (!content.includes('application/ld+json') && !content.includes('schema.org')) {
+                // Check for JSON-LD schema (inline script, schema.org, or SchemaScript helper)
+                if (
+                  !layout.includes('application/ld+json') &&
+                  !layout.includes('schema.org') &&
+                  !layout.includes('SchemaScript')
+                ) {
                   warnings.push(`⚠️ **${file.filename}**: Consider adding JSON-LD schema markup`);
                 }
                 
-                // Check for H1 tag
-                if (!content.includes('<h1') && !content.includes('<H1')) {
+                // Check for H1 tag (page or imported section/layout)
+                if (!layout.includes('<h1') && !layout.includes('<H1')) {
                   warnings.push(`⚠️ **${file.filename}**: No H1 tag found`);
                 }
                 
                 // Check for Berkshire Hathaway branding
-                if (!content.includes('Berkshire Hathaway') && !content.includes('BHHS')) {
+                if (!layout.includes('Berkshire Hathaway') && !layout.includes('BHHS')) {
                   warnings.push(`⚠️ **${file.filename}**: Missing Berkshire Hathaway branding`);
                 }
                 

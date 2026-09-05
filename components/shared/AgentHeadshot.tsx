@@ -24,7 +24,7 @@ export default function AgentHeadshot({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl bg-slate-100 shadow-lg ring-1 ring-slate-200/80",
+        "relative overflow-hidden rounded-none bg-cream",
         frameClassName,
       )}
     >
@@ -32,7 +32,7 @@ export default function AgentHeadshot({
         src={agentHeadshotSrc}
         alt={`${agentInfo.name}, ${agentInfo.title} — ${agentInfo.brokerage}`}
         width={960}
-        height={960}
+        height={1280}
         className={cn("h-full w-full object-cover object-top", className)}
         sizes={sizes ?? "(max-width: 768px) 100vw, 28rem"}
         priority={priority}
