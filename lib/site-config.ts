@@ -11,6 +11,10 @@
 export const siteConfig = {
   /** Public site / marketing brand (titles, footer, JSON-LD alternateName) */
   name: "Spring Valley Las Vegas | Homes By Dr. Jan Duffy",
+  /** Header/footer logo lockup — line 1 */
+  logoTitle: "Spring Valley Las Vegas",
+  /** Header/footer logo lockup — line 2 */
+  logoSubtitle: "Homes By Dr. Jan Duffy",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
   tagline: "Private Client Real Estate Advisory",
   /** Full brand line for titles and OG: Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory */

@@ -15,9 +15,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-xl mb-4">Berkshire Hathaway HomeServices</h3>
+            <h3 className="font-bold text-xl leading-snug">{siteConfig.logoTitle}</h3>
+            <p className="text-sm text-slate-400 mb-4">{siteConfig.logoSubtitle}</p>
             <p className="text-slate-300 mb-4 text-sm">
-              Nevada Properties — {seoPrimaryKeyword}, Las Vegas, Henderson, and Summerlin. Backed
+              {officeInfo.name} — {seoPrimaryKeyword}, Las Vegas, Henderson, and Summerlin. Backed
               by Warren Buffett&apos;s legacy of trust.
             </p>
             <div className="flex space-x-4">

@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 /** Edge avoids Windows Node path quirks in `@vercel/og` when prerendering OG routes. */
 export const runtime = "edge";
 
-export const alt = "Spring Valley Las Vegas Homes — Las Vegas real estate";
+export const alt = "Spring Valley Las Vegas — Homes By Dr. Jan Duffy";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -34,10 +34,10 @@ export default function Image() {
             maxWidth: 1000,
           }}
         >
-          Spring Valley Las Vegas Homes
+          Spring Valley Las Vegas
         </div>
         <div style={{ fontSize: 28, color: "#93c5fd", marginTop: 16 }}>
-          Dr. Jan Duffy · Berkshire Hathaway HomeServices Nevada Properties
+          Homes By Dr. Jan Duffy
         </div>
         <div style={{ fontSize: 22, color: "#cbd5e1", marginTop: 28, maxWidth: 920, lineHeight: 1.4 }}>
           {tagline}

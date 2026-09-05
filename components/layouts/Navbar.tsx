@@ -39,12 +39,16 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Brand Logo */}
-          <Link href="/" className="flex flex-col max-w-[min(100%,20rem)] sm:max-w-none">
-            <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors leading-snug">
-              {siteConfig.name}
+          <Link
+            href="/"
+            className="group flex flex-col max-w-[min(100%,20rem)] sm:max-w-none"
+            aria-label={`${siteConfig.logoTitle}, ${siteConfig.logoSubtitle}`}
+          >
+            <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+              {siteConfig.logoTitle}
             </span>
-            <span className="text-xs text-slate-500 hidden sm:block mt-0.5">
-              Berkshire Hathaway HomeServices Nevada Properties
+            <span className="text-xs text-slate-500 mt-0.5 group-hover:text-blue-600 transition-colors">
+              {siteConfig.logoSubtitle}
             </span>
           </Link>
 
