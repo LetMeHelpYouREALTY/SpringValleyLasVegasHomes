@@ -9,6 +9,7 @@
 import { siteConfig } from "@/lib/site-config";
 import { cfImageUrl, isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import {
+  headingBrandAssets,
   headingCommunityAssets,
   headingFeaturedAssets,
   headingHeroAssets,
@@ -20,6 +21,12 @@ const V = {
   public: process.env.NEXT_PUBLIC_CF_VARIANT_PUBLIC?.trim() || "public",
   hero: process.env.NEXT_PUBLIC_CF_VARIANT_HERO?.trim() || "public",
 } as const;
+
+const faviconVariant =
+  process.env.NEXT_PUBLIC_CF_VARIANT_FAVICON?.trim() || "w=800";
+
+const faviconAppleVariant =
+  process.env.NEXT_PUBLIC_CF_VARIANT_FAVICON_APPLE?.trim() || faviconVariant;
 
 function resolveCfOrLocal(
   cfImageId: string | undefined,
@@ -44,10 +51,29 @@ export function absoluteMediaUrl(src: string): string {
 
 /**
  * Dr. Jan Duffy headshot — rectangular 3:4 portrait (gold circular frame removed).
- * Local JPEG until a matching Cloudflare Images upload exists. Do not point
- * `NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID` at the legacy circular badge.
+ * Cloudflare Images when `NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID` is set; git JPEG backup otherwise.
  */
-export const agentHeadshotSrc = "/images/dr-jan-duffy.jpg";
+export const agentHeadshotSrc = resolveCfOrLocal(
+  process.env.NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID,
+  headingBrandAssets.headshot.local,
+  V.public,
+);
+
+/** Square SV mark for navbar and favicon git backup. */
+export const logoMarkSrc = resolveCfOrLocal(
+  process.env.NEXT_PUBLIC_CF_IMAGE_LOGO_ID,
+  headingBrandAssets.logo.local,
+  V.public,
+);
+
+export const logoMarkAlt = headingBrandAssets.logo.alt;
+
+/** Horizontal wordmark git backup. */
+export const logoWordmarkSrc = resolveCfOrLocal(
+  process.env.NEXT_PUBLIC_CF_IMAGE_WORDMARK_ID,
+  headingBrandAssets.wordmark.local,
+  V.public,
+);
 
 /**
  * H1 hero rotation — Spring Valley pool home, Spanish Trail, Desert Breeze Park.
@@ -161,28 +187,16 @@ export const listingPlaceholderSrc = resolveCfOrLocal(
   V.public,
 );
 
-/** Default favicon image in Cloudflare Images (same account as other `cfImageUrl` assets). */
-const DEFAULT_CF_IMAGE_FAVICON_ID = "3a384fa1-af54-4286-100f-a1a995a15900";
-
-const faviconVariant =
-  process.env.NEXT_PUBLIC_CF_VARIANT_FAVICON?.trim() || "w=800";
-
-const faviconAppleVariant =
-  process.env.NEXT_PUBLIC_CF_VARIANT_FAVICON_APPLE?.trim() || faviconVariant;
-
-/**
- * Favicon for `<link rel="icon">` and JSON-LD `logo` where a site icon is appropriate.
- * Absolute `imagedelivery.net` URL — Google Search may show it in results; keep URL stable.
- */
-export const faviconSrc = cfImageUrl(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() ||
-    DEFAULT_CF_IMAGE_FAVICON_ID,
+/** Favicon — Cloudflare when ID is set; git JPEG under public/images/icons otherwise. */
+export const faviconSrc = resolveCfOrLocal(
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID,
+  headingBrandAssets.favicon.local,
   faviconVariant,
 );
 
-/** Optional larger touch icon; defaults to same variant as `faviconSrc` if unset. */
-export const faviconAppleSrc = cfImageUrl(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID?.trim() ||
-    DEFAULT_CF_IMAGE_FAVICON_ID,
+/** Optional larger touch icon; defaults to same source as `faviconSrc`. */
+export const faviconAppleSrc = resolveCfOrLocal(
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID,
+  headingBrandAssets.favicon.local,
   faviconAppleVariant,
 );

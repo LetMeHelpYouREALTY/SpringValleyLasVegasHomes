@@ -90,5 +90,39 @@
     "file": "public/images/hero/h2-work-with-me.jpg",
     "local": "/images/hero/h2-work-with-me.jpg",
     "alt": "Covered patio and pool at a Spring Valley Las Vegas home — work with Dr. Jan Duffy"
+  },
+  "brand": {
+    "favicon": {
+      "heading": "Favicon SV mark",
+      "env": "NEXT_PUBLIC_CF_IMAGE_FAVICON_ID",
+      "id": "svlvh-favicon",
+      "file": "public/images/icons/favicon.jpg",
+      "local": "/images/icons/favicon.jpg",
+      "alt": "Spring Valley Las Vegas Homes favicon"
+    },
+    "logo": {
+      "heading": "Navbar logo mark",
+      "env": "NEXT_PUBLIC_CF_IMAGE_LOGO_ID",
+      "id": "svlvh-logo",
+      "file": "public/images/icons/favicon.jpg",
+      "local": "/images/icons/favicon.jpg",
+      "alt": "Spring Valley Las Vegas Homes logo"
+    },
+    "wordmark": {
+      "heading": "Site wordmark",
+      "env": "NEXT_PUBLIC_CF_IMAGE_WORDMARK_ID",
+      "id": "svlvh-wordmark",
+      "file": "public/images/logos/spring-valley-wordmark.jpg",
+      "local": "/images/logos/spring-valley-wordmark.jpg",
+      "alt": "Spring Valley Las Vegas Homes By Dr. Jan Duffy"
+    },
+    "headshot": {
+      "heading": "Dr. Jan Duffy headshot",
+      "env": "NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID",
+      "id": "svlvh-headshot",
+      "file": "public/images/dr-jan-duffy.jpg",
+      "local": "/images/dr-jan-duffy.jpg",
+      "alt": "Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties"
+    }
   }
 }

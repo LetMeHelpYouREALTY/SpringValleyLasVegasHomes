@@ -13,6 +13,8 @@ import {
 import type { Metadata } from "next";
 import { getRealScoutOfficeListingsMarkup } from "@/lib/realscout-markup";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import PageHeroPhoto from "@/components/shared/PageHeroPhoto";
+import { pageHero } from "@/lib/page-hero";
 
 export const metadata: Metadata = {
   title: "MLS Search & Listings",
@@ -153,7 +155,8 @@ export default function ListingsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listingsSchema) }}
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pt-20 pb-16">
+        <PageHeroPhoto {...pageHero.listings} />
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-12">

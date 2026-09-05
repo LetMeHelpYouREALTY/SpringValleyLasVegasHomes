@@ -16,8 +16,10 @@ import {
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import { metaDescriptionWithKeyword } from "@/lib/seo";
 import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
+import { subdivisionPageHero } from "@/lib/page-hero";
 import { ogTwitterImageFields } from "@/lib/og-image";
 import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
+import PageHeroPhoto from "@/components/shared/PageHeroPhoto";
 import {
   DESERT_SHORES_NOTE,
   SPRING_VALLEY_BOUNDARY,
@@ -113,7 +115,8 @@ export default function SpringValleySubdivisionPage({
     <>
       <SchemaScript schema={pageSchemas} id={`${subdivision.slug}-schema`} />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pt-20 pb-16">
+        <PageHeroPhoto {...subdivisionPageHero(subdivision.slug)} />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500" aria-label="Breadcrumb">

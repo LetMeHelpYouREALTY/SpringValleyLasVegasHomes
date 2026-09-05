@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { agentInfo, siteConfig } from "@/lib/site-config";
+import { logoMarkSrc } from "@/lib/site-media";
+import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import { realScoutConfig } from "@/lib/integrations";
 import { buildMainNavLinks, navbarServiceLinks } from "@/lib/site-navigation";
 import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
@@ -49,9 +52,19 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Link
             href="/"
-            className="flex flex-col min-w-0"
+            className="flex items-center gap-2.5 min-w-0"
             aria-label={`${siteConfig.logoTitle}, ${siteConfig.logoSubtitle}`}
           >
+            <Image
+              src={logoMarkSrc}
+              alt=""
+              width={40}
+              height={40}
+              className="h-9 w-9 sm:h-10 sm:w-10 object-cover shrink-0"
+              unoptimized={isCfDeliveryUrl(logoMarkSrc)}
+              priority
+            />
+            <span className="flex flex-col min-w-0">
             <span
               className={cn(
                 "text-sm sm:text-base font-normal uppercase tracking-luxury leading-snug",
@@ -67,6 +80,7 @@ export default function Navbar() {
               )}
             >
               {siteConfig.logoSubtitle}
+            </span>
             </span>
           </Link>
 

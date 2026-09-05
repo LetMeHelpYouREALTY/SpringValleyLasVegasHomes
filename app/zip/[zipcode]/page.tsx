@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
+import PageHeroPhoto from "@/components/shared/PageHeroPhoto";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
@@ -17,6 +18,7 @@ import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import { metaDescriptionWithKeyword } from "@/lib/seo";
 import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
+import { pageHero } from "@/lib/page-hero";
 import {
   SPRING_VALLEY_BOUNDARY,
   SPRING_VALLEY_SCHOOLS,
@@ -116,7 +118,8 @@ export default function SpringValleyZipPage({ params }: ZipPageProps) {
     <>
       <SchemaScript schema={pageSchemas} id={`zip-${record.zip}-schema`} />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pt-20 pb-16">
+        <PageHeroPhoto {...pageHero.zip} />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500" aria-label="Breadcrumb">

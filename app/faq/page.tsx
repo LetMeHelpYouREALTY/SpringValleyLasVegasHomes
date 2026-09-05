@@ -15,6 +15,8 @@ import { formatPacificLongDate, timeDateTimeAttribute } from "@/lib/page-dates";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import { absoluteMediaUrl, agentHeadshotSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
+import PageHeroPhoto from "@/components/shared/PageHeroPhoto";
+import { pageHero } from "@/lib/page-hero";
 
 const faqPreferredImageUrl = absoluteMediaUrl(agentHeadshotSrc);
 const faqOgTwitter = ogTwitterImageFields(faqPreferredImageUrl, {
@@ -214,7 +216,8 @@ export default function FAQPage() {
       {/* Combined JSON-LD Schema: Breadcrumb + WebPage + FAQPage (all categories) */}
       <SchemaScript schema={pageSchemas} id="faq-page-schema" />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pt-20 pb-16">
+        <PageHeroPhoto {...pageHero.faq} />
         <div className="container mx-auto px-4">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">

@@ -26,13 +26,28 @@ const manifest = JSON.parse(
   await readFile(resolve(root, "lib/heading-images.json"), "utf8"),
 );
 
+/** @param {unknown} node @param {{ file: string, id: string, env: string, heading: string }[]} out */
+function collectAssets(node, out = []) {
+  if (Array.isArray(node)) {
+    for (const item of node) collectAssets(item, out);
+    return out;
+  }
+  if (node && typeof node === "object") {
+    if (
+      typeof node.file === "string" &&
+      typeof node.id === "string" &&
+      typeof node.env === "string"
+    ) {
+      out.push(node);
+      return out;
+    }
+    for (const value of Object.values(node)) collectAssets(value, out);
+  }
+  return out;
+}
+
 /** @type {{ file: string, id: string, env: string, heading: string }[]} */
-const assets = [
-  ...manifest.hero,
-  ...manifest.featured,
-  manifest.workWithMe,
-  ...manifest.communities,
-];
+const assets = collectAssets(manifest);
 
 async function api(path, init) {
   const res = await fetch(

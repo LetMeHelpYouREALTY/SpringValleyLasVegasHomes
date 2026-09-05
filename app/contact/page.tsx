@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
+import PageHeroPhoto from "@/components/shared/PageHeroPhoto";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import {
   Phone,
@@ -29,6 +30,7 @@ import {
   PREFERRED_ZIP_COOKIE,
   preferredZipFromCookie,
 } from "@/lib/preferred-zip";
+import { pageHero } from "@/lib/page-hero";
 
 const officeMapQuery = encodeURIComponent(
   `${officeInfo.address.street}, ${officeInfo.address.city}, ${officeInfo.address.state} ${officeInfo.address.zip}`,
@@ -87,7 +89,8 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pt-20 pb-16">
+        <PageHeroPhoto {...pageHero.contact} />
         <div className="container mx-auto px-4">
           {zipFromQuery && (
             <div

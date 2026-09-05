@@ -35,7 +35,17 @@ Hyperlocal Spring Valley set — not Summerlin or Henderson.
 | H3      | `neighborhoods/h3-desert-breeze.jpg`      | Spring Valley pocket — Desert Breeze             |
 | H3      | `neighborhoods/h3-chinatown.jpg`          | Spring Valley pocket — Chinatown / Spring Mountain |
 
-## Folder Structure
+## Brand marks (favicon, logo, headshot)
+
+| Asset    | File                                   | Use                          |
+| -------- | -------------------------------------- | ---------------------------- |
+| Favicon  | `icons/favicon.jpg`                    | Browser tab + apple icon     |
+| Logo     | `icons/favicon.jpg` (square SV mark)   | Navbar mark                  |
+| Wordmark | `logos/spring-valley-wordmark.jpg`     | Optional wide lockup         |
+| Headshot | `dr-jan-duffy.jpg`                     | About / Meet Dr. Jan         |
+
+Cloudflare custom IDs: `svlvh-favicon`, `svlvh-logo`, `svlvh-wordmark`, `svlvh-headshot`.
+
 
 ```
 images/

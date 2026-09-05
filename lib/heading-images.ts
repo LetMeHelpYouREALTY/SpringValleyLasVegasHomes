@@ -37,3 +37,10 @@ export const headingCommunityAssets = headingImagesJson.communities as [
 
 export const headingWorkWithMeAsset =
   headingImagesJson.workWithMe as HeadingImageAsset;
+
+export const headingBrandAssets = headingImagesJson.brand as {
+  favicon: HeadingImageAsset;
+  logo: HeadingImageAsset;
+  wordmark: HeadingImageAsset;
+  headshot: HeadingImageAsset;
+};

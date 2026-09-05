@@ -10,7 +10,9 @@ import { generateWebPageSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
+import { pageHero } from "@/lib/page-hero";
 import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
+import PageHeroPhoto from "@/components/shared/PageHeroPhoto";
 import {
   DESERT_SHORES_NOTE,
   SPRING_VALLEY_BOUNDARY,
@@ -74,7 +76,8 @@ export default function NeighborhoodsPage() {
         id="neighborhoods-guide-schema"
       />
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+      <main id="main-content" tabIndex={-1} className="pt-20 pb-16">
+        <PageHeroPhoto {...pageHero.neighborhoods} />
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
