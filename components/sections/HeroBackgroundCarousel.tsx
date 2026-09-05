@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { heroBackgroundSrcs } from "@/lib/site-media";
+import { heroBackgroundAlts, heroBackgroundSrcs } from "@/lib/site-media";
 
 /**
  * Slides 2–3 only. Slide 1 is server-rendered in `HeroLcpBackdrop` for LCP.
@@ -38,7 +38,7 @@ export default function HeroBackgroundCarousel() {
           >
             <Image
               src={src}
-              alt={`Spring Valley Las Vegas homes and Las Vegas Valley real estate — hero ${slideIndex + 1}`}
+              alt={heroBackgroundAlts[slideIndex]}
               fill
               sizes="100vw"
               className="object-cover"
@@ -46,7 +46,7 @@ export default function HeroBackgroundCarousel() {
               fetchPriority="low"
               unoptimized={isCfDeliveryUrl(src)}
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/30" />
           </div>
         );
       })}

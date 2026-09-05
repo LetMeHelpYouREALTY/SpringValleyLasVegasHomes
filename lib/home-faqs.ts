@@ -8,7 +8,7 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "Where is Spring Valley in Las Vegas?",
     answer:
-      "Spring Valley is a large community on the west side of the Las Vegas Valley in Clark County, Nevada—west of the Las Vegas Strip and broadly between Charleston Boulevard and Sahara Avenue, extending toward the foothills. It includes a mix of single-family neighborhoods, condos, and townhomes. When you search Spring Valley Las Vegas homes, you are typically looking at this west Las Vegas market rather than one small gated pocket.",
+      "Spring Valley is a census-designated place on the west side of the Las Vegas Valley in unincorporated Clark County, Nevada—west of the Las Vegas Strip. The boundary is Sahara Avenue on the north, Decatur Boulevard on the east, Warm Springs Road on the south, and Hualapai Way on the west (about 33.4 square miles). It includes a mix of single-family neighborhoods, condos, and townhomes. When you search Spring Valley Las Vegas homes, you are looking at this unincorporated west Las Vegas market rather than one small gated pocket.",
   },
   {
     question: "How do I find homes for sale in Spring Valley Las Vegas?",
@@ -33,6 +33,6 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "How do I contact Dr. Jan Duffy about Spring Valley real estate?",
     answer:
-      "Contact Team Leader Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com or buyer specialist Chance Fuller at Chance.Fuller@SpringValleyLasVegasHomes.com. Call or text (702) 664-8424. Office: Berkshire Hathaway HomeServices Nevada Properties, 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103.",
+      "Contact Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com. Call or text (702) 664-8424. Office: Berkshire Hathaway HomeServices Nevada Properties, 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103.",
   },
 ];

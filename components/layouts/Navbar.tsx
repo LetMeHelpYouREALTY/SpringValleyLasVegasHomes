@@ -2,54 +2,89 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/site-config";
+import { agentInfo, siteConfig } from "@/lib/site-config";
+import { logoMarkSrc } from "@/lib/site-media";
+import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import { realScoutConfig } from "@/lib/integrations";
 import { buildMainNavLinks, navbarServiceLinks } from "@/lib/site-navigation";
 import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const showNavSimpleSearch = pathname !== "/";
+  const isHome = pathname === "/";
+  const showNavSimpleSearch = !isHome;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 24);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const solid = !isHome || isScrolled || isMobileMenuOpen;
   const mainNavLinks = buildMainNavLinks(realScoutConfig.portalUrl);
   const serviceLinks = navbarServiceLinks;
+  const linkClass = cn(
+    "text-[13px] font-light uppercase tracking-luxury px-2 py-3",
+    solid ? "text-ink hover:text-navy" : "text-white hover:text-white/80",
+  );
 
   return (
     <nav
       aria-label="Primary"
       data-rs-nav-search={showNavSimpleSearch ? "1" : "0"}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300 ${
-        isScrolled ? "py-2" : "py-3"
-      }`}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        solid ? "bg-cream/95 shadow-sm backdrop-blur-sm" : "bg-transparent",
+        isScrolled ? "py-2" : "py-4",
+      )}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Brand Logo */}
-          <Link href="/" className="flex flex-col max-w-[min(100%,20rem)] sm:max-w-none">
-            <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors leading-snug">
-              {siteConfig.name}
-            </span>
-            <span className="text-xs text-slate-500 hidden sm:block mt-0.5">
-              Berkshire Hathaway HomeServices Nevada Properties
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 min-w-0"
+            aria-label={`${siteConfig.logoTitle}, ${siteConfig.logoSubtitle}`}
+          >
+            <Image
+              src={logoMarkSrc}
+              alt=""
+              width={80}
+              height={80}
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain shrink-0 rounded-full"
+              unoptimized={isCfDeliveryUrl(logoMarkSrc)}
+              priority
+            />
+            <span className="flex flex-col min-w-0">
+              <span
+                className={cn(
+                  "text-sm sm:text-base font-normal uppercase tracking-luxury leading-snug",
+                  solid ? "text-ink" : "text-white",
+                )}
+              >
+                {siteConfig.logoTitle}
+              </span>
+              <span
+                className={cn(
+                  "text-[10px] uppercase tracking-wider hidden sm:block mt-0.5 font-light",
+                  solid ? "text-mist" : "text-white/80",
+                )}
+              >
+                {siteConfig.logoSubtitle}
+              </span>
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-5">
+          <div className="hidden lg:flex items-center gap-1">
             {mainNavLinks.map((link) =>
               link.external === true ? (
                 <a
@@ -57,32 +92,27 @@ export default function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm"
+                  className={linkClass}
                 >
                   {link.label}
                 </a>
               ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm"
-                >
+                <Link key={link.href} href={link.href} className={linkClass}>
                   {link.label}
                 </Link>
-              )
+              ),
             )}
 
-            {/* Services Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-md px-2 py-1"
+                className={cn(linkClass, "flex items-center")}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     setIsServicesOpen(!isServicesOpen);
-                  } else if (e.key === 'Escape') {
+                  } else if (e.key === "Escape") {
                     setIsServicesOpen(false);
                   }
                 }}
@@ -91,12 +121,12 @@ export default function Navbar() {
                 aria-label="Services menu"
               >
                 Services
-                <ChevronDown className="h-4 w-4 ml-1" aria-hidden="true" />
+                <ChevronDown className="h-3 w-3 ml-1" aria-hidden="true" />
               </button>
 
               {isServicesOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full left-0 mt-1 w-56 bg-white/95 py-2 z-50 shadow-sm"
                   onMouseLeave={() => setIsServicesOpen(false)}
                   role="menu"
                   aria-orientation="vertical"
@@ -105,7 +135,7 @@ export default function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 focus-visible:outline-none focus-visible:bg-blue-50 focus-visible:text-blue-600"
+                      className="block px-4 py-2 text-[13px] font-light uppercase tracking-wider text-ink hover:bg-cream"
                       onClick={() => setIsServicesOpen(false)}
                       role="menuitem"
                     >
@@ -116,36 +146,49 @@ export default function Navbar() {
               )}
             </div>
 
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17026648424" className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">(702) 664-8424</span>
-                <span className="xl:hidden">Call</span>
-              </Link>
-            </Button>
+            <a
+              href={agentInfo.phoneTel}
+              className={cn(
+                "ml-3 inline-flex items-center gap-2 border px-5 py-2.5 text-[11px] font-bold uppercase tracking-luxury",
+                solid
+                  ? "border-ink text-ink hover:bg-ink hover:text-white"
+                  : "border-white text-white hover:bg-white hover:text-ink",
+              )}
+            >
+              <Phone className="h-3.5 w-3.5" />
+              <span className="hidden xl:inline">{agentInfo.phone}</span>
+              <span className="xl:hidden">Call</span>
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-3">
-            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17026648424">
-                <Phone className="h-4 w-4" />
-              </Link>
-            </Button>
+            <a
+              href={agentInfo.phoneTel}
+              className={cn(
+                "inline-flex items-center justify-center border p-2",
+                solid ? "border-ink text-ink" : "border-white text-white",
+              )}
+              aria-label={`Call ${agentInfo.phone}`}
+            >
+              <Phone className="h-4 w-4" />
+            </a>
             <button
-              className="text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-md p-1"
+              className={cn("p-1", solid ? "text-ink" : "text-white")}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+              {isMobileMenuOpen ? (
+                <X size={24} aria-hidden="true" />
+              ) : (
+                <Menu size={24} aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-slate-200">
+          <div className="lg:hidden mt-4 pb-4 border-t border-black/10 bg-cream">
             <div className="flex flex-col space-y-1 pt-4">
               {mainNavLinks.map((link) =>
                 link.external === true ? (
@@ -154,7 +197,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors py-2 px-3 rounded"
+                    className="text-ink font-light uppercase tracking-luxury text-[13px] py-2 px-3"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -163,24 +206,23 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors py-2 px-3 rounded"
+                    className="text-ink font-light uppercase tracking-luxury text-[13px] py-2 px-3"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
-                )
+                ),
               )}
 
-              {/* Services Section */}
-              <div className="border-t border-slate-200 pt-2 mt-2">
-                <span className="text-xs font-semibold text-slate-500 px-3 uppercase">
+              <div className="border-t border-black/10 pt-2 mt-2">
+                <span className="text-[11px] font-light text-mist px-3 uppercase tracking-luxury">
                   Services
                 </span>
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors py-2 px-3 rounded block"
+                    className="text-ink font-light uppercase tracking-luxury text-[13px] py-2 px-3 block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -188,16 +230,13 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="pt-4">
-                <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
-                  <Link
-                    href="tel:+17026648424"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <Phone className="h-4 w-4" />
-                    Call Dr. Jan: (702) 664-8424
-                  </Link>
-                </Button>
+              <div className="pt-4 px-3">
+                <a
+                  href={agentInfo.phoneTel}
+                  className="btn-luxury-solid w-full"
+                >
+                  Call {agentInfo.phone}
+                </a>
               </div>
             </div>
           </div>
@@ -205,7 +244,7 @@ export default function Navbar() {
       </div>
 
       {showNavSimpleSearch ? (
-        <div className="border-t border-slate-200 bg-white/95 backdrop-blur-sm">
+        <div className="border-t border-black/10 bg-cream">
           <RealScoutSimpleSearch />
         </div>
       ) : null}

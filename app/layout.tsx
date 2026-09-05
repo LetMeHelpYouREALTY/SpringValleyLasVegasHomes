@@ -5,14 +5,15 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { GeistSans } from "geist/font/sans";
-import { cn } from "lib/utils";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
 /** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
-const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), { ssr: false });
+const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), {
+  ssr: false,
+});
 const VercelAnalytics = dynamic(
-  () => import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
+  () =>
+    import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
   { ssr: false },
 );
 import SchemaScript from "@/components/SchemaScript";
@@ -25,6 +26,7 @@ import { siteConfig } from "@/lib/site-config";
 import { faviconAppleSrc, faviconSrc } from "@/lib/site-media";
 import { seoKeywordVariations, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+import { greatVibes } from "@/lib/fonts";
 
 const title = siteConfig.name;
 const description = siteConfig.description;
@@ -81,8 +83,11 @@ export const metadata: Metadata = {
     description,
   },
   icons: {
-    icon: faviconSrc,
-    apple: faviconAppleSrc,
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: faviconSrc, type: "image/png", sizes: "300x300" },
+    ],
+    apple: [{ url: faviconAppleSrc, sizes: "180x180", type: "image/png" }],
   },
   robots: {
     index: true,
@@ -100,7 +105,7 @@ export const viewport: Viewport = {
 // Combined site-wide schemas using the schema utility
 const siteWideSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
-  generateWebSiteSchema()
+  generateWebSiteSchema(),
 );
 
 export default function RootLayout({
@@ -119,11 +124,19 @@ export default function RootLayout({
   })();
 
   return (
-    <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
+    <html
+      lang="en"
+      className="scroll-smooth antialiased"
+      style={{ colorScheme: "light" }}
+    >
       <head>
         <meta name="color-scheme" content="light" />
         {/* Early connections for third-party origins (reduces LCP / script latency) */}
-        <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://em.realscout.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         {homebotPrefetchOrigin ? (
           <link rel="dns-prefetch" href={homebotPrefetchOrigin} />
@@ -143,10 +156,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn(
-          GeistSans.variable,
-          "antialiased bg-white text-sm md:text-base text-slate-800",
-        )}
+        className={`${greatVibes.variable} antialiased bg-white text-sm md:text-base text-ink`}
       >
         <a
           href="#main-content"

@@ -1,21 +1,25 @@
 import { Shield, TrendingUp, Users, Award, Clock, Home } from "lucide-react";
 import { agentStats } from "@/lib/site-config";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 const features = [
   {
     icon: Shield,
     title: "Trusted Expertise",
-    description: "Serving Las Vegas and Henderson since 2008 with proven results.",
+    description:
+      "Serving Las Vegas and Henderson since 2008 with proven results.",
   },
   {
     icon: TrendingUp,
     title: "Market Knowledge",
-    description: "Deep understanding of local market trends and neighborhood insights.",
+    description:
+      "Deep understanding of local market trends and neighborhood insights.",
   },
   {
     icon: Users,
     title: "Personalized Service",
-    description: "Dedicated attention to every client with customized solutions.",
+    description:
+      "Dedicated attention to every client with customized solutions.",
   },
   {
     icon: Award,
@@ -39,11 +43,11 @@ export default function WhyChooseUs() {
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-            Why Choose Us
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Experience the difference of working with a trusted real estate professional
+          <SectionPortrait />
+          <h2 className="text-3xl md:text-4xl text-ink mb-4">Why Choose Us</h2>
+          <p className="text-base text-neutral-600 max-w-3xl mx-auto font-light normal-case tracking-normal">
+            Experience the difference of working with a trusted real estate
+            professional
           </p>
         </div>
 
@@ -53,13 +57,15 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={feature.title}
-                className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-slate-50 transition-colors"
+                className="flex flex-col items-center text-center p-6"
               >
-                <div className="bg-blue-100 rounded-full p-4 mb-4">
-                  <Icon className="h-8 w-8 text-blue-600" />
+                <div className="bg-cream p-4 mb-4">
+                  <Icon className="h-7 w-7 text-navy" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
-                <p className="text-slate-600">{feature.description}</p>
+                <h3 className="text-lg text-ink mb-2">{feature.title}</h3>
+                <p className="text-neutral-600 font-light text-sm normal-case tracking-normal">
+                  {feature.description}
+                </p>
               </div>
             );
           })}

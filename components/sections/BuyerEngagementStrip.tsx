@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Search, Home, BookOpen, Newspaper } from "lucide-react";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export type BuyerEngagementStripProps = {
   /** First tile: in-page anchor for listings (home uses `#featured-properties`). */
@@ -47,11 +48,12 @@ export default function BuyerEngagementStrip({
 
   return (
     <section
-      className="border-b border-slate-200 bg-slate-50/90 backdrop-blur-sm"
+      className="border-b border-black/10 bg-cream"
       aria-label="Quick links for home buyers"
     >
-      <div className="container mx-auto px-4 py-6 md:py-8">
-        <p className="text-center text-sm font-semibold uppercase tracking-wide text-blue-700 mb-4 md:mb-6">
+      <div className="container mx-auto px-4 py-8 md:py-10">
+        <SectionPortrait sizeClassName="h-14 w-14 sm:h-16 sm:w-16" />
+        <p className="text-center text-[11px] font-light uppercase tracking-luxury text-mist mb-6">
           Start your home search
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 max-w-6xl mx-auto">
@@ -59,13 +61,17 @@ export default function BuyerEngagementStrip({
             <Link
               key={`${href}-${label}`}
               href={href}
-              className="group flex flex-col items-center text-center rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              className="group flex flex-col items-center text-center border border-black/10 bg-white p-4 transition-colors hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             >
-              <span className="mb-2 rounded-full bg-blue-50 p-2.5 text-blue-600 group-hover:bg-blue-100">
+              <span className="mb-2 p-2.5 text-ink">
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
-              <span className="font-semibold text-slate-900 text-sm md:text-base">{label}</span>
-              <span className="mt-0.5 text-xs text-slate-500">{sub}</span>
+              <span className="text-ink text-xs md:text-sm uppercase tracking-wider font-normal">
+                {label}
+              </span>
+              <span className="mt-0.5 text-xs text-mist font-light normal-case tracking-normal">
+                {sub}
+              </span>
             </Link>
           ))}
         </div>

@@ -1,0 +1,266 @@
+{
+  "hero": [
+    {
+      "heading": "H1 Spring Valley pool home",
+      "env": "NEXT_PUBLIC_CF_IMAGE_HERO_1_ID",
+      "id": "svlvh-h1-spring-valley",
+      "file": "public/images/hero/h1-spring-valley.jpg",
+      "local": "/images/hero/h1-spring-valley.jpg",
+      "alt": "Contemporary Spring Valley Las Vegas home with a pool, xeriscape, and mountain views"
+    },
+    {
+      "heading": "H1 Spanish Trail golf community",
+      "env": "NEXT_PUBLIC_CF_IMAGE_HERO_2_ID",
+      "id": "svlvh-h1-spanish-trail",
+      "file": "public/images/hero/h1-spanish-trail.jpg",
+      "local": "/images/hero/h1-spanish-trail.jpg",
+      "alt": "Spanish Trail guard-gated golf community homes in Spring Valley Las Vegas"
+    },
+    {
+      "heading": "H1 Desert Breeze Park",
+      "env": "NEXT_PUBLIC_CF_IMAGE_HERO_3_ID",
+      "id": "svlvh-h1-desert-breeze",
+      "file": "public/images/hero/h1-desert-breeze.jpg",
+      "local": "/images/hero/h1-desert-breeze.jpg",
+      "alt": "Desert Breeze Park and recreation center in north-central Spring Valley Las Vegas"
+    }
+  ],
+  "featured": [
+    {
+      "heading": "H2 Buy Spring Valley listings",
+      "env": "NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID",
+      "id": "svlvh-h2-listings",
+      "file": "public/images/properties/h2-listings.jpg",
+      "local": "/images/properties/h2-listings.jpg",
+      "alt": "Single-family Spring Valley Las Vegas home with desert landscaping"
+    },
+    {
+      "heading": "H2 Search Spring Valley MLS",
+      "env": "NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID",
+      "id": "svlvh-h2-home-search",
+      "file": "public/images/properties/h2-home-search.jpg",
+      "local": "/images/properties/h2-home-search.jpg",
+      "alt": "Residential street in Spring Valley Las Vegas for MLS home search"
+    },
+    {
+      "heading": "H2 Sell with Dr. Jan Duffy",
+      "env": "NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID",
+      "id": "svlvh-h2-contact",
+      "file": "public/images/properties/h2-contact.jpg",
+      "local": "/images/properties/h2-contact.jpg",
+      "alt": "West Tropicana Avenue real estate office serving Spring Valley Las Vegas"
+    }
+  ],
+  "communities": [
+    {
+      "heading": "H3 Spanish Trail",
+      "env": "NEXT_PUBLIC_CF_IMAGE_COMMUNITY_1_ID",
+      "id": "svlvh-h3-spanish-trail",
+      "file": "public/images/neighborhoods/h3-spanish-trail.jpg",
+      "local": "/images/neighborhoods/h3-spanish-trail.jpg",
+      "alt": "Spanish Trail golf community street in Spring Valley Las Vegas",
+      "name": "Spanish Trail",
+      "href": "/neighborhoods/spanish-trail"
+    },
+    {
+      "heading": "H3 Desert Breeze",
+      "env": "NEXT_PUBLIC_CF_IMAGE_COMMUNITY_2_ID",
+      "id": "svlvh-h3-desert-breeze",
+      "file": "public/images/neighborhoods/h3-desert-breeze.jpg",
+      "local": "/images/neighborhoods/h3-desert-breeze.jpg",
+      "alt": "Desert Breeze Community Center and park in Spring Valley Las Vegas",
+      "name": "Desert Breeze",
+      "href": "/neighborhoods/desert-breeze"
+    },
+    {
+      "heading": "H3 Chinatown Spring Mountain",
+      "env": "NEXT_PUBLIC_CF_IMAGE_COMMUNITY_3_ID",
+      "id": "svlvh-h3-chinatown",
+      "file": "public/images/neighborhoods/h3-chinatown.jpg",
+      "local": "/images/neighborhoods/h3-chinatown.jpg",
+      "alt": "Spring Mountain Road Chinatown corridor in Spring Valley Las Vegas at dusk",
+      "name": "Chinatown / Spring Mountain",
+      "href": "/neighborhoods/chinatown-spring-mountain"
+    }
+  ],
+  "workWithMe": {
+    "heading": "H2 Work With Me",
+    "env": "NEXT_PUBLIC_CF_IMAGE_WORK_WITH_ME_ID",
+    "id": "svlvh-h2-work-with-me",
+    "file": "public/images/hero/h2-work-with-me.jpg",
+    "local": "/images/hero/h2-work-with-me.jpg",
+    "alt": "Covered patio and pool at a Spring Valley Las Vegas home — work with Dr. Jan Duffy"
+  },
+  "brand": {
+    "favicon": {
+      "heading": "Favicon circular portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_FAVICON_MARK_ID",
+      "id": "svlvh-favicon-circle",
+      "file": "public/images/icons/favicon.png",
+      "local": "/images/icons/favicon.png",
+      "alt": "Dr. Jan Duffy, Spring Valley Las Vegas Homes favicon"
+    },
+    "apple": {
+      "heading": "Apple touch icon",
+      "env": "NEXT_PUBLIC_CF_IMAGE_APPLE_ICON_ID",
+      "id": "svlvh-apple-circle",
+      "file": "public/images/icons/apple-touch-icon.png",
+      "local": "/images/icons/apple-touch-icon.png",
+      "alt": "Dr. Jan Duffy apple touch icon"
+    },
+    "logo": {
+      "heading": "Navbar circular portrait logo",
+      "env": "NEXT_PUBLIC_CF_IMAGE_LOGO_MARK_ID",
+      "id": "svlvh-logo-circle",
+      "file": "public/images/agent/dr-jan-duffy-badge.png",
+      "local": "/images/agent/dr-jan-duffy-badge.png",
+      "alt": "Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties"
+    },
+    "wordmark": {
+      "heading": "Site wordmark",
+      "env": "NEXT_PUBLIC_CF_IMAGE_WORDMARK_ID",
+      "id": "svlvh-wordmark",
+      "file": "public/images/logos/spring-valley-wordmark.jpg",
+      "local": "/images/logos/spring-valley-wordmark.jpg",
+      "alt": "Spring Valley Las Vegas Homes By Dr. Jan Duffy"
+    },
+    "headshot": {
+      "heading": "Dr. Jan Duffy circular portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_ID",
+      "id": "svlvh-portrait-circle",
+      "file": "public/images/agent/dr-jan-duffy-badge.png",
+      "local": "/images/agent/dr-jan-duffy-badge.png",
+      "alt": "Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties"
+    },
+    "badgeGold": {
+      "heading": "Dr. Jan Duffy gold-ring portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_GOLD_ID",
+      "id": "svlvh-portrait-gold",
+      "file": "public/images/agent/dr-jan-duffy-badge-gold.png",
+      "local": "/images/agent/dr-jan-duffy-badge-gold.png",
+      "alt": "Dr. Jan Duffy holding a phone, gold circular portrait"
+    },
+    "badgeWarm": {
+      "heading": "Dr. Jan Duffy warm-gold portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_WARM_ID",
+      "id": "svlvh-portrait-warm",
+      "file": "public/images/agent/dr-jan-duffy-badge-warm.png",
+      "local": "/images/agent/dr-jan-duffy-badge-warm.png",
+      "alt": "Dr. Jan Duffy circular portrait with warm gold background"
+    },
+    "badgeMint": {
+      "heading": "Dr. Jan Duffy mint-gold portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_MINT_ID",
+      "id": "svlvh-portrait-mint",
+      "file": "public/images/agent/dr-jan-duffy-badge-mint.png",
+      "local": "/images/agent/dr-jan-duffy-badge-mint.png",
+      "alt": "Dr. Jan Duffy circular portrait with mint and gold frame"
+    }
+  },
+  "portraits": [
+    {
+      "heading": "Portrait backup 01",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_01_ID",
+      "id": "svlvh-portrait-01",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-01.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-01.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 01"
+    },
+    {
+      "heading": "Portrait backup 02",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_02_ID",
+      "id": "svlvh-portrait-02",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-02.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-02.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 02"
+    },
+    {
+      "heading": "Portrait backup 03",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_03_ID",
+      "id": "svlvh-portrait-03",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-03.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-03.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 03"
+    },
+    {
+      "heading": "Portrait backup 04",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_04_ID",
+      "id": "svlvh-portrait-04",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-04.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-04.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 04"
+    },
+    {
+      "heading": "Portrait backup 05",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_05_ID",
+      "id": "svlvh-portrait-05",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-05.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-05.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 05"
+    },
+    {
+      "heading": "Portrait backup 06",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_06_ID",
+      "id": "svlvh-portrait-06",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-06.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-06.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 06"
+    },
+    {
+      "heading": "Portrait backup 07",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_07_ID",
+      "id": "svlvh-portrait-07",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-07.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-07.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 07"
+    },
+    {
+      "heading": "Portrait backup 08",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_08_ID",
+      "id": "svlvh-portrait-08",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-08.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-08.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 08"
+    },
+    {
+      "heading": "Portrait backup 09",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_09_ID",
+      "id": "svlvh-portrait-09",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-09.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-09.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 09"
+    },
+    {
+      "heading": "Portrait backup 10",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_10_ID",
+      "id": "svlvh-portrait-10",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-10.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-10.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 10"
+    },
+    {
+      "heading": "Portrait backup 11",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_11_ID",
+      "id": "svlvh-portrait-11",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-11.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-11.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 11"
+    },
+    {
+      "heading": "Portrait backup 12",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_12_ID",
+      "id": "svlvh-portrait-12",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-12.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-12.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 12"
+    },
+    {
+      "heading": "Portrait backup 13",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_13_ID",
+      "id": "svlvh-portrait-13",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-13.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-13.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 13"
+    }
+  ]
+}

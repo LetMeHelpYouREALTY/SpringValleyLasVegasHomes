@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import { featuredPropertyImageSrcs } from "@/lib/site-media";
 import { realScoutConfig } from "@/lib/integrations";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 interface Property {
   id: number;
@@ -47,7 +48,9 @@ const PropertyCard = ({ property }: { property: Property }) => (
         </div>
         <div className="flex items-center gap-1">
           <Square className="h-4 w-4 text-blue-600" />
-          <span className="text-sm">{property.squareFeet.toLocaleString()} sq ft</span>
+          <span className="text-sm">
+            {property.squareFeet.toLocaleString()} sq ft
+          </span>
         </div>
       </div>
       <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
@@ -100,6 +103,7 @@ export default function FeaturedProperties() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
+            <SectionPortrait className="mx-0 mb-4" />
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
               Featured Properties
             </h2>
@@ -108,7 +112,11 @@ export default function FeaturedProperties() {
             </p>
           </div>
           <Button asChild variant="outline" className="mt-4 md:mt-0">
-            <a href={`${realScoutConfig.portalUrl}/`} target="_blank" rel="noopener noreferrer">
+            <a
+              href={`${realScoutConfig.portalUrl}/`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View All Properties
             </a>
           </Button>

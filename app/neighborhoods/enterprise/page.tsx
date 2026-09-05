@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import PageAgentMark from "@/components/shared/PageAgentMark";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -86,6 +87,7 @@ export default function EnterprisePage() {
       <SchemaScript schema={pageSchemas} id="enterprise-schema" />
       <Navbar />
       <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+        <PageAgentMark />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500" aria-label="Breadcrumb">
@@ -102,15 +104,18 @@ export default function EnterprisePage() {
           </div>
 
           <header className="max-w-4xl mx-auto text-center mb-14">
-            <p className="text-sm font-semibold text-blue-600 mb-3">Southwest Las Vegas Valley</p>
+            <p className="text-sm font-semibold text-blue-600 mb-3">
+              Southwest Las Vegas Valley
+            </p>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Enterprise Las Vegas Homes &amp; Rhodes Ranch Area
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed">
-              <strong>Enterprise, NV</strong> covers a fast-growing southwest corridor—known for
-              guard-gated golf communities like <strong>Rhodes Ranch</strong>, newer construction,
-              and proximity to the 215 Beltway. Use this guide to orient your search, then explore
-              live MLS inventory with Dr. Jan Duffy.
+              <strong>Enterprise, NV</strong> covers a fast-growing southwest
+              corridor—known for guard-gated golf communities like{" "}
+              <strong>Rhodes Ranch</strong>, newer construction, and proximity
+              to the 215 Beltway. Use this guide to orient your search, then
+              explore live MLS inventory with Dr. Jan Duffy.
             </p>
           </header>
 
@@ -120,13 +125,20 @@ export default function EnterprisePage() {
             </h2>
             <p className="text-slate-700 leading-relaxed">
               Enterprise is an unincorporated Clark County community in the{" "}
-              <strong>southwest Las Vegas Valley</strong>. It is not the same mailing label as{" "}
-              <Link href="/neighborhoods/spring-valley" className="text-blue-600 hover:underline">
+              <strong>southwest Las Vegas Valley</strong>. It is not the same
+              mailing label as{" "}
+              <Link
+                href="/neighborhoods/spring-valley"
+                className="text-blue-600 hover:underline"
+              >
                 Spring Valley
               </Link>
-              , but buyers frequently cross-shop <strong>Enterprise Las Vegas homes</strong> with
-              Spring Valley and{" "}
-              <Link href="/neighborhoods/mountains-edge" className="text-blue-600 hover:underline">
+              , but buyers frequently cross-shop{" "}
+              <strong>Enterprise Las Vegas homes</strong> with Spring Valley and{" "}
+              <Link
+                href="/neighborhoods/mountains-edge"
+                className="text-blue-600 hover:underline"
+              >
                 Mountains Edge
               </Link>{" "}
               depending on budget, HOA appetite, and commute.
@@ -135,14 +147,18 @@ export default function EnterprisePage() {
               Why do buyers ask about Rhodes Ranch?
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              <strong>Rhodes Ranch</strong> is one of the most searched guard-gated names in the
-              southwest valley—golf, clubhouse, and recreation amenities attract families and
-              relocators. Pricing and availability change weekly; we run live comps for the exact
+              <strong>Rhodes Ranch</strong> is one of the most searched
+              guard-gated names in the southwest valley—golf, clubhouse, and
+              recreation amenities attract families and relocators. Pricing and
+              availability change weekly; we run live comps for the exact
               subdivision and floor plan you prefer.
             </p>
           </section>
 
-          <section className="max-w-4xl mx-auto mb-14" aria-labelledby="enterprise-map-heading">
+          <section
+            className="max-w-4xl mx-auto mb-14"
+            aria-labelledby="enterprise-map-heading"
+          >
             <h2
               id="enterprise-map-heading"
               className="text-2xl font-bold text-slate-900 mb-3 text-center"
@@ -150,8 +166,9 @@ export default function EnterprisePage() {
               Map — southwest valley orientation
             </h2>
             <p className="text-slate-600 text-center mb-6 max-w-2xl mx-auto">
-              Use this layer to see how Enterprise sits relative to Spring Valley, the 215, and the
-              wider valley—pair with MLS search for specific listings.
+              Use this layer to see how Enterprise sits relative to Spring
+              Valley, the 215, and the wider valley—pair with MLS search for
+              specific listings.
             </p>
             <div className="rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
               <iframe
@@ -177,10 +194,13 @@ export default function EnterprisePage() {
 
           <section className="max-w-4xl mx-auto mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-10 text-center">
             <MapPin className="h-10 w-10 mx-auto mb-4 opacity-90" />
-            <h2 className="text-2xl font-bold mb-3">Tour Enterprise Las Vegas homes</h2>
+            <h2 className="text-2xl font-bold mb-3">
+              Tour Enterprise Las Vegas homes
+            </h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Get a clear search plan for Enterprise, Rhodes Ranch, and southwest listings—backed
-              by Berkshire Hathaway HomeServices Nevada Properties.
+              Get a clear search plan for Enterprise, Rhodes Ranch, and
+              southwest listings—backed by Berkshire Hathaway HomeServices
+              Nevada Properties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -198,7 +218,9 @@ export default function EnterprisePage() {
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
             </div>
-            <p className="mt-6 text-sm text-blue-200">{officeInfo.address.full}</p>
+            <p className="mt-6 text-sm text-blue-200">
+              {officeInfo.address.full}
+            </p>
           </section>
 
           <section className="max-w-4xl mx-auto mb-16">
@@ -211,15 +233,22 @@ export default function EnterprisePage() {
                   key={faq.question}
                   className="border border-slate-200 rounded-lg p-5 bg-white"
                 >
-                  <h3 className="font-semibold text-slate-900 mb-2">{faq.question}</h3>
-                  <p className="text-slate-700 text-sm leading-relaxed">{faq.answer}</p>
+                  <h3 className="font-semibold text-slate-900 mb-2">
+                    {faq.question}
+                  </h3>
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               ))}
             </div>
           </section>
 
           <section className="max-w-4xl mx-auto mb-10 flex flex-wrap justify-center gap-4 text-sm">
-            <Link href="/neighborhoods/spring-valley" className="text-blue-600 hover:underline">
+            <Link
+              href="/neighborhoods/spring-valley"
+              className="text-blue-600 hover:underline"
+            >
               Spring Valley guide
             </Link>
             <span className="text-slate-300">·</span>
@@ -227,11 +256,17 @@ export default function EnterprisePage() {
               MLS search
             </Link>
             <span className="text-slate-300">·</span>
-            <Link href="/las-vegas-zip-code-map" className="text-blue-600 hover:underline">
+            <Link
+              href="/las-vegas-zip-code-map"
+              className="text-blue-600 hover:underline"
+            >
               Zip code map
             </Link>
             <span className="text-slate-300">·</span>
-            <Link href="/neighborhoods" className="text-blue-600 hover:underline">
+            <Link
+              href="/neighborhoods"
+              className="text-blue-600 hover:underline"
+            >
               All neighborhoods
             </Link>
           </section>

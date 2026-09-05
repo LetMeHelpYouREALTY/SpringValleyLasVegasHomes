@@ -3,6 +3,7 @@ import HeroBackgroundCarousel from "@/components/sections/HeroBackgroundCarousel
 import HeroSectionInteractive from "@/components/sections/HeroSectionInteractive";
 
 type HeroSectionProps = {
+  signature?: string;
   headlinePrimary?: string;
   headlineSecondary?: string;
   intro?: string;
