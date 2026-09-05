@@ -4,6 +4,9 @@ const config = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        script: ["var(--font-great-vibes)", "cursive"],
+      },
       extend: {
         fontFamily: {
           sans: ["var(--font-geist-sans)"],

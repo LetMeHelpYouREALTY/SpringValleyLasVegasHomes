@@ -30,6 +30,7 @@ export const seoKeywordVariations = [
 
 /** Homepage hero — one H1 topic cluster; visible copy matches metadata intent */
 export const heroSeo = {
+  signature: "Dr. Jan Duffy",
   headlinePrimary: "Spring Valley Las Vegas",
   headlineSecondary: "Luxury Real Estate",
   intro:

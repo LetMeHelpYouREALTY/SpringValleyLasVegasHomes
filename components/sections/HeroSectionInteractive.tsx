@@ -6,6 +6,7 @@ import { heroSeo } from "@/lib/seo";
 import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
 
 type HeroSectionInteractiveProps = {
+  signature?: string;
   headlinePrimary?: string;
   headlineSecondary?: string;
   intro?: string;
@@ -13,6 +14,7 @@ type HeroSectionInteractiveProps = {
 
 /** Above-the-fold hero copy, search, and scroll cue — client-only for hooks + RealScout. */
 export default function HeroSectionInteractive({
+  signature = heroSeo.signature,
   headlinePrimary = heroSeo.headlinePrimary,
   headlineSecondary = heroSeo.headlineSecondary,
   intro = heroSeo.intro,
@@ -22,6 +24,9 @@ export default function HeroSectionInteractive({
   return (
     <div className="relative z-20 h-full w-full">
       <div className="flex h-full flex-col items-center justify-center px-4 text-center">
+        <p className="font-script mb-3 text-4xl leading-none text-white md:text-5xl lg:text-6xl">
+          {signature}
+        </p>
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           <span className="block">{headlinePrimary}</span>
           <span className="block text-blue-400 mt-1">{headlineSecondary}</span>

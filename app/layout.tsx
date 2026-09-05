@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
+import { Great_Vibes } from "next/font/google";
 import { cn } from "lib/utils";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
@@ -25,6 +26,14 @@ import { siteConfig } from "@/lib/site-config";
 import { faviconAppleSrc, faviconSrc } from "@/lib/site-media";
 import { seoKeywordVariations, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+
+/** Script signature for hero / brand lockups (self-hosted via next/font). */
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-great-vibes",
+  display: "swap",
+});
 
 const title = siteConfig.name;
 const description = siteConfig.description;
@@ -145,6 +154,7 @@ export default function RootLayout({
       <body
         className={cn(
           GeistSans.variable,
+          greatVibes.variable,
           "antialiased bg-white text-sm md:text-base text-slate-800",
         )}
       >
