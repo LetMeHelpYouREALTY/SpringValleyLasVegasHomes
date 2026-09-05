@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import { featuredCommunityTiles } from "@/lib/site-media";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export default function FeaturedCommunitiesGrid() {
   return (
@@ -10,6 +11,7 @@ export default function FeaturedCommunitiesGrid() {
       aria-labelledby="communities-heading"
     >
       <div className="container mx-auto px-4 mb-10 md:mb-14 text-center">
+        <SectionPortrait />
         <h2 id="communities-heading" className="text-3xl md:text-4xl text-ink">
           Spring Valley Pockets
         </h2>

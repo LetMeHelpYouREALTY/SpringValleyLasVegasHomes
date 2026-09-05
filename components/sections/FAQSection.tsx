@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export interface FAQ {
   question: string;
@@ -69,6 +70,7 @@ export default function FAQSection({
     <section className={`py-16 md:py-24 bg-white ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <SectionPortrait />
           <h2 className="text-3xl md:text-4xl text-ink mb-4">{title}</h2>
           <p className="text-base text-neutral-600 max-w-3xl mx-auto font-light normal-case tracking-normal">
             {subtitle}

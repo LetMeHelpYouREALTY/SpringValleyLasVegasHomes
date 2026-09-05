@@ -3,6 +3,7 @@ import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import { workWithMeImageAlt, workWithMeImageSrc } from "@/lib/site-media";
 import { agentInfo } from "@/lib/site-config";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export default function WorkWithMeCta() {
   const src = workWithMeImageSrc;
@@ -19,6 +20,7 @@ export default function WorkWithMeCta() {
       />
       <div className="absolute inset-0 bg-black/35" aria-hidden />
       <div className="relative z-10 px-6 py-20 max-w-2xl">
+        <SectionPortrait />
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl mb-6">
           Work With Me
         </h2>

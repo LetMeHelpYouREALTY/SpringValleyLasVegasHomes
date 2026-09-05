@@ -1,9 +1,15 @@
 import Link from "next/link";
 import Navbar from "@/components/layouts/Navbar";
+import PageAgentMark from "@/components/shared/PageAgentMark";
 import Footer from "@/components/layouts/Footer";
 import LasVegasZipCodeMap from "@/components/tools/LasVegasZipCodeMap";
 import type { Metadata } from "next";
-import { agentInfo, officeInfo, siteConfig, siteSocialUrls } from "@/lib/site-config";
+import {
+  agentInfo,
+  officeInfo,
+  siteConfig,
+  siteSocialUrls,
+} from "@/lib/site-config";
 import { lasVegasZipStats } from "@/lib/las-vegas-zip-data";
 import { combineSchemas } from "@/lib/schema";
 import { absoluteMediaUrl, mapHubOgImageSrc } from "@/lib/site-media";
@@ -130,7 +136,11 @@ const pageSchemas = combineSchemas(
       },
     },
     about: [
-      { "@type": "AdministrativeArea", name: "Clark County", containedInPlace: { "@type": "State", name: "Nevada" } },
+      {
+        "@type": "AdministrativeArea",
+        name: "Clark County",
+        containedInPlace: { "@type": "State", name: "Nevada" },
+      },
       { "@type": "Place", name: "Las Vegas Valley" },
     ],
   },
@@ -185,8 +195,7 @@ const pageSchemas = combineSchemas(
         name: "How do I search Las Vegas or Spring Valley homes by zip code?",
         acceptedAnswer: {
           "@type": "Answer",
-          text:
-            "Use the zip directory or interactive map on this page, open the search hub for your zip, then use the live MLS home search and type the zip or city in the search box. You can also call or email Dr. Jan Duffy for a curated list.",
+          text: "Use the zip directory or interactive map on this page, open the search hub for your zip, then use the live MLS home search and type the zip or city in the search box. You can also call or email Dr. Jan Duffy for a curated list.",
         },
       },
       {
@@ -194,8 +203,7 @@ const pageSchemas = combineSchemas(
         name: "Where is Spring Valley on this Las Vegas zip map?",
         acceptedAnswer: {
           "@type": "Answer",
-          text:
-            "Spring Valley is in the west Las Vegas Valley; zip 89103 is a core Spring Valley area. Listings may show Spring Valley or Las Vegas—use nearby zips on the map for context when comparing homes.",
+          text: "Spring Valley is in the west Las Vegas Valley; zip 89103 is a core Spring Valley area. Listings may show Spring Valley or Las Vegas—use nearby zips on the map for context when comparing homes.",
         },
       },
       {
@@ -203,8 +211,7 @@ const pageSchemas = combineSchemas(
         name: "Does this map show official zip code boundaries?",
         acceptedAnswer: {
           "@type": "Answer",
-          text:
-            "No. Markers and circles show approximate centers for reference, not legal boundaries. Confirm schools, taxes, and HOA details on the listing and with your agent.",
+          text: "No. Markers and circles show approximate centers for reference, not legal boundaries. Confirm schools, taxes, and HOA details on the listing and with your agent.",
         },
       },
     ],
@@ -220,7 +227,11 @@ export default function LasVegasZipCodeMapPage() {
       />
       <Navbar />
       <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
-        <nav className="border-b border-slate-200 bg-white" aria-label="Breadcrumb">
+        <PageAgentMark />
+        <nav
+          className="border-b border-slate-200 bg-white"
+          aria-label="Breadcrumb"
+        >
           <div className="container mx-auto max-w-7xl px-4 py-3 text-sm text-slate-500">
             <Link href="/" className="text-blue-600 hover:underline">
               Home
@@ -228,7 +239,10 @@ export default function LasVegasZipCodeMapPage() {
             <span className="mx-2" aria-hidden>
               /
             </span>
-            <Link href="/neighborhoods" className="text-blue-600 hover:underline">
+            <Link
+              href="/neighborhoods"
+              className="text-blue-600 hover:underline"
+            >
               Neighborhoods
             </Link>
             <span className="mx-2" aria-hidden>
@@ -243,19 +257,24 @@ export default function LasVegasZipCodeMapPage() {
             Las Vegas Valley Zip Code Map
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-200">
-            Use this Spring Valley Las Vegas map-style guide to scan the whole valley by zip—from
-            west-side Spring Valley and Summerlin to Henderson and North Las Vegas—then jump to MLS
-            search or call {agentInfo.phone}.
+            Use this Spring Valley Las Vegas map-style guide to scan the whole
+            valley by zip—from west-side Spring Valley and Summerlin to
+            Henderson and North Las Vegas—then jump to MLS search or call{" "}
+            {agentInfo.phone}.
           </p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             <div>
-              <div className="text-3xl font-extrabold text-sky-400">{lasVegasZipStats.zipCount}</div>
+              <div className="text-3xl font-extrabold text-sky-400">
+                {lasVegasZipStats.zipCount}
+              </div>
               <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                 Zip codes
               </div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-sky-400">{lasVegasZipStats.regionCount}</div>
+              <div className="text-3xl font-extrabold text-sky-400">
+                {lasVegasZipStats.regionCount}
+              </div>
               <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                 Region filters
               </div>
@@ -272,56 +291,83 @@ export default function LasVegasZipCodeMapPage() {
         <LasVegasZipCodeMap />
 
         <section className="mx-auto max-w-4xl px-4 py-12 prose prose-slate">
-          <h2 className="text-2xl font-bold text-slate-900">Understanding Las Vegas zip codes</h2>
+          <h2 className="text-2xl font-bold text-slate-900">
+            Understanding Las Vegas zip codes
+          </h2>
           <p className="mt-4 text-slate-700">
-            The Las Vegas Valley spans a large portion of Clark County, Nevada, including several
-            municipalities and master-planned communities. Whether you are relocating, investing
-            in real estate, or comparing neighborhoods, zip code geography helps you narrow
-            listings and commute times. Searching{" "}
-            <strong>Spring Valley Nevada homes</strong> or{" "}
-            <strong>Spring Valley Nevada homes for sale</strong> often starts with a zip—use the
-            tools above to see how Spring Valley fits next to nearby west valley communities.
+            The Las Vegas Valley spans a large portion of Clark County, Nevada,
+            including several municipalities and master-planned communities.
+            Whether you are relocating, investing in real estate, or comparing
+            neighborhoods, zip code geography helps you narrow listings and
+            commute times. Searching <strong>Spring Valley Nevada homes</strong>{" "}
+            or <strong>Spring Valley Nevada homes for sale</strong> often starts
+            with a zip—use the tools above to see how Spring Valley fits next to
+            nearby west valley communities.
           </p>
-          <h3 className="mt-8 text-lg font-bold text-slate-900">Las Vegas (89101–89166)</h3>
+          <h3 className="mt-8 text-lg font-bold text-slate-900">
+            Las Vegas (89101–89166)
+          </h3>
           <p className="text-slate-700">
-            The City of Las Vegas covers a wide range of zip codes. Downtown anchors the urban
-            core; westward you will find established neighborhoods and Summerlin across multiple
-            zips. The southwest corridor includes Southern Highlands, Rhodes Ranch, and
+            The City of Las Vegas covers a wide range of zip codes. Downtown
+            anchors the urban core; westward you will find established
+            neighborhoods and Summerlin across multiple zips. The southwest
+            corridor includes Southern Highlands, Rhodes Ranch, and
             Mountain&apos;s Edge—among the valley&apos;s active markets.
           </p>
-          <h3 className="mt-8 text-lg font-bold text-slate-900">Henderson &amp; Boulder City</h3>
+          <h3 className="mt-8 text-lg font-bold text-slate-900">
+            Henderson &amp; Boulder City
+          </h3>
           <p className="text-slate-700">
-            Henderson spans the southeastern valley with communities such as Green Valley,
-            Inspirada, and Anthem. Boulder City (89005) sits near Lake Mead and is often grouped
-            with southeast valley searches.
+            Henderson spans the southeastern valley with communities such as
+            Green Valley, Inspirada, and Anthem. Boulder City (89005) sits near
+            Lake Mead and is often grouped with southeast valley searches.
           </p>
-          <h3 className="mt-8 text-lg font-bold text-slate-900">North Las Vegas</h3>
+          <h3 className="mt-8 text-lg font-bold text-slate-900">
+            North Las Vegas
+          </h3>
           <p className="text-slate-700">
-            North Las Vegas includes growth corridors such as Aliante and Tule Springs. The
-            northwest valley continues to add new construction toward Skye Canyon and the 89166
-            area.
+            North Las Vegas includes growth corridors such as Aliante and Tule
+            Springs. The northwest valley continues to add new construction
+            toward Skye Canyon and the 89166 area.
           </p>
-          <h2 className="mt-12 text-2xl font-bold text-slate-900">Work with Dr. Jan Duffy</h2>
+          <h2 className="mt-12 text-2xl font-bold text-slate-900">
+            Work with Dr. Jan Duffy
+          </h2>
           <p className="text-slate-700">
-            Dr. Jan Duffy serves buyers and sellers across the Las Vegas Valley with Berkshire
-            Hathaway HomeServices Nevada Properties. Call{" "}
-            <a href={agentInfo.phoneTel} className="font-medium text-blue-600 hover:underline">
+            Dr. Jan Duffy serves buyers and sellers across the Las Vegas Valley
+            with Berkshire Hathaway HomeServices Nevada Properties. Call{" "}
+            <a
+              href={agentInfo.phoneTel}
+              className="font-medium text-blue-600 hover:underline"
+            >
               {agentInfo.phone}
             </a>
             , email{" "}
-            <a href={`mailto:${agentInfo.email}`} className="font-medium text-blue-600 hover:underline">
+            <a
+              href={`mailto:${agentInfo.email}`}
+              className="font-medium text-blue-600 hover:underline"
+            >
               {agentInfo.email}
             </a>
             , or use the{" "}
-            <Link href="/contact" className="font-medium text-blue-600 hover:underline">
+            <Link
+              href="/contact"
+              className="font-medium text-blue-600 hover:underline"
+            >
               contact page
             </Link>{" "}
             to schedule a consultation.
           </p>
         </section>
 
-        <section className="mx-auto max-w-3xl px-4 pb-12" aria-labelledby="zip-map-faq-heading">
-          <h2 id="zip-map-faq-heading" className="text-2xl font-bold text-slate-900">
+        <section
+          className="mx-auto max-w-3xl px-4 pb-12"
+          aria-labelledby="zip-map-faq-heading"
+        >
+          <h2
+            id="zip-map-faq-heading"
+            className="text-2xl font-bold text-slate-900"
+          >
             Las Vegas zip map — common questions
           </h2>
           <dl className="mt-6 space-y-6">
@@ -330,41 +376,57 @@ export default function LasVegasZipCodeMapPage() {
                 How do I search Las Vegas or Spring Valley homes by zip code?
               </dt>
               <dd className="mt-2 text-slate-700">
-                Use the directory or map above, open the search link for your zip, then use the
-                live MLS home search and enter that zip or city in the search box. You can also{" "}
-                <Link href="/contact" className="font-medium text-blue-600 hover:underline">
+                Use the directory or map above, open the search link for your
+                zip, then use the live MLS home search and enter that zip or
+                city in the search box. You can also{" "}
+                <Link
+                  href="/contact"
+                  className="font-medium text-blue-600 hover:underline"
+                >
                   contact
                 </Link>{" "}
                 Dr. Jan Duffy for listings matched to your zip and budget.
               </dd>
             </div>
             <div>
-              <dt className="font-semibold text-slate-900">Where is Spring Valley on this map?</dt>
+              <dt className="font-semibold text-slate-900">
+                Where is Spring Valley on this map?
+              </dt>
               <dd className="mt-2 text-slate-700">
-                Spring Valley sits in the west valley; zip 89103 is a central Spring Valley area.
-                Listings may say &quot;Spring Valley&quot; or &quot;Las Vegas&quot;—compare nearby zips on the map
-                when you evaluate{" "}
-                <Link href="/neighborhoods/spring-valley" className="font-medium text-blue-600 hover:underline">
+                Spring Valley sits in the west valley; zip 89103 is a central
+                Spring Valley area. Listings may say &quot;Spring Valley&quot;
+                or &quot;Las Vegas&quot;—compare nearby zips on the map when you
+                evaluate{" "}
+                <Link
+                  href="/neighborhoods/spring-valley"
+                  className="font-medium text-blue-600 hover:underline"
+                >
                   Spring Valley Las Vegas homes
                 </Link>
                 .
               </dd>
             </div>
             <div>
-              <dt className="font-semibold text-slate-900">Does this map show official zip boundaries?</dt>
+              <dt className="font-semibold text-slate-900">
+                Does this map show official zip boundaries?
+              </dt>
               <dd className="mt-2 text-slate-700">
-                No. Markers show approximate centers for reference, not legal boundaries. Confirm
-                schools, taxes, and HOA details on each listing and with your agent.
+                No. Markers show approximate centers for reference, not legal
+                boundaries. Confirm schools, taxes, and HOA details on each
+                listing and with your agent.
               </dd>
             </div>
           </dl>
         </section>
 
         <section className="bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-14 text-center text-white">
-          <h2 className="text-2xl font-bold md:text-3xl">Find your neighborhood</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Find your neighborhood
+          </h2>
           <p className="mx-auto mt-3 max-w-lg text-slate-200">
-            Ready to see homes? Open the live MLS search or contact Dr. Jan Duffy&apos;s team—we&apos;ll
-            help you match zip, budget, and lifestyle.
+            Ready to see homes? Open the live MLS search or contact Dr. Jan
+            Duffy&apos;s team—we&apos;ll help you match zip, budget, and
+            lifestyle.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a

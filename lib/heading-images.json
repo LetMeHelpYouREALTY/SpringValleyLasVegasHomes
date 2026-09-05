@@ -93,20 +93,28 @@
   },
   "brand": {
     "favicon": {
-      "heading": "Favicon SV mark",
-      "env": "NEXT_PUBLIC_CF_IMAGE_FAVICON_ID",
-      "id": "svlvh-favicon",
-      "file": "public/images/icons/favicon.jpg",
-      "local": "/images/icons/favicon.jpg",
-      "alt": "Spring Valley Las Vegas Homes favicon"
+      "heading": "Favicon circular portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_FAVICON_MARK_ID",
+      "id": "svlvh-favicon-circle",
+      "file": "public/images/icons/favicon.png",
+      "local": "/images/icons/favicon.png",
+      "alt": "Dr. Jan Duffy, Spring Valley Las Vegas Homes favicon"
+    },
+    "apple": {
+      "heading": "Apple touch icon",
+      "env": "NEXT_PUBLIC_CF_IMAGE_APPLE_ICON_ID",
+      "id": "svlvh-apple-circle",
+      "file": "public/images/icons/apple-touch-icon.png",
+      "local": "/images/icons/apple-touch-icon.png",
+      "alt": "Dr. Jan Duffy apple touch icon"
     },
     "logo": {
-      "heading": "Navbar logo mark",
-      "env": "NEXT_PUBLIC_CF_IMAGE_LOGO_ID",
-      "id": "svlvh-logo",
-      "file": "public/images/icons/favicon.jpg",
-      "local": "/images/icons/favicon.jpg",
-      "alt": "Spring Valley Las Vegas Homes logo"
+      "heading": "Navbar circular portrait logo",
+      "env": "NEXT_PUBLIC_CF_IMAGE_LOGO_MARK_ID",
+      "id": "svlvh-logo-circle",
+      "file": "public/images/agent/dr-jan-duffy-badge.png",
+      "local": "/images/agent/dr-jan-duffy-badge.png",
+      "alt": "Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties"
     },
     "wordmark": {
       "heading": "Site wordmark",
@@ -117,12 +125,142 @@
       "alt": "Spring Valley Las Vegas Homes By Dr. Jan Duffy"
     },
     "headshot": {
-      "heading": "Dr. Jan Duffy headshot",
-      "env": "NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID",
-      "id": "svlvh-headshot",
-      "file": "public/images/dr-jan-duffy.jpg",
-      "local": "/images/dr-jan-duffy.jpg",
+      "heading": "Dr. Jan Duffy circular portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_ID",
+      "id": "svlvh-portrait-circle",
+      "file": "public/images/agent/dr-jan-duffy-badge.png",
+      "local": "/images/agent/dr-jan-duffy-badge.png",
       "alt": "Dr. Jan Duffy, REALTOR at Berkshire Hathaway HomeServices Nevada Properties"
+    },
+    "badgeGold": {
+      "heading": "Dr. Jan Duffy gold-ring portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_GOLD_ID",
+      "id": "svlvh-portrait-gold",
+      "file": "public/images/agent/dr-jan-duffy-badge-gold.png",
+      "local": "/images/agent/dr-jan-duffy-badge-gold.png",
+      "alt": "Dr. Jan Duffy holding a phone, gold circular portrait"
+    },
+    "badgeWarm": {
+      "heading": "Dr. Jan Duffy warm-gold portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_WARM_ID",
+      "id": "svlvh-portrait-warm",
+      "file": "public/images/agent/dr-jan-duffy-badge-warm.png",
+      "local": "/images/agent/dr-jan-duffy-badge-warm.png",
+      "alt": "Dr. Jan Duffy circular portrait with warm gold background"
+    },
+    "badgeMint": {
+      "heading": "Dr. Jan Duffy mint-gold portrait",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_MINT_ID",
+      "id": "svlvh-portrait-mint",
+      "file": "public/images/agent/dr-jan-duffy-badge-mint.png",
+      "local": "/images/agent/dr-jan-duffy-badge-mint.png",
+      "alt": "Dr. Jan Duffy circular portrait with mint and gold frame"
     }
-  }
+  },
+  "portraits": [
+    {
+      "heading": "Portrait backup 01",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_01_ID",
+      "id": "svlvh-portrait-01",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-01.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-01.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 01"
+    },
+    {
+      "heading": "Portrait backup 02",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_02_ID",
+      "id": "svlvh-portrait-02",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-02.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-02.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 02"
+    },
+    {
+      "heading": "Portrait backup 03",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_03_ID",
+      "id": "svlvh-portrait-03",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-03.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-03.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 03"
+    },
+    {
+      "heading": "Portrait backup 04",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_04_ID",
+      "id": "svlvh-portrait-04",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-04.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-04.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 04"
+    },
+    {
+      "heading": "Portrait backup 05",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_05_ID",
+      "id": "svlvh-portrait-05",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-05.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-05.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 05"
+    },
+    {
+      "heading": "Portrait backup 06",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_06_ID",
+      "id": "svlvh-portrait-06",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-06.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-06.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 06"
+    },
+    {
+      "heading": "Portrait backup 07",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_07_ID",
+      "id": "svlvh-portrait-07",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-07.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-07.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 07"
+    },
+    {
+      "heading": "Portrait backup 08",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_08_ID",
+      "id": "svlvh-portrait-08",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-08.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-08.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 08"
+    },
+    {
+      "heading": "Portrait backup 09",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_09_ID",
+      "id": "svlvh-portrait-09",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-09.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-09.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 09"
+    },
+    {
+      "heading": "Portrait backup 10",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_10_ID",
+      "id": "svlvh-portrait-10",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-10.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-10.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 10"
+    },
+    {
+      "heading": "Portrait backup 11",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_11_ID",
+      "id": "svlvh-portrait-11",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-11.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-11.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 11"
+    },
+    {
+      "heading": "Portrait backup 12",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_12_ID",
+      "id": "svlvh-portrait-12",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-12.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-12.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 12"
+    },
+    {
+      "heading": "Portrait backup 13",
+      "env": "NEXT_PUBLIC_CF_IMAGE_PORTRAIT_13_ID",
+      "id": "svlvh-portrait-13",
+      "file": "public/images/agent/portraits/dr-jan-duffy-circle-13.png",
+      "local": "/images/agent/portraits/dr-jan-duffy-circle-13.png",
+      "alt": "Dr. Jan Duffy circular portrait backup 13"
+    }
+  ]
 }

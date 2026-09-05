@@ -6,6 +6,7 @@ import {
   featuredPropertyImageSrcs,
 } from "@/lib/site-media";
 import { realScoutConfig } from "@/lib/integrations";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 const [imgBuy, imgSearch, imgSell] = featuredPropertyImageSrcs;
 const [altBuy, altSearch, altSell] = featuredPropertyImageAlts;
@@ -39,6 +40,7 @@ export default function FeaturedActionCards() {
       aria-label="Spring Valley realtor services"
     >
       <div className="container mx-auto px-4 mb-8 md:mb-10 text-center">
+        <SectionPortrait />
         <h2 className="text-3xl md:text-4xl text-ink">
           Realtor Services in Spring Valley
         </h2>

@@ -1,5 +1,5 @@
 /**
- * Site media: Cloudflare Images is the primary CDN; git JPEGs under /public
+ * Site media: Cloudflare Images is the primary CDN; git files under /public
  * are backups for local/preview when `NEXT_PUBLIC_CF_IMAGE_*_ID` is unset.
  *
  * Set those IDs in Vercel after `scripts/upload-heading-images-to-cloudflare.mjs`.
@@ -50,18 +50,18 @@ export function absoluteMediaUrl(src: string): string {
 }
 
 /**
- * Dr. Jan Duffy headshot — rectangular 3:4 portrait (gold circular frame removed).
- * Cloudflare Images when `NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID` is set; git JPEG backup otherwise.
+ * Dr. Jan Duffy circular gold-framed portrait.
+ * Cloudflare Images when `NEXT_PUBLIC_CF_IMAGE_PORTRAIT_ID` is set; git PNG backup otherwise.
  */
 export const agentHeadshotSrc = resolveCfOrLocal(
-  process.env.NEXT_PUBLIC_CF_IMAGE_HEADSHOT_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_PORTRAIT_ID,
   headingBrandAssets.headshot.local,
   V.public,
 );
 
-/** Square SV mark for navbar and favicon git backup. */
+/** Circular portrait used as the navbar logo mark. */
 export const logoMarkSrc = resolveCfOrLocal(
-  process.env.NEXT_PUBLIC_CF_IMAGE_LOGO_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_LOGO_MARK_ID,
   headingBrandAssets.logo.local,
   V.public,
 );
@@ -187,16 +187,16 @@ export const listingPlaceholderSrc = resolveCfOrLocal(
   V.public,
 );
 
-/** Favicon — Cloudflare when ID is set; git JPEG under public/images/icons otherwise. */
+/** Favicon — Cloudflare when ID is set; git PNG under public/images/icons otherwise. */
 export const faviconSrc = resolveCfOrLocal(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID,
+  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_MARK_ID,
   headingBrandAssets.favicon.local,
   faviconVariant,
 );
 
-/** Optional larger touch icon; defaults to same source as `faviconSrc`. */
+/** Apple touch icon (180×180 circular portrait). */
 export const faviconAppleSrc = resolveCfOrLocal(
-  process.env.NEXT_PUBLIC_CF_IMAGE_FAVICON_ID,
-  headingBrandAssets.favicon.local,
+  process.env.NEXT_PUBLIC_CF_IMAGE_APPLE_ICON_ID,
+  headingBrandAssets.apple.local,
   faviconAppleVariant,
 );

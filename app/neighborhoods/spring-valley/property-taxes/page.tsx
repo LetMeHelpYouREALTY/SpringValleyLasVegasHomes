@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navbar from "@/components/layouts/Navbar";
+import PageAgentMark from "@/components/shared/PageAgentMark";
 import Footer from "@/components/layouts/Footer";
 import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
 import SpringValleyPropertyTaxEstimator from "@/components/tools/SpringValleyPropertyTaxEstimator";
@@ -125,6 +126,7 @@ export default function SpringValleyPropertyTaxesPage() {
       />
       <Navbar />
       <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+        <PageAgentMark />
         <div className="container mx-auto px-4">
           <nav
             className="mb-6 max-w-4xl text-sm text-slate-500"

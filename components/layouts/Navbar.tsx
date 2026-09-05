@@ -58,29 +58,29 @@ export default function Navbar() {
             <Image
               src={logoMarkSrc}
               alt=""
-              width={40}
-              height={40}
-              className="h-9 w-9 sm:h-10 sm:w-10 object-cover shrink-0"
+              width={80}
+              height={80}
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain shrink-0 rounded-full"
               unoptimized={isCfDeliveryUrl(logoMarkSrc)}
               priority
             />
             <span className="flex flex-col min-w-0">
-            <span
-              className={cn(
-                "text-sm sm:text-base font-normal uppercase tracking-luxury leading-snug",
-                solid ? "text-ink" : "text-white",
-              )}
-            >
-              {siteConfig.logoTitle}
-            </span>
-            <span
-              className={cn(
-                "text-[10px] uppercase tracking-wider hidden sm:block mt-0.5 font-light",
-                solid ? "text-mist" : "text-white/80",
-              )}
-            >
-              {siteConfig.logoSubtitle}
-            </span>
+              <span
+                className={cn(
+                  "text-sm sm:text-base font-normal uppercase tracking-luxury leading-snug",
+                  solid ? "text-ink" : "text-white",
+                )}
+              >
+                {siteConfig.logoTitle}
+              </span>
+              <span
+                className={cn(
+                  "text-[10px] uppercase tracking-wider hidden sm:block mt-0.5 font-light",
+                  solid ? "text-mist" : "text-white/80",
+                )}
+              >
+                {siteConfig.logoSubtitle}
+              </span>
             </span>
           </Link>
 

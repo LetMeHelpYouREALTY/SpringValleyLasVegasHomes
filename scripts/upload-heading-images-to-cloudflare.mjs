@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Upload H1/H2/H3 homepage photos to Cloudflare Images (primary CDN).
- * Git JPEG backups live under public/images/ — this script is the live write.
+ * Upload homepage photos and circular agent portraits to Cloudflare Images (primary CDN).
+ * Git backups live under public/images/ — this script is the live write.
  *
  * Usage:
  *   CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… node scripts/upload-heading-images-to-cloudflare.mjs
@@ -78,7 +78,13 @@ async function deleteImage(id) {
 async function uploadAsset(asset, retried = false) {
   const abs = resolve(root, asset.file);
   const bytes = await readFile(abs);
-  const blob = new Blob([bytes], { type: "image/jpeg" });
+  const lower = abs.toLowerCase();
+  const mime = lower.endsWith(".png")
+    ? "image/png"
+    : lower.endsWith(".webp")
+      ? "image/webp"
+      : "image/jpeg";
+  const blob = new Blob([bytes], { type: mime });
   const form = new FormData();
   form.set("file", blob, basename(abs));
   form.set("id", asset.id);

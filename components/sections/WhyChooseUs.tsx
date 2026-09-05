@@ -1,5 +1,6 @@
 import { Shield, TrendingUp, Users, Award, Clock, Home } from "lucide-react";
 import { agentStats } from "@/lib/site-config";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 const features = [
   {
@@ -42,6 +43,7 @@ export default function WhyChooseUs() {
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <SectionPortrait />
           <h2 className="text-3xl md:text-4xl text-ink mb-4">Why Choose Us</h2>
           <p className="text-base text-neutral-600 max-w-3xl mx-auto font-light normal-case tracking-normal">
             Experience the difference of working with a trusted real estate

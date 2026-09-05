@@ -3,7 +3,6 @@
  */
 import type { SpringValleySubdivisionSlug } from "@/lib/spring-valley-geography";
 import {
-  agentHeadshotSrc,
   featuredCommunityImageSrcs,
   featuredPropertyImageSrcs,
   heroBackgroundAlts,
@@ -20,8 +19,8 @@ export type PageHero = { src: string; alt: string };
 
 export const pageHero = {
   about: {
-    src: agentHeadshotSrc,
-    alt: "Dr. Jan Duffy, REALTOR® serving Spring Valley Las Vegas",
+    src: heroBackgroundSrcs[0],
+    alt: heroBackgroundAlts[0],
   },
   contact: {
     src: workWithMeImageSrc,
@@ -81,7 +80,9 @@ const CORRIDOR_SLUGS: SpringValleySubdivisionSlug[] = [
   "chinatown-spring-mountain",
 ];
 
-export function subdivisionPageHero(slug: SpringValleySubdivisionSlug): PageHero {
+export function subdivisionPageHero(
+  slug: SpringValleySubdivisionSlug,
+): PageHero {
   if (GOLF_SLUGS.includes(slug)) {
     return {
       src: featuredCommunityImageSrcs[0],

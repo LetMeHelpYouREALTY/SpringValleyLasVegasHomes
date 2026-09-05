@@ -13,9 +13,9 @@ export default function TeamPreview() {
           The Team
         </h2>
         <article className="text-center max-w-sm mx-auto">
-          <div className="mx-auto mb-6 w-48 aspect-[3/4] overflow-hidden bg-cream">
+          <div className="mx-auto mb-6 w-48 aspect-square">
             <AgentHeadshot
-              frameClassName="w-full h-full aspect-[3/4]"
+              frameClassName="w-full h-full aspect-square"
               sizes="192px"
             />
           </div>

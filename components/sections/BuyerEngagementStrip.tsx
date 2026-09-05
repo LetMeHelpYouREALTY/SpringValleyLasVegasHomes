@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Search, Home, BookOpen, Newspaper } from "lucide-react";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export type BuyerEngagementStripProps = {
   /** First tile: in-page anchor for listings (home uses `#featured-properties`). */
@@ -51,6 +52,7 @@ export default function BuyerEngagementStrip({
       aria-label="Quick links for home buyers"
     >
       <div className="container mx-auto px-4 py-8 md:py-10">
+        <SectionPortrait sizeClassName="h-14 w-14 sm:h-16 sm:w-16" />
         <p className="text-center text-[11px] font-light uppercase tracking-luxury text-mist mb-6">
           Start your home search
         </p>

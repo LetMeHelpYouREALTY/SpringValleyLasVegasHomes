@@ -35,16 +35,21 @@ Hyperlocal Spring Valley set — not Summerlin or Henderson.
 | H3      | `neighborhoods/h3-desert-breeze.jpg`      | Spring Valley pocket — Desert Breeze             |
 | H3      | `neighborhoods/h3-chinatown.jpg`          | Spring Valley pocket — Chinatown / Spring Mountain |
 
-## Brand marks (favicon, logo, headshot)
+## Brand marks (favicon, logo, circular portrait)
 
-| Asset    | File                                   | Use                          |
-| -------- | -------------------------------------- | ---------------------------- |
-| Favicon  | `icons/favicon.jpg`                    | Browser tab + apple icon     |
-| Logo     | `icons/favicon.jpg` (square SV mark)   | Navbar mark                  |
-| Wordmark | `logos/spring-valley-wordmark.jpg`     | Optional wide lockup         |
-| Headshot | `dr-jan-duffy.jpg`                     | About / Meet Dr. Jan         |
+Cloudflare Images is primary; git PNGs under `public/images/` are the backup.
 
-Cloudflare custom IDs: `svlvh-favicon`, `svlvh-logo`, `svlvh-wordmark`, `svlvh-headshot`.
+| Asset       | File                                         | Use                                      |
+| ----------- | -------------------------------------------- | ---------------------------------------- |
+| Favicon     | `icons/favicon.png`                          | Browser tab (circular portrait)          |
+| Apple touch | `icons/apple-touch-icon.png`                 | iOS home-screen icon                     |
+| Logo        | `agent/dr-jan-duffy-badge.png`               | Navbar + footer mark                     |
+| Wordmark    | `logos/spring-valley-wordmark.jpg`           | Optional wide lockup                     |
+| Portrait    | `agent/dr-jan-duffy-badge.png`               | Hero, Meet Dr. Jan, About, Contact, CTAs |
+| Variants    | `agent/dr-jan-duffy-badge-{gold,warm,mint}.png` | Extra circular frames (git + CF backup) |
+| All frames  | `agent/portraits/dr-jan-duffy-circle-*.png`  | Full set of uploaded portraits           |
+
+Cloudflare custom IDs: `svlvh-favicon-circle`, `svlvh-logo-circle`, `svlvh-apple-circle`, `svlvh-portrait-circle`, `svlvh-wordmark`.
 
 
 ```
@@ -68,7 +73,7 @@ images/
 | Folder         | Size       | Format        | Notes                                       |
 | -------------- | ---------- | ------------- | ------------------------------------------- |
 | hero/          | 1920x1080+ | JPG           | 16:9, progressive JPEG                      |
-| agent/         | 960×1280+  | JPG           | 3:4 rectangular portrait, no circular frame |
+| agent/         | 1024×1024  | PNG           | Circular gold-framed portrait, transparent corners |
 | properties/    | 1536x1152+ | JPG           | 4:3 service cards                           |
 | neighborhoods/ | 1536x1152+ | JPG           | 4:3 community tiles                         |
 | testimonials/  | 200x200    | JPG           | Optional; homepage reviews use initials     |

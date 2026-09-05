@@ -128,7 +128,7 @@ export default function ContactPage() {
             </p>
             <div className="mt-10 flex justify-center">
               <AgentHeadshot
-                frameClassName="max-w-[200px] w-full aspect-[3/4]"
+                frameClassName="max-w-[200px] w-full aspect-square"
                 sizes="200px"
               />
             </div>

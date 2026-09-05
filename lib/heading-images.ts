@@ -1,7 +1,7 @@
 /**
- * Homepage H1 / H2 / H3 media map.
+ * Homepage H1 / H2 / H3 media map plus circular agent portraits.
  * Cloudflare Images custom IDs are primary once `NEXT_PUBLIC_CF_IMAGE_*_ID` is set
- * (or after `scripts/upload-heading-images-to-cloudflare.mjs` runs). Git JPEGs
+ * (or after `scripts/upload-heading-images-to-cloudflare.mjs` runs). Git files
  * under `public/images/` are the backup.
  */
 import headingImagesJson from "@/lib/heading-images.json";
@@ -40,7 +40,11 @@ export const headingWorkWithMeAsset =
 
 export const headingBrandAssets = headingImagesJson.brand as {
   favicon: HeadingImageAsset;
+  apple: HeadingImageAsset;
   logo: HeadingImageAsset;
   wordmark: HeadingImageAsset;
   headshot: HeadingImageAsset;
+  badgeGold: HeadingImageAsset;
+  badgeWarm: HeadingImageAsset;
+  badgeMint: HeadingImageAsset;
 };

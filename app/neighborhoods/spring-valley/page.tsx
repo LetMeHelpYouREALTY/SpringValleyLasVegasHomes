@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import PageAgentMark from "@/components/shared/PageAgentMark";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
@@ -214,6 +215,7 @@ export default function SpringValleyPage() {
       <SchemaScript schema={pageSchemas} id="spring-valley-schema" />
       <Navbar />
       <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+        <PageAgentMark />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500" aria-label="Breadcrumb">

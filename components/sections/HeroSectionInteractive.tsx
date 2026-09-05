@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { heroSeo } from "@/lib/seo";
 import { greatVibes } from "@/lib/fonts";
+import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
+import { agentHeadshotSrc } from "@/lib/site-media";
 import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
 
 type HeroSectionInteractiveProps = {
@@ -24,6 +27,16 @@ export default function HeroSectionInteractive({
   return (
     <div className="relative z-20 h-full w-full">
       <div className="flex h-full flex-col items-center justify-center px-4 text-center pt-16">
+        <Image
+          src={agentHeadshotSrc}
+          alt=""
+          width={160}
+          height={160}
+          className="mb-5 h-24 w-24 md:h-32 md:w-32 lg:h-36 lg:w-36 object-contain drop-shadow-lg"
+          sizes="144px"
+          priority
+          unoptimized={isCfDeliveryUrl(agentHeadshotSrc)}
+        />
         <p
           className={`${greatVibes.className} mb-5 text-5xl leading-none text-white md:text-6xl lg:text-7xl`}
         >

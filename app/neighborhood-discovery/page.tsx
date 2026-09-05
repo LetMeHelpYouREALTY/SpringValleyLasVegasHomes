@@ -1,9 +1,15 @@
 import Link from "next/link";
 import Navbar from "@/components/layouts/Navbar";
+import PageAgentMark from "@/components/shared/PageAgentMark";
 import Footer from "@/components/layouts/Footer";
 import NeighborhoodDiscoveryEmbed from "@/components/neighborhoods/NeighborhoodDiscoveryEmbed";
 import type { Metadata } from "next";
-import { agentInfo, officeInfo, siteConfig, siteSocialUrls } from "@/lib/site-config";
+import {
+  agentInfo,
+  officeInfo,
+  siteConfig,
+  siteSocialUrls,
+} from "@/lib/site-config";
 import { seoPrimaryKeyword } from "@/lib/seo";
 import { combineSchemas } from "@/lib/schema";
 import { absoluteMediaUrl, mapHubOgImageSrc } from "@/lib/site-media";
@@ -18,9 +24,12 @@ import { Phone, MapPin, ExternalLink } from "lucide-react";
 
 const pageUrl = `${siteConfig.url}/neighborhood-discovery`;
 const neighborhoodDiscoveryOgUrl = absoluteMediaUrl(mapHubOgImageSrc);
-const neighborhoodDiscoveryOgTwitter = ogTwitterImageFields(neighborhoodDiscoveryOgUrl, {
-  alt: "Spring Valley and Las Vegas Valley neighborhoods — preview for Neighborhood Discovery",
-});
+const neighborhoodDiscoveryOgTwitter = ogTwitterImageFields(
+  neighborhoodDiscoveryOgUrl,
+  {
+    alt: "Spring Valley and Las Vegas Valley neighborhoods — preview for Neighborhood Discovery",
+  },
+);
 const neighborhoodMapUrl = getNeighborhoodDiscoveryIframeUrl();
 const threeDdemoUrl = buildNeighborhoodDiscoveryDemoUrl();
 
@@ -159,8 +168,7 @@ const pageSchemas = combineSchemas(
         name: "What is Google Maps Neighborhood Discovery / 3D Area Explorer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text:
-            "It is a Google Maps Platform sample that combines photorealistic 3D tiles with Places API highlights such as restaurants, parks, and schools. You can customize the experience in Google's Admin app and export starter code for your own site.",
+          text: "It is a Google Maps Platform sample that combines photorealistic 3D tiles with Places API highlights such as restaurants, parks, and schools. You can customize the experience in Google's Admin app and export starter code for your own site.",
         },
       },
       {
@@ -168,8 +176,7 @@ const pageSchemas = combineSchemas(
         name: "Does this 3D map show homes for sale?",
         acceptedAnswer: {
           "@type": "Answer",
-          text:
-            "No. It helps you explore area context and points of interest. For active listings, use the live MLS search on this site or contact Dr. Jan Duffy for a curated list.",
+          text: "No. It helps you explore area context and points of interest. For active listings, use the live MLS search on this site or contact Dr. Jan Duffy for a curated list.",
         },
       },
     ],
@@ -185,8 +192,12 @@ export default function NeighborhoodDiscoveryPage() {
       />
       <Navbar />
       <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+        <PageAgentMark />
         <div className="container mx-auto px-4">
-          <nav className="mb-6 max-w-4xl text-sm text-slate-500" aria-label="Breadcrumb">
+          <nav
+            className="mb-6 max-w-4xl text-sm text-slate-500"
+            aria-label="Breadcrumb"
+          >
             <Link href="/" className="hover:text-blue-600">
               Home
             </Link>
@@ -206,20 +217,31 @@ export default function NeighborhoodDiscoveryPage() {
               Neighborhood discovery — Spring Valley &amp; west valley
             </h1>
             <p className="text-lg text-slate-600">
-              Explore nearby <strong>restaurants, parks, schools, and more</strong> on an interactive
-              map centered on the Spring Valley area. Use it alongside{" "}
-              <Link href="/neighborhoods/spring-valley" className="font-semibold text-blue-600 hover:underline">
+              Explore nearby{" "}
+              <strong>restaurants, parks, schools, and more</strong> on an
+              interactive map centered on the Spring Valley area. Use it
+              alongside{" "}
+              <Link
+                href="/neighborhoods/spring-valley"
+                className="font-semibold text-blue-600 hover:underline"
+              >
                 {seoPrimaryKeyword}
               </Link>{" "}
               and MLS search—then call{" "}
-              <a href={agentInfo.phoneTel} className="font-semibold text-blue-600 hover:underline">
+              <a
+                href={agentInfo.phoneTel}
+                className="font-semibold text-blue-600 hover:underline"
+              >
                 {agentInfo.phone}
               </a>{" "}
               for a tour backed by Berkshire Hathaway HomeServices.
             </p>
           </div>
 
-          <section className="max-w-6xl mx-auto mb-12" aria-labelledby="explorer-map-heading">
+          <section
+            className="max-w-6xl mx-auto mb-12"
+            aria-labelledby="explorer-map-heading"
+          >
             <h2 id="explorer-map-heading" className="sr-only">
               Interactive 3D neighborhood map
             </h2>
@@ -231,9 +253,10 @@ export default function NeighborhoodDiscoveryPage() {
               Customize or export your own (Google workflow)
             </h2>
             <p className="text-slate-600 mb-4">
-              Google&apos;s <strong>Neighborhood Discovery</strong> builder: choose a location,
-              curate local highlights, confirm the design, then export hosted HTML or integrate with
-              Maps JavaScript API and Places in Google Cloud.
+              Google&apos;s <strong>Neighborhood Discovery</strong> builder:
+              choose a location, curate local highlights, confirm the design,
+              then export hosted HTML or integrate with Maps JavaScript API and
+              Places in Google Cloud.
             </p>
             <ul className="space-y-2 text-slate-700">
               <li>
@@ -250,7 +273,8 @@ export default function NeighborhoodDiscoveryPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 font-medium text-blue-600 hover:underline"
                 >
-                  3D Area Explorer Admin (optional) <ExternalLink className="h-4 w-4" aria-hidden />
+                  3D Area Explorer Admin (optional){" "}
+                  <ExternalLink className="h-4 w-4" aria-hidden />
                 </a>{" "}
                 — photorealistic 3D tiles demo; separate from the map above.
               </li>
@@ -261,7 +285,8 @@ export default function NeighborhoodDiscoveryPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 font-medium text-blue-600 hover:underline"
                 >
-                  3D Area Explorer docs <ExternalLink className="h-4 w-4" aria-hidden />
+                  3D Area Explorer docs{" "}
+                  <ExternalLink className="h-4 w-4" aria-hidden />
                 </a>
               </li>
               <li>
@@ -271,18 +296,23 @@ export default function NeighborhoodDiscoveryPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 font-medium text-blue-600 hover:underline"
                 >
-                  3D sample on GitHub <ExternalLink className="h-4 w-4" aria-hidden />
+                  3D sample on GitHub{" "}
+                  <ExternalLink className="h-4 w-4" aria-hidden />
                 </a>
               </li>
             </ul>
             <p className="mt-4 text-sm text-slate-500">
               Reference center for the optional 3D demo:{" "}
               <span className="font-mono text-slate-700">
-                {springValley3dExplorerCenter.lat}, {springValley3dExplorerCenter.lng}
+                {springValley3dExplorerCenter.lat},{" "}
+                {springValley3dExplorerCenter.lng}
               </span>
               . Override 3D demo host with{" "}
-              <code className="rounded bg-white px-1 py-0.5 text-xs">NEXT_PUBLIC_GOOGLE_3D_EXPLORER_DEMO_URL</code>{" "}
-              and add that origin to CSP <code className="text-xs">frame-src</code>.
+              <code className="rounded bg-white px-1 py-0.5 text-xs">
+                NEXT_PUBLIC_GOOGLE_3D_EXPLORER_DEMO_URL
+              </code>{" "}
+              and add that origin to CSP{" "}
+              <code className="text-xs">frame-src</code>.
             </p>
           </section>
 
@@ -296,8 +326,9 @@ export default function NeighborhoodDiscoveryPage() {
                   What is Google Maps Neighborhood Discovery?
                 </h3>
                 <p className="text-slate-600 text-sm">
-                  It is a Google Maps Platform experience that combines an interactive map with curated
-                  nearby places and search—helpful for orientation, not MLS listings.
+                  It is a Google Maps Platform experience that combines an
+                  interactive map with curated nearby places and search—helpful
+                  for orientation, not MLS listings.
                 </p>
               </div>
               <div className="rounded-xl border border-slate-200 bg-white p-5">
@@ -306,7 +337,10 @@ export default function NeighborhoodDiscoveryPage() {
                 </h3>
                 <p className="text-slate-600 text-sm">
                   No. It is for neighborhood context and POIs. For listings, use{" "}
-                  <Link href="/listings" className="text-blue-600 font-medium hover:underline">
+                  <Link
+                    href="/listings"
+                    className="text-blue-600 font-medium hover:underline"
+                  >
                     MLS search
                   </Link>{" "}
                   or contact Dr. Jan Duffy.
@@ -319,7 +353,9 @@ export default function NeighborhoodDiscoveryPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-2">
               {officeInfo.name}
             </h2>
-            <p className="text-slate-600 text-sm mb-4">{officeInfo.address.full}</p>
+            <p className="text-slate-600 text-sm mb-4">
+              {officeInfo.address.full}
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <a
                 href={agentInfo.phoneTel}

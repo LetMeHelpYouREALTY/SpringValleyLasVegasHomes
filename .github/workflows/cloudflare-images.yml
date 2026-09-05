@@ -34,7 +34,7 @@ concurrency:
 
 jobs:
   upload:
-    name: Upload heading JPEGs to Cloudflare Images
+    name: Upload images to Cloudflare Images
     runs-on: ubuntu-latest
     permissions:
       contents: read

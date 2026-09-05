@@ -2,6 +2,7 @@
 
 import { realScoutConfig } from "@/lib/integrations";
 import { getRealScoutOfficeListingsMarkup } from "@/lib/realscout-markup";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export default function RealScoutListings() {
   return (
@@ -12,6 +13,7 @@ export default function RealScoutListings() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 md:mb-16">
           <div>
+            <SectionPortrait className="mx-0 mb-4" />
             <h2 className="text-3xl md:text-4xl text-ink mb-4">
               Featured Properties
             </h2>

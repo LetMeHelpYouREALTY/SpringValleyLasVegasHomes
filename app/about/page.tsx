@@ -262,7 +262,7 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <AgentHeadshot
                   priority
-                  frameClassName="aspect-[3/4] max-w-sm mx-auto md:mx-0"
+                  frameClassName="aspect-square max-w-sm mx-auto md:mx-0"
                   sizes="(max-width: 768px) 100vw, 400px"
                 />
 

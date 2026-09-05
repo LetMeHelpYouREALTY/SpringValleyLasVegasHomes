@@ -8,8 +8,9 @@ export default function MeetAgentSection() {
       <div className="grid md:grid-cols-2 min-h-[520px]">
         <div className="relative min-h-[360px] md:min-h-full bg-cream flex items-center justify-center p-8 md:p-12">
           <AgentHeadshot
-            frameClassName="w-56 sm:w-64 md:w-80 aspect-[3/4] max-w-full"
+            frameClassName="w-56 sm:w-64 md:w-80 aspect-square max-w-full"
             sizes="320px"
+            priority
           />
         </div>
         <div className="flex items-center px-6 py-16 md:px-16 lg:px-20 md:py-24">

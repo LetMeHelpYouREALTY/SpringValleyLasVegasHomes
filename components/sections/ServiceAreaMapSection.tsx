@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SpringValleyCdpMap from "@/components/maps/SpringValleyCdpMap";
 import { seoPrimaryKeyword } from "@/lib/seo";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 /**
  * Official Google Maps embed for the Spring Valley CDP (Share → Embed a map).
@@ -13,6 +14,7 @@ export default function ServiceAreaMapSection() {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
+          <SectionPortrait />
           <h2
             id="service-area-map-heading"
             className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3"

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
 import { agentStats, googleBusinessReviewUrl } from "@/lib/site-config";
 import { defaultHomeReviews, type HomeReview } from "@/lib/home-reviews";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 export type Review = HomeReview;
 
@@ -43,6 +44,7 @@ export default function ReviewsSection({
     <section className={`py-16 md:py-24 bg-cream ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <SectionPortrait />
           <h2 className="text-3xl md:text-4xl text-ink mb-4">{title}</h2>
           <p className="text-base text-neutral-600 max-w-3xl mx-auto font-light normal-case tracking-normal">
             {subtitle}

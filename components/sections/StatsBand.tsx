@@ -1,4 +1,5 @@
 import { agentStats } from "@/lib/site-config";
+import SectionPortrait from "@/components/shared/SectionPortrait";
 
 const stats = [
   { value: agentStats.volumeClosed, label: "In Career Sales" },
@@ -17,6 +18,7 @@ export default function StatsBand() {
       aria-labelledby="stats-heading"
     >
       <div className="container mx-auto px-4">
+        <SectionPortrait />
         <h2
           id="stats-heading"
           className="mx-auto mb-14 max-w-3xl text-center text-xl md:text-2xl lg:text-3xl font-normal leading-snug text-ink"

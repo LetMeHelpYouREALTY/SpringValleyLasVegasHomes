@@ -1,8 +1,16 @@
 import Navbar from "@/components/layouts/Navbar";
+import PageAgentMark from "@/components/shared/PageAgentMark";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { BookOpen, MapPin, LineChart, Home, Phone, DollarSign } from "lucide-react";
+import {
+  BookOpen,
+  MapPin,
+  LineChart,
+  Home,
+  Phone,
+  DollarSign,
+} from "lucide-react";
 import { agentInfo } from "@/lib/site-config";
 import { metaDescriptionWithKeyword, seoPrimaryKeyword } from "@/lib/seo";
 
@@ -55,6 +63,7 @@ export default function ResourcesPage() {
     <>
       <Navbar />
       <main id="main-content" tabIndex={-1} className="pt-24 pb-16">
+        <PageAgentMark />
         <div className="container mx-auto px-4 max-w-5xl">
           <header className="text-center mb-12">
             <div className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm mb-3">
@@ -65,9 +74,9 @@ export default function ResourcesPage() {
               {seoPrimaryKeyword} — tools &amp; guides
             </h1>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Start with the Spring Valley guide, search listings, review the market, then reach out for
-              a personalized plan with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada
-              Properties.
+              Start with the Spring Valley guide, search listings, review the
+              market, then reach out for a personalized plan with Dr. Jan Duffy
+              at Berkshire Hathaway HomeServices Nevada Properties.
             </p>
           </header>
 
@@ -91,7 +100,9 @@ export default function ResourcesPage() {
           </div>
 
           <section className="mt-14 bg-slate-50 rounded-xl p-8 border border-slate-100">
-            <h2 className="text-lg font-bold text-slate-900 mb-2">More topics</h2>
+            <h2 className="text-lg font-bold text-slate-900 mb-2">
+              More topics
+            </h2>
             <ul className="flex flex-wrap gap-3 text-sm">
               {[
                 ["/buyers", "Buyers"],
