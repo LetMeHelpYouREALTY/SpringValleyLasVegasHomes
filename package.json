@@ -29,6 +29,9 @@
     "vercel:prod": "vercel deploy --prod --prebuilt",
     "cloudflare:dev": "wrangler dev",
     "cloudflare:deploy": "wrangler deploy",
+    "cloudflare:secret:gemini": "wrangler secret put GEMINI_API_KEY",
+    "cloudflare:secret:worker": "wrangler secret put GEMINI_WORKER_SECRET",
+    "cloudflare:types": "wrangler types -c wrangler.toml -o workers/env.d.ts",
     "cloudflare:pages": "npx @cloudflare/next-on-pages",
     "cloudflare:build": "pnpm run cloudflare:pages",
     "build:cloudflare": "npx @cloudflare/next-on-pages"

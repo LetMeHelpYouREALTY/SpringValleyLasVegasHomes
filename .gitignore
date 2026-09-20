@@ -112,6 +112,7 @@ ENV/
 .vercel
 .wrangler/
 .open-next/
+.dev.vars
 
 # ===================
 # Security
