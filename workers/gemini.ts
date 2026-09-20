@@ -486,7 +486,20 @@ export function timingSafeEqualString(a: string, b: string): boolean {
   if (left.byteLength !== right.byteLength) {
     return false;
   }
-  return crypto.subtle.timingSafeEqual(left, right);
+
+  const subtle = globalThis.crypto?.subtle as
+    | { timingSafeEqual?: (x: Uint8Array, y: Uint8Array) => boolean }
+    | undefined;
+  if (typeof subtle?.timingSafeEqual === "function") {
+    return subtle.timingSafeEqual(left, right);
+  }
+
+  // Workers expose SubtleCrypto.timingSafeEqual; jsdom tests do not.
+  let diff = 0;
+  for (let i = 0; i < left.byteLength; i++) {
+    diff |= left[i] ^ right[i];
+  }
+  return diff === 0;
 }
 
 function normalizePath(pathname: string): string {
