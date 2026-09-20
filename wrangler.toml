@@ -5,15 +5,23 @@
 
 name = "springvalleylasvegashomes-worker"
 main = "workers/_worker.ts"
-compatibility_date = "2026-02-13"
+compatibility_date = "2026-09-20"
 compatibility_flags = ["nodejs_compat"]
 
 # Set in Cloudflare dashboard or `wrangler secret` — do not commit secrets.
+# Gemini (required for /gemini/*):
+#   wrangler secret put GEMINI_API_KEY
+#   wrangler secret put GEMINI_WORKER_SECRET
+#   wrangler secret put GEMINI_API_KEY --env production
+#   wrangler secret put GEMINI_WORKER_SECRET --env production
+# Local: copy .dev.vars.example → .dev.vars (gitignored).
 account_id = ""
 workers_dev = true
 
 [vars]
 DEBUG = "false"
+GEMINI_API_BASE = "https://generativelanguage.googleapis.com"
+GEMINI_DEFAULT_MODEL = "gemini-3.8-flash"
 
 [dev]
 port = 8787
@@ -22,16 +30,17 @@ local_protocol = "http"
 # Production — replace zone_name / pattern with your Cloudflare zone when Workers are enabled.
 [env.production]
 name = "springvalleylasvegashomes-worker-production"
-vars = { DEBUG = "false" }
+vars = { DEBUG = "false", GEMINI_API_BASE = "https://generativelanguage.googleapis.com", GEMINI_DEFAULT_MODEL = "gemini-3.8-flash" }
 
 # Staging — optional
 [env.staging]
 name = "springvalleylasvegashomes-worker-staging"
-vars = { DEBUG = "true" }
+vars = { DEBUG = "true", GEMINI_API_BASE = "https://generativelanguage.googleapis.com", GEMINI_DEFAULT_MODEL = "gemini-3.8-flash" }
 
 [observability]
 enabled = true
 head_sampling_rate = 1
 
+# 50ms was enough for cache/header workers. Gemini JSON + multimodal decode needs more CPU.
 [limits]
-cpu_ms = 50
+cpu_ms = 30000

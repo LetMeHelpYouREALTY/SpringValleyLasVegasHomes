@@ -7,6 +7,10 @@
  * - Stage progression
  * - Auto-tagging
  * - Report generation
+ *
+ * Hyperlocal content drafts (GBP posts, market notes, listing alt text) live
+ * on the existing Cloudflare Worker via `lib/gemini` — Search-grounded Gemini
+ * generateContent. Do not auto-write drafts into FUB; human review first.
  */
 
 import { FollowUpBossClient, FUBPerson, FUBListOptions } from './client';

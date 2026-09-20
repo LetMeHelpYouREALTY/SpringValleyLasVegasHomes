@@ -1,0 +1,7 @@
+# Local wrangler secrets (copy to .dev.vars — gitignored).
+# Production: wrangler secret put GEMINI_API_KEY
+#             wrangler secret put GEMINI_WORKER_SECRET
+
+GEMINI_API_KEY=
+GEMINI_WORKER_SECRET=
+DEBUG=true

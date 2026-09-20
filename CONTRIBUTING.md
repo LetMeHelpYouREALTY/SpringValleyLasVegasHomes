@@ -58,6 +58,7 @@ Do not commit API keys; use Vercel (or `.env.local` for local dev only, gitignor
 
 - If the domain uses **Vercel for HTTPS**, keep Cloudflare proxy **off** for that hostname (DNS-only) unless you use a documented **Cloudflare + Vercel** SSL setup.
 - **GitHub Actions** (`cloudflare-deploy.yml`) uses **pnpm** and env **`CF_PAGES_PROJECT`** (default `springvalleylasvegashomes-com`). Change it to match your **Cloudflare Pages** project name in the dashboard.
+- **Gemini Worker** (`/gemini/*` on the existing edge Worker): store the API key only as a Worker secret (`pnpm cloudflare:secret:gemini` → `wrangler secret put GEMINI_API_KEY`). Repeat with `--env production`. Next.js talks to the Worker with `GEMINI_WORKER_URL` + `GEMINI_WORKER_SECRET` (see `.env.gemini.example` and `workers/README.md`). Never commit `.dev.vars`.
 
 ## Line endings
 
