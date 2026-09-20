@@ -1,0 +1,17 @@
+{
+  "name": "Spring Valley Las Vegas Homes",
+  "install": "pnpm install --frozen-lockfile",
+  "terminals": [
+    {
+      "name": "next-dev",
+      "command": "pnpm next-dev",
+      "description": "Next.js 14 dev server (http://localhost:3000)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "next-dev",
+      "port": 3000
+    }
+  ]
+}
