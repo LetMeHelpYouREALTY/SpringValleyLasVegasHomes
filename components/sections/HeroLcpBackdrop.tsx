@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { isCfDeliveryUrl } from "@/lib/cf-image-delivery";
-import { heroBackgroundSrcs } from "@/lib/site-media";
+import { heroBackgroundAlts, heroBackgroundSrcs } from "@/lib/site-media";
 
 /**
  * Server-rendered first hero frame so LCP can discover the image in initial HTML.
@@ -12,7 +12,7 @@ export default function HeroLcpBackdrop() {
     <div className="absolute inset-0 z-0">
       <Image
         src={src}
-        alt="Spring Valley Las Vegas homes and Las Vegas Valley real estate — hero"
+        alt={heroBackgroundAlts[0]}
         fill
         sizes="100vw"
         className="object-cover"

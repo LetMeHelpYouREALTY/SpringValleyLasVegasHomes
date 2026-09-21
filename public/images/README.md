@@ -20,18 +20,24 @@ images/
 
 ## Recommended Specifications
 
-| Folder | Size | Format | Notes |
-|--------|------|--------|-------|
-| hero/ | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB |
-| agent/ | 400x400+ | WebP, JPG | Square, professional headshot |
-| properties/ | 1200x800+ | WebP, JPG | Landscape, MLS-quality |
-| neighborhoods/ | 1200x800+ | WebP, JPG | Scenic community shots |
-| testimonials/ | 200x200 | WebP, JPG | Square, optional |
-| logos/ | Various | PNG, SVG | Transparent background |
-| og/ | 1200×630 | PNG, JPG | Social previews; match `metadata.openGraph` |
-| icons/ | 32–512px | PNG, ICO, SVG | Favicon / PWA sources |
-| photos/ | Flexible | WebP, JPG | Site sections, marketing |
-| graphics/ | Flexible | SVG, PNG | Icons, badges, non-photo art |
+| Folder | Size       | Format    | Notes                       |
+| ------ | ---------- | --------- | --------------------------- |
+| hero/  | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB |
+
+Checked-in homepage heroes (1280×720 JPEG):
+
+- `hero/spring-valley-las-vegas-homes.jpg` — H1 Spring Valley Las Vegas Homes
+- `hero/las-vegas-neighborhoods-we-serve.jpg` — H2 Las Vegas Neighborhoods We Serve
+- `hero/modern-luxury-home-summerlin.jpg` — H3 Modern Luxury Home
+  | agent/ | 400x400+ | WebP, JPG | Square, professional headshot |
+  | properties/ | 1200x800+ | WebP, JPG | Landscape, MLS-quality |
+  | neighborhoods/ | 1200x800+ | WebP, JPG | Scenic community shots |
+  | testimonials/ | 200x200 | WebP, JPG | Square, optional |
+  | logos/ | Various | PNG, SVG | Transparent background |
+  | og/ | 1200×630 | PNG, JPG | Social previews; match `metadata.openGraph` |
+  | icons/ | 32–512px | PNG, ICO, SVG | Favicon / PWA sources |
+  | photos/ | Flexible | WebP, JPG | Site sections, marketing |
+  | graphics/ | Flexible | SVG, PNG | Icons, badges, non-photo art |
 
 ## Naming Conventions
 
@@ -50,15 +56,15 @@ Before uploading, optimize images:
 ## Usage in Code
 
 ```tsx
-import Image from 'next/image'
+import Image from "next/image";
 
-<Image 
+<Image
   src="/images/hero/las-vegas-skyline.webp"
   alt="Las Vegas skyline at sunset"
   width={1920}
   height={1080}
   priority // for above-fold images
-/>
+/>;
 ```
 
 ## Notes
