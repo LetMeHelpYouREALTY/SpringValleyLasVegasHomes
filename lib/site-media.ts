@@ -63,11 +63,23 @@ export const mapHubOgImageSrc = resolveCfOrLocal(
   V.hero,
 );
 
-/** Featured properties cards (same imagery as hero in current site). */
+/** Featured properties cards — dedicated imagery matching each card's heading + location. */
 export const featuredPropertyImageSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID,
+    "/images/properties/featured-1-modern-luxury-summerlin.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID,
+    "/images/properties/featured-2-family-home-henderson.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID,
+    "/images/properties/featured-3-elegant-estate-green-valley.jpg",
+    V.hero,
+  ),
 ];
 
 /** Review section avatar placeholders. */
@@ -80,7 +92,7 @@ export const reviewAvatarSrcs: [string, string, string] = [
 /** Listing detail placeholder when API data is not wired. */
 export const listingPlaceholderSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_LISTING_PLACEHOLDER_ID,
-  "/Image/hero_bg_1.jpg",
+  "/images/properties/listing-placeholder.jpg",
   V.public,
 );
 
