@@ -11,6 +11,8 @@ import {
   generateNeighborhoodSchema,
   combineSchemas,
 } from "@/lib/schema";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -26,6 +28,7 @@ export const metadata: Metadata = {
     "Summerlin Las Vegas",
     "luxury homes Summerlin",
   ],
+  ...neighborhoodOgTwitter("summerlin"),
 };
 
 // Breadcrumb items for this page
@@ -101,6 +104,7 @@ export default function SummerlinPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Summerlin
             </h1>
+            <NeighborhoodHeroPhoto slug="summerlin" priority />
             <p className="text-xl text-slate-600">
               Discover Las Vegas's premier master-planned community with Dr. Jan Duffy, your trusted{" "}
               <strong>Berkshire Hathaway HomeServices</strong> Summerlin expert.

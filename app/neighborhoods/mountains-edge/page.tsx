@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Mountain, TreePine, DollarSign, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "southwest Las Vegas homes",
     "affordable Las Vegas",
   ],
+  ...neighborhoodOgTwitter("mountains-edge"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function MountainsEdgePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Mountains Edge
             </h1>
+            <NeighborhoodHeroPhoto slug="mountains-edge" priority />
             <p className="text-xl text-slate-600">
               Affordable luxury in southwest Las Vegas. Find your Mountains Edge home with{" "}
               <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.

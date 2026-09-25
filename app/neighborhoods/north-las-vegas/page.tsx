@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, DollarSign, TrendingUp, Home as HomeIcon, Users } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "first time home buyer Las Vegas",
     "new construction North Las Vegas",
   ],
+  ...neighborhoodOgTwitter("north-las-vegas"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function NorthLasVegasPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices North Las Vegas
             </h1>
+            <NeighborhoodHeroPhoto slug="north-las-vegas" priority />
             <p className="text-xl text-slate-600">
               Affordable homeownership and investment opportunities. Find your North Las Vegas
               home with <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.

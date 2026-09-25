@@ -23,6 +23,8 @@ import {
 import { homePageFaqs } from "@/lib/home-faqs";
 import { combineHomepageStructuredData } from "@/lib/schema";
 import { absoluteMediaUrl, heroBackgroundSrcs } from "@/lib/site-media";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import type { NeighborhoodSlug } from "@/lib/neighborhood-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
 import { homePageTitleAbsolute } from "@/lib/seo";
 
@@ -243,37 +245,50 @@ export default function Home() {
                   {
                     name: "Spring Valley",
                     detail: "Spring Valley Las Vegas homes",
-                    href: "/neighborhoods/spring-valley",
+                    slug: "spring-valley" as const,
                   },
-                  { name: "Enterprise", detail: "Rhodes Ranch area", slug: "enterprise" },
-                  { name: "Paradise", detail: "Strip & UNLV area", slug: "paradise" },
-                  { name: "Summerlin", detail: "From $625K", slug: "summerlin" },
-                  { name: "Henderson", detail: "From $485K", slug: "henderson" },
-                  { name: "Green Valley", detail: "From $520K", slug: "green-valley" },
-                  { name: "The Ridges", detail: "From $2.5M", slug: "the-ridges" },
-                  { name: "Southern Highlands", detail: "From $750K", slug: "southern-highlands" },
-                  { name: "North Las Vegas", detail: "From $385K", slug: "north-las-vegas" },
-                  { name: "Skye Canyon", detail: "From $550K", slug: "skye-canyon" },
-                  { name: "Centennial Hills", detail: "From $495K", slug: "centennial-hills" },
-                  { name: "Inspirada", detail: "From $525K", slug: "inspirada" },
-                  { name: "Mountains Edge", detail: "From $475K", slug: "mountains-edge" },
-                ] as const
-              ).map((area) => {
-                const href = "href" in area ? area.href : `/neighborhoods/${area.slug}`;
-                const key = "href" in area ? area.href : area.slug;
-                return (
+                  { name: "Enterprise", detail: "Rhodes Ranch area", slug: "enterprise" as const },
+                  { name: "Paradise", detail: "Strip & UNLV area", slug: "paradise" as const },
+                  { name: "Summerlin", detail: "From $625K", slug: "summerlin" as const },
+                  { name: "Henderson", detail: "From $485K", slug: "henderson" as const },
+                  { name: "Green Valley", detail: "From $520K", slug: "green-valley" as const },
+                  { name: "The Ridges", detail: "From $2.5M", slug: "the-ridges" as const },
+                  {
+                    name: "Southern Highlands",
+                    detail: "From $750K",
+                    slug: "southern-highlands" as const,
+                  },
+                  {
+                    name: "North Las Vegas",
+                    detail: "From $385K",
+                    slug: "north-las-vegas" as const,
+                  },
+                  { name: "Skye Canyon", detail: "From $550K", slug: "skye-canyon" as const },
+                  {
+                    name: "Centennial Hills",
+                    detail: "From $495K",
+                    slug: "centennial-hills" as const,
+                  },
+                  { name: "Inspirada", detail: "From $525K", slug: "inspirada" as const },
+                  { name: "Mountains Edge", detail: "From $475K", slug: "mountains-edge" as const },
+                ] satisfies ReadonlyArray<{
+                  name: string;
+                  detail: string;
+                  slug: NeighborhoodSlug;
+                }>
+              ).map((area) => (
                   <Link
-                    key={key}
-                    href={href}
+                    key={area.slug}
+                    href={`/neighborhoods/${area.slug}`}
                     className="bg-slate-50 hover:bg-blue-50 rounded-lg p-4 text-center transition-colors group"
                   >
+                    <NeighborhoodHeroPhoto slug={area.slug} variant="card" />
                     <h3 className="font-semibold text-slate-900 group-hover:text-blue-600">
                       {area.name}
                     </h3>
                     <p className="text-sm text-slate-500">{area.detail}</p>
                   </Link>
-                );
-              })}
+                ))}
             </div>
             <div className="text-center mt-8">
               <Link

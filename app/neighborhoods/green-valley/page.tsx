@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, TreePine, ShoppingBag, GraduationCap, MapPin } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "Green Valley real estate",
     "Green Valley Ranch",
   ],
+  ...neighborhoodOgTwitter("green-valley"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function GreenValleyPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Green Valley
             </h1>
+            <NeighborhoodHeroPhoto slug="green-valley" priority />
             <p className="text-xl text-slate-600">
               Henderson's original master-planned community. Find your Green Valley home with{" "}
               <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.

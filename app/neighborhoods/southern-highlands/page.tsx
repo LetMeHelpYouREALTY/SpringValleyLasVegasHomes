@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Shield, Mountain, Star, MapPin } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "Las Vegas golf community",
     "guard gated Las Vegas",
   ],
+  ...neighborhoodOgTwitter("southern-highlands"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function SouthernHighlandsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Southern Highlands
             </h1>
+            <NeighborhoodHeroPhoto slug="southern-highlands" priority />
             <p className="text-xl text-slate-600">
               Premier golf course living in southwest Las Vegas. Discover Southern Highlands with{" "}
               <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
