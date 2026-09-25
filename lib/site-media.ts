@@ -43,9 +43,21 @@ export const agentHeadshotSrc = resolveCfOrLocal(
 
 /** Hero background rotation (same order as previous HeroSection). */
 export const heroBackgroundSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID,
+    "/images/hero/spring-valley-neighborhood.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID,
+    "/images/hero/las-vegas-valley-aerial.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID,
+    "/images/hero/henderson-community.jpg",
+    V.hero,
+  ),
 ];
 
 /**
@@ -59,15 +71,27 @@ export const springValleyMarketingOgSrc = heroBackgroundSrcs[0];
  */
 export const mapHubOgImageSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_OG_MAP_HUB_ID,
-  "/Image/hero_bg_1.jpg",
+  "/images/hero/spring-valley-neighborhood.jpg",
   V.hero,
 );
 
-/** Featured properties cards (same imagery as hero in current site). */
+/** Featured properties cards — dedicated imagery matching each card's heading + location. */
 export const featuredPropertyImageSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_1_ID,
+    "/images/properties/featured-1-modern-luxury-summerlin.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_2_ID,
+    "/images/properties/featured-2-family-home-henderson.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_FEATURED_3_ID,
+    "/images/properties/featured-3-elegant-estate-green-valley.jpg",
+    V.hero,
+  ),
 ];
 
 /** Review section avatar placeholders. */
@@ -80,7 +104,7 @@ export const reviewAvatarSrcs: [string, string, string] = [
 /** Listing detail placeholder when API data is not wired. */
 export const listingPlaceholderSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_LISTING_PLACEHOLDER_ID,
-  "/Image/hero_bg_1.jpg",
+  "/images/properties/listing-placeholder.jpg",
   V.public,
 );
 
