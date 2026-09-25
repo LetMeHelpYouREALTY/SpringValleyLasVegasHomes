@@ -43,9 +43,21 @@ export const agentHeadshotSrc = resolveCfOrLocal(
 
 /** Hero background rotation (same order as previous HeroSection). */
 export const heroBackgroundSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID,
+    "/images/hero/spring-valley-neighborhood.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID,
+    "/images/hero/las-vegas-valley-aerial.jpg",
+    V.hero,
+  ),
+  resolveCfOrLocal(
+    process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID,
+    "/images/hero/henderson-community.jpg",
+    V.hero,
+  ),
 ];
 
 /**
@@ -59,7 +71,7 @@ export const springValleyMarketingOgSrc = heroBackgroundSrcs[0];
  */
 export const mapHubOgImageSrc = resolveCfOrLocal(
   process.env.NEXT_PUBLIC_CF_IMAGE_OG_MAP_HUB_ID,
-  "/Image/hero_bg_1.jpg",
+  "/images/hero/spring-valley-neighborhood.jpg",
   V.hero,
 );
 
