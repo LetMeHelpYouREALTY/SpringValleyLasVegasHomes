@@ -13,6 +13,8 @@ import {
 } from "@/lib/schema";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 import { metaDescriptionWithKeyword } from "@/lib/seo";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -33,11 +35,15 @@ export const metadata: Metadata = {
     "east Las Vegas valley homes",
   ],
   openGraph: {
+    ...neighborhoodOgTwitter("paradise").openGraph,
     title: "Paradise NV Homes Near Strip & UNLV",
     description:
       "Paradise Las Vegas real estate near the Strip, Harry Reid Airport, and UNLV—with Dr. Jan Duffy.",
     url: "/neighborhoods/paradise",
     type: "website",
+  },
+  twitter: {
+    ...neighborhoodOgTwitter("paradise").twitter,
   },
 };
 
@@ -109,6 +115,7 @@ export default function ParadisePage() {
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Paradise NV Homes — Strip Corridor &amp; UNLV Area
             </h1>
+            <NeighborhoodHeroPhoto slug="paradise" priority />
             <p className="text-lg text-slate-600 leading-relaxed">
               <strong>Paradise, Nevada</strong> includes much of the world-famous resort corridor and
               nearby residential neighborhoods—plus practical access to{" "}

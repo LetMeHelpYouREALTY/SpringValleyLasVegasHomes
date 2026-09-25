@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Shield, Star, Mountain, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "luxury homes Las Vegas",
     "guard gated Summerlin",
   ],
+  ...neighborhoodOgTwitter("the-ridges"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function TheRidgesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices The Ridges
             </h1>
+            <NeighborhoodHeroPhoto slug="the-ridges" priority />
             <p className="text-xl text-slate-600">
               Las Vegas's most prestigious address. Experience The Ridges luxury with{" "}
               <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.

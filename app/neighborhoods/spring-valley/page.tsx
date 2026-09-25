@@ -24,6 +24,8 @@ import {
 } from "@/lib/site-config";
 import { metaDescriptionWithKeyword, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 const propertyTaxGuideUrl = `${siteConfig.url}/neighborhoods/spring-valley/property-taxes`;
 
@@ -58,6 +60,7 @@ export const metadata: Metadata = {
     "Rhodes Ranch Las Vegas",
   ],
   openGraph: {
+    ...neighborhoodOgTwitter("spring-valley").openGraph,
     title: "Spring Valley NV Homes & West Valley Guide | Dr. Jan Duffy",
     description: metaDescriptionWithKeyword(
       "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
@@ -232,6 +235,7 @@ export default function SpringValleyPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Spring Valley Las Vegas Homes &amp; West Valley Real Estate
             </h1>
+            <NeighborhoodHeroPhoto slug="spring-valley" priority />
             <p className="text-lg text-slate-600 leading-relaxed">
               Spring Valley is one of the most searched areas for{" "}
               <strong>Spring Valley Las Vegas homes</strong>—a broad, established west valley

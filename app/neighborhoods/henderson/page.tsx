@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Shield, Users, GraduationCap, TreePine } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
   },
   title: "Henderson Nevada Real Estate",
   description:
-    "Find Henderson homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's family-friendly communities. Median price $485K. Call (702) 664-8424.",
+    "Find Henderson homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy covers Green Valley, Inspirada, and Lake Las Vegas. Median price $485K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Henderson",
     "Henderson homes for sale",
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "Henderson Nevada",
     "Green Valley Henderson",
   ],
+  ...neighborhoodOgTwitter("henderson"),
 };
 
 const neighborhoodSchema = {
@@ -105,9 +108,10 @@ export default function HendersonPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Henderson
             </h1>
+            <NeighborhoodHeroPhoto slug="henderson" priority />
             <p className="text-xl text-slate-600">
-              Nevada's safest city. Find your Henderson home with Dr. Jan Duffy, your trusted{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> Henderson specialist.
+              Henderson homes with mountain views and a short drive to the Strip. Work with Dr. Jan
+              Duffy, your <strong>Berkshire Hathaway HomeServices</strong> Henderson specialist.
             </p>
           </div>
 

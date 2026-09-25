@@ -18,6 +18,8 @@ import {
   officeInfo,
 } from "@/lib/site-config";
 import { metaDescriptionWithKeyword } from "@/lib/seo";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -36,6 +38,7 @@ export const metadata: Metadata = {
     "Enterprise Nevada homes for sale",
     "guard gated golf Las Vegas",
   ],
+  ...neighborhoodOgTwitter("enterprise"),
 };
 
 const breadcrumbs = [
@@ -106,6 +109,7 @@ export default function EnterprisePage() {
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Enterprise Las Vegas Homes &amp; Rhodes Ranch Area
             </h1>
+            <NeighborhoodHeroPhoto slug="enterprise" priority />
             <p className="text-lg text-slate-600 leading-relaxed">
               <strong>Enterprise, NV</strong> covers a fast-growing southwest corridor—known for
               guard-gated golf communities like <strong>Rhodes Ranch</strong>, newer construction,

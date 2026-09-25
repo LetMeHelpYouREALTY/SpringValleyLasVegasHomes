@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Mountain, Users, ShoppingBag, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -17,8 +19,9 @@ export const metadata: Metadata = {
     "Centennial Hills homes for sale",
     "Centennial Hills Las Vegas",
     "northwest Las Vegas real estate",
-    "family homes Las Vegas",
+    "northwest Las Vegas homes",
   ],
+  ...neighborhoodOgTwitter("centennial-hills"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function CentennialHillsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Centennial Hills
             </h1>
+            <NeighborhoodHeroPhoto slug="centennial-hills" priority />
             <p className="text-xl text-slate-600">
               Family-friendly northwest Las Vegas living. Find your Centennial Hills home with{" "}
               <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.

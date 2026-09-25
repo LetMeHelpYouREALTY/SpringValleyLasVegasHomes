@@ -4,6 +4,8 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Mountain, Users, Home as HomeIcon, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
+import NeighborhoodHeroPhoto from "@/components/neighborhoods/NeighborhoodHeroPhoto";
+import { neighborhoodOgTwitter } from "@/lib/neighborhood-media";
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     "northwest Las Vegas homes",
     "new construction Skye Canyon",
   ],
+  ...neighborhoodOgTwitter("skye-canyon"),
 };
 
 const faqSchema = {
@@ -89,6 +92,7 @@ export default function SkyeCanyonPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Skye Canyon
             </h1>
+            <NeighborhoodHeroPhoto slug="skye-canyon" priority />
             <p className="text-xl text-slate-600">
               Northwest Las Vegas's fastest-growing community. Discover Skye Canyon with{" "}
               <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
