@@ -37,86 +37,31 @@ export type AmenityCategoryId =
 export type AmenityCategory = {
   id: AmenityCategoryId;
   label: string;
-  /** Places API (New) primary types — first match used for searchNearby */
+  /** Places API (New) primary types — one searchNearby per category */
   primaryTypes: string[];
-  /** Legacy PlacesService `type` fallback */
-  legacyType?: string;
 };
 
 /** General west-valley / Spring Valley — schools included; not 55+ or high-rise ordering. */
 export const amenityCategories: AmenityCategory[] = [
-  {
-    id: "restaurants",
-    label: "Restaurants",
-    primaryTypes: ["restaurant"],
-    legacyType: "restaurant",
-  },
-  {
-    id: "cafes",
-    label: "Cafes",
-    primaryTypes: ["cafe", "coffee_shop"],
-    legacyType: "cafe",
-  },
-  {
-    id: "grocery",
-    label: "Grocery",
-    primaryTypes: ["supermarket", "grocery_store"],
-    legacyType: "supermarket",
-  },
-  {
-    id: "parks",
-    label: "Parks",
-    primaryTypes: ["park"],
-    legacyType: "park",
-  },
-  {
-    id: "golf",
-    label: "Golf",
-    primaryTypes: ["golf_course"],
-    legacyType: "golf_course",
-  },
-  {
-    id: "healthcare",
-    label: "Healthcare",
-    primaryTypes: ["hospital", "doctor"],
-    legacyType: "hospital",
-  },
-  {
-    id: "pharmacies",
-    label: "Pharmacies",
-    primaryTypes: ["pharmacy"],
-    legacyType: "pharmacy",
-  },
-  {
-    id: "shopping",
-    label: "Shopping",
-    primaryTypes: ["shopping_mall", "department_store"],
-    legacyType: "shopping_mall",
-  },
-  {
-    id: "parking",
-    label: "Parking",
-    primaryTypes: ["parking"],
-    legacyType: "parking",
-  },
-  {
-    id: "fitness",
-    label: "Fitness",
-    primaryTypes: ["gym", "fitness_center"],
-    legacyType: "gym",
-  },
-  {
-    id: "schools",
-    label: "Schools",
-    primaryTypes: ["school", "primary_school", "secondary_school"],
-    legacyType: "school",
-  },
+  { id: "restaurants", label: "Restaurants", primaryTypes: ["restaurant"] },
+  { id: "cafes", label: "Cafes", primaryTypes: ["cafe", "coffee_shop"] },
+  { id: "grocery", label: "Grocery", primaryTypes: ["supermarket", "grocery_store"] },
+  { id: "parks", label: "Parks", primaryTypes: ["park"] },
+  { id: "golf", label: "Golf", primaryTypes: ["golf_course"] },
+  { id: "healthcare", label: "Healthcare", primaryTypes: ["hospital", "doctor"] },
+  { id: "pharmacies", label: "Pharmacies", primaryTypes: ["pharmacy"] },
+  { id: "shopping", label: "Shopping", primaryTypes: ["shopping_mall", "department_store"] },
+  { id: "parking", label: "Parking", primaryTypes: ["parking"] },
+  { id: "fitness", label: "Fitness", primaryTypes: ["gym", "fitness_center"] },
+  { id: "schools", label: "Schools", primaryTypes: ["school", "primary_school", "secondary_school"] },
 ];
 
 export type CuratedPlace = {
   name: string;
   address: string;
   category: AmenityCategoryId;
+  /** Official site used to verify name and address */
+  sourceUrl: string;
   /** schema.org type for ItemList entries */
   schemaType:
     | "Restaurant"
@@ -128,105 +73,115 @@ export type CuratedPlace = {
     | "Pharmacy"
     | "ShoppingCenter"
     | "School"
-    | "ExerciseGym";
+    | "ExerciseGym"
+    | "Library";
   note?: string;
 };
 
-/** Verified public venues — names and street addresses only (no invented ratings or drive times). */
+/** Verified public venues — names and street addresses from primary sources only. */
 export const curatedSpringValleyPlaces: CuratedPlace[] = [
   {
     name: "Spring Valley Hospital Medical Center",
     address: "5400 S Rainbow Blvd, Las Vegas, NV 89118",
     category: "healthcare",
     schemaType: "Hospital",
+    sourceUrl: "https://www.springvalleyhospital.com/patients-visitors/visitors/directions-and-map",
   },
   {
     name: "Desert Breeze Park",
-    address: "8275 Spring Mountain Rd, Las Vegas, NV 89147",
+    address: "8275 Spring Mountain Rd, Las Vegas, NV 89117",
     category: "parks",
     schemaType: "Park",
+    sourceUrl: "https://www.clarkcountynv.gov/government/departments/parks___recreation/desert-breeze-park-information",
+    note: "Clark County regional park — 119 developed acres",
   },
   {
     name: "Spring Valley Community Park",
-    address: "8363 Spring Mountain Rd, Las Vegas, NV 89147",
+    address: "7600 W Flamingo Rd, Las Vegas, NV 89147",
     category: "parks",
     schemaType: "Park",
+    sourceUrl: "https://parkslocator.clarkcountynv.gov/Search/ParkDetail?parkId=79",
   },
   {
     name: "Spring Valley Library",
-    address: "4280 S South Rainbow Blvd, Las Vegas, NV 89103",
+    address: "4280 S Jones Blvd, Las Vegas, NV 89103",
     category: "parks",
-    schemaType: "Park",
-    note: "Clark County Library branch — community hub",
+    schemaType: "Library",
+    sourceUrl: "https://thelibrarydistrict.org/locations/sv/",
+    note: "Las Vegas-Clark County Library District branch",
   },
   {
     name: "Smith's Food and Drug",
-    address: "7415 S Rainbow Blvd, Las Vegas, NV 89118",
+    address: "8050 S Rainbow Blvd, Las Vegas, NV 89139",
     category: "grocery",
     schemaType: "GroceryStore",
+    sourceUrl: "https://www.smithsfoodanddrug.com/stores/grocery/nv/las-vegas/rainbow-southern/706/00706",
+  },
+  {
+    name: "Smith's Food and Drug",
+    address: "9851 W Charleston Blvd, Las Vegas, NV 89117",
+    category: "grocery",
+    schemaType: "GroceryStore",
+    sourceUrl: "https://www.smithsfoodanddrug.com/stores/grocery/nv/las-vegas/charleston-fort-apache/706/00353",
   },
   {
     name: "Sprouts Farmers Market",
-    address: "7260 W Lake Mead Blvd, Las Vegas, NV 89128",
+    address: "7530 W Lake Mead Blvd, Las Vegas, NV 89128",
     category: "grocery",
     schemaType: "GroceryStore",
+    sourceUrl: "https://www.sprouts.com/store/nv/las-vegas/las-vegas-lake-mead/",
   },
   {
     name: "Whole Foods Market",
-    address: "8851 W Charleston Blvd, Las Vegas, NV 89117",
+    address: "8855 W Charleston Blvd, Las Vegas, NV 89117",
     category: "grocery",
     schemaType: "GroceryStore",
+    sourceUrl: "https://www.wholefoodsmarket.com/stores/fortapache",
   },
   {
     name: "Rhodes Ranch Golf Club",
     address: "20 E Rhodes Ranch Pkwy, Las Vegas, NV 89148",
     category: "golf",
     schemaType: "GolfCourse",
-    note: "Adjacent Enterprise / southwest valley — popular with Spring Valley golfers",
+    sourceUrl: "https://www.rhodesranchgolf.com/",
+    note: "Adjacent Enterprise area — common for southwest-valley golfers",
   },
   {
     name: "Bali Hai Golf Club",
     address: "5160 S Las Vegas Blvd, Las Vegas, NV 89119",
     category: "golf",
     schemaType: "GolfCourse",
-  },
-  {
-    name: "Centennial Hills Hospital Medical Center",
-    address: "6900 N Durango Dr, Las Vegas, NV 89149",
-    category: "healthcare",
-    schemaType: "Hospital",
-    note: "Northwest valley — additional acute-care option",
+    sourceUrl: "https://www.balihaigolfclub.com/",
   },
   {
     name: "CVS Pharmacy",
-    address: "7260 W Lake Mead Blvd, Las Vegas, NV 89128",
+    address: "8750 W Charleston Blvd, Las Vegas, NV 89117",
     category: "pharmacies",
     schemaType: "Pharmacy",
+    sourceUrl: "https://www.cvs.com/store-locator/cvs-pharmacy-address/Las+Vegas-NV-89117/ID=10162",
+    note: "Inside Target at Boca Park",
   },
   {
-    name: "The Shops at Boca Park",
-    address: "875 S Rampart Blvd, Las Vegas, NV 89145",
+    name: "Boca Park Fashion Village",
+    address: "750 S Rampart Blvd, Las Vegas, NV 89145",
     category: "shopping",
     schemaType: "ShoppingCenter",
+    sourceUrl: "https://bocaparklv.com/",
   },
   {
-    name: "Town Square Las Vegas",
-    address: "6605 S Las Vegas Blvd, Las Vegas, NV 89119",
-    category: "shopping",
-    schemaType: "ShoppingCenter",
-  },
-  {
-    name: "Rogich Middle School",
-    address: "8015 W Charleston Blvd, Las Vegas, NV 89117",
+    name: "Sig Rogich Middle School",
+    address: "235 N Pavilion Center Dr, Las Vegas, NV 89144",
     category: "schools",
     schemaType: "School",
+    sourceUrl: "https://www.rogichms.info/contact",
     note: "Clark County School District — verify zoning for your address",
   },
   {
-    name: "Bonner Elementary School",
-    address: "7650 W Azure Dr, Las Vegas, NV 89128",
+    name: "John W. Bonner Elementary School",
+    address: "765 Crestdale Ln, Las Vegas, NV 89144",
     category: "schools",
     schemaType: "School",
+    sourceUrl: "https://www.bonnerelementary.com/contact",
     note: "Clark County School District — verify zoning for your address",
   },
 ];
@@ -235,7 +190,7 @@ export const amenitiesPageFaqs = [
   {
     question: "What grocery stores are near Spring Valley, Las Vegas?",
     answer:
-      "Spring Valley buyers commonly shop at Smith's Food and Drug on South Rainbow Boulevard, Sprouts Farmers Market on West Lake Mead Boulevard, and Whole Foods Market on West Charleston Boulevard—plus additional chains along Charleston, Rainbow, and Decatur depending on your pocket. Use the map on this page to orient from your target listing, then confirm drive time during the hours you would actually shop.",
+      "Spring Valley buyers commonly shop at Smith's Food and Drug on South Rainbow Boulevard or West Charleston Boulevard, Sprouts Farmers Market on West Lake Mead Boulevard, and Whole Foods Market on West Charleston Boulevard—plus additional chains along Charleston, Rainbow, and Decatur depending on your pocket. Use the map on this page to orient from your target listing, then confirm drive time during the hours you would actually shop.",
   },
   {
     question: "How far is Spring Valley from the Las Vegas Strip?",
@@ -245,12 +200,12 @@ export const amenitiesPageFaqs = [
   {
     question: "Are there hospitals near Spring Valley?",
     answer:
-      "Spring Valley Hospital Medical Center on South Rainbow Boulevard is the closest major acute-care hospital serving much of the Spring Valley area, with additional options such as Centennial Hills Hospital Medical Center farther northwest. For emergencies and specialists, confirm in-network providers with your insurer and map routes from the specific home you are buying.",
+      "Spring Valley Hospital Medical Center on South Rainbow Boulevard is the closest major acute-care hospital serving much of the Spring Valley area. For emergencies and specialists, confirm in-network providers with your insurer and map routes from the specific home you are buying.",
   },
   {
     question: "What parks and recreation are near Spring Valley homes?",
     answer:
-      "Clark County parks such as Desert Breeze Park and Spring Valley Community Park on Spring Mountain Road offer sports fields, walking paths, and community programming, and the Spring Valley Library on South Rainbow Boulevard is a neighborhood anchor. Golf options nearby include Rhodes Ranch Golf Club and Bali Hai Golf Club depending on your location within Spring Valley.",
+      "Clark County parks such as Desert Breeze Park on Spring Mountain Road and Spring Valley Community Park on West Flamingo Road offer sports fields, walking paths, and community programming. The Spring Valley Library on South Jones Boulevard is a neighborhood anchor for events and resources. Golf options nearby include Rhodes Ranch Golf Club and Bali Hai Golf Club depending on your location within Spring Valley.",
   },
   {
     question: "How far is Spring Valley from Harry Reid International Airport?",
@@ -265,7 +220,7 @@ export const amenitiesPageFaqs = [
   {
     question: "Which schools serve Spring Valley addresses?",
     answer:
-      "School assignments in Spring Valley depend on your exact street address and Clark County School District zoning—not the neighborhood name alone. Public schools serving parts of the area include sites such as Rogich Middle School and Bonner Elementary School; always confirm current zoning with CCSD and visit campuses before you buy.",
+      "School assignments in Spring Valley depend on your exact street address and Clark County School District zoning—not the neighborhood name alone. Public schools serving parts of the west valley include sites such as Sig Rogich Middle School and John W. Bonner Elementary School; always confirm current zoning with CCSD and visit campuses before you buy.",
   },
   {
     question: "Who helps buyers compare Spring Valley amenities block by block?",

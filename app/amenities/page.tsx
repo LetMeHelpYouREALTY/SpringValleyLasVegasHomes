@@ -70,7 +70,7 @@ function generateCommunityPlaceSchema() {
     "@id": `${siteConfig.url}${pagePath}#spring-valley-place`,
     name: springValleyCommunity.displayName,
     description:
-      "Spring Valley is an established west Las Vegas Valley area in unincorporated Clark County, Nevada.",
+      "Spring Valley is a census-designated west Las Vegas Valley area in unincorporated Clark County, Nevada.",
     address: {
       "@type": "PostalAddress",
       addressLocality: springValleyCommunity.city,
@@ -188,17 +188,17 @@ export default function AmenitiesPage() {
               Spring Valley spans many west-valley pockets along Charleston Boulevard, Rainbow
               Boulevard, Decatur Boulevard, and Sahara Avenue, so restaurant options depend on your
               cross-streets. National chains and local favorites cluster along those corridors; use
-              the map filters for live restaurant results when your Google Maps API key is enabled,
-              and plan a test drive from any listing you are considering.
+              the map filters for live restaurant results, and plan a test drive from any listing
+              you are considering.
             </p>
 
             <h2>Parks &amp; recreation</h2>
             <p>
               Clark County Parks &amp; Recreation operates{" "}
               <strong>Desert Breeze Park</strong> (8275 Spring Mountain Rd) and{" "}
-              <strong>Spring Valley Community Park</strong> (8363 Spring Mountain Rd)—both with
-              fields, walking paths, and community programming. The <strong>Spring Valley Library</strong>{" "}
-              (4280 S South Rainbow Blvd) is a neighborhood anchor for events and resources.
+              <strong>Spring Valley Community Park</strong> (7600 W Flamingo Rd)—both with fields,
+              walking paths, and community programming. The <strong>Spring Valley Library</strong>{" "}
+              (4280 S Jones Blvd) is a neighborhood anchor for events and resources.
             </p>
 
             <h2>Golf</h2>
@@ -212,27 +212,26 @@ export default function AmenitiesPage() {
             <h2>Healthcare</h2>
             <p>
               <strong>Spring Valley Hospital Medical Center</strong> (5400 S Rainbow Blvd) provides
-              acute-care services for much of the west valley. <strong>Centennial Hills Hospital Medical Center</strong>{" "}
-              (6900 N Durango Dr) is an additional option farther northwest—verify emergency routes
-              and in-network providers from your insurer.
+              acute-care services for much of the west valley—verify emergency routes and in-network
+              providers with your insurer.
             </p>
 
             <h2>Shopping &amp; grocery</h2>
             <p>
-              Everyday grocery runs often include <strong>Smith&apos;s Food and Drug</strong> (7415 S Rainbow Blvd),{" "}
-              <strong>Sprouts Farmers Market</strong> (7260 W Lake Mead Blvd), and{" "}
-              <strong>Whole Foods Market</strong> (8851 W Charleston Blvd). For retail and dining
-              clusters, <strong>The Shops at Boca Park</strong> (875 S Rampart Blvd) and{" "}
-              <strong>Town Square Las Vegas</strong> (6605 S Las Vegas Blvd) are common destinations.
+              Everyday grocery runs often include <strong>Smith&apos;s Food and Drug</strong> (8050 S Rainbow Blvd
+              or 9851 W Charleston Blvd), <strong>Sprouts Farmers Market</strong> (7530 W Lake Mead Blvd), and{" "}
+              <strong>Whole Foods Market</strong> (8855 W Charleston Blvd). For retail and dining
+              clusters, <strong>Boca Park Fashion Village</strong> (750 S Rampart Blvd) is a common
+              west-valley destination.
             </p>
 
             <h2>Schools (verify your zone)</h2>
             <p>
               Clark County School District assignments depend on your exact address—not the Spring
-              Valley name alone. Public sites serving parts of the area include{" "}
-              <strong>Rogich Middle School</strong> (8015 W Charleston Blvd) and{" "}
-              <strong>Bonner Elementary School</strong> (7650 W Azure Dr). Confirm current zoning
-              with CCSD before you write an offer.
+              Valley name alone. Public sites serving parts of the west valley include{" "}
+              <strong>Sig Rogich Middle School</strong> (235 N Pavilion Center Dr) and{" "}
+              <strong>John W. Bonner Elementary School</strong> (765 Crestdale Ln). Confirm current
+              zoning with CCSD before you write an offer.
             </p>
 
             <h2>Commute context (approximate)</h2>

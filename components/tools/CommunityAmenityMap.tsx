@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { ArrowRight, MapPin, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { loadGoogleMaps, mapsAuthFailed } from "@/lib/load-google-maps";
+import { searchCategory } from "@/lib/spring-valley-places-search";
 import {
   amenityCategories,
   categoryById,
@@ -19,9 +21,9 @@ type MapPlaceResult = {
   id: string;
   name: string;
   address: string;
-  rating?: number;
   lat: number;
   lng: number;
+  mapsUri?: string;
 };
 
 type CommunityAmenityMapProps = {
@@ -34,14 +36,43 @@ type CommunityAmenityMapProps = {
   className?: string;
 };
 
-declare global {
-  interface Window {
-    __springValleyAmenityInit?: () => void;
-  }
-}
-
 function curatedForCategory(category: AmenityCategoryId): CuratedPlace[] {
   return curatedSpringValleyPlaces.filter((p) => p.category === category);
+}
+
+function placeDisplayName(place: google.maps.places.Place): string {
+  const displayName = place.displayName;
+  if (typeof displayName === "string") return displayName;
+  if (displayName && typeof displayName === "object" && "text" in displayName) {
+    return String((displayName as { text?: string }).text ?? "Place");
+  }
+  return "Place";
+}
+
+function buildInfoWindowContent(title: string, address: string): HTMLElement {
+  const wrap = document.createElement("div");
+  wrap.style.cssText = "padding:8px;max-width:260px;font-family:system-ui,sans-serif;";
+
+  const titleEl = document.createElement("div");
+  titleEl.style.cssText = "font-size:15px;font-weight:700;color:#0f172a;margin-bottom:4px;";
+  titleEl.textContent = title;
+  wrap.appendChild(titleEl);
+
+  const addrEl = document.createElement("p");
+  addrEl.style.cssText = "margin:0 0 6px;font-size:13px;color:#475569;";
+  addrEl.textContent = address;
+  wrap.appendChild(addrEl);
+
+  const link = document.createElement("a");
+  link.href = googleMapsDirectionsUrl(`${title}, ${address}`);
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.style.cssText =
+    "display:inline-block;margin-top:6px;font-size:13px;font-weight:600;color:#2563eb;";
+  link.textContent = "Directions →";
+  wrap.appendChild(link);
+
+  return wrap;
 }
 
 function CuratedAmenityList({
@@ -59,17 +90,17 @@ function CuratedAmenityList({
   if (items.length === 0) {
     return (
       <p className="text-sm text-slate-600">
-        Explore the interactive map when your API key is configured, or browse all categories on{" "}
+        Featured places for this category are listed on our{" "}
         <Link href="/amenities" className="font-semibold text-blue-600 hover:underline">
-          nearby amenities
+          nearby amenities guide
         </Link>
-        .
+        . Use the map to explore the Spring Valley area.
       </p>
     );
   }
 
   return (
-    <ul className="space-y-3" aria-label={`Curated ${categoryById(category).label} near Spring Valley`}>
+    <ul className="space-y-3" aria-label={`Featured ${categoryById(category).label} near Spring Valley`}>
       {items.map((place) => (
         <li
           key={`${place.name}-${place.address}`}
@@ -105,28 +136,49 @@ export default function CommunityAmenityMap({
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapElRef = useRef<HTMLDivElement>(null);
   const observerStartedRef = useRef(false);
-  const scriptElRef = useRef<HTMLScriptElement | null>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
   const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
   const activeCategoryRef = useRef<AmenityCategoryId>(defaultCategory);
+  const loadStartedRef = useRef(false);
 
   const [inView, setInView] = useState(false);
   const [activeCategory, setActiveCategory] = useState<AmenityCategoryId>(defaultCategory);
-  const [mapFailed, setMapFailed] = useState(false);
+  const [useFallback, setUseFallback] = useState(() => {
+    if (typeof window !== "undefined" && mapsAuthFailed) return true;
+    return !process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY?.trim();
+  });
   const [placesLoading, setPlacesLoading] = useState(false);
   const [livePlaces, setLivePlaces] = useState<MapPlaceResult[]>([]);
   const [mapReady, setMapReady] = useState(false);
+  const [showCuratedForCategory, setShowCuratedForCategory] = useState(false);
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY?.trim();
   const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID?.trim();
-  const useInteractiveMap = Boolean(apiKey) && !mapFailed;
+  const useInteractiveMap = Boolean(apiKey) && !useFallback;
 
   const tablistId = useId();
   const { lat, lng } = springValleyCommunity.center;
   const embedUrl = googleMapsEmbedUrl(lat, lng, springValleyCommunity.defaultZoom);
 
   activeCategoryRef.current = activeCategory;
+
+  const enterFallback = useCallback(() => {
+    setUseFallback(true);
+    setMapReady(false);
+    mapInstanceRef.current = null;
+    markersRef.current.forEach((m) => m.setMap(null));
+    markersRef.current = [];
+    setLivePlaces([]);
+    setShowCuratedForCategory(true);
+  }, []);
+
+  useEffect(() => {
+    if (mapsAuthFailed) enterFallback();
+    const onAuthFail = () => enterFallback();
+    window.addEventListener("gmaps:auth-failure", onAuthFail);
+    return () => window.removeEventListener("gmaps:auth-failure", onAuthFail);
+  }, [enterFallback]);
 
   useEffect(() => {
     const node = mapContainerRef.current;
@@ -152,33 +204,11 @@ export default function CommunityAmenityMap({
   }, []);
 
   const openInfo = useCallback(
-    (
-      map: google.maps.Map,
-      title: string,
-      address: string,
-      rating?: number,
-      position?: google.maps.LatLngLiteral,
-    ) => {
+    (map: google.maps.Map, title: string, address: string, position?: google.maps.LatLngLiteral) => {
       if (!infoWindowRef.current) {
         infoWindowRef.current = new google.maps.InfoWindow();
       }
-      const ratingLine =
-        rating !== undefined
-          ? `<p style="margin:4px 0;font-size:13px;color:#475569;">Rating: ${rating.toFixed(1)}</p>`
-          : "";
-      const dest = encodeURIComponent(`${title}, ${address}`);
-      infoWindowRef.current.setContent(`
-        <div style="padding:8px;max-width:260px;font-family:system-ui,sans-serif;">
-          <div style="font-size:15px;font-weight:700;color:#0f172a;margin-bottom:4px;">${title}</div>
-          <p style="margin:0 0 6px;font-size:13px;color:#475569;">${address}</p>
-          ${ratingLine}
-          <a href="https://www.google.com/maps/dir/?api=1&destination=${dest}"
-             target="_blank" rel="noopener"
-             style="display:inline-block;margin-top:6px;font-size:13px;font-weight:600;color:#2563eb;">
-            Directions →
-          </a>
-        </div>
-      `);
+      infoWindowRef.current.setContent(buildInfoWindowContent(title, address));
       if (position) {
         infoWindowRef.current.setPosition(position);
       }
@@ -197,10 +227,7 @@ export default function CommunityAmenityMap({
           title: place.name,
         });
         marker.addListener("click", () => {
-          openInfo(map, place.name, place.address, place.rating, {
-            lat: place.lat,
-            lng: place.lng,
-          });
+          openInfo(map, place.name, place.address, { lat: place.lat, lng: place.lng });
         });
         markersRef.current.push(marker);
       });
@@ -208,107 +235,56 @@ export default function CommunityAmenityMap({
     [clearMarkers, openInfo],
   );
 
-  const searchNearby = useCallback(
+  const runCategorySearch = useCallback(
     async (map: google.maps.Map, categoryId: AmenityCategoryId) => {
+      if (mapsAuthFailed || useFallback) {
+        setShowCuratedForCategory(true);
+        return;
+      }
+
       setPlacesLoading(true);
       setLivePlaces([]);
       clearMarkers();
-
-      const category = categoryById(categoryId);
-      const center = springValleyCommunity.center;
+      setShowCuratedForCategory(false);
 
       try {
-        const placesLib = (await google.maps.importLibrary("places")) as google.maps.PlacesLibrary;
-        const PlaceCtor = placesLib.Place;
-
-        if (PlaceCtor && "searchNearby" in PlaceCtor) {
-          const searchNearbyFn = PlaceCtor.searchNearby as (request: {
-            fields: string[];
-            locationRestriction: { center: google.maps.LatLngLiteral; radius: number };
-            includedPrimaryTypes: string[];
-            maxResultCount: number;
-          }) => Promise<{ places: google.maps.places.Place[] }>;
-
-          const { places } = await searchNearbyFn({
-            fields: ["displayName", "formattedAddress", "location", "rating", "id"],
-            locationRestriction: {
-              center,
-              radius: springValleyCommunity.searchRadiusMeters,
-            },
-            includedPrimaryTypes: category.primaryTypes,
-            maxResultCount: 15,
+        const places = await searchCategory(springValleyCommunity.center, categoryId);
+        const mapped: MapPlaceResult[] = [];
+        for (let index = 0; index < places.length; index += 1) {
+          const p = places[index];
+          const loc = p.location;
+          if (!loc) continue;
+          const json = loc.toJSON?.() ?? { lat: loc.lat(), lng: loc.lng() };
+          mapped.push({
+            id: p.id ?? `place-${index}`,
+            name: placeDisplayName(p),
+            address: p.formattedAddress ?? "",
+            lat: json.lat,
+            lng: json.lng,
+            mapsUri: p.googleMapsURI ?? undefined,
           });
+        }
 
-          const mapped: MapPlaceResult[] = [];
-          for (let index = 0; index < places.length; index += 1) {
-            const p = places[index];
-            const loc = p.location;
-            if (!loc) continue;
-            const displayName = p.displayName;
-            const name =
-              typeof displayName === "string"
-                ? displayName
-                : displayName && typeof displayName === "object" && "text" in displayName
-                  ? String((displayName as { text?: string }).text ?? "Place")
-                  : "Place";
-            mapped.push({
-              id: p.id ?? `place-${index}`,
-              name,
-              address: p.formattedAddress ?? "",
-              rating: p.rating ?? undefined,
-              lat: loc.lat(),
-              lng: loc.lng(),
-            });
-          }
-
+        if (mapped.length === 0) {
+          setShowCuratedForCategory(true);
+        } else {
           setLivePlaces(mapped);
           renderPlacesOnMap(map, mapped);
-          setPlacesLoading(false);
-          return;
         }
       } catch {
-        // legacy fallback
-      }
-
-      try {
-        const service = new google.maps.places.PlacesService(map);
-        const legacyType = category.legacyType ?? "establishment";
-        service.nearbySearch(
-          {
-            location: center,
-            radius: springValleyCommunity.searchRadiusMeters,
-            type: legacyType,
-          },
-          (results, status) => {
-            if (status !== google.maps.places.PlacesServiceStatus.OK || !results) {
-              setPlacesLoading(false);
-              return;
-            }
-            const mapped: MapPlaceResult[] = results.slice(0, 15).map((r, index) => {
-              const loc = r.geometry?.location;
-              return {
-                id: r.place_id ?? `legacy-${index}`,
-                name: r.name ?? "Place",
-                address: r.vicinity ?? "",
-                rating: r.rating,
-                lat: loc?.lat() ?? center.lat,
-                lng: loc?.lng() ?? center.lng,
-              };
-            });
-            setLivePlaces(mapped);
-            renderPlacesOnMap(map, mapped);
-            setPlacesLoading(false);
-          },
-        );
-      } catch {
-        setMapFailed(true);
+        setShowCuratedForCategory(true);
+      } finally {
         setPlacesLoading(false);
       }
     },
-    [clearMarkers, renderPlacesOnMap],
+    [clearMarkers, renderPlacesOnMap, useFallback],
   );
 
   const initMap = useCallback(() => {
+    if (mapsAuthFailed) {
+      enterFallback();
+      return;
+    }
     const el = mapElRef.current;
     if (!el || !window.google?.maps || mapInstanceRef.current) return;
 
@@ -347,52 +323,37 @@ export default function CommunityAmenityMap({
         map,
         springValleyCommunity.displayName,
         "West Las Vegas Valley, Clark County, Nevada",
-        undefined,
         springValleyCommunity.center,
       );
     });
 
     setMapReady(true);
-    void searchNearby(map, activeCategoryRef.current);
-  }, [mapId, openInfo, searchNearby]);
+    void runCategorySearch(map, activeCategoryRef.current);
+  }, [enterFallback, mapId, openInfo, runCategorySearch]);
 
   useEffect(() => {
-    if (!inView || !useInteractiveMap) return;
-    if (scriptElRef.current) return;
+    if (!inView || !apiKey || useFallback || loadStartedRef.current) return;
+    loadStartedRef.current = true;
 
-    window.__springValleyAmenityInit = () => {
-      try {
-        initMap();
-      } catch {
-        setMapFailed(true);
-      }
-    };
+    if (mapsAuthFailed) {
+      enterFallback();
+      return;
+    }
 
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey!)}&libraries=places&loading=async&callback=__springValleyAmenityInit`;
-    script.async = true;
-    script.defer = true;
-    script.onerror = () => setMapFailed(true);
-    scriptElRef.current = script;
-    document.head.appendChild(script);
-
-    return () => {
-      window.__springValleyAmenityInit = undefined;
-      script.remove();
-      scriptElRef.current = null;
-      mapInstanceRef.current = null;
-      setMapReady(false);
-      clearMarkers();
-    };
-  }, [apiKey, clearMarkers, inView, initMap, useInteractiveMap]);
+    void loadGoogleMaps(apiKey)
+      .then(() => initMap())
+      .catch(() => enterFallback());
+  }, [apiKey, enterFallback, inView, initMap, useFallback]);
 
   useEffect(() => {
     const map = mapInstanceRef.current;
     if (!map || !mapReady || !useInteractiveMap) return;
-    void searchNearby(map, activeCategory);
-  }, [activeCategory, mapReady, searchNearby, useInteractiveMap]);
+    void runCategorySearch(map, activeCategory);
+  }, [activeCategory, mapReady, runCategorySearch, useInteractiveMap]);
 
-  const showFallback = !useInteractiveMap;
+  const showCuratedPanel =
+    showCuratedList &&
+    (useFallback || showCuratedForCategory || (!placesLoading && livePlaces.length === 0));
 
   return (
     <div className={cn("space-y-6", className)} ref={mapContainerRef}>
@@ -461,7 +422,7 @@ export default function CommunityAmenityMap({
           aria-labelledby={`${tablistId}-${activeCategory}`}
           className={cn("relative w-full bg-slate-100", mapHeightClass)}
         >
-          {showFallback ? (
+          {useFallback ? (
             <>
               <iframe
                 title="Spring Valley, Las Vegas map"
@@ -485,24 +446,24 @@ export default function CommunityAmenityMap({
           ) : null}
         </div>
 
-        {showFallback && showCuratedList ? (
+        {showCuratedPanel ? (
           <div className="border-t border-slate-200 bg-slate-50 p-4 md:p-6">
             <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-500">
-              Curated {categoryById(activeCategory).label} (no API key required)
+              Featured {categoryById(activeCategory).label} near {springValleyCommunity.name}
             </h3>
-            <CuratedAmenityList category={activeCategory} limit={4} />
+            <CuratedAmenityList category={activeCategory} limit={useFallback ? 4 : undefined} />
           </div>
         ) : null}
       </div>
 
       {useInteractiveMap && livePlaces.length > 0 ? (
         <p className="text-center text-xs text-slate-500">
-          Showing up to 15 {categoryById(activeCategory).label.toLowerCase()} from Google Places near
+          Showing up to 10 {categoryById(activeCategory).label.toLowerCase()} from Google Places near
           Spring Valley. Confirm hours and availability before you visit.
         </p>
       ) : null}
 
-      {!showFallback && showCuratedList ? (
+      {useInteractiveMap && livePlaces.length > 0 && showCuratedList && curatedForCategory(activeCategory).length > 0 ? (
         <div className="rounded-xl border border-slate-200 bg-white p-4 md:p-6">
           <h3 className="text-lg font-bold text-slate-900">
             Also nearby — {categoryById(activeCategory).label}
