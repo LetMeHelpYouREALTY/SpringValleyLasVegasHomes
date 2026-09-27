@@ -6,7 +6,6 @@ import { Phone, Building2, Plane, GraduationCap, ArrowRight } from "lucide-react
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateBreadcrumbSchema,
   generateFAQSchema,
   generateNeighborhoodSchema,
   combineSchemas,
@@ -41,12 +40,6 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "Neighborhoods", url: "/neighborhoods" },
-  { name: "Paradise", url: "/neighborhoods/paradise" },
-];
-
 const paradiseFaqs = [
   {
     question: "Is Paradise the same as Las Vegas city?",
@@ -70,7 +63,6 @@ const paradiseFaqs = [
 ];
 
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(breadcrumbs),
   generateNeighborhoodSchema({
     name: "Paradise",
     slug: "paradise",

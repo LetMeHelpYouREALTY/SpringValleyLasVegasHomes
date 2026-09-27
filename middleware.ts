@@ -21,6 +21,15 @@ const APEX_HOST = "springvalleylasvegashomes.com";
 const ZIP_PATHS = new Set(["/search", "/contact"]);
 const EMBED_QUERY_KEYS = ["embed_domain", "embed_type"];
 
+/** Pass pathname to Server Components for JSON-LD breadcrumbs (inner pages). */
+function nextWithPathname(request: NextRequest): NextResponse {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  return NextResponse.next({
+    request: { headers: requestHeaders },
+  });
+}
+
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
   const { pathname, searchParams } = request.nextUrl;
@@ -70,12 +79,12 @@ export function middleware(request: NextRequest) {
   }
 
   if (!ZIP_PATHS.has(pathname)) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   const zip = searchParams.get("zip");
   if (!isValidZip(zip)) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   const url = request.nextUrl.clone();

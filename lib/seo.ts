@@ -41,7 +41,7 @@ export const heroSeo = {
  * Tuned for SERP length while keeping the primary topic + agent + role.
  */
 export const homePageTitleAbsolute =
-  "Spring Valley Las Vegas Homes | Dr. Jan Duffy, REALTOR® | Berkshire Hathaway";
+  "Spring Valley Las Vegas Homes | Dr. Jan Duffy";
 
 /**
  * Use for `metadata.description` when you want the primary topic + CTA in one line.

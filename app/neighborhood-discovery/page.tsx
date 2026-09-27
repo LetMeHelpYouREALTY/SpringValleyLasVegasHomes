@@ -128,30 +128,6 @@ const pageSchemas = combineSchemas(
   },
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: `${siteConfig.url}/`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Neighborhoods",
-        item: `${siteConfig.url}/neighborhoods`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Neighborhood Discovery",
-        item: pageUrl,
-      },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
       {

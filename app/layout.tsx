@@ -16,6 +16,7 @@ const VercelAnalytics = dynamic(
   { ssr: false },
 );
 import SchemaScript from "@/components/SchemaScript";
+import AutoBreadcrumbSchema from "@/components/AutoBreadcrumbSchema";
 import {
   generateRealEstateAgentSchema,
   generateWebSiteSchema,
@@ -130,6 +131,7 @@ export default function RootLayout({
         ) : null}
         {/* Site-wide JSON-LD Schema: RealEstateAgent + WebSite */}
         <SchemaScript schema={siteWideSchemas} id="site-schema" />
+        <AutoBreadcrumbSchema />
         {/* RealScout: once globally; afterInteractive avoids blocking first paint (vs beforeInteractive) */}
         <Script
           src={realScoutConfig.widgetScriptSrc}
