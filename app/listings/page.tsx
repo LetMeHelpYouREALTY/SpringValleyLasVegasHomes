@@ -13,6 +13,7 @@ import {
 import type { Metadata } from "next";
 import { realScoutConfig } from "@/lib/integrations";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import NearbyAmenitiesSection from "@/components/sections/NearbyAmenitiesSection";
 
 export const metadata: Metadata = {
   title: "MLS Search & Listings",
@@ -139,6 +140,8 @@ export default function ListingsPage() {
         </div>
 
         <BuyerEngagementStrip browseListingsHref="#featured-properties" />
+
+        <NearbyAmenitiesSection variant="white" />
 
         <div className="container mx-auto px-4">
           {/* RealScout Widget - Live MLS Listings */}

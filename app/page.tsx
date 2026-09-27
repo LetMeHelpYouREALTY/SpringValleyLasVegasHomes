@@ -3,6 +3,7 @@ import AgentHeadshot from "@/components/shared/AgentHeadshot";
 import HeroSection from "@/components/sections/HeroSection";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
 import ServiceAreaMapSection from "@/components/sections/ServiceAreaMapSection";
+import NearbyAmenitiesSection from "@/components/sections/NearbyAmenitiesSection";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
@@ -90,6 +91,8 @@ export default function Home() {
         <RealScoutListings />
 
         <ServiceAreaMapSection />
+
+        <NearbyAmenitiesSection variant="white" />
 
         {/* Berkshire Hathaway — copy aligned with site-config value props; details on /why-berkshire-hathaway */}
         <section className="py-16 md:py-20 bg-white" aria-labelledby="bhhs-heading">
