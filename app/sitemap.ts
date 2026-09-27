@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/faq`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/resources`, priority: 0.85, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/las-vegas-zip-code-map`, priority: 0.85, changeFrequency: "monthly" as const },
+    { url: `${baseUrl}/amenities`, priority: 0.9, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/neighborhood-discovery`, priority: 0.75, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/search`, priority: 0.6, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/security-policy`, priority: 0.4, changeFrequency: "yearly" as const },

@@ -47,6 +47,7 @@ export const navbarServiceLinks: InternalNavLink[] = [
 /** Footer column: quick links (order = priority for users + crawlers) */
 export const footerQuickLinks: InternalNavLink[] = [
   { href: "/neighborhoods/spring-valley", label: seoPrimaryKeyword },
+  { href: "/amenities", label: "Nearby amenities — Spring Valley" },
   { href: "/neighborhoods", label: "Neighborhoods" },
   { href: "/neighborhoods/paradise", label: "Paradise NV homes near the Strip" },
   { href: "/las-vegas-zip-code-map", label: "Las Vegas zip code map" },
@@ -79,6 +80,7 @@ export const sitelinkStructuredDataNav: InternalNavLink[] = [
   { href: "/listings", label: "Homes for sale — Las Vegas and Henderson" },
   { href: "/neighborhoods", label: "Las Vegas area neighborhoods" },
   { href: "/neighborhoods/spring-valley", label: `${seoPrimaryKeyword} guide` },
+  { href: "/amenities", label: "Nearby amenities in Spring Valley" },
   { href: "/neighborhoods/paradise", label: "Paradise NV homes near Strip and UNLV" },
   { href: "/55-plus-communities/sun-city-summerlin", label: "Sun City Summerlin 55+ homes" },
   { href: "/buyers", label: "Home buying resources" },
