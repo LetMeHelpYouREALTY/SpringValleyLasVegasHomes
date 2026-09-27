@@ -5,7 +5,6 @@ import SpringValleyPropertyTaxEstimator from "@/components/tools/SpringValleyPro
 import SchemaScript from "@/components/SchemaScript";
 import type { Metadata } from "next";
 import {
-  generateBreadcrumbSchema,
   generateFAQSchema,
   generateWebPageSchema,
   combineSchemas,
@@ -70,13 +69,6 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "Neighborhoods", url: "/neighborhoods" },
-  { name: "Spring Valley", url: "/neighborhoods/spring-valley" },
-  { name: "Property taxes", url: pagePath },
-];
-
 const propertyTaxFaqs = [
   {
     question: "What is the effective property tax rate in Spring Valley, NV?",
@@ -106,7 +98,6 @@ const propertyTaxFaqs = [
 ];
 
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
     name: "Spring Valley, NV Property Taxes & Effective Tax Rate",
     description:

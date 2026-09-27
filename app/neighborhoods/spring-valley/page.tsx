@@ -7,7 +7,6 @@ import { Phone, MapPin, Home, School, Car, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateBreadcrumbSchema,
   generateFAQSchema,
   generateNeighborhoodSchema,
   generateWebPageSchema,
@@ -77,12 +76,6 @@ export const metadata: Metadata = {
     ...springValleyOgTwitter.twitter,
   },
 };
-
-const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "Neighborhoods", url: "/neighborhoods" },
-  { name: "Spring Valley", url: "/neighborhoods/spring-valley" },
-];
 
 const springValleyFaqs = [
   {
@@ -156,7 +149,6 @@ const springValleyFaqs = [
 ];
 
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
     name: "Spring Valley Las Vegas Homes & West Valley Real Estate",
     description:

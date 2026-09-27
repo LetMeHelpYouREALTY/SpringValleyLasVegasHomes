@@ -6,7 +6,6 @@ import { Phone, MapPin, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateBreadcrumbSchema,
   generateFAQSchema,
   generateNeighborhoodSchema,
   combineSchemas,
@@ -38,12 +37,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "Neighborhoods", url: "/neighborhoods" },
-  { name: "Enterprise", url: "/neighborhoods/enterprise" },
-];
-
 const enterpriseFaqs = [
   {
     question: "Is Enterprise the same as Spring Valley?",
@@ -67,7 +60,6 @@ const enterpriseFaqs = [
 ];
 
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(breadcrumbs),
   generateNeighborhoodSchema({
     name: "Enterprise",
     slug: "enterprise",
