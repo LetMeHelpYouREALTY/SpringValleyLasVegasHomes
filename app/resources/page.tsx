@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   title: "Real Estate Resources & Guides",
   description: metaDescriptionWithKeyword(
-    "Guides and tools for Spring Valley Las Vegas homes—neighborhood guide, market reports, MLS search, and contact Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Guides and tools for Spring Valley Las Vegas homes—neighborhood guide, market reports, MLS search, and contact Dr. Jan Duffy, REALTOR®.",
     true,
   ),
 };
@@ -66,7 +66,7 @@ export default function ResourcesPage() {
             </h1>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Start with the Spring Valley guide, search listings, review the market, then reach out for
-              a personalized plan with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada
+              a personalized plan with Dr. Jan Duffy Nevada
               Properties.
             </p>
           </header>

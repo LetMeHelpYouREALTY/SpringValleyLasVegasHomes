@@ -19,7 +19,7 @@ const zipMapOgTwitter = ogTwitterImageFields(zipMapOgUrl, {
 export const metadata: Metadata = {
   title: "Las Vegas Zip Code Map",
   description:
-    "Las Vegas Valley zip code map and directory—Spring Valley, Summerlin, Henderson, North Las Vegas, Boulder City, and more. Find Spring Valley Nevada homes and homes for sale by zip; call Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties.",
+    "Las Vegas Valley zip code map and directory—Spring Valley, Summerlin, Henderson, North Las Vegas, Boulder City, and more. Find Spring Valley Nevada homes and homes for sale by zip; call Dr. Jan Duffy, REALTOR®.",
   keywords: [
     "Las Vegas zip code map",
     "Spring Valley Las Vegas map",
@@ -279,8 +279,7 @@ export default function LasVegasZipCodeMapPage() {
           </p>
           <h2 className="mt-12 text-2xl font-bold text-slate-900">Work with Dr. Jan Duffy</h2>
           <p className="text-slate-700">
-            Dr. Jan Duffy serves buyers and sellers across the Las Vegas Valley with Berkshire
-            Hathaway HomeServices Nevada Properties. Call{" "}
+            Dr. Jan Duffy serves buyers and sellers across the Las Vegas Valley. Call{" "}
             <a href={agentInfo.phoneTel} className="font-medium text-blue-600 hover:underline">
               {agentInfo.phone}
             </a>

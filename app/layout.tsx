@@ -40,8 +40,8 @@ const gaMeasurementId =
 export const metadata: Metadata = {
   title: {
     default: title,
-    /** Every route `title` becomes: {segment} | Spring Valley Las Vegas homes | BHHS */
-    template: `%s | ${seoPrimaryKeyword} | ${siteConfig.brandName}`,
+    /** Every route `title` becomes: {segment} | Spring Valley Las Vegas homes | Dr. Jan Duffy */
+    template: `%s | ${seoPrimaryKeyword} | Dr. Jan Duffy`,
   },
   description,
   metadataBase: new URL(url),

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   title: "Enterprise Las Vegas Homes & Rhodes Ranch Area",
   description: metaDescriptionWithKeyword(
-    "Enterprise NV real estate—southwest Las Vegas homes, Rhodes Ranch, and communities buyers compare with Spring Valley. MLS search and guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Enterprise NV real estate—southwest Las Vegas homes, Rhodes Ranch, and communities buyers compare with Spring Valley. MLS search and guidance with Dr. Jan Duffy, REALTOR®.",
     true,
   ),
   keywords: [
@@ -172,7 +172,7 @@ export default function EnterprisePage() {
             <h2 className="text-2xl font-bold mb-3">Tour Enterprise Las Vegas homes</h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Get a clear search plan for Enterprise, Rhodes Ranch, and southwest listings—backed
-              by Berkshire Hathaway HomeServices Nevada Properties.
+              with Dr. Jan Duffy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

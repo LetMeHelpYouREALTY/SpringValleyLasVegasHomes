@@ -21,7 +21,7 @@ export const siteConfig = {
   /** Canonical production URL (www). Apex should 301 to this host. */
   url: "https://www.springvalleylasvegashomes.com",
   description:
-    "Spring Valley Las Vegas homes with Dr. Jan Duffy, REALTOR® at BHHS Nevada Properties. MLS search, buyer and seller guidance—(702) 664-8424.",
+    "Spring Valley Las Vegas homes with Dr. Jan Duffy, REALTOR®. MLS search, buyer and seller guidance—(702) 664-8424.",
 };
 
 /**
@@ -153,7 +153,7 @@ export const marketStats = {
 
 /** Single source for hero + reviews aggregate — keep in sync with Google Business Profile when using counts/ratings in UI or JSON-LD */
 export const agentStats = {
-  servingSince: 2008,
+  servingSince: 1983,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
   averageRating: 4.9,
@@ -162,11 +162,11 @@ export const agentStats = {
 
 // Value Propositions
 export const valuePropositions = {
-  main: "When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength—the same principles that built Warren Buffett's empire.",
+  main: "When you work with Dr. Jan Duffy, REALTOR®, you get an advisor in real estate since 1983 who stands for trust, ethical standards, and honest advice.",
   trust:
-    "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
+    "Dr. Jan Duffy offers honest advice, transparent communication, and a referral network that makes relocations seamless.",
   expertise:
-    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
+    "In real estate since 1983 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with professional resources.",
 };
 
 // Neighborhoods served
@@ -318,31 +318,31 @@ export const expertQuotes = {
   investment: `"Las Vegas rental yields are among the best in the country right now. But you need to know which neighborhoods are appreciating and which have peaked."`,
   relocation: `"Moving to a new city is stressful enough. I handle everything from neighborhood tours to school research to contractor referrals so you can focus on your new beginning."`,
   newConstruction: `"Builders have sales agents who work for them, not you. Having your own representation costs you nothing but can save you tens of thousands in upgrades and negotiations."`,
-  valueProposition: `"When clients ask why they should choose a Berkshire Hathaway HomeServices agent, I tell them: you're not just getting me—you're getting a global network of 50,000 agents, world-class marketing, and a brand that's synonymous with trust."`,
+  valueProposition: `"When clients ask why they should choose me, I tell them: you're getting someone in real estate since 1983, world-class marketing, and an advisor who puts your interests first."`,
 };
 
 // Common FAQs
 export const commonFAQs = {
   general: [
     {
-      question: "Why should I choose a Berkshire Hathaway HomeServices agent?",
+      question: "Why should I choose a local REALTOR®?",
       answer:
-        "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
+        "Dr. Jan Duffy has been in real estate since 1983 and brings ethical standards, honest advice, and a strong referral network. When you're making the biggest purchase of your life, that trust matters.",
     },
     {
-      question: "What areas does Berkshire Hathaway HomeServices Nevada Properties cover?",
+      question: "What areas does Dr. Jan Duffy cover?",
       answer:
-        "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and Henderson's master-planned communities.",
+        "Dr. Jan Duffy serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and Henderson's master-planned communities.",
     },
     {
-      question: "How do Berkshire Hathaway HomeServices agents get paid?",
+      question: "How do real estate agents get paid?",
       answer:
         "Commission structures are negotiable. Dr. Jan Duffy offers transparent pricing and will walk you through all costs before you sign anything. For buyers, our services are typically free as commissions are paid by the seller.",
     },
     {
       question: "What is Dr. Jan Duffy's experience in Las Vegas real estate?",
       answer:
-        "Dr. Jan Duffy has been serving Las Vegas since 2008, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
+        "Dr. Jan Duffy has been in real estate since 1983, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
     },
   ],
   buying: [
@@ -366,7 +366,7 @@ export const commonFAQs = {
     {
       question: "What is my home worth in today's Las Vegas market?",
       answer:
-        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise serving Las Vegas since 2008.",
+        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise in real estate since 1983.",
     },
     {
       question: "How long will it take to sell my home?",

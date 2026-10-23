@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   title: "Paradise NV Homes Near Strip & UNLV",
   description: metaDescriptionWithKeyword(
-    "Paradise NV real estate—homes near the Las Vegas Strip, Harry Reid International Airport, and UNLV. Search MLS and get local guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Paradise NV real estate—homes near the Las Vegas Strip, Harry Reid International Airport, and UNLV. Search MLS and get local guidance with Dr. Jan Duffy, REALTOR®.",
     true,
   ),
   keywords: [

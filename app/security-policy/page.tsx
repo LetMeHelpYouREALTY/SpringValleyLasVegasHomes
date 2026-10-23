@@ -30,7 +30,7 @@ export default function SecurityPolicyPage() {
               Our Commitment to Security
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              At Berkshire Hathaway HomeServices Nevada Properties, we take the security
+              At Spring Valley Las Vegas Homes, we take the security
               of our systems and the privacy of our clients seriously. This page outlines
               our security practices and provides information for security researchers.
             </p>
@@ -249,9 +249,6 @@ export default function SecurityPolicyPage() {
                 <strong>Dr. Jan Duffy</strong>
               </p>
               <p className="mb-2">
-                Berkshire Hathaway HomeServices Nevada Properties
-              </p>
-              <p className="mb-2">
                 Email:{' '}
                 <a href={`mailto:${agentInfo.email}`} className="text-blue-600 underline">
                   {agentInfo.email}
@@ -273,6 +270,9 @@ export default function SecurityPolicyPage() {
             </p>
             <p className="text-sm text-gray-500">
               This policy is reviewed and updated regularly.
+            </p>
+            <p className="text-sm text-gray-500 mt-4">
+              Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC
             </p>
           </footer>
         </div>

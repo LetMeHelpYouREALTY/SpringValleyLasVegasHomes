@@ -17,7 +17,7 @@ import { ogTwitterImageFields } from "@/lib/og-image";
 
 const faqPreferredImageUrl = absoluteMediaUrl(agentHeadshotSrc);
 const faqOgTwitter = ogTwitterImageFields(faqPreferredImageUrl, {
-  alt: `${agentInfo.name}, ${agentInfo.title} — ${agentInfo.brokerage}`,
+  alt: `${agentInfo.name}, ${agentInfo.title}`,
 });
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   title: "Real Estate FAQ",
   description:
-    "Frequently asked questions about Las Vegas real estate, Berkshire Hathaway HomeServices, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+    "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy.",
   keywords: [
     "Berkshire Hathaway HomeServices FAQ",
     "Las Vegas real estate questions",
@@ -35,17 +35,17 @@ export const metadata: Metadata = {
     "BHHS agent questions",
   ],
   openGraph: {
-    title: "Real Estate FAQ | Berkshire Hathaway HomeServices Las Vegas",
+    title: "Real Estate FAQ | Dr. Jan Duffy Las Vegas",
     description:
-      "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+      "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy.",
     url: `${siteConfig.url}/faq`,
     ...faqOgTwitter.openGraph,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Real Estate FAQ | Berkshire Hathaway HomeServices Las Vegas",
+    title: "Real Estate FAQ | Dr. Jan Duffy Las Vegas",
     description:
-      "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+      "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy.",
     ...faqOgTwitter.twitter,
   },
 };
@@ -56,23 +56,23 @@ const faqDateModified = "2026-01-25T12:00:00-08:00";
 
 const faqCategories = [
   {
-    title: "About Berkshire Hathaway HomeServices",
+    title: "About Working With Dr. Jan Duffy",
     faqs: [
       {
-        q: "Why should I choose a Berkshire Hathaway HomeServices agent?",
-        a: "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
+        q: "Why should I choose a local REALTOR®?",
+        a: "A local REALTOR® knows the neighborhoods, pricing, and contracts that matter in Las Vegas. Dr. Jan Duffy has been in real estate since 1983 and brings ethical standards and honest advice. When you're making the biggest purchase of your life, that trust matters.",
       },
       {
-        q: "Is Berkshire Hathaway HomeServices owned by Warren Buffett?",
-        a: "Berkshire Hathaway HomeServices is part of HSF Affiliates LLC, a joint venture of Berkshire Hathaway Inc. (Warren Buffett's company) and HomeServices of America. The brand carries the trusted Berkshire Hathaway name and upholds its values.",
+        q: "How long has Dr. Jan Duffy been in real estate?",
+        a: "Dr. Jan Duffy has been in real estate since 1983, with $127M+ in closed transactions and 500+ satisfied clients.",
       },
       {
-        q: "What areas does BHHS Nevada Properties serve?",
-        a: "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, Inspirada, and all Henderson communities.",
+        q: "What areas does Dr. Jan Duffy serve?",
+        a: "Dr. Jan Duffy serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, Inspirada, and all Henderson communities.",
       },
       {
-        q: "Does using a Berkshire Hathaway agent cost more?",
-        a: "No. Commission rates are negotiable and comparable to other brokerages. The value you receive—global marketing exposure, trusted brand recognition, and experienced agents—often helps homes sell faster and for more money.",
+        q: "Does working with Dr. Jan cost more?",
+        a: "No. Commission rates are negotiable and comparable to other brokerages. The value you receive—professional marketing, accurate pricing, and experienced negotiation—often helps homes sell faster and for more money.",
       },
     ],
   },
@@ -96,8 +96,8 @@ const faqCategories = [
         a: "Yes. With more inventory, returning negotiating power, and stable interest rates, buyers have more options than they've had in years. Well-priced homes still move quickly, but you won't face the bidding wars of 2021-2022.",
       },
       {
-        q: "Does BHHS help with new construction homes?",
-        a: "Yes! BHHS agents provide free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities—the builder pays the commission, not you. Having representation protects your interests.",
+        q: "Does Dr. Jan help with new construction homes?",
+        a: "Yes! Dr. Jan provides free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities—the builder pays the commission, not you. Having representation protects your interests.",
       },
     ],
   },
@@ -106,7 +106,7 @@ const faqCategories = [
     faqs: [
       {
         q: "What is my home worth in today's market?",
-        a: "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise serving Las Vegas since 2008.",
+        a: "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise in real estate since 1983.",
       },
       {
         q: "How long will it take to sell my home?",
@@ -117,8 +117,8 @@ const faqCategories = [
         a: "Dr. Jan provides a personalized preparation checklist for every listing. Generally, decluttering, minor repairs, fresh paint, and professional photography are the highest-ROI improvements.",
       },
       {
-        q: "How does Berkshire Hathaway market my home?",
-        a: "BHHS provides world-class marketing including professional photography, virtual tours, MLS syndication to 100+ websites, social media promotion, the BHHS global network exposure, and targeted digital advertising.",
+        q: "How will my home be marketed?",
+        a: "Dr. Jan Duffy provides world-class marketing including professional photography, virtual tours, MLS syndication to 100+ websites, social media promotion, broad online exposure, and targeted digital advertising.",
       },
       {
         q: "Should I wait for prices to go higher?",
@@ -138,7 +138,7 @@ const faqCategories = [
         a: "Returns vary by property type and location. Typical Las Vegas rental properties generate 5-8% cash-on-cash returns. Dr. Jan can analyze specific opportunities and provide realistic projections.",
       },
       {
-        q: "Does BHHS help with rental properties?",
+        q: "Does Dr. Jan help with rental properties?",
         a: "Yes. Dr. Jan specializes in investment properties and can help identify opportunities, analyze returns, and connect you with property management resources.",
       },
     ],
@@ -147,8 +147,8 @@ const faqCategories = [
     title: "Relocating to Las Vegas",
     faqs: [
       {
-        q: "Can BHHS help with relocations?",
-        a: "Absolutely! Our global network of 50,000+ agents makes relocations seamless. Dr. Jan can coordinate with BHHS agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
+        q: "Can Dr. Jan help with relocations?",
+        a: "Absolutely! Dr. Jan can coordinate with experienced local agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
       },
       {
         q: "What are the best neighborhoods for families?",
@@ -165,7 +165,7 @@ const faqCategories = [
     faqs: [
       {
         q: "What is Dr. Jan Duffy's experience?",
-        a: "Dr. Jan has been serving Las Vegas since 2008, with $127M+ in closed transactions and 500+ satisfied clients. She specializes in residential, luxury, investment, and relocation services throughout Southern Nevada.",
+        a: "Dr. Jan has been in real estate since 1983, with $127M+ in closed transactions and 500+ satisfied clients. She specializes in residential, luxury, investment, and relocation services throughout Southern Nevada.",
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
@@ -192,7 +192,7 @@ const pageSchemas = combineSchemas(
   generateWebPageSchema({
     name: "Frequently Asked Questions | Berkshire Hathaway HomeServices Las Vegas",
     description:
-      "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
+      "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy.",
     url: "/faq",
     dateModified: "2026-01-25",
     primaryImageOfPage: faqPreferredImageUrl,
@@ -210,15 +210,12 @@ export default function FAQPage() {
         <div className="container mx-auto px-4">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-slate-600">
               Everything you need to know about working with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> in Las Vegas
+              <strong>Dr. Jan Duffy</strong> in Las Vegas
             </p>
           </div>
 
@@ -246,7 +243,7 @@ export default function FAQPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Still Have Questions?</h2>
             <p className="text-xl text-blue-100 mb-8">
               Dr. Jan Duffy is happy to answer any questions about Las Vegas real estate or working
-              with Berkshire Hathaway HomeServices.
+              with Dr. Jan Duffy.
             </p>
             <a
               href="tel:+17026648424"
@@ -255,9 +252,6 @@ export default function FAQPage() {
               <Phone className="h-5 w-5 mr-2" />
               Call (702) 664-8424
             </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

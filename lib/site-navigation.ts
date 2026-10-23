@@ -50,7 +50,7 @@ export const footerQuickLinks: InternalNavLink[] = [
   { href: "/neighborhoods", label: "Neighborhoods" },
   { href: "/neighborhoods/paradise", label: "Paradise NV homes near the Strip" },
   { href: "/las-vegas-zip-code-map", label: "Las Vegas zip code map" },
-  { href: "/why-berkshire-hathaway", label: "Why Berkshire Hathaway" },
+  { href: "/why-berkshire-hathaway", label: "Why work with Dr. Jan Duffy" },
   { href: "/market-report", label: "Las Vegas housing market report" },
   { href: "/resources", label: "Real estate resources and guides" },
   { href: "/about", label: "About Dr. Jan Duffy" },

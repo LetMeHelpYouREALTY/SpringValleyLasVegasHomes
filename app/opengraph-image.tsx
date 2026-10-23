@@ -8,7 +8,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const tagline =
-  "Spring Valley Las Vegas homes and west valley real estate with Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties.";
+  "Spring Valley Las Vegas homes and west valley real estate with Dr. Jan Duffy, REALTOR®.";
 
 export default function Image() {
   return new ImageResponse(
@@ -37,7 +37,7 @@ export default function Image() {
           Spring Valley Las Vegas Homes
         </div>
         <div style={{ fontSize: 28, color: "#93c5fd", marginTop: 16 }}>
-          Dr. Jan Duffy · Berkshire Hathaway HomeServices Nevada Properties
+          Dr. Jan Duffy, REALTOR® · In Real Estate Since 1983
         </div>
         <div style={{ fontSize: 22, color: "#cbd5e1", marginTop: 28, maxWidth: 920, lineHeight: 1.4 }}>
           {tagline}

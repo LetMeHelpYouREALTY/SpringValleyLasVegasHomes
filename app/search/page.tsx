@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Search homes by zip code",
   description:
-    "Find Las Vegas Valley MLS listings by zip code. Open the live home search to browse photos and map, or contact Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Find Las Vegas Valley MLS listings by zip code. Open the live home search to browse photos and map, or contact Dr. Jan Duffy, REALTOR®.",
   robots: { index: true, follow: true },
   alternates: {
     canonical: "/search",

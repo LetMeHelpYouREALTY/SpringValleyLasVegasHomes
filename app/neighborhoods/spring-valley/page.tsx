@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   title: "Spring Valley NV Homes & West Valley Guide",
   description: metaDescriptionWithKeyword(
-    "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, REALTOR®.",
     true,
   ),
   keywords: [
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Spring Valley NV Homes & West Valley Guide | Dr. Jan Duffy",
     description: metaDescriptionWithKeyword(
-      "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, REALTOR®.",
       true,
     ),
     url: `${siteConfig.url}/neighborhoods/spring-valley`,
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Spring Valley NV Homes & West Valley Guide | Dr. Jan Duffy",
     description: metaDescriptionWithKeyword(
-      "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Spring Valley NV real estate guide—map, popular west valley pockets, MLS search for Spring Valley Nevada homes for sale, and buyer-seller guidance with Dr. Jan Duffy, REALTOR®.",
       true,
     ),
     ...springValleyOgTwitter.twitter,
@@ -109,7 +109,7 @@ const springValleyFaqs = [
   },
   {
     question: "Who can help me buy or sell Spring Valley Las Vegas homes?",
-    answer: `Dr. Jan Duffy and the team at Berkshire Hathaway HomeServices Nevada Properties represent buyers and sellers across Spring Valley and the Las Vegas Valley. Call ${agentInfo.phone} or email ${agentInfo.email}. Office: ${officeInfo.address.full}.`,
+    answer: `Dr. Jan Duffy and her team represent buyers and sellers across Spring Valley and the Las Vegas Valley. Call ${agentInfo.phone} or email ${agentInfo.email}. Office: ${officeInfo.address.full}.`,
   },
   {
     question: "Is Rhodes Ranch the same as Spring Valley?",
@@ -631,7 +631,7 @@ export default function SpringValleyPage() {
             <h2 className="text-2xl font-bold mb-3">Talk with Dr. Jan Duffy about Spring Valley</h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Get a clear plan for touring Spring Valley Las Vegas homes, pricing strategy, and
-              contract timelines—backed by Berkshire Hathaway HomeServices Nevada Properties.
+              contract timelines—from Dr. Jan Duffy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -650,7 +650,7 @@ export default function SpringValleyPage() {
               </Link>
             </div>
             <p className="mt-6 text-sm text-blue-200">
-              {officeInfo.name} · {officeInfo.address.full}
+              {officeInfo.address.full}
             </p>
           </section>
 

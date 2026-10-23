@@ -43,9 +43,6 @@ export default function Navbar() {
             <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors leading-snug">
               {siteConfig.name}
             </span>
-            <span className="text-xs text-slate-500 hidden sm:block mt-0.5">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

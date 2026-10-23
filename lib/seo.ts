@@ -33,7 +33,7 @@ export const heroSeo = {
   headlinePrimary: "Spring Valley Las Vegas Homes",
   headlineSecondary: "Las Vegas Valley & Henderson",
   intro:
-    "Search Spring Valley Las Vegas homes and explore real estate across the west valley with Dr. Jan Duffy's team at Berkshire Hathaway HomeServices Nevada Properties—buying, selling, and local market guidance you can trust.",
+    "Search Spring Valley Las Vegas homes and explore real estate across the west valley with Dr. Jan Duffy's team—buying, selling, and local market guidance you can trust.",
 } as const;
 
 /**

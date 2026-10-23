@@ -30,7 +30,7 @@ export default function AgentHeadshot({
     >
       <Image
         src={agentHeadshotSrc}
-        alt={`${agentInfo.name}, ${agentInfo.title} — ${agentInfo.brokerage}`}
+        alt={`${agentInfo.name}, ${agentInfo.title}`}
         width={960}
         height={960}
         className={cn("h-full w-full object-cover object-top", className)}

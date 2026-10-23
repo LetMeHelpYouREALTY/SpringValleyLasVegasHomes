@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   title: "Schedule a Home Showing Las Vegas",
   description:
-    "Book a private home showing in Spring Valley, Las Vegas, Henderson, or Summerlin with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 664-8424.",
+    "Book a private home showing in Spring Valley, Las Vegas, Henderson, or Summerlin with Dr. Jan Duffy, REALTOR®. Call (702) 664-8424.",
   keywords: [
     "schedule home showing Las Vegas",
     "book property tour Las Vegas",
@@ -135,7 +135,7 @@ export default function ShowingPage() {
           </h1>
           <p className="mb-8 max-w-3xl text-lg text-slate-600">
             Book a private showing for Spring Valley, Summerlin, Henderson, and Las Vegas Valley
-            homes with {agentInfo.name}, REALTOR® at {officeInfo.name}. Prefer to call?{" "}
+            homes with {agentInfo.name}, REALTOR®. Prefer to call?{" "}
             <a
               href={agentInfo.phoneTel}
               className="font-semibold text-blue-600 hover:underline"
@@ -208,8 +208,6 @@ export default function ShowingPage() {
                 Office
               </h2>
               <p className="text-sm text-slate-700">
-                {officeInfo.name}
-                <br />
                 {officeInfo.address.street}
                 <br />
                 {officeInfo.address.city}, {officeInfo.address.state}{" "}

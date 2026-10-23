@@ -16,7 +16,7 @@ import { ogTwitterImageFields } from "@/lib/og-image";
 
 const kcmBlogTitle = "Market articles (KCM) | Spring Valley Las Vegas — Dr. Jan Duffy";
 const kcmBlogDescription =
-  "Keeping Current Matters (Simplifying the Market) articles for home buyers and sellers—national context for Las Vegas and Spring Valley. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 664-8424.";
+  "Keeping Current Matters (Simplifying the Market) articles for home buyers and sellers—national context for Las Vegas and Spring Valley. Dr. Jan Duffy, REALTOR®. Call (702) 664-8424.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const items = await getKcmFeedItems(1);
@@ -132,7 +132,7 @@ export default async function KcmBlogPage() {
               <a href={agentInfo.phoneTel} className="font-medium text-blue-600 hover:underline">
                 Call {agentInfo.name}
               </a>{" "}
-              at {agentInfo.phone}. {officeInfo.name}, {officeInfo.address.full}.
+              at {agentInfo.phone}. Office: {officeInfo.address.full}.
             </p>
           </div>
 

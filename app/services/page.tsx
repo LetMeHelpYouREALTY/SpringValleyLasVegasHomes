@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   title: "Real Estate Services Las Vegas",
   description:
-    "Comprehensive real estate services from Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Buying, selling, luxury, investment, relocation, 55+ communities, and new construction. Call (702) 664-8424.",
+    "Comprehensive real estate services from Dr. Jan Duffy. Buying, selling, luxury, investment, relocation, 55+ communities, and new construction. Call (702) 664-8424.",
   keywords: [
     "Las Vegas real estate services",
     "Berkshire Hathaway services",
@@ -59,14 +59,14 @@ const coreServices = [
     description:
       "Expert guidance through every step of the home buying process. Free buyer representation—the seller pays the commission, so you get professional advocacy at no cost to you.",
     highlights: ["Full MLS access", "Expert negotiation", "Contract protection", "Closing coordination"],
-    stats: { label: "Buyers Helped", value: "300+" },
+    stats: { label: "Transactions", value: "500+" },
   },
   {
     icon: TrendingUp,
     title: "Home Selling Services",
     slug: "sellers",
     description:
-      "Maximize your home's value with professional marketing, accurate pricing, and expert negotiation from Berkshire Hathaway HomeServices—the most trusted name in real estate.",
+      "Maximize your home's value with professional marketing, accurate pricing, and expert negotiation from Dr. Jan Duffy, in real estate since 1983.",
     highlights: ["World-class marketing", "Accurate pricing", "Global exposure", "Staging guidance"],
     stats: { label: "Homes Sold", value: "500+" },
   },
@@ -77,7 +77,7 @@ const coreServices = [
     description:
       "Specialized expertise in Las Vegas luxury real estate. The Ridges, MacDonald Highlands, Southern Highlands, and the most prestigious communities in Southern Nevada.",
     highlights: ["Discretion", "Global buyer network", "White-glove service", "Premium marketing"],
-    stats: { label: "Luxury Volume", value: "$45M+" },
+    stats: { label: "Sales Volume", value: "$127M+" },
   },
   {
     icon: Building,
@@ -86,7 +86,7 @@ const coreServices = [
     description:
       "Free buyer representation on any new construction purchase. The builder pays—you get contract review, upgrade negotiation, and construction monitoring at no cost.",
     highlights: ["Free representation", "Upgrade negotiation", "Contract review", "Construction oversight"],
-    stats: { label: "New Builds", value: "150+" },
+    stats: { label: "Transactions", value: "500+" },
   },
 ];
 
@@ -104,7 +104,7 @@ const specializedServices = [
     title: "Relocation Services",
     slug: "relocation",
     description:
-      "Comprehensive relocation assistance for moves to Las Vegas. Berkshire Hathaway HomeServices' global network of 50,000+ agents makes interstate transitions seamless.",
+      "Comprehensive relocation assistance for moves to Las Vegas. Dr. Jan's referral network of 50,000+ agents makes interstate transitions seamless.",
     highlights: ["Neighborhood matching", "School research", "Remote buying", "Moving coordination"],
   },
   {
@@ -120,7 +120,7 @@ const specializedServices = [
     title: "Home Valuation Services",
     slug: "home-valuation",
     description:
-      "Free, no-obligation home valuations using current MLS data, recent comparable sales, and deep local market knowledge from serving Las Vegas since 2008.",
+      "Free, no-obligation home valuations using current MLS data, recent comparable sales, and deep local market knowledge from in real estate since 1983.",
     highlights: ["Accurate pricing", "No obligation", "Detailed analysis", "Market trends"],
   },
 ];
@@ -162,7 +162,7 @@ const sellerTypes = [
   {
     title: "Relocation Sellers",
     href: "/sellers/relocation",
-    description: "Selling from out of state? Remote coordination with BHHS network support.",
+    description: "Selling from out of state? Remote coordination with referral network support.",
   },
 ];
 
@@ -178,22 +178,19 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Real Estate Services
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              Comprehensive real estate solutions from Dr. Jan Duffy, backed by the most trusted
-              name in the business—<strong>Berkshire Hathaway HomeServices</strong>. Whether you're 
+              Comprehensive real estate solutions from Dr. Jan Duffy, REALTOR®, in real estate
+              since 1983. Whether you're 
               buying your first home, selling a luxury estate, or relocating from California, 
               you'll receive expert guidance every step of the way.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>Serving Las Vegas Since 2008</span>
+                <span>In Real Estate Since 1983</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
@@ -213,9 +210,8 @@ export default function ServicesPage() {
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               These foundational services cover the majority of real estate transactions in Las Vegas. 
-              Each service is delivered with the professionalism, resources, and ethical standards 
-              that define Berkshire Hathaway HomeServices—the only real estate brand backed by 
-              Warren Buffett's Berkshire Hathaway Inc.
+              Each service is delivered with professionalism, local resources, and the ethical
+              standards of the REALTOR® Code of Ethics.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               {coreServices.map((service) => {
@@ -367,10 +363,10 @@ export default function ServicesPage() {
           {/* Value Proposition */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-6 text-center">
-              The Berkshire Hathaway HomeServices Difference
+              The Dr. Jan Duffy Difference
             </h2>
             <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name
+              When you work with a local REALTOR®, you're backed by a name
               synonymous with trust, ethical standards, and financial strength—the same principles
               that built Warren Buffett's empire. This isn't just a logo; it's a commitment to 
               putting your interests first.
@@ -381,8 +377,8 @@ export default function ServicesPage() {
                 <div className="text-slate-300 text-sm">Agents Worldwide</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">Since 2008</div>
-                <div className="text-slate-300 text-sm">Serving Las Vegas</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">Since 1983</div>
+                <div className="text-slate-300 text-sm">In Real Estate</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">$127M+</div>
@@ -398,7 +394,7 @@ export default function ServicesPage() {
                 <Shield className="h-10 w-10 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Financial Strength</h3>
                 <p className="text-slate-400 text-sm">
-                  Backed by Berkshire Hathaway Inc., providing unmatched stability and trust
+                  A stable, established practice you can trust for the long term
                 </p>
               </div>
               <div className="text-center">
@@ -426,8 +422,7 @@ export default function ServicesPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Whether you're buying or selling, the process begins with a free consultation 
               to understand your goals, timeline, and unique circumstances. From there, 
-              Dr. Jan creates a customized strategy that leverages the full resources of 
-              Berkshire Hathaway HomeServices to achieve the best possible outcome.
+              Dr. Jan creates a customized strategy designed to achieve the best possible outcome.
             </p>
             <div className="space-y-6">
               <div className="flex items-start">
@@ -487,7 +482,7 @@ export default function ServicesPage() {
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy for a free consultation about any of our real estate services. 
               Whether you're buying, selling, investing, or relocating, you'll receive expert 
-              guidance backed by Berkshire Hathaway HomeServices.
+              guidance from Dr. Jan Duffy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -504,9 +499,6 @@ export default function ServicesPage() {
                 Schedule Consultation
               </Link>
             </div>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

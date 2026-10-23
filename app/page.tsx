@@ -91,7 +91,7 @@ export default function Home() {
 
         <ServiceAreaMapSection />
 
-        {/* Berkshire Hathaway — copy aligned with site-config value props; details on /why-berkshire-hathaway */}
+        {/* Why work with Dr. Jan — copy aligned with site-config value props; details on /why-berkshire-hathaway */}
         <section className="py-16 md:py-20 bg-white" aria-labelledby="bhhs-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-12">
@@ -99,7 +99,7 @@ export default function Home() {
                 id="bhhs-heading"
                 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
               >
-                The Berkshire Hathaway HomeServices difference
+                The Dr. Jan Duffy difference
               </h2>
               <p className="text-lg text-slate-700 leading-relaxed">{valuePropositions.main}</p>
               <p className="mt-4">
@@ -107,7 +107,7 @@ export default function Home() {
                   href="/why-berkshire-hathaway"
                   className="text-blue-600 hover:text-blue-700 font-semibold"
                 >
-                  Why Berkshire Hathaway HomeServices →
+                  Why work with Dr. Jan Duffy →
                 </Link>
               </p>
             </div>
@@ -117,10 +117,10 @@ export default function Home() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Shield className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Trusted Brand</h3>
+                <h3 className="font-bold text-lg mb-2">Trusted Advisor</h3>
                 <p className="text-slate-600 text-sm">
-                  Berkshire Hathaway HomeServices is the only major real estate brand backed by Warren
-                  Buffett&apos;s Berkshire Hathaway Inc.
+                  In real estate since 1983, with honest advice and transparent communication in
+                  every transaction.
                 </p>
               </div>
               <div className="text-center p-6">
@@ -138,7 +138,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Market Expertise</h3>
                 <p className="text-slate-600 text-sm">
-                  Serving Las Vegas since {agentStats.servingSince} with {agentStats.volumeClosed} in
+                  In real estate since {agentStats.servingSince} with {agentStats.volumeClosed} in
                   closed transactions.
                 </p>
               </div>
@@ -161,12 +161,11 @@ export default function Home() {
                 />
                 <div>
                   <blockquote className="text-lg text-slate-700 italic mb-4">
-                    &ldquo;When clients ask why they should choose a Berkshire Hathaway HomeServices
-                    agent, I tell them: you&apos;re not just getting me—you&apos;re getting a global
+                    &ldquo;When clients ask why they should choose a local REALTOR®, I tell them: you&apos;re not just getting me—you&apos;re getting a global
                     network and a brand that&apos;s synonymous with trust.&rdquo;
                   </blockquote>
                   <cite className="text-slate-900 font-semibold not-italic">
-                    — Dr. Jan Duffy, BHHS Nevada Properties
+                    — Dr. Jan Duffy, REALTOR®
                   </cite>
                 </div>
               </div>
@@ -234,7 +233,7 @@ export default function Home() {
                 Las Vegas Neighborhoods We Serve
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Berkshire Hathaway HomeServices Nevada Properties covers all of Southern Nevada
+                Dr. Jan Duffy covers all of Southern Nevada
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -298,7 +297,7 @@ export default function Home() {
         <section className="py-16 md:py-20 bg-blue-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Work with Berkshire Hathaway HomeServices?
+              Ready to Work with Dr. Jan Duffy?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               Whether you're buying, selling, or investing in Las Vegas real estate, Dr. Jan Duffy
@@ -320,16 +319,14 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada
-              Properties
+              Dr. Jan Duffy, REALTOR® | In real estate since 1983
             </p>
           </div>
         </section>
 
         {/* Last Updated */}
         <div className="bg-slate-100 py-4 text-center text-sm text-slate-500">
-          Last Updated: January 2026 | {siteConfig.name} — Berkshire Hathaway HomeServices Nevada
-          Properties
+          Last Updated: January 2026 | {siteConfig.name}
         </div>
       </main>
       <Footer />

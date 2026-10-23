@@ -27,7 +27,7 @@ const threeDdemoUrl = buildNeighborhoodDiscoveryDemoUrl();
 export const metadata: Metadata = {
   title: "Neighborhood Discovery | Spring Valley Map & Local Highlights",
   description:
-    "Explore Spring Valley and the west valley—restaurants, schools, parks, and more—with Google Maps Neighborhood Discovery. Pair with MLS search and Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    "Explore Spring Valley and the west valley—restaurants, schools, parks, and more—with Google Maps Neighborhood Discovery. Pair with MLS search and Dr. Jan Duffy, REALTOR®.",
   keywords: [
     "Spring Valley neighborhood map",
     "Las Vegas neighborhood map",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Neighborhood Discovery | Spring Valley & Las Vegas 3D Map",
     description:
-      "Interactive 3D neighborhood highlights with local context—pair with MLS search and a Berkshire Hathaway HomeServices tour.",
+      "Interactive 3D neighborhood highlights with local context—pair with MLS search and a tour with Dr. Jan Duffy.",
     url: pageUrl,
     type: "website",
     ...neighborhoodDiscoveryOgTwitter.openGraph,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Neighborhood Discovery | Spring Valley & Las Vegas 3D Map",
     description:
-      "Interactive 3D neighborhood highlights with local context—pair with MLS search and a Berkshire Hathaway HomeServices tour.",
+      "Interactive 3D neighborhood highlights with local context—pair with MLS search and a tour with Dr. Jan Duffy.",
     ...neighborhoodDiscoveryOgTwitter.twitter,
   },
 };
@@ -191,7 +191,7 @@ export default function NeighborhoodDiscoveryPage() {
               <a href={agentInfo.phoneTel} className="font-semibold text-blue-600 hover:underline">
                 {agentInfo.phone}
               </a>{" "}
-              for a tour backed by Berkshire Hathaway HomeServices.
+              for a tour from Dr. Jan Duffy.
             </p>
           </div>
 
@@ -293,7 +293,7 @@ export default function NeighborhoodDiscoveryPage() {
 
           <section className="max-w-4xl mx-auto rounded-2xl border border-slate-200 bg-white p-8 text-center">
             <h2 className="text-lg font-semibold text-slate-900 mb-2">
-              {officeInfo.name}
+              {agentInfo.name}, REALTOR®
             </h2>
             <p className="text-slate-600 text-sm mb-4">{officeInfo.address.full}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">

@@ -41,7 +41,7 @@ const exampleAnnual = estimateAnnualPropertyTaxIllustrative(springValleyTaxExamp
 export const metadata: Metadata = {
   title: "Spring Valley NV Property Taxes & Tax Rate",
   description:
-    "Spring Valley, NV effective property tax rate (about 0.48% per third-party estimates), illustrative tax calculator, and how Clark County tax bills work—with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Not tax advice.",
+    "Spring Valley, NV effective property tax rate (about 0.48% per third-party estimates), illustrative tax calculator, and how Clark County tax bills work—with Dr. Jan Duffy, REALTOR®. Not tax advice.",
   keywords: [
     "Spring Valley NV property tax",
     "Spring Valley property tax rate",
@@ -306,7 +306,7 @@ export default function SpringValleyPropertyTaxesPage() {
           </section>
 
           <section className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
-            <h2 className="text-lg font-semibold text-slate-900 mb-2">{officeInfo.name}</h2>
+            <h2 className="text-lg font-semibold text-slate-900 mb-2">{agentInfo.name}, REALTOR®</h2>
             <p className="text-slate-600 text-sm mb-4">{officeInfo.address.full}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <a

@@ -12,7 +12,7 @@ import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 import { ogTwitterImageFields } from "@/lib/og-image";
 
 const neighborhoodsDescription = metaDescriptionWithKeyword(
-  "Explore Las Vegas and Henderson neighborhoods—Summerlin, Green Valley, Spring Valley Las Vegas homes, and more with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+  "Explore Las Vegas and Henderson neighborhoods—Summerlin, Green Valley, Spring Valley Las Vegas homes, and more with Dr. Jan Duffy, REALTOR®.",
   true,
 );
 
@@ -188,9 +188,6 @@ export default function NeighborhoodsPage() {
         <div className="container mx-auto px-4">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas & Henderson Neighborhoods
             </h1>
@@ -199,8 +196,7 @@ export default function NeighborhoodsPage() {
               <Link href="/neighborhoods/spring-valley" className="text-blue-600 font-semibold hover:underline">
                 {seoPrimaryKeyword}
               </Link>{" "}
-              guide, Summerlin, Henderson, and more—with Dr. Jan Duffy, your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> neighborhood expert
+              guide, Summerlin, Henderson, and more—with Dr. Jan Duffy, your neighborhood expert
             </p>
             <p className="mt-4 text-lg text-slate-600">
               Prefer to browse by postal code? Use the{" "}
@@ -262,11 +258,11 @@ export default function NeighborhoodsPage() {
                 "Every Las Vegas neighborhood has its own personality. Whether you want the
                 family-friendly parks of Summerlin, the established charm of Green Valley, or the
                 luxury of The Ridges, I'll help you find the community that matches your lifestyle.
-                That's the Berkshire Hathaway HomeServices difference—personalized guidance backed
+                That's the difference—personalized guidance backed
                 by local expertise."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -315,9 +311,6 @@ export default function NeighborhoodsPage() {
               <Phone className="h-5 w-5 mr-2" />
               Call (702) 664-8424
             </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 
