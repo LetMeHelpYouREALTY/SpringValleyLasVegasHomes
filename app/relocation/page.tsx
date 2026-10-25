@@ -67,7 +67,7 @@ const popularRelocationAreas = [
   },
   {
     name: "Green Valley",
-    best: "Established families",
+    best: "Move-up buyers",
     highlights: "Mature landscaping, championship golf, shopping and dining, Henderson location",
     from: "$480K",
   },

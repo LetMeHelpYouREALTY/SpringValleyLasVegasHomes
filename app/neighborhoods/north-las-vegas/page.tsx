@@ -269,7 +269,7 @@ export default function NorthLasVegasPage() {
                   <ul className="text-slate-600 text-sm space-y-2">
                     <li><strong>Aliante:</strong> Master-planned with golf, casino, town center. Homes $400K-$550K.</li>
                     <li><strong>Tule Springs:</strong> Newer community near I-215. KB Home, Lennar. $380K-$500K.</li>
-                    <li><strong>Valley Vista:</strong> Family-focused with parks, pools. Century Communities. $350K-$450K.</li>
+                    <li><strong>Valley Vista:</strong> Parks and pools. Century Communities. $350K-$450K.</li>
                     <li><strong>Camino Al Norte:</strong> Growing area near 215. Multiple builders. $380K-$480K.</li>
                   </ul>
                 </div>

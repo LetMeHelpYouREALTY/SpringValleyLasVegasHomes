@@ -119,7 +119,7 @@ export default function CentennialHillsPage() {
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Centennial Hills: Northwest Las Vegas's Established Family Community
+                Centennial Hills: Northwest Las Vegas's Established Master-Planned Community
               </h2>
               <p>
                 <strong>Centennial Hills</strong> represents the best of established northwest Las Vegas
@@ -150,7 +150,7 @@ export default function CentennialHillsPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Established Family Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">Established Master-Planned Community</h4>
                   </div>
                   <p className="text-slate-600">
                     Centennial Hills has matured into a true community where neighbors know each other
@@ -371,7 +371,7 @@ export default function CentennialHillsPage() {
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Centennial Hills expert,
-              for guidance in this established family community.
+              for guidance in this established master-planned community.
             </p>
             <a
               href="tel:+17026648424"

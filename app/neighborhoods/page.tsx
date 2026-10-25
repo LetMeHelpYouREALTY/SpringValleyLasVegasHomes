@@ -111,7 +111,7 @@ const neighborhoods = [
     priceChange: "+4.8%",
     description: "Established Henderson community with mature landscaping and excellent amenities",
     highlights: ["Golf Courses", "Walking Trails", "The District", "Mature Trees"],
-    bestFor: "Established families, golfers, professionals",
+    bestFor: "Move-up buyers, golfers, professionals",
   },
   {
     name: "The Ridges",
