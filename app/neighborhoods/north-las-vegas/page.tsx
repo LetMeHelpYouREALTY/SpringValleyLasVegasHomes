@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "North Las Vegas Affordable Homes",
   description:
-    "Find affordable North Las Vegas homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She helps first-time buyers and investors. Median price $385K. Call (702) 664-8424.",
+    "Find affordable North Las Vegas homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She helps first-time buyers and investors. Median price $385K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices North Las Vegas",
     "North Las Vegas homes for sale",

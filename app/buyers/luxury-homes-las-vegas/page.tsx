@@ -378,7 +378,7 @@ export default function LuxuryHomesPage() {
               <blockquote className="text-lg italic mb-4">
                 "Luxury buyers expect discretion, market expertise, and flawless execution. In this
                 price range, one wrong move can cost hundreds of thousands of dollars. My clients
-                trust me because I've closed $127M+ in transactions and understand that their time
+                trust me because I've led the Dr. Duffy Group to $127M+ in career sales and understand that their time
                 and privacy are worth more than any commission. Dr. Jan Duffy provides the global resources and credibility that luxury transactions demand."
               </blockquote>
               <cite className="text-slate-300 font-semibold">

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Centennial Hills Las Vegas Homes",
   description:
-    "Find Centennial Hills homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this established northwest community. Median price $495K. Call (702) 664-8424.",
+    "Find Centennial Hills homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this established northwest community. Median price $495K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Centennial Hills",
     "Centennial Hills homes for sale",
@@ -137,7 +137,7 @@ export default function CentennialHillsPage() {
                 Hills' urban conveniences would suggest.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, knows
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, knows
                 which streets offer the best mountain views, which school zones are most sought-after,
                 and which HOAs maintain their communities to the highest standards. This deep local
                 knowledge, combined with a commitment to client service, ensures Centennial

@@ -162,7 +162,7 @@ export const marketStats = {
  * business shows about itself as self-serving and ineligible for review stars.
  */
 export const agentStats = {
-  servingSince: 1983,
+  servingSince: 2008,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
   averageRating: 5.0,
@@ -173,11 +173,11 @@ export const agentStats = {
 
 // Value Propositions
 export const valuePropositions = {
-  main: "When you work with Dr. Jan Duffy, REALTOR®, you get an advisor in real estate since 1983 who stands for trust, ethical standards, and honest advice.",
+  main: "When you work with Dr. Jan Duffy, REALTOR®, you get an advisor licensed since 2008 · 35 years in Las Vegas who stands for trust, ethical standards, and honest advice.",
   trust:
     "Dr. Jan Duffy offers honest advice, transparent communication, and a referral network that makes relocations seamless.",
   expertise:
-    "In real estate since 1983 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with professional resources.",
+    "Licensed since 2008 · 35 years in Las Vegas with $127M+ in Dr. Duffy Group career sales, Dr. Jan Duffy combines deep local market knowledge with professional resources.",
 };
 
 // Neighborhoods served
@@ -329,7 +329,7 @@ export const expertQuotes = {
   investment: `"Las Vegas rental yields are among the best in the country right now. But you need to know which neighborhoods are appreciating and which have peaked."`,
   relocation: `"Moving to a new city is stressful enough. I handle everything from neighborhood tours to school research to contractor referrals so you can focus on your new beginning."`,
   newConstruction: `"Builders have sales agents who work for them, not you. Having your own representation costs you nothing but can save you tens of thousands in upgrades and negotiations."`,
-  valueProposition: `"When clients ask why they should choose me, I tell them: you're getting someone in real estate since 1983, world-class marketing, and an advisor who puts your interests first."`,
+  valueProposition: `"When clients ask why they should choose me, I tell them: you're getting someone licensed since 2008 · 35 years in Las Vegas, world-class marketing, and an advisor who puts your interests first."`,
 };
 
 // Common FAQs
@@ -338,7 +338,7 @@ export const commonFAQs = {
     {
       question: "Why should I choose a local REALTOR®?",
       answer:
-        "Dr. Jan Duffy has been in real estate since 1983 and brings ethical standards, honest advice, and a strong referral network. When you're making the biggest purchase of your life, that trust matters.",
+        "Dr. Jan Duffy has been licensed since 2008 (35 years in Las Vegas) and brings ethical standards, honest advice, and a strong referral network. When you're making the biggest purchase of your life, that trust matters.",
     },
     {
       question: "What areas does Dr. Jan Duffy cover?",
@@ -353,7 +353,7 @@ export const commonFAQs = {
     {
       question: "What is Dr. Jan Duffy's experience in Las Vegas real estate?",
       answer:
-        "Dr. Jan Duffy has been in real estate since 1983, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
+        "Dr. Jan Duffy has been licensed since 2008 (35 years in Las Vegas), with $127M+ in Dr. Duffy Group career sales and 500+ team sales. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
     },
   ],
   buying: [
@@ -377,7 +377,7 @@ export const commonFAQs = {
     {
       question: "What is my home worth in today's Las Vegas market?",
       answer:
-        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise in real estate since 1983.",
+        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise (licensed since 2008, 35 years in Las Vegas).",
     },
     {
       question: "How long will it take to sell my home?",

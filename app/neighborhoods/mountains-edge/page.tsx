@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Mountains Edge Southwest Las Vegas",
   description:
-    "Find Mountains Edge homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this southwest Las Vegas community. Median price $475K. Call (702) 664-8424.",
+    "Find Mountains Edge homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this southwest Las Vegas community. Median price $475K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Mountains Edge",
     "Mountains Edge homes for sale",
