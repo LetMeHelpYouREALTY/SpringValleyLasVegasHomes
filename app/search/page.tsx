@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SearchPage() {
+export default async function SearchPage() {
   const validZip = preferredZipFromCookie(
-    cookies().get(PREFERRED_ZIP_COOKIE)?.value,
+    (await cookies()).get(PREFERRED_ZIP_COOKIE)?.value,
   );
 
   return (

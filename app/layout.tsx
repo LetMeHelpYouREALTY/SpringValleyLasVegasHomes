@@ -2,19 +2,12 @@ import "./globals.css";
 
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
 import { cn } from "lib/utils";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
-/** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
-const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), { ssr: false });
-const VercelAnalytics = dynamic(
-  () => import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
-  { ssr: false },
-);
 import SchemaScript from "@/components/SchemaScript";
 import AutoBreadcrumbSchema from "@/components/AutoBreadcrumbSchema";
 import {
@@ -26,6 +19,9 @@ import { siteConfig } from "@/lib/site-config";
 import { faviconAppleSrc, faviconSrc } from "@/lib/site-media";
 import { seoKeywordVariations, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+/** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
+import AIChatWidget from "./AIChatWidget.client";
+import VercelAnalytics from "./VercelAnalytics.client";
 
 const title = siteConfig.name;
 const description = siteConfig.description;

@@ -60,9 +60,9 @@ const contactSchema = {
   },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
   const zipFromQuery = preferredZipFromCookie(
-    cookies().get(PREFERRED_ZIP_COOKIE)?.value,
+    (await cookies()).get(PREFERRED_ZIP_COOKIE)?.value,
   );
   const mailtoZip =
     zipFromQuery &&
