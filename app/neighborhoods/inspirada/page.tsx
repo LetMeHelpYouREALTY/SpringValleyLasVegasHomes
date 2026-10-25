@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: "Inspirada Henderson",
   description:
-    "Find Inspirada homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Henderson's resort-style community. Median price $525K. Call (702) 664-8424.",
+    "Find Inspirada homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in Henderson's resort-style community. Median price $525K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Inspirada",
     "Inspirada homes for sale",

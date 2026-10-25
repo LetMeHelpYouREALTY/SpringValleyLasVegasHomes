@@ -17,8 +17,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-xl mb-4">{siteConfig.name}</h3>
             <p className="text-slate-300 mb-4 text-sm">
-              {seoPrimaryKeyword}, Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy, REALTOR®, in
-              real estate since 1983.
+              {seoPrimaryKeyword}, Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas.
             </p>
             <div className="flex space-x-4">
               <a

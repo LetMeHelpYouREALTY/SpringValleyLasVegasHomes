@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: "Skye Canyon Northwest Las Vegas",
   description:
-    "Find Skye Canyon homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this premier northwest community. Median price $550K. Call (702) 664-8424.",
+    "Find Skye Canyon homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this premier northwest community. Median price $550K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Skye Canyon",
     "Skye Canyon homes for sale",

@@ -119,7 +119,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Trusted Advisor</h3>
                 <p className="text-slate-600 text-sm">
-                  In real estate since 1983, with honest advice and transparent communication in
+                  Licensed since 2008 · 35 years in Las Vegas, with honest advice and transparent communication in
                   every transaction.
                 </p>
               </div>
@@ -138,7 +138,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Market Expertise</h3>
                 <p className="text-slate-600 text-sm">
-                  In real estate since {agentStats.servingSince} with {agentStats.volumeClosed} in
+                  Licensed since {agentStats.servingSince} with {agentStats.volumeClosed} in
                   closed transactions.
                 </p>
               </div>
@@ -319,7 +319,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy, REALTOR® | In real estate since 1983
+              Dr. Jan Duffy, REALTOR® | Licensed since 2008 · 35 years in Las Vegas
             </p>
           </div>
         </section>

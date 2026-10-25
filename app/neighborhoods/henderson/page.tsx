@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: "Henderson Nevada Real Estate",
   description:
-    "Find Henderson homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Henderson's family-friendly communities. Median price $485K. Call (702) 664-8424.",
+    "Find Henderson homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in Henderson's family-friendly communities. Median price $485K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Henderson",
     "Henderson homes for sale",
@@ -142,8 +142,7 @@ export default function HendersonPage() {
               <p>
                 <strong>Henderson</strong> has quietly become one of the most desirable cities in the American
                 Southwest. As Nevada's second-largest city with over 320,000 residents, Henderson offers the
-                perfect balance of suburban tranquility and urban convenience. Dr. Jan Duffy, in real
-                estate since 1983, brings unmatched expertise to every Henderson transaction.
+                perfect balance of suburban tranquility and urban convenience. Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, brings unmatched expertise to every Henderson transaction.
               </p>
               <p>
                 What sets Henderson apart? Start with safety. Henderson consistently ranks as one of America's
@@ -369,7 +368,7 @@ export default function HendersonPage() {
                   Why choose Dr. Jan Duffy for Henderson real estate?
                 </h3>
                 <p className="text-slate-600">
-                  Dr. Jan Duffy, in real estate since 1983, knows every community, school district, and
+                  Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, knows every community, school district, and
                   HOA, and brings trust and resources that benefit both buyers and sellers.
                 </p>
               </div>

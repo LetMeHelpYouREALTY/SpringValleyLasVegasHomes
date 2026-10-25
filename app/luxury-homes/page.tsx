@@ -189,7 +189,7 @@ export default function LuxuryHomesPage() {
                 {
                   icon: Shield,
                   title: "Trusted Brand",
-                  desc: "A reputation built in real estate since 1983 attracts serious, qualified buyers to your property",
+                  desc: "A reputation built licensed since 2008 · 35 years in Las Vegas attracts serious, qualified buyers to your property",
                 },
                 {
                   icon: Globe,
@@ -234,7 +234,7 @@ export default function LuxuryHomesPage() {
                 and every resource I can bring."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
+                — Dr. Jan Duffy, REALTOR® | Licensed Since 2008 · 35 Years in Las Vegas
               </cite>
             </div>
           </section>

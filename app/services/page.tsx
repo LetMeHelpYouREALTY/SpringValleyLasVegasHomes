@@ -66,7 +66,7 @@ const coreServices = [
     title: "Home Selling Services",
     slug: "sellers",
     description:
-      "Maximize your home's value with professional marketing, accurate pricing, and expert negotiation from Dr. Jan Duffy, in real estate since 1983.",
+      "Maximize your home's value with professional marketing, accurate pricing, and expert negotiation from Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas.",
     highlights: ["World-class marketing", "Accurate pricing", "Global exposure", "Staging guidance"],
     stats: { label: "Homes Sold", value: "500+" },
   },
@@ -120,7 +120,7 @@ const specializedServices = [
     title: "Home Valuation Services",
     slug: "home-valuation",
     description:
-      "Free, no-obligation home valuations using current MLS data, recent comparable sales, and deep local market knowledge from in real estate since 1983.",
+      "Free, no-obligation home valuations using current MLS data, recent comparable sales, and deep local market knowledge from licensed since 2008 · 35 years in Las Vegas.",
     highlights: ["Accurate pricing", "No obligation", "Detailed analysis", "Market trends"],
   },
 ];
@@ -182,23 +182,22 @@ export default function ServicesPage() {
               Las Vegas Real Estate Services
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              Comprehensive real estate solutions from Dr. Jan Duffy, REALTOR®, in real estate
-              since 1983. Whether you're 
+              Comprehensive real estate solutions from Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. Whether you're 
               buying your first home, selling a luxury estate, or relocating from California, 
               you'll receive expert guidance every step of the way.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>In Real Estate Since 1983</span>
+                <span>Licensed Since 2008 · 35 Years in Las Vegas</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>$127M+ in Transactions</span>
+                <span>$127M+ in Team Career Sales</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>500+ Satisfied Clients</span>
+                <span>500+ Team Sales</span>
               </div>
             </div>
           </div>
@@ -377,7 +376,7 @@ export default function ServicesPage() {
                 <div className="text-slate-300 text-sm">Agents Worldwide</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">Since 1983</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">Licensed Since 2008</div>
                 <div className="text-slate-300 text-sm">In Real Estate</div>
               </div>
               <div>
