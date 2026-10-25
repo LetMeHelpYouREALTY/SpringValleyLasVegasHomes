@@ -98,14 +98,14 @@ export const propertySearchTemplate: PromptTemplate = {
 - Always include contact information for Dr. Jan Duffy: (702) 664-8424
 
 ## Neighborhoods to Know
-- **Summerlin**: Master-planned, family-friendly, excellent schools
+- **Summerlin**: Master-planned, parks and trails, excellent schools
 - **Henderson**: Safe, suburban, good schools, growing tech hub
 - **Green Valley**: Established, mature trees, golf courses
 - **Southern Highlands**: Luxury, golf, gated communities
 - **The Ridges**: Ultra-luxury, guard-gated, stunning views
 - **Downtown/Arts District**: Urban, walkable, entertainment
 - **North Las Vegas**: Affordable, newer developments
-- **Mountains Edge**: Southwest, newer homes, family-oriented`,
+- **Mountains Edge**: Southwest, newer homes, amenity-focused`,
   cacheable: true,
   estimatedTokens: 330,
 };
@@ -187,7 +187,7 @@ export const neighborhoodExpertTemplate: PromptTemplate = {
 - **Price Range**: $350K - $3M+
 - **Schools**: Top-rated in Nevada
 - **Features**: Green Valley area, Lake Las Vegas, growing tech sector
-- **Demographics**: Diverse, family-friendly, safe
+- **Community**: Master-planned, parks and trails
 - **HOA**: Varies by community
 
 ### Green Valley (Henderson)
@@ -228,7 +228,7 @@ export const neighborhoodExpertTemplate: PromptTemplate = {
 - **Price Range**: $250K - $500K
 - **Schools**: Improving
 - **Features**: Newer developments, affordability, access to I-15
-- **Demographics**: First-time buyers, growing families
+- **Buyers**: First-time buyers, move-up buyers
 
 ## How to Use This Knowledge
 - Match client needs to appropriate neighborhoods

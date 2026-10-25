@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: "Henderson Nevada Real Estate",
   description:
-    "Find Henderson homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Henderson's family-friendly communities. Median price $485K. Call (702) 664-8424.",
+    "Find Henderson homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Henderson's master-planned communities. Median price $485K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Henderson",
     "Henderson homes for sale",
@@ -25,7 +25,7 @@ const neighborhoodSchema = {
   "@context": "https://schema.org",
   "@type": "Place",
   name: "Henderson, Nevada",
-  description: "Nevada's second-largest city known for safety, schools, and family-friendly communities",
+  description: "Nevada's second-largest city known for parks, trails, and master-planned communities",
   geo: {
     "@type": "GeoCoordinates",
     latitude: "36.0395",
@@ -50,7 +50,7 @@ const faqSchema = {
       name: "How safe is Henderson compared to Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Henderson consistently ranks as one of America's safest cities. It has been named the safest city in Nevada and frequently appears in national 'Best Places to Live' rankings for its low crime rates and family-friendly environment.",
+        text: "Henderson consistently ranks as one of America's safest cities. It has been named the safest city in Nevada and frequently appears in national 'Best Places to Live' rankings for its parks and master-planned neighborhoods.",
       },
     },
     {
@@ -58,7 +58,7 @@ const faqSchema = {
       name: "What are the best neighborhoods in Henderson?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Henderson's top neighborhoods include Green Valley (established, mature landscaping), Inspirada (resort-style amenities), MacDonald Highlands (luxury), Anthem (family-oriented), and Lake Las Vegas (waterfront living). Each offers distinct lifestyle options.",
+        text: "Henderson's top neighborhoods include Green Valley (established, mature landscaping), Inspirada (resort-style amenities), MacDonald Highlands (luxury), Anthem (amenity-focused), and Lake Las Vegas (waterfront living). Each offers distinct lifestyle options.",
       },
     },
     {
@@ -317,7 +317,7 @@ export default function HendersonPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Henderson offers something for everyone—young professionals, growing families, active retirees.
+                "Henderson offers something for everyone—first-time buyers, move-up buyers, and downsizers.
                 As a local REALTOR®, I help clients cut through the options and find
                 the community that fits their lifestyle. There's a reason Henderson keeps winning 'Best Places
                 to Live' awards."
@@ -351,7 +351,7 @@ export default function HendersonPage() {
                 <p className="text-slate-600">
                   Henderson consistently ranks as one of America's safest cities. It has been named the
                   safest city in Nevada and frequently appears in national "Best Places to Live" rankings
-                  for its low crime rates and family-friendly environment.
+                  for its parks and master-planned neighborhoods.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -360,7 +360,7 @@ export default function HendersonPage() {
                 </h3>
                 <p className="text-slate-600">
                   Henderson's top neighborhoods include Green Valley (established, mature landscaping),
-                  Inspirada (resort-style amenities), MacDonald Highlands (luxury), Anthem (family-oriented),
+                  Inspirada (resort-style amenities), MacDonald Highlands (luxury), Anthem (amenity-focused),
                   and Lake Las Vegas (waterfront living). Each offers distinct lifestyle options.
                 </p>
               </div>
