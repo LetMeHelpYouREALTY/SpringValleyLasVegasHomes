@@ -27,6 +27,7 @@ import { agentInfo, siteConfig } from "@/lib/site-config";
 import { realScoutConfig } from "@/lib/integrations";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   alternates: {
     canonical: "/55-plus-communities",
   },

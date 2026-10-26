@@ -17,9 +17,9 @@ const zipMapOgTwitter = ogTwitterImageFields(zipMapOgUrl, {
 });
 
 export const metadata: Metadata = {
-  title: "Las Vegas Zip Code Map",
+  title: { absolute: "Las Vegas Zip Code Map: Every Valley Zip by Neighborhood" },
   description:
-    "Las Vegas Valley zip code map and directory—Spring Valley, Summerlin, Henderson, North Las Vegas, Boulder City, and more. Find Spring Valley Nevada homes and homes for sale by zip; call Dr. Jan Duffy, REALTOR®.",
+    "Look up any Las Vegas, Henderson or North Las Vegas zip code and see which neighborhoods sit inside it, including Spring Valley's west-valley zips.",
   keywords: [
     "Las Vegas zip code map",
     "Spring Valley Las Vegas map",
