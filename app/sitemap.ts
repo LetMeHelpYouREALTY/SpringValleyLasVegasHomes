@@ -43,7 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/investment-properties`, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/relocation`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/home-valuation`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/55-plus-communities`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/services`, priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
