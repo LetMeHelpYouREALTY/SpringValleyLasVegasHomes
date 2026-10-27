@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Solera at Anthem - Intimate Guard-Gated 55+ in Henderson",
     description:
-      "Close-knit community with guard-gated security. Lower HOA fees, Henderson safety. From $380K. Dr. Jan Duffy, REALTOR®.",
+      "Close-knit community with guard-gated security. Lower HOA fees, Henderson location. From $380K. Dr. Jan Duffy, REALTOR®.",
     type: "website",
   },
 };
@@ -260,7 +260,7 @@ export default function SoleraAnthemPage() {
                   <Shield className="h-6 w-6 text-teal-600 mr-3 flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">
-                      Top Safety Rankings
+                      Guard-Gated Entry
                     </h3>
                     <p className="text-slate-600 text-sm">
                       Henderson Police publish a 90-day crime map online within the
@@ -350,8 +350,7 @@ export default function SoleraAnthemPage() {
                     Guard-gated entry in Henderson
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    Double layer of security: Henderson's safety record plus 24/7
-                    guard gate
+                    24/7 staffed guard gate at the community entrance
                   </p>
                 </div>
               </div>

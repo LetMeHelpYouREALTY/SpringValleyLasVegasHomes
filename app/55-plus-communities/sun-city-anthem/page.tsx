@@ -120,7 +120,7 @@ export default function SunCityAnthemPage() {
               Sun City Anthem
             </h1>
             <p className="text-xl text-slate-600">
-              7,100+ homes. Mountain views. Henderson safety. Championship golf.
+              7,100+ homes. Mountain views. Henderson location. Championship golf.
             </p>
           </div>
 
@@ -159,7 +159,7 @@ export default function SunCityAnthemPage() {
                 <strong>Sun City Anthem</strong> brings the legendary Sun City lifestyle to Henderson,
                 Nevada's second-largest city. Built by Del Webb from 1998-2008, this
                 7,100+ home community offers stunning mountain views, championship golf, and
-                resort-caliber amenities—all within Henderson's renowned safety and quality of life.
+                resort-caliber amenities—all in the Anthem area of Henderson.
               </p>
               <p>
                 The community's centerpiece is the Anthem Center, a 64,000 sq ft clubhouse featuring
@@ -293,8 +293,7 @@ export default function SunCityAnthemPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Sun City Anthem combines everything Henderson is known for—safety, quality, and
-                stunning scenery—with the Del Webb lifestyle. The views from the upper sections
+                "Sun City Anthem combines Henderson parks, golf, and stunning scenery with the Del Webb lifestyle. The views from the upper sections
                 are spectacular, and the Anthem Center rivals any resort clubhouse I've seen.
                 As a local REALTOR®, I help buyers find
                 the right balance of views, price, and proximity to amenities."

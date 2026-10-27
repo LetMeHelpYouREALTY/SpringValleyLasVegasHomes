@@ -34,7 +34,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is Centennial Hills a good family neighborhood?",
+      name: "What amenities and schools serve Centennial Hills?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with nearby public schools, streets, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
@@ -177,7 +177,8 @@ export default function CentennialHillsPage() {
               <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Centennial Hills School Districts</h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Centennial Hills is served by established, well-regarded schools with proven track records:
+                  Centennial Hills is served by Clark County School District schools, including Arbor View,
+                  Centennial, and Shadow Ridge high schools, depending on the address:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
@@ -333,7 +334,7 @@ export default function CentennialHillsPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Is Centennial Hills a good family neighborhood?
+                  What amenities and schools serve Centennial Hills?
                 </h3>
                 <p className="text-slate-600">
                   Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with

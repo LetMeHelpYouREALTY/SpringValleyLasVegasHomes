@@ -42,7 +42,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is Skye Canyon good for families?",
+      name: "What amenities and schools serve Skye Canyon?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Skye Canyon has parks with splash pads and play areas, community events, and the Skye Center community facility.",
@@ -344,7 +344,7 @@ export default function SkyeCanyonPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Is Skye Canyon good for families?
+                  What amenities and schools serve Skye Canyon?
                 </h3>
                 <p className="text-slate-600">
                   Yes, Skye Canyon is designed for families with new schools, extensive children's

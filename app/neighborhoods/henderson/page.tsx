@@ -46,7 +46,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How safe is Henderson compared to Las Vegas?",
+      name: "Where can I find crime data for Henderson?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Henderson Police publish a 90-day crime map online, and the city appears in national 'Best Places to Live' lists. Dr. Jan can point you to the data for any neighborhood.",
@@ -177,11 +177,11 @@ export default function HendersonPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Family-First Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">Parks and Community Events</h4>
                   </div>
                   <p className="text-slate-600">
-                    Henderson is designed for families. The city operates over 60 parks, multiple recreation
-                    centers, and hundreds of youth programs. The Henderson Libraries system is award-winning,
+                    The city operates over 60 parks, multiple recreation centers, and hundreds of
+                    recreation programs. The Henderson Libraries system is award-winning,
                     and community events throughout the year—from the Henderson Farmers Market to the annual
                     Heritage Parade—bring neighbors together.
                   </p>
@@ -345,7 +345,7 @@ export default function HendersonPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  How safe is Henderson compared to Las Vegas?
+                  Where can I find crime data for Henderson?
                 </h3>
                 <p className="text-slate-600">
                   Henderson Police publish crime data. It has been named

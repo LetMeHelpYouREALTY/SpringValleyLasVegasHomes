@@ -223,7 +223,7 @@ export default function LuxuryHomesPage() {
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Henderson safety & schools
+                      Foothill and Coronado high school zones
                     </li>
                   </ul>
                   <Link
