@@ -16,7 +16,7 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 year
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentSecurityPolicy: "default-src 'self'; script-src https://widgetbe.com https://*.widgetbe.com 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',
@@ -84,12 +84,12 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://*.homebot.com https://*.homebot.ai",
+              "script-src https://widgetbe.com https://*.widgetbe.com 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://*.homebot.com https://*.homebot.ai",
               "style-src 'self' 'unsafe-inline' https://em.realscout.com https://www.realscout.com https://fonts.googleapis.com https://assets.calendly.com https://*.homebot.com https://*.homebot.ai",
-              "img-src 'self' data: blob: https: http:",
+              "img-src https://widgetbe.com https://*.widgetbe.com 'self' data: blob: https: http:",
               "font-src 'self' data: https://fonts.gstatic.com https://assets.calendly.com https://*.homebot.com",
-              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://maps.googleapis.com https://maps.gstatic.com https://*.homebot.com https://*.homebot.ai https://challenges.cloudflare.com",
-              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com https://*.homebot.com https://*.homebot.ai https://challenges.cloudflare.com https://js-3d-area-explorer-demo-dev-t6a6o7lkja-uc.a.run.app https://storage.googleapis.com https://www.simplifyingthemarket.com",
+              "connect-src https://widgetbe.com https://*.widgetbe.com 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://maps.googleapis.com https://maps.gstatic.com https://*.homebot.com https://*.homebot.ai https://challenges.cloudflare.com",
+              "frame-src https://widgetbe.com https://*.widgetbe.com 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com https://*.homebot.com https://*.homebot.ai https://challenges.cloudflare.com https://js-3d-area-explorer-demo-dev-t6a6o7lkja-uc.a.run.app https://storage.googleapis.com https://www.simplifyingthemarket.com",
               "worker-src 'self' blob:",
             ].join('; '),
           },
