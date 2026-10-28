@@ -1,18 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Output configuration for Cloudflare Pages
-  output: 'standalone',
+  output: "standalone",
 
   // Image optimization — Cloudflare delivery URLs use next/image + unoptimized in components (see lib/cf-image-delivery.ts)
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'imagedelivery.net',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "imagedelivery.net",
+        pathname: "/**",
       },
     ],
   },
@@ -21,46 +21,45 @@ const nextConfig = {
   compress: false,
 
   // Performance optimizations
-  swcMinify: true,
 
   // Environment variables
   env: {
-    CLOUDFLARE_ENV: process.env.CLOUDFLARE_ENV || 'production',
+    CLOUDFLARE_ENV: process.env.CLOUDFLARE_ENV || "production",
   },
 
   // Canonical host: www (matches siteConfig.url)
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         has: [
           {
-            type: 'host',
-            value: 'springvalleylasvegashomes.com',
+            type: "host",
+            value: "springvalleylasvegashomes.com",
           },
         ],
-        destination: 'https://www.springvalleylasvegashomes.com/:path*',
+        destination: "https://www.springvalleylasvegashomes.com/:path*",
         permanent: true,
       },
-    ]
+    ];
   },
 
   // Python API rewrites
   rewrites: async () => {
     return [
       {
-        source: '/api/:path*',
+        source: "/api/:path*",
         destination:
-          process.env.NODE_ENV === 'development'
-            ? 'http://127.0.0.1:5328/api/:path*'
-            : '/api/',
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:5328/api/:path*"
+            : "/api/",
       },
-    ]
+    ];
   },
 
   // Headers are handled by Cloudflare Workers
   async headers() {
-    return []
+    return [];
   },
 
   // Webpack configuration for Cloudflare compatibility
@@ -70,26 +69,26 @@ const nextConfig = {
       config.resolve.alias = {
         ...config.resolve.alias,
         // Polyfills for Node.js modules
-        'async_hooks': false,
-        'fs': false,
-        'net': false,
-        'tls': false,
+        async_hooks: false,
+        fs: false,
+        net: false,
+        tls: false,
       };
     }
 
     // Bundle analyzer (when ANALYZE=true)
-    if (process.env.ANALYZE === 'true' && !isServer) {
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+    if (process.env.ANALYZE === "true" && !isServer) {
+      const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
       config.plugins.push(
         new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          reportFilename: './analyze.html',
+          analyzerMode: "static",
+          reportFilename: "./analyze.html",
           openAnalyzer: false,
-        })
-      )
+        }),
+      );
     }
 
-    return config
+    return config;
   },
 
   // Experimental features for Cloudflare
@@ -97,8 +96,8 @@ const nextConfig = {
     // Use lighter runtime
     serverMinification: true,
     // Optimize server components
-    serverComponentsExternalPackages: ['sharp'],
+    serverComponentsExternalPackages: ["sharp"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
