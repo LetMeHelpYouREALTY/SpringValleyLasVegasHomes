@@ -46,7 +46,7 @@ const homeStructuredData = combineHomepageStructuredData({
 
 const lv = marketStats.lasVegas;
 const medianDisplay = `$${Math.round(lv.medianPrice / 1000)}K`;
-const listingsDisplay = lv.activeListings.toLocaleString("en-US");
+const listingsDisplay = lv.listingsWithoutOffers.toLocaleString("en-US");
 
 export const metadata: Metadata = {
   alternates: {
@@ -191,31 +191,34 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">{medianDisplay}</div>
-                <div className="text-slate-300 text-sm">Median Home Price</div>
-                <div className="text-green-400 text-sm">{lv.yearOverYearChange} YoY</div>
+                <div className="text-slate-300 text-sm">Median Single-Family Price</div>
+                <div className="text-bronze-300 text-sm">{lv.yearOverYearChange} YoY</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
-                  {lv.daysOnMarket}
+                  {lv.soldWithin60Days}
                 </div>
-                <div className="text-slate-300 text-sm">Avg Days on Market</div>
+                <div className="text-slate-300 text-sm">Sold Within 60 Days</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
                   {listingsDisplay}
                 </div>
-                <div className="text-slate-300 text-sm">Active Listings</div>
+                <div className="text-slate-300 text-sm">Homes Listed Without Offers</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
                   {lv.inventoryMonths}
                 </div>
-                <div className="text-slate-300 text-sm">Months Inventory</div>
+                <div className="text-slate-300 text-sm">Months of Supply</div>
               </div>
             </div>
             <p className="text-center text-slate-400 text-sm max-w-2xl mx-auto mt-6">
-              Not financial advice; figures are for general market context. For methodology and
-              detail, see the full report.
+              Source:{" "}
+              <a href={lv.sourceUrl} className="text-slate-300 underline" rel="noopener noreferrer">
+                {lv.source}
+              </a>
+              . Single-family homes, Greater Las Vegas. Not financial advice.
             </p>
             <div className="text-center mt-8">
               <Link

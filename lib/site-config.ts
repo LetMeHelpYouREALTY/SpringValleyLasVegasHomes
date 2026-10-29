@@ -117,15 +117,19 @@ export const googleBusinessReviewUrl =
  * Update `lastUpdated` and `lasVegas` when refreshing figures from your approved MLS/MLS summary or broker stats.
  */
 export const marketStats = {
-  lastUpdated: "January 2026",
+  lastUpdated: "September 2026",
+  // Las Vegas REALTORS September 2026 report, released Oct 6, 2026:
+  // https://members.lasvegasrealtor.com/statistics/pdf/2026-09-GLVAR-Article.pdf
   lasVegas: {
-    medianPrice: 450000,
-    medianPriceFormatted: "$450,000",
-    yearOverYearChange: "+4.2%",
-    daysOnMarket: 28,
-    activeListings: 4850,
-    closedSales: 2340,
-    inventoryMonths: 2.1,
+    source: "Las Vegas REALTORS, September 2026 (released Oct 6, 2026)",
+    sourceUrl: "https://members.lasvegasrealtor.com/statistics/pdf/2026-09-GLVAR-Article.pdf",
+    medianPrice: 470000,
+    medianPriceFormatted: "$470,000",
+    yearOverYearChange: "0.0%",
+    soldWithin60Days: "75.9%",
+    listingsWithoutOffers: 7995,
+    closedSales: 2169,
+    inventoryMonths: 5,
   },
   henderson: {
     medianPrice: 485000,
