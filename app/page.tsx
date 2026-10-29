@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
 import HeroSection from "@/components/sections/HeroSection";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import FeaturedListing from "@/components/sections/FeaturedListing";
 import ServiceAreaMapSection from "@/components/sections/ServiceAreaMapSection";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -15,6 +16,7 @@ import { Home as HomeIcon, TrendingUp, Shield, Users, Phone } from "lucide-react
 import SchemaScript from "@/components/SchemaScript";
 import SiteBylineDate from "@/components/shared/SiteBylineDate";
 import {
+  agentInfo,
   agentStats,
   marketStats,
   siteConfig,
@@ -76,6 +78,12 @@ export default function Home() {
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
+
+        <FeaturedListing
+          phone={agentInfo.phone}
+          phoneHref={agentInfo.phoneTel}
+          siteHost="springvalleylasvegashomes.com"
+        />
 
         <div
           className="border-b border-slate-200 bg-slate-50 py-2.5"
