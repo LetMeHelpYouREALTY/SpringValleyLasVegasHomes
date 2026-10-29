@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Henderson Nevada Real Estate",
   description:
-    "Find Henderson homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Henderson's master-planned communities. Median price $485K. Call (702) 664-8424.",
+    "Find Henderson homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in Henderson's master-planned communities. Median price $485K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Henderson",
     "Henderson homes for sale",
@@ -46,7 +46,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How safe is Henderson compared to Las Vegas?",
+      name: "Where can I find crime data for Henderson?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Henderson Police publish a 90-day crime map online, and the city appears in national 'Best Places to Live' lists. Dr. Jan can point you to the data for any neighborhood.",
@@ -141,14 +141,12 @@ export default function HendersonPage() {
               <p>
                 <strong>Henderson</strong> has quietly become one of the most desirable cities in the American
                 Southwest. As Nevada's second-largest city with over 320,000 residents, Henderson offers the
-                perfect balance of suburban tranquility and urban convenience. Dr. Jan Duffy, in real
-                estate since 1983, brings unmatched expertise to every Henderson transaction.
+                perfect balance of suburban tranquility and urban convenience. Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, brings unmatched expertise to every Henderson transaction.
               </p>
               <p>
-                What sets Henderson apart? Start with safety. Henderson consistently ranks as one of America's
-                largest cities, with crime data published online by Henderson Police. The city's
-                schools, parks, and community events create an environment where
-                families thrive. Add in the fact that Nevada has no state income tax, and you understand why
+                What sets Henderson apart? Henderson is Nevada's second-largest city, and Henderson
+                Police publish a 90-day crime map online. The city runs 60+ parks, multiple
+                recreation centers, and a year-round events calendar. Add in the fact that Nevada has no state income tax, and you understand why
                 so many Californians are making Henderson their new home.
               </p>
               <p>
@@ -177,11 +175,11 @@ export default function HendersonPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Family-First Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">Parks and Community Events</h4>
                   </div>
                   <p className="text-slate-600">
-                    Henderson is designed for families. The city operates over 60 parks, multiple recreation
-                    centers, and hundreds of youth programs. The Henderson Libraries system is award-winning,
+                    The city operates over 60 parks, multiple recreation centers, and hundreds of
+                    recreation programs. The Henderson Libraries system is award-winning,
                     and community events throughout the year—from the Henderson Farmers Market to the annual
                     Heritage Parade—bring neighbors together.
                   </p>
@@ -345,7 +343,7 @@ export default function HendersonPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  How safe is Henderson compared to Las Vegas?
+                  Where can I find crime data for Henderson?
                 </h3>
                 <p className="text-slate-600">
                   Henderson Police publish crime data. It has been named
@@ -368,7 +366,7 @@ export default function HendersonPage() {
                   Why choose Dr. Jan Duffy for Henderson real estate?
                 </h3>
                 <p className="text-slate-600">
-                  Dr. Jan Duffy, in real estate since 1983, knows every community, school district, and
+                  Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, knows every community, school district, and
                   HOA, and brings trust and resources that benefit both buyers and sellers.
                 </p>
               </div>

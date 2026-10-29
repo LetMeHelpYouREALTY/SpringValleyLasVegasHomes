@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Southern Highlands Golf Community",
   description:
-    "Find Southern Highlands homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this premier golf community. Median price $750K. Call (702) 664-8424.",
+    "Find Southern Highlands homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this premier golf community. Median price $750K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Southern Highlands",
     "Southern Highlands homes for sale",
@@ -137,11 +137,11 @@ export default function SouthernHighlandsPage() {
                 entire community's aesthetic.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, understands the
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, understands the
                 community's various sections—from the guard-gated luxury estates surrounding the golf
                 course to the neighborhoods in the community's newer phases. Whether
-                you're seeking a golf course lot with Strip views or a spacious family home with top-rated
-                schools, Dr. Jan Duffy has the local expertise to guide your search.
+                you're seeking a golf course lot with Strip views or a larger home near the
+                community's parks, Dr. Jan Duffy has the local expertise to guide your search.
               </p>
 
               {/* Community Highlights */}

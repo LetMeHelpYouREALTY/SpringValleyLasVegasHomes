@@ -94,7 +94,7 @@ export default function RelocationPage() {
               </div>
             </div>
             <p className="text-center text-slate-300 mt-8">
-              Moving to Dallas? Phoenix? Chicago? We connect you with top-rated experienced local agents
+              Moving to Dallas? Phoenix? Chicago? We connect you with experienced local agents
               in your new city at no extra cost.
             </p>
           </section>

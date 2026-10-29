@@ -37,7 +37,7 @@ export default function Image() {
           Spring Valley Las Vegas Homes
         </div>
         <div style={{ fontSize: 28, color: "#93c5fd", marginTop: 16 }}>
-          Dr. Jan Duffy, REALTOR® · In Real Estate Since 1983
+          Dr. Jan Duffy, REALTOR® · Licensed Since 2008 · 35 Years in Las Vegas
         </div>
         <div style={{ fontSize: 22, color: "#cbd5e1", marginTop: 28, maxWidth: 920, lineHeight: 1.4 }}>
           {tagline}

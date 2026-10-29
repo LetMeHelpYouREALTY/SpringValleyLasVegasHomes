@@ -111,7 +111,7 @@ const neighborhoods = [
     priceChange: "+4.8%",
     description: "Established Henderson community with mature landscaping and excellent amenities",
     highlights: ["Golf Courses", "Walking Trails", "The District", "Mature Trees"],
-    bestFor: "Established families, golfers, professionals",
+    bestFor: "Move-up buyers, golfers, professionals",
   },
   {
     name: "The Ridges",
@@ -154,7 +154,7 @@ const neighborhoods = [
     slug: "centennial-hills",
     medianPrice: "$495,000",
     priceChange: "+4.8%",
-    description: "Northwest Las Vegas community with mountain proximity and family amenities",
+    description: "Northwest Las Vegas community with mountain proximity, parks, and trails",
     highlights: ["Mountain Access", "Parks", "Shopping"],
     bestFor: "Families, outdoor lovers, professionals",
   },

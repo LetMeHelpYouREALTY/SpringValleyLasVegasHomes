@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Skye Canyon Northwest Las Vegas",
   description:
-    "Find Skye Canyon homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this premier northwest community. Median price $550K. Call (702) 664-8424.",
+    "Find Skye Canyon homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this premier northwest community. Median price $550K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Skye Canyon",
     "Skye Canyon homes for sale",
@@ -42,7 +42,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is Skye Canyon good for families?",
+      name: "What amenities and schools serve Skye Canyon?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Skye Canyon has parks with splash pads and play areas, community events, and the Skye Center community facility.",
@@ -344,11 +344,11 @@ export default function SkyeCanyonPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Is Skye Canyon good for families?
+                  What amenities and schools serve Skye Canyon?
                 </h3>
                 <p className="text-slate-600">
-                  Yes, Skye Canyon is designed for families with new schools, extensive children's
-                  amenities, community events, and parks. The community hosts
+                  Skye Canyon has newer Clark County public schools nearby, parks,
+                  trails, and community events. The community hosts
                   events throughout the year at Skye Center.
                 </p>
               </div>

@@ -57,7 +57,7 @@ const luxuryNeighborhoods = [
     location: "Summerlin",
     priceRange: "$2M - $15M+",
     description:
-      "Ultra-exclusive guard-gated community with custom estates, celebrity residents, and Bear's Best Golf Club. One of the most prestigious addresses in Las Vegas with stunning Red Rock views.",
+      "Guard-gated luxury community with custom estates, celebrity residents, and Bear's Best Golf Club. One of the most prestigious addresses in Las Vegas with stunning Red Rock views.",
     features: ["Guard-gated", "Custom estates", "Celebrity homes", "Golf course"],
   },
   {
@@ -65,7 +65,7 @@ const luxuryNeighborhoods = [
     location: "Henderson",
     priceRange: "$1.5M - $10M+",
     description:
-      "Prestigious hillside community with Dragon Ridge Country Club and panoramic Strip views. Features modern contemporary architecture and exclusive amenities.",
+      "Prestigious hillside community with Dragon Ridge Country Club and panoramic Strip views. Features modern contemporary architecture and private club amenities.",
     features: ["Hillside location", "Strip views", "Country club", "Private lots"],
   },
   {
@@ -81,7 +81,7 @@ const luxuryNeighborhoods = [
     location: "Summerlin",
     priceRange: "$3M - $20M+",
     description:
-      "Ultra-private Tom Fazio golf community with only 250 homesites. Las Vegas's most exclusive address with membership by invitation only.",
+      "Ultra-private Tom Fazio golf community with only 250 homesites. Membership is by invitation only.",
     features: ["Private golf", "250 homesites", "Invitation only", "Tom Fazio design"],
   },
   {
@@ -188,7 +188,7 @@ export default function LuxuryHomesPage() {
                 {
                   icon: Shield,
                   title: "Trusted Brand",
-                  desc: "A reputation built in real estate since 1983 attracts serious, qualified buyers to your property",
+                  desc: "A reputation built licensed since 2008 · 35 years in Las Vegas attracts serious, qualified buyers to your property",
                 },
                 {
                   icon: Globe,
@@ -233,7 +233,7 @@ export default function LuxuryHomesPage() {
                 and every resource I can bring."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
+                — Dr. Jan Duffy, REALTOR® | Licensed Since 2008 · 35 Years in Las Vegas
               </cite>
             </div>
           </section>
@@ -245,7 +245,7 @@ export default function LuxuryHomesPage() {
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Las Vegas offers some of the most desirable luxury communities in the Southwest. From 
-              ultra-exclusive guard-gated enclaves to lakefront estates, these premier neighborhoods 
+              guard-gated luxury enclaves to lakefront estates, these premier neighborhoods 
               attract discerning buyers seeking the finest in design, amenities, and lifestyle.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

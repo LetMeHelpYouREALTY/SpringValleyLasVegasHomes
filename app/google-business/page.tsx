@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Dr. Jan Duffy, REALTOR® | Las Vegas Real Estate",
-    description: "Trusted Las Vegas REALTOR® in real estate since 1983. Summerlin, Henderson, luxury homes, 55+ communities.",
+    description: "Trusted Las Vegas REALTOR® licensed since 2008 · 35 years in Las Vegas. Summerlin, Henderson, luxury homes, 55+ communities.",
     url: `${siteConfig.url}/google-business`,
     type: "profile",
   },
@@ -82,7 +82,7 @@ export default function GoogleBusinessPage() {
                     Dr. Jan Duffy
                   </h1>
                   <p className="text-xl text-blue-200 mb-2">REALTOR®</p>
-                  <p className="text-slate-300 mb-6">In real estate since 1983</p>
+                  <p className="text-slate-300 mb-6">Licensed since 2008 · 35 years in Las Vegas</p>
                   
                   {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">

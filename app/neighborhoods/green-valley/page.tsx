@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Green Valley Henderson Real Estate",
   description:
-    "Find Green Valley homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Green Valley, Southern Nevada's first master-planned community (1978). Median price $520K. Call (702) 664-8424.",
+    "Find Green Valley homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in Green Valley, Southern Nevada's first master-planned community (1978). Median price $520K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Green Valley",
     "Green Valley homes for sale",
@@ -138,7 +138,7 @@ export default function GreenValleyPage() {
                 develops over generations.
               </p>
               <p>
-                Dr. Jan Duffy, in real estate since 1983, knows which streets offer the best
+                Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, knows which streets offer the best
                 mountain views, which school zones are most sought-after, and which HOAs maintain their
                 communities to the highest standards. That knowledge gives Green Valley buyers and sellers
                 a distinct advantage.

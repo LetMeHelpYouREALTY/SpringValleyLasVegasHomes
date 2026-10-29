@@ -5,7 +5,7 @@ const features = [
   {
     icon: Shield,
     title: "Trusted Expertise",
-    description: "In real estate since 1983 with proven results.",
+    description: "Licensed since 2008 · 35 years in Las Vegas with proven results.",
   },
   {
     icon: TrendingUp,
