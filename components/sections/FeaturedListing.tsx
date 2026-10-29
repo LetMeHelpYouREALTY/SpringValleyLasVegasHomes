@@ -51,6 +51,9 @@ export const FEATURED_LISTING = {
   mlsNumber: "2829192",
   listingOffice: "BHHS Nevada Properties",
   listedDate: "2026-10-29",
+  /** Date these facts were last checked against the listing; shown on the page. */
+  updatedDate: "2026-10-29",
+  updatedLabel: "October 29, 2026",
   /** Optional listing photo path in /public, e.g. "/listings/9528-rainfall-avenue.jpg". */
   image: null as string | null,
   realScoutUrl:
@@ -59,6 +62,42 @@ export const FEATURED_LISTING = {
   canonicalUrl:
     "https://www.springvalleylasvegashomes.com/listings/9528-rainfall-avenue",
 };
+
+/** Plain-language answers to the questions buyers ask most, each answered from MLS facts. */
+export const FEATURED_LISTING_FAQS = [
+  {
+    q: "How much is 9528 Rainfall Avenue?",
+    a: "9528 Rainfall Avenue, Las Vegas, NV 89147 is listed at $469,900 (MLS #2829192), or about $184 per square foot for 2,547 sq ft.",
+  },
+  {
+    q: "Does 9528 Rainfall Avenue have HOA dues?",
+    a: "No. The home is not in a homeowners association, so there are no monthly HOA dues.",
+  },
+  {
+    q: "Is the solar owned or leased?",
+    a: "Owned. The 10.22 kW rooftop solar system conveys with the home and is rated at an estimated 15,700 kWh in its first year.",
+  },
+  {
+    q: "Does the home have a pool?",
+    a: "Yes. It has a private in-ground pool with a tiled water feature, plus a patio and desert landscaping.",
+  },
+  {
+    q: "Is there a bedroom on the main floor?",
+    a: "Yes. One of the four bedrooms is downstairs next to a three-quarter bath. The primary suite and loft are upstairs.",
+  },
+  {
+    q: "Which public schools are assigned?",
+    a: "Per the MLS: Keith C. & Karen W. Hayes Elementary, Victoria Fertitta Middle, and Spring Valley High School. Confirm with the Clark County School District.",
+  },
+  {
+    q: "What are the property taxes?",
+    a: "The annual property tax listed in the MLS is $2,679.",
+  },
+  {
+    q: "How do I schedule a showing?",
+    a: "Call Dr. Jan Duffy, the listing agent with BHHS Nevada Properties, at the number on this page.",
+  },
+];
 
 export const FEATURED_LISTING_PATH = `/listings/${FEATURED_LISTING.slug}`;
 
@@ -78,13 +117,14 @@ export function featuredListingRealScoutUrl(
 
 export function featuredListingJsonLd(pageUrl: string) {
   const l = FEATURED_LISTING;
-  return {
-    "@context": "https://schema.org",
+  const listing = {
     "@type": "RealEstateListing",
+    "@id": `${pageUrl}#listing`,
     name: `${l.address}, ${l.city}, ${l.state} ${l.zip}`,
     description: l.description[0],
     url: pageUrl,
     datePosted: l.listedDate,
+    dateModified: l.updatedDate,
     ...(l.image ? { image: l.image } : {}),
     offers: {
       "@type": "Offer",
@@ -118,6 +158,16 @@ export function featuredListingJsonLd(pageUrl: string) {
       yearBuilt: l.yearBuilt,
     },
   };
+  const faq = {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: FEATURED_LISTING_FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+  return { "@context": "https://schema.org", "@graph": [listing, faq] };
 }
 
 type PhoneProps = {
@@ -246,6 +296,9 @@ export function FeaturedListingPageBody({
         </h1>
         <p className="mt-2 text-3xl font-bold text-slate-900">{l.price}</p>
         <Attribution />
+        <p className="mt-1 text-sm text-slate-600">
+          Updated <time dateTime={l.updatedDate}>{l.updatedLabel}</time>
+        </p>
         {l.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -300,6 +353,17 @@ export function FeaturedListingPageBody({
           School assignments come from the MLS and can change. Confirm with the
           Clark County School District.
         </p>
+        <h2 className="mt-10 text-2xl font-bold text-slate-900">
+          Questions about {l.address}
+        </h2>
+        <div className="mt-4 space-y-5">
+          {FEATURED_LISTING_FAQS.map((f) => (
+            <div key={f.q}>
+              <h3 className="text-lg font-semibold text-slate-900">{f.q}</h3>
+              <p className="mt-1 text-slate-700">{f.a}</p>
+            </div>
+          ))}
+        </div>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a
             href={featuredListingRealScoutUrl(siteHost, "listing-page")}
