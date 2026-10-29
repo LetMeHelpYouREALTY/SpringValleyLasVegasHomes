@@ -140,8 +140,8 @@ export default function SouthernHighlandsPage() {
                 <strong>Dr. Jan Duffy</strong>, in real estate since 1983, understands the
                 community's various sections—from the guard-gated luxury estates surrounding the golf
                 course to the neighborhoods in the community's newer phases. Whether
-                you're seeking a golf course lot with Strip views or a spacious family home with top-rated
-                schools, Dr. Jan Duffy has the local expertise to guide your search.
+                you're seeking a golf course lot with Strip views or a larger home near the
+                community's parks, Dr. Jan Duffy has the local expertise to guide your search.
               </p>
 
               {/* Community Highlights */}

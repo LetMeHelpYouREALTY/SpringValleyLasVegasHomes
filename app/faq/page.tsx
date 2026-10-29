@@ -150,8 +150,8 @@ const faqCategories = [
         a: "Absolutely! Dr. Jan can coordinate with experienced local agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
       },
       {
-        q: "What are the best neighborhoods for families?",
-        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
+        q: "Which neighborhoods have the most parks and amenities?",
+        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills offer large park systems, trails, nearby public schools, and community centers. Dr. Jan can match you with the right neighborhood based on your priorities.",
       },
       {
         q: "How is the cost of living in Las Vegas?",

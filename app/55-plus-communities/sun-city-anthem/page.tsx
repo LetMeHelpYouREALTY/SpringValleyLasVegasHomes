@@ -185,9 +185,9 @@ export default function SunCityAnthemPage() {
                     Why Henderson Matters
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    Henderson Police publish crime data online. For 55+ buyers,
-                    this translates to peace of mind, stable property values, and a community that
-                    attracts similar residents who value safety and quality of life.
+                    Henderson Police publish crime data online, so buyers can review any
+                    area themselves. Dr. Jan can share recent Sun City Anthem sales and
+                    HOA details for any section.
                   </p>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center bg-white rounded-lg p-4">

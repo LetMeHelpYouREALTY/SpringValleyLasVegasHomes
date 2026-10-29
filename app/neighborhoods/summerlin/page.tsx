@@ -165,10 +165,9 @@ export default function SummerlinPage() {
                     <h4 className="font-bold text-slate-900 text-lg">Nearby Public Schools</h4>
                   </div>
                   <p className="text-slate-600">
-                    Summerlin is home to some of Nevada's highest-performing schools. The community includes
-                    multiple Nearby public schools, advanced STEM programs, and excellent private school options
-                    like The Meadows School and Bishop Gorman High School. Families consistently choose
-                    Summerlin for its exceptional educational opportunities.
+                    Summerlin is served by Clark County School District campuses, plus private options
+                    like The Meadows School and Bishop Gorman High School. School ratings are public
+                    on the Nevada Report Card, and Dr. Jan can share zoning for any address.
                   </p>
                 </div>
               </div>

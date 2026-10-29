@@ -257,7 +257,7 @@ export default function FirstTimeBuyersPage() {
                 <div className="text-2xl font-bold text-blue-600 mb-2">$398K Median</div>
                 <p className="text-slate-600 text-sm mb-4">
                   Northwest Las Vegas near Centennial Hills Hospital. Nearby public schools,
-                  family parks, and Red Rock Canyon proximity.
+                  neighborhood parks, and Red Rock Canyon proximity.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">

@@ -48,7 +48,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What are the most exclusive luxury communities in Las Vegas?",
+      name: "Which Las Vegas luxury communities are guard-gated?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "The Ridges in Summerlin ($1.5M-$10M+) is the valley's most prestigious address. MacDonald Highlands and Ascaya in Henderson ($2M-$15M) offer Strip views. For high-rise luxury, Waldorf Astoria, Veer Towers, and Panorama Towers dominate the Strip corridor.",

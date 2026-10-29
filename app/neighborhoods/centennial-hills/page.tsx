@@ -37,7 +37,7 @@ const faqSchema = {
       name: "What amenities and schools serve Centennial Hills?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with nearby public schools, streets, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
+        text: "Centennial Hills has nearby public schools, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
       },
     },
     {
@@ -337,8 +337,7 @@ export default function CentennialHillsPage() {
                   What amenities and schools serve Centennial Hills?
                 </h3>
                 <p className="text-slate-600">
-                  Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with
-                  nearby public schools, streets, multiple parks including Centennial Hills
+                  Centennial Hills has nearby public schools, multiple parks including Centennial Hills
                   Park, and convenient shopping at Centennial Center.
                 </p>
               </div>

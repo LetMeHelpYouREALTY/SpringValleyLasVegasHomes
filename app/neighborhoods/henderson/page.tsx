@@ -145,10 +145,9 @@ export default function HendersonPage() {
                 estate since 1983, brings unmatched expertise to every Henderson transaction.
               </p>
               <p>
-                What sets Henderson apart? Start with safety. Henderson consistently ranks as one of America's
-                largest cities, with crime data published online by Henderson Police. The city's
-                schools, parks, and community events create an environment where
-                families thrive. Add in the fact that Nevada has no state income tax, and you understand why
+                What sets Henderson apart? Henderson is Nevada's second-largest city, and Henderson
+                Police publish a 90-day crime map online. The city runs 60+ parks, multiple
+                recreation centers, and a year-round events calendar. Add in the fact that Nevada has no state income tax, and you understand why
                 so many Californians are making Henderson their new home.
               </p>
               <p>

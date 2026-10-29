@@ -140,7 +140,7 @@ export default function MountainsEdgePage() {
                 <strong>Dr. Jan Duffy</strong> serves Mountains
                 Edge buyers with the same commitment to excellence we bring to the valley's luxury
                 markets. Dr. Jan Duffy understands that value doesn't mean compromise—it means
-                finding the right home at the right price. For families priced out of Summerlin
+                finding the right home at the right price. For buyers priced out of Summerlin
                 or Henderson, Mountains Edge delivers comparable lifestyle at accessible prices.
               </p>
 

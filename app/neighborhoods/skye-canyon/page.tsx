@@ -347,8 +347,8 @@ export default function SkyeCanyonPage() {
                   What amenities and schools serve Skye Canyon?
                 </h3>
                 <p className="text-slate-600">
-                  Yes, Skye Canyon is designed for families with new schools, extensive children's
-                  amenities, community events, and parks. The community hosts
+                  Skye Canyon has newer Clark County public schools nearby, parks,
+                  trails, and community events. The community hosts
                   events throughout the year at Skye Center.
                 </p>
               </div>
