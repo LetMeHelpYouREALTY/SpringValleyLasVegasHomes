@@ -55,7 +55,13 @@ export const FEATURED_LISTING = {
   updatedDate: "2026-10-29",
   updatedLabel: "October 29, 2026",
   /** Optional listing photo path in /public, e.g. "/listings/9528-rainfall-avenue.jpg". */
-  image: null as string | null,
+  // Photo approved for website use by the seller. Twilight sky is digitally edited.
+  image: "/images/listings/9528-rainfall-avenue/front-exterior-twilight.jpg" as
+    | string
+    | null,
+  imageAlt:
+    "Front exterior of 9528 Rainfall Avenue at twilight (sky digitally edited)",
+  imageCaption: "Twilight sky digitally edited.",
   realScoutUrl:
     "https://drjanduffy.realscout.com/homesearch/listings/p-9528-rainfall-avenue-las-vegas-89147-glvartrestle-886",
   /** One canonical listing page for all sites, so the copies do not compete in search. */
@@ -125,7 +131,7 @@ export function featuredListingJsonLd(pageUrl: string) {
     url: pageUrl,
     datePosted: l.listedDate,
     dateModified: l.updatedDate,
-    ...(l.image ? { image: l.image } : {}),
+    ...(l.image ? { image: new URL(l.image, pageUrl).href } : {}),
     offers: {
       "@type": "Offer",
       price: l.priceValue,
@@ -227,6 +233,21 @@ export default function FeaturedListing({
     >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8">
+          {l.image ? (
+            <figure className="mb-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={l.image}
+                alt={l.imageAlt}
+                width={1600}
+                height={1200}
+                className="aspect-[16/9] w-full rounded-xl object-cover"
+              />
+              <figcaption className="mt-1 text-xs text-slate-500">
+                {l.imageCaption}
+              </figcaption>
+            </figure>
+          ) : null}
           <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
             New listing · For sale
           </p>
@@ -300,12 +321,19 @@ export function FeaturedListingPageBody({
           Updated <time dateTime={l.updatedDate}>{l.updatedLabel}</time>
         </p>
         {l.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={l.image}
-            alt={`${l.address}, ${l.city} ${l.zip}: exterior and pool`}
-            className="mt-6 w-full rounded-2xl object-cover"
-          />
+          <figure className="mt-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={l.image}
+              alt={l.imageAlt}
+              width={1600}
+              height={1200}
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-xs text-slate-500">
+              {l.imageCaption}
+            </figcaption>
+          </figure>
         ) : null}
         <p className="mt-6 text-xl font-semibold text-slate-800">
           {l.headline}

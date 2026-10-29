@@ -17,7 +17,24 @@ export const metadata: Metadata = {
   title: { absolute: title },
   description,
   alternates: { canonical: l.canonicalUrl },
-  openGraph: { title, description, url: l.canonicalUrl, type: "website" },
+  openGraph: {
+    title,
+    description,
+    url: l.canonicalUrl,
+    type: "website",
+    ...(l.image
+      ? {
+          images: [
+            {
+              url: new URL(l.image, l.canonicalUrl).href,
+              width: 1600,
+              height: 1200,
+              alt: l.imageAlt,
+            },
+          ],
+        }
+      : {}),
+  },
 };
 
 export default function FeaturedListingPage() {
