@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
 import HomebotValuationEmbed from "@/components/homebot/HomebotValuationEmbed";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
@@ -102,7 +101,6 @@ export default function HomeValuationPage() {
 
         <BuyerEngagementStrip browseListingsHref="#featured-properties" />
 
-        <RealScoutListings />
 
         <div className="container mx-auto px-4">
           <HomebotValuationEmbed />

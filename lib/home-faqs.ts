@@ -33,6 +33,6 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "How do I contact Dr. Jan Duffy about Spring Valley real estate?",
     answer:
-      "Contact Team Leader Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com or buyer specialist Chance Fuller at Chance.Fuller@SpringValleyLasVegasHomes.com. Call or text (702) 664-8424. Office: 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103.",
+      "Contact Team Leader Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com or ask for buyer specialist Dr. Gene Boyle. Call or text (702) 664-8424. Office: 6675 S Tenaya Way #200C, Las Vegas, NV 89113.",
   },
 ];

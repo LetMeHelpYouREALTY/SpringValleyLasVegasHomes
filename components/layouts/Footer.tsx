@@ -5,17 +5,25 @@ import { agentInfo, officeInfo, siteConfig, teamInfo, siteSocialUrls } from "@/l
 import { realScoutConfig } from "@/lib/integrations";
 import { footerQuickLinks, footerServiceLinks } from "@/lib/site-navigation";
 import { seoPrimaryKeyword } from "@/lib/seo";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
 
-export default function Footer() {
+type FooterProps = {
+  /** Office listings render above every footer; set false where the page already shows them. */
+  showOfficeListings?: boolean;
+};
+
+export default function Footer({ showOfficeListings = true }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <>
+    {showOfficeListings ? <RealScoutListings /> : null}
+    <footer className="bg-ink text-ivory">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-xl mb-4">{siteConfig.name}</h3>
+            <h3 className="mb-4 font-serif text-2xl font-semibold">{siteConfig.name}</h3>
             <p className="text-slate-300 mb-4 text-sm">
               {seoPrimaryKeyword}, Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy, REALTOR®, in
               real estate since 1983.
@@ -107,7 +115,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">{siteConfig.name}</h3>
             <div className="flex items-start mb-3">
-              <MapPin className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" />
+              <MapPin className="h-5 w-5 mr-3 text-bronze-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">
                 {officeInfo.address.street}
                 <br />
@@ -119,7 +127,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 mb-4">
               <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
+                <Phone className="h-5 w-5 mr-3 text-bronze-400 flex-shrink-0" />
                 <Link
                   href={agentInfo.phoneTel}
                   className="text-slate-300 hover:text-white transition-colors text-sm"
@@ -128,7 +136,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
+                <Mail className="h-5 w-5 mr-3 text-bronze-400 flex-shrink-0" />
                 <Link
                   href={`mailto:${teamInfo.teamLeader.email}`}
                   className="text-slate-300 hover:text-white transition-colors text-sm break-all"
@@ -138,25 +146,16 @@ export default function Footer() {
               </li>
             </ul>
             <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-2">
-              {teamInfo.buyerAgent.role}
+              {teamInfo.buyerAgent.role} · {teamInfo.buyerAgent.name}
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
+                <Phone className="h-5 w-5 mr-3 text-bronze-400 flex-shrink-0" />
                 <Link
                   href={teamInfo.buyerAgent.phoneTel}
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
                   {teamInfo.buyerAgent.phone}
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
-                <Link
-                  href={`mailto:${teamInfo.buyerAgent.email}`}
-                  className="text-slate-300 hover:text-white transition-colors text-sm break-all"
-                >
-                  {teamInfo.buyerAgent.email}
                 </Link>
               </li>
             </ul>
@@ -187,5 +186,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
