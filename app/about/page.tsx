@@ -17,7 +17,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
-import { agentInfo, officeInfo, siteConfig, teamInfo } from "@/lib/site-config";
+import { agentInfo, agentStats, officeInfo, siteConfig, teamInfo } from "@/lib/site-config";
 import { absoluteMediaUrl, agentHeadshotSrc } from "@/lib/site-media";
 import { realScoutConfig } from "@/lib/integrations";
 
@@ -247,8 +247,10 @@ export default function AboutPage() {
                     <div className="text-sm text-slate-600">Transactions</div>
                   </div>
                   <div className="bg-blue-50 rounded-lg p-6 text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-1">4.9★</div>
-                    <div className="text-sm text-slate-600">Client Rating</div>
+                    <div className="text-3xl font-bold text-blue-600 mb-1">{agentStats.averageRating.toFixed(1)}★</div>
+                    <a href={agentStats.reviewSourceUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-600 hover:underline">
+                      {agentStats.reviewCount} reviews on {agentStats.reviewSourceName}
+                    </a>
                   </div>
                 </div>
 
@@ -391,8 +393,11 @@ export default function AboutPage() {
               What Clients Say About Dr. Jan Duffy
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              With a 4.9-star rating and hundreds of satisfied clients, Dr. Jan has built a 
-              reputation for excellence, integrity, and personalized service.
+              {agentStats.averageRating.toFixed(1)} stars across {agentStats.reviewCount} reviews on{" "}
+              <a href={agentStats.reviewSourceUrl} target="_blank" rel="noopener noreferrer" className="underline">
+                {agentStats.reviewSourceName}
+              </a>
+              , and {agentStats.transactionsClosed}+ transactions closed in Las Vegas.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">

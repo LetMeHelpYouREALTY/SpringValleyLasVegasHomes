@@ -6,7 +6,7 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-import { siteConfig, agentInfo, officeInfo, agentStats, siteSocialUrls } from "./site-config";
+import { siteConfig, agentInfo, officeInfo, siteSocialUrls } from "./site-config";
 import { absoluteUrlForPath, sitelinkStructuredDataNav } from "./site-navigation";
 import { absoluteMediaUrl, agentHeadshotSrc, faviconSrc } from "./site-media";
 
@@ -178,13 +178,6 @@ export function generateRealEstateAgentSchema() {
         url: "https://www.bhhs.com",
         sameAs: "https://en.wikipedia.org/wiki/Berkshire_Hathaway_HomeServices",
       },
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: agentStats.averageRating.toString(),
-      reviewCount: agentStats.reviewCount.toString(),
-      bestRating: "5",
-      worstRating: "1",
     },
     knowsAbout: [
       "Spring Valley Las Vegas homes",
@@ -365,10 +358,8 @@ export function generateHomepageReviewJsonLd(reviews: ReviewItem[]) {
 /**
  * Single JSON-LD payload for the homepage: FAQPage + WebPage (for `SchemaScript`).
  *
- * Does **not** emit standalone `Review` nodes here: Google Search Console often flags
- * first-party `Review` markup on the same URL as `RealEstateAgent` + `aggregateRating`
- * (root layout `site-schema`). Stars remain eligible via site-wide `aggregateRating` on
- * the agent entity; visible testimonials stay on-page without duplicate review JSON-LD.
+ * Does **not** emit `Review` or `aggregateRating` nodes: Google treats reviews a business
+ * shows about itself as self-serving, so `RealEstateAgent` pages can't earn review stars.
  */
 export function combineHomepageStructuredData(args: {
   faqs: FAQItem[];
@@ -393,10 +384,6 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
     "@type": "RealEstateAgent",
     "@id": REAL_ESTATE_AGENT_SCHEMA_ID,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    aggregateRating: generateAggregateRatingSchema(
-      agentStats.averageRating,
-      agentStats.reviewCount
-    ),
     review: reviews.map((review) => ({
       "@type": "Review",
       author: {

@@ -155,13 +155,20 @@ export const marketStats = {
   },
 };
 
-/** Single source for hero + reviews aggregate — keep in sync with Google Business Profile when using counts/ratings in UI or JSON-LD */
+/**
+ * Single source for hero + reviews figures. The rating is the public Realtor.com
+ * profile (checked Oct 29, 2026), so every place it shows must name Realtor.com and link
+ * to `reviewSourceUrl`. Not emitted as `aggregateRating` JSON-LD: Google treats ratings a
+ * business shows about itself as self-serving and ineligible for review stars.
+ */
 export const agentStats = {
   servingSince: 1983,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
-  averageRating: 4.9,
-  reviewCount: 200,
+  averageRating: 5.0,
+  reviewCount: 50,
+  reviewSourceName: "Realtor.com",
+  reviewSourceUrl: "https://www.realtor.com/realestateagents/63340593275bf055fedf5ff1",
 };
 
 // Value Propositions

@@ -19,6 +19,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { agentStats } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   alternates: {
@@ -384,8 +385,10 @@ export default function ServicesPage() {
                 <div className="text-slate-300 text-sm">Volume Closed</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">4.9★</div>
-                <div className="text-slate-300 text-sm">Client Rating</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">{agentStats.averageRating.toFixed(1)}★</div>
+                <a href={agentStats.reviewSourceUrl} target="_blank" rel="noopener noreferrer" className="text-slate-300 text-sm hover:underline">
+                  {agentStats.reviewCount} reviews on {agentStats.reviewSourceName}
+                </a>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">

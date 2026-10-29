@@ -11,7 +11,7 @@ export type Review = HomeReview;
 /** @deprecated import `defaultHomeReviews` from `@/lib/home-reviews` — alias for UI compatibility */
 export const defaultReviews = defaultHomeReviews;
 
-/** Align with `agentStats` / GBP — single source for stars + count in UI and JSON-LD helpers */
+/** Mirrors `agentStats` (Realtor.com profile) — single source for the stars and count shown in the UI */
 export const aggregateRating = {
   ratingValue: agentStats.averageRating,
   reviewCount: agentStats.reviewCount,
@@ -62,11 +62,16 @@ export default function ReviewsSection({
               ))}
             </div>
             <span className="text-lg font-semibold text-slate-900">
-              {aggregateRating.ratingValue}
+              {aggregateRating.ratingValue.toFixed(1)}
             </span>
-            <span className="text-slate-600">
-              ({aggregateRating.reviewCount} Google reviews)
-            </span>
+            <a
+              href={agentStats.reviewSourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 underline-offset-2 hover:underline"
+            >
+              ({aggregateRating.reviewCount} reviews on {agentStats.reviewSourceName})
+            </a>
           </div>
         </div>
 
