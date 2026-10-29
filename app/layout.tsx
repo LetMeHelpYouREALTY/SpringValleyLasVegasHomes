@@ -2,7 +2,6 @@ import "./globals.css";
 
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
@@ -10,12 +9,10 @@ import { Cormorant_Garamond } from "next/font/google";
 import { cn } from "lib/utils";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
-/** Defer below-the-fold / non-critical client bundles to reduce main-thread work (lab TBT). */
-const AIChatWidget = dynamic(() => import("@/components/chat/AIChatWidget"), { ssr: false });
-const VercelAnalytics = dynamic(
-  () => import("@vercel/analytics/react").then((m) => ({ default: m.Analytics })),
-  { ssr: false },
-);
+import {
+  AIChatWidget,
+  VercelAnalytics,
+} from "@/components/layouts/ClientOnlyWidgets";
 import SchemaScript from "@/components/SchemaScript";
 import AutoBreadcrumbSchema from "@/components/AutoBreadcrumbSchema";
 import {
@@ -110,7 +107,7 @@ export const viewport: Viewport = {
 // Combined site-wide schemas using the schema utility
 const siteWideSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
-  generateWebSiteSchema()
+  generateWebSiteSchema(),
 );
 
 export default function RootLayout({
@@ -129,11 +126,19 @@ export default function RootLayout({
   })();
 
   return (
-    <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
+    <html
+      lang="en"
+      className="scroll-smooth antialiased"
+      style={{ colorScheme: "light" }}
+    >
       <head>
         <meta name="color-scheme" content="light" />
         {/* Early connections for third-party origins (reduces LCP / script latency) */}
-        <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://em.realscout.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         {homebotPrefetchOrigin ? (
           <link rel="dns-prefetch" href={homebotPrefetchOrigin} />

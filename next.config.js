@@ -2,31 +2,35 @@
 const nextConfig = {
   // Tree-shake icon/UI packages (smaller JS — better INP / main-thread time)
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-slot', '@radix-ui/react-toast'],
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-toast",
+    ],
   },
 
   // Standalone output for Docker/Vercel optimization
-  output: 'standalone',
+  output: "standalone",
 
   // Image optimization
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'imagedelivery.net',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "imagedelivery.net",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'files.keepingcurrentmatters.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "files.keepingcurrentmatters.com",
+        pathname: "/**",
       },
     ],
   },
@@ -35,53 +39,52 @@ const nextConfig = {
   compress: true,
 
   // Performance optimizations
-  swcMinify: true,
 
   // Canonical host: www (matches siteConfig.url / metadataBase)
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         has: [
           {
-            type: 'host',
-            value: 'springvalleylasvegashomes.com',
+            type: "host",
+            value: "springvalleylasvegashomes.com",
           },
         ],
-        destination: 'https://www.springvalleylasvegashomes.com/:path*',
+        destination: "https://www.springvalleylasvegashomes.com/:path*",
         permanent: true,
       },
       // GSC 404: junk short URL — permanent to homepage
       {
-        source: '/mo',
-        destination: '/',
+        source: "/mo",
+        destination: "/",
         permanent: true,
       },
-    ]
+    ];
   },
 
   // Python API rewrites
   rewrites: async () => {
     return [
       {
-        source: '/api/:path*',
+        source: "/api/:path*",
         destination:
-          process.env.NODE_ENV === 'development'
-            ? 'http://127.0.0.1:5328/api/:path*'
-            : '/api/',
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:5328/api/:path*"
+            : "/api/",
       },
-    ]
+    ];
   },
 
   // Enhanced security headers including CSP for RealScout widget
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           // CSP for RealScout widget
           {
-            key: 'Content-Security-Policy',
+            key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://*.homebot.com https://*.homebot.ai",
@@ -91,53 +94,53 @@ const nextConfig = {
               "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://maps.googleapis.com https://maps.gstatic.com https://*.homebot.com https://*.homebot.ai https://challenges.cloudflare.com",
               "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com https://*.homebot.com https://*.homebot.ai https://challenges.cloudflare.com https://js-3d-area-explorer-demo-dev-t6a6o7lkja-uc.a.run.app https://storage.googleapis.com https://www.simplifyingthemarket.com",
               "worker-src 'self' blob:",
-            ].join('; '),
+            ].join("; "),
           },
           // Additional security headers
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
           },
           {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          }
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
         ],
       },
-    ]
+    ];
   },
 
   // Bundle analyzer (when ANALYZE=true)
   webpack: (config, { isServer }) => {
-    if (process.env.ANALYZE === 'true' && !isServer) {
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+    if (process.env.ANALYZE === "true" && !isServer) {
+      const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
       config.plugins.push(
         new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          reportFilename: './analyze.html',
+          analyzerMode: "static",
+          reportFilename: "./analyze.html",
           openAnalyzer: false,
-        })
-      )
+        }),
+      );
     }
-    return config
+    return config;
   },
-}
+};
 
 // Injected content via Sentry wizard below
 
@@ -172,5 +175,5 @@ module.exports = withSentryConfig(
 
     // Automatically tree-shake Sentry logger statements to reduce bundle size
     disableLogger: true,
-  }
+  },
 );
