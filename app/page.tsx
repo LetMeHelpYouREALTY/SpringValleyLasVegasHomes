@@ -2,11 +2,13 @@ import Navbar from "@/components/layouts/Navbar";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
 import HeroSection from "@/components/sections/HeroSection";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
+import FeaturedListing from "@/components/sections/FeaturedListing";
 import ServiceAreaMapSection from "@/components/sections/ServiceAreaMapSection";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
+import BookingSection from "@/components/sections/BookingSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -14,6 +16,7 @@ import { Home as HomeIcon, TrendingUp, Shield, Users, Phone } from "lucide-react
 import SchemaScript from "@/components/SchemaScript";
 import SiteBylineDate from "@/components/shared/SiteBylineDate";
 import {
+  agentInfo,
   agentStats,
   marketStats,
   siteConfig,
@@ -45,7 +48,7 @@ const homeStructuredData = combineHomepageStructuredData({
 
 const lv = marketStats.lasVegas;
 const medianDisplay = `$${Math.round(lv.medianPrice / 1000)}K`;
-const listingsDisplay = lv.activeListings.toLocaleString("en-US");
+const listingsDisplay = lv.listingsWithoutOffers.toLocaleString("en-US");
 
 export const metadata: Metadata = {
   alternates: {
@@ -75,6 +78,12 @@ export default function Home() {
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
+
+        <FeaturedListing
+          phone={agentInfo.phone}
+          phoneHref={agentInfo.phoneTel}
+          siteHost="springvalleylasvegashomes.com"
+        />
 
         <div
           className="border-b border-slate-200 bg-slate-50 py-2.5"
@@ -119,7 +128,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Trusted Advisor</h3>
                 <p className="text-slate-600 text-sm">
-                  In real estate since 1983, with honest advice and transparent communication in
+                  Licensed since 2008 · 35 years in Las Vegas, with honest advice and transparent communication in
                   every transaction.
                 </p>
               </div>
@@ -138,7 +147,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Market Expertise</h3>
                 <p className="text-slate-600 text-sm">
-                  In real estate since {agentStats.servingSince} with {agentStats.volumeClosed} in
+                  Licensed since {agentStats.servingSince} with {agentStats.volumeClosed} in
                   closed transactions.
                 </p>
               </div>
@@ -173,8 +182,10 @@ export default function Home() {
           </div>
         </section>
 
+        <BookingSection />
+
         {/* Market snapshot — figures from site-config `marketStats` (update with source of truth) */}
-        <section className="py-16 bg-slate-900 text-white" aria-labelledby="market-snapshot-heading">
+        <section className="py-16 bg-ink text-ivory" aria-labelledby="market-snapshot-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 id="market-snapshot-heading" className="text-3xl md:text-4xl font-bold mb-4">
@@ -188,31 +199,34 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">{medianDisplay}</div>
-                <div className="text-slate-300 text-sm">Median Home Price</div>
-                <div className="text-green-400 text-sm">{lv.yearOverYearChange} YoY</div>
+                <div className="text-slate-300 text-sm">Median Single-Family Price</div>
+                <div className="text-bronze-300 text-sm">{lv.yearOverYearChange} YoY</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
-                  {lv.daysOnMarket}
+                  {lv.soldWithin60Days}
                 </div>
-                <div className="text-slate-300 text-sm">Avg Days on Market</div>
+                <div className="text-slate-300 text-sm">Sold Within 60 Days</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
                   {listingsDisplay}
                 </div>
-                <div className="text-slate-300 text-sm">Active Listings</div>
+                <div className="text-slate-300 text-sm">Homes Listed Without Offers</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
                   {lv.inventoryMonths}
                 </div>
-                <div className="text-slate-300 text-sm">Months Inventory</div>
+                <div className="text-slate-300 text-sm">Months of Supply</div>
               </div>
             </div>
             <p className="text-center text-slate-400 text-sm max-w-2xl mx-auto mt-6">
-              Not financial advice; figures are for general market context. For methodology and
-              detail, see the full report.
+              Source:{" "}
+              <a href={lv.sourceUrl} className="text-slate-300 underline" rel="noopener noreferrer">
+                {lv.source}
+              </a>
+              . Single-family homes, Greater Las Vegas. Not financial advice.
             </p>
             <div className="text-center mt-8">
               <Link
@@ -294,32 +308,32 @@ export default function Home() {
         />
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-blue-600 text-white">
+        <section className="py-20 md:py-28 bg-ink text-ivory">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Work with Dr. Jan Duffy?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-ivory/80 mb-8 max-w-2xl mx-auto">
               Whether you're buying, selling, or investing in Las Vegas real estate, Dr. Jan Duffy
               is here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+17026648424"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center justify-center bg-ivory text-ink px-8 py-4 font-semibold text-lg hover:bg-bronze-100 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call (702) 664-8424
               </a>
               <Link
-                href="/contact"
-                className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
+                href="/#book-consultation"
+                className="inline-block border border-bronze-300 text-ivory hover:bg-bronze-700 px-8 py-4 font-semibold text-lg transition-colors"
               >
-                Send a Message
+                Book a Consultation
               </Link>
             </div>
-            <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy, REALTOR® | In real estate since 1983
+            <p className="mt-6 text-bronze-300 text-sm">
+              Dr. Jan Duffy, REALTOR® | Licensed since 2008 · 35 years in Las Vegas
             </p>
           </div>
         </section>
@@ -329,7 +343,7 @@ export default function Home() {
           Last Updated: January 2026 | {siteConfig.name}
         </div>
       </main>
-      <Footer />
+      <Footer showOfficeListings={false} />
     </>
   );
 }

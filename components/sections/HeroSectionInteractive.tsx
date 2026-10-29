@@ -22,18 +22,31 @@ export default function HeroSectionInteractive({
   return (
     <div className="relative z-20 h-full w-full">
       <div className="flex h-full flex-col items-center justify-center px-4 text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        <p className="mb-5 text-xs font-medium uppercase tracking-eyebrow text-bronze-200 md:text-sm">
+          Berkshire Hathaway HomeServices Nevada Properties
+        </p>
+        <h1 className="mb-6 text-4xl font-semibold leading-[1.05] text-white md:text-6xl lg:text-7xl">
           <span className="block">{headlinePrimary}</span>
-          <span className="block text-blue-400 mt-1">{headlineSecondary}</span>
+          <span className="mt-2 block text-2xl font-medium italic text-bronze-200 md:text-4xl lg:text-5xl">
+            {headlineSecondary}
+          </span>
         </h1>
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">{intro}</p>
+        <div className="mx-auto mb-6 h-px w-16 bg-bronze-300/70" aria-hidden />
+        <p className="mb-8 max-w-2xl text-base text-white/90 md:text-lg">{intro}</p>
 
-        <p className="mb-3 max-w-xl text-center text-sm font-medium text-white/95 md:text-base">
+        <p className="mb-3 max-w-xl text-center text-xs font-medium uppercase tracking-[0.18em] text-white/80">
           Search live MLS homes by city, zip, or neighborhood—results update as you type.
         </p>
         <RealScoutSimpleSearch className="mb-4 max-w-2xl py-0" />
 
-        <div className="mt-8 flex flex-wrap justify-center gap-6 text-white/90 text-sm">
+        <a
+          href="/#book-consultation"
+          className="mt-2 inline-flex items-center justify-center border border-bronze-200/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-ink"
+        >
+          Book a private consultation
+        </a>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/85">
           <div className="flex items-center gap-2">
             <span className="font-semibold">{agentStats.transactionsClosed}+</span>
             <span>Properties Sold</span>
@@ -43,8 +56,8 @@ export default function HeroSectionInteractive({
             <span>Serving Las Vegas</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-semibold">{agentStats.averageRating}★</span>
-            <span>Average Rating</span>
+            <span className="font-semibold">{agentStats.averageRating.toFixed(1)}★</span>
+            <span>on {agentStats.reviewSourceName}</span>
           </div>
         </div>
       </div>

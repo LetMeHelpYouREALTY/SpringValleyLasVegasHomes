@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, DollarSign, TrendingUp, Home as HomeIcon, Users } from "lucide-react";
 import type { Metadata } from "next";
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "North Las Vegas Affordable Homes",
   description:
-    "Find affordable North Las Vegas homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She helps first-time buyers and investors. Median price $385K. Call (702) 664-8424.",
+    "Find affordable North Las Vegas homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She helps first-time buyers and investors. Median price $385K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices North Las Vegas",
     "North Las Vegas homes for sale",
@@ -157,7 +156,7 @@ export default function NorthLasVegasPage() {
                   </div>
                   <p className="text-slate-600">
                     North Las Vegas offers the lowest median home prices in the Las Vegas Valley, making
-                    homeownership attainable for first-time buyers, young families, and investors. Entry-level
+                    homeownership attainable for first-time buyers, move-up buyers, and investors. Entry-level
                     homes start in the $320,000s, while new construction from quality builders ranges
                     from $380,000 to $550,000—prices that would buy a condo elsewhere.
                   </p>
@@ -270,7 +269,7 @@ export default function NorthLasVegasPage() {
                   <ul className="text-slate-600 text-sm space-y-2">
                     <li><strong>Aliante:</strong> Master-planned with golf, casino, town center. Homes $400K-$550K.</li>
                     <li><strong>Tule Springs:</strong> Newer community near I-215. KB Home, Lennar. $380K-$500K.</li>
-                    <li><strong>Valley Vista:</strong> Family-focused with parks, pools. Century Communities. $350K-$450K.</li>
+                    <li><strong>Valley Vista:</strong> Parks and pools. Century Communities. $350K-$450K.</li>
                     <li><strong>Camino Al Norte:</strong> Growing area near 215. Multiple builders. $380K-$480K.</li>
                   </ul>
                 </div>
@@ -386,7 +385,6 @@ export default function NorthLasVegasPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

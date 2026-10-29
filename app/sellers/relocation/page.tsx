@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
   Phone,
@@ -95,7 +94,7 @@ export default function RelocationPage() {
               </div>
             </div>
             <p className="text-center text-slate-300 mt-8">
-              Moving to Dallas? Phoenix? Chicago? We connect you with top-rated experienced local agents
+              Moving to Dallas? Phoenix? Chicago? We connect you with experienced local agents
               in your new city at no extra cost.
             </p>
           </section>
@@ -521,7 +520,6 @@ export default function RelocationPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

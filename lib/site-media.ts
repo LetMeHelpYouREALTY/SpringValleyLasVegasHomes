@@ -41,18 +41,50 @@ export const agentHeadshotSrc = resolveCfOrLocal(
   V.public,
 );
 
-/** Hero background rotation (same order as previous HeroSection). */
-export const heroBackgroundSrcs: [string, string, string] = [
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID, "/Image/hero_bg_1.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID, "/Image/hero_bg_2.jpg", V.hero),
-  resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID, "/Image/hero_bg_3.jpg", V.hero),
-];
+/**
+ * Hero shows Dr. Jan's listing at 9528 Rainfall Ave (photos from the listing marketing kit,
+ * Oct 28 2026). Set to false when the home sells or the listing ends; the site then falls back
+ * to the general valley hero images below.
+ */
+export const LISTING_HERO_ACTIVE = true;
+
+const listingHero: { srcs: [string, string, string]; alts: [string, string, string] } = {
+  srcs: [
+    "/images/listings/9528-rainfall-avenue/front-exterior-twilight.jpg",
+    "/images/listings/9528-rainfall-avenue/pool-twilight.jpg",
+    "/images/listings/9528-rainfall-avenue/pool-view.jpg",
+  ],
+  alts: [
+    "Two-story stucco home with tile roof and two-car garage at 9528 Rainfall Avenue, Spring Valley, Las Vegas (twilight sky digitally edited)",
+    "Private in-ground pool with tiled water feature and desert landscaping at 9528 Rainfall Avenue (twilight sky digitally edited)",
+    "Covered patio and private pool behind 9528 Rainfall Avenue, Las Vegas NV 89147",
+  ],
+};
+
+const valleyHero: { srcs: [string, string, string]; alts: [string, string, string] } = {
+  srcs: [
+    resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_1_ID, "/Image/hero_bg_1.jpg", V.hero),
+    resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_2_ID, "/Image/hero_bg_2.jpg", V.hero),
+    resolveCfOrLocal(process.env.NEXT_PUBLIC_CF_IMAGE_HERO_3_ID, "/Image/hero_bg_3.jpg", V.hero),
+  ],
+  alts: [
+    "Spring Valley Las Vegas homes and Las Vegas Valley real estate — hero",
+    "Spring Valley Las Vegas homes and Las Vegas Valley real estate — hero 2",
+    "Spring Valley Las Vegas homes and Las Vegas Valley real estate — hero 3",
+  ],
+};
+
+const activeHero = LISTING_HERO_ACTIVE ? listingHero : valleyHero;
+
+/** Hero background rotation: slide 1 is the LCP image. */
+export const heroBackgroundSrcs: [string, string, string] = activeHero.srcs;
+export const heroBackgroundAlts: [string, string, string] = activeHero.alts;
 
 /**
  * Same canonical asset as the first homepage hero — use for OG / WebPage on Spring Valley and
  * map-tool hubs so previews stay consistent with valley real-estate imagery (override via HERO_1 env).
  */
-export const springValleyMarketingOgSrc = heroBackgroundSrcs[0];
+export const springValleyMarketingOgSrc = valleyHero.srcs[0];
 
 /**
  * Preview image for zip-map and neighborhood-discovery tools (defaults to first hero; optional dedicated CF ID).

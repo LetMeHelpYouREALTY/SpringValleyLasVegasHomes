@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Shield, Mountain, Star, MapPin } from "lucide-react";
 import type { Metadata } from "next";
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Southern Highlands Golf Community",
   description:
-    "Find Southern Highlands homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this premier golf community. Median price $750K. Call (702) 664-8424.",
+    "Find Southern Highlands homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this premier golf community. Median price $750K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Southern Highlands",
     "Southern Highlands homes for sale",
@@ -38,7 +37,7 @@ const faqSchema = {
       name: "Does Southern Highlands have guard-gated sections?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Southern Highlands features multiple guard-gated luxury sections including Southern Highlands Golf Club estates and exclusive enclaves with 24/7 security. Non-gated sections also offer excellent value with community amenities.",
+        text: "Yes, Southern Highlands features multiple guard-gated luxury sections including Southern Highlands Golf Club estates and luxury enclaves with 24/7 security. Non-gated sections also offer excellent value with community amenities.",
       },
     },
     {
@@ -138,11 +137,11 @@ export default function SouthernHighlandsPage() {
                 entire community's aesthetic.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, understands the
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, understands the
                 community's various sections—from the guard-gated luxury estates surrounding the golf
-                course to the family-friendly neighborhoods in the community's newer phases. Whether
-                you're seeking a golf course lot with Strip views or a spacious family home with top-rated
-                schools, Dr. Jan Duffy has the local expertise to guide your search.
+                course to the neighborhoods in the community's newer phases. Whether
+                you're seeking a golf course lot with Strip views or a larger home near the
+                community's parks, Dr. Jan Duffy has the local expertise to guide your search.
               </p>
 
               {/* Community Highlights */}
@@ -305,7 +304,7 @@ export default function SouthernHighlandsPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Southern Highlands delivers luxury living at prices that often surprise buyers—especially
                 those relocating from California. You get championship golf, guard-gated security, mountain
-                views, and excellent schools, all just 15 minutes from the Strip. As a local REALTOR®, I help clients see beyond the golf course to the community's full potential."
+                views, and nearby public schools, all just 15 minutes from the Strip. As a local REALTOR®, I help clients see beyond the golf course to the community's full potential."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -335,7 +334,7 @@ export default function SouthernHighlandsPage() {
                 </h3>
                 <p className="text-slate-600">
                   Yes, Southern Highlands features multiple guard-gated luxury sections including
-                  Southern Highlands Golf Club estates and exclusive enclaves with 24/7 security.
+                  Southern Highlands Golf Club estates and luxury enclaves with 24/7 security.
                   Non-gated sections also offer excellent value with community amenities.
                 </p>
               </div>
@@ -382,7 +381,6 @@ export default function SouthernHighlandsPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

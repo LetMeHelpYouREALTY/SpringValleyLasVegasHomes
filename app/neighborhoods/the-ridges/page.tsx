@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Shield, Star, Mountain, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "The Ridges Luxury Estates",
   description:
-    "Find luxury homes in The Ridges with Dr. Jan Duffy, who specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 664-8424.",
+    "Find luxury homes in The Ridges, Summerlin's guard-gated custom-home community, with Dr. Jan Duffy. Median price $2.5M. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices The Ridges",
     "The Ridges homes for sale",
@@ -35,10 +34,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How exclusive is The Ridges community?",
+      name: "How private is The Ridges community?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Ridges is one of Las Vegas's most exclusive communities with 24/7 guard-gated security, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
+        text: "The Ridges is a guard-gated Summerlin community with 24/7 staffed entry, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
       },
     },
     {
@@ -124,7 +123,7 @@ export default function TheRidgesPage() {
               </h2>
               <p>
                 <strong>The Ridges</strong> represents the pinnacle of Las Vegas luxury living. Nestled
-                within Summerlin along the foothills of Red Rock Canyon, this ultra-exclusive guard-gated
+                within Summerlin along the foothills of Red Rock Canyon, this guard-gated luxury
                 community offers estate-quality homes with panoramic views of the Las Vegas Strip, the
                 surrounding mountains, and the pristine desert landscape. When the most discerning buyers
                 search for Las Vegas luxury, they turn to an advisor who matches The Ridges' standard
@@ -139,7 +138,7 @@ export default function TheRidgesPage() {
                 aesthetic throughout.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, understands that
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, understands that
                 luxury transactions require more than market knowledge—they demand discretion, sophisticated
                 marketing, and access to qualified buyers worldwide, connecting The Ridges properties with
                 high-net-worth individuals actively seeking premier real estate investments in Las Vegas.
@@ -197,7 +196,7 @@ export default function TheRidgesPage() {
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-5">
                   <h5 className="font-bold text-slate-900 mb-2">Silver Ridge</h5>
-                  <p className="text-slate-600 text-sm">Exclusive custom lot community. Architectural masterpieces. $3M-$15M.</p>
+                  <p className="text-slate-600 text-sm">Custom lot community. Architectural masterpieces. $3M-$15M.</p>
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-5">
                   <h5 className="font-bold text-slate-900 mb-2">Eagle Hills</h5>
@@ -253,7 +252,7 @@ export default function TheRidgesPage() {
               <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Schools Serving The Ridges</h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  The Ridges is served by top-rated public schools in the Palo Verde cluster, plus Las Vegas's
+                  The Ridges is served by public schools in the Palo Verde cluster, plus Las Vegas's
                   finest private school options:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -329,10 +328,10 @@ export default function TheRidgesPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  How exclusive is The Ridges community?
+                  How private is The Ridges community?
                 </h3>
                 <p className="text-slate-600">
-                  The Ridges is one of Las Vegas's most exclusive communities with 24/7 guard-gated security,
+                  The Ridges is a guard-gated Summerlin community with 24/7 staffed entry,
                   only 900 home sites across six distinct villages, and strict architectural guidelines
                   ensuring estate-quality construction throughout.
                 </p>
@@ -380,7 +379,6 @@ export default function TheRidgesPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

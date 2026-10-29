@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
 import Link from "next/link";
 import { Phone, MapPin, Home, School, Car, ArrowRight } from "lucide-react";
@@ -227,7 +226,7 @@ export default function SpringValleyPage() {
             <p className="text-lg text-slate-600 leading-relaxed">
               Spring Valley is one of the most searched areas for{" "}
               <strong>Spring Valley Las Vegas homes</strong>—a broad, established west valley
-              community with diverse housing, mature neighborhoods, and convenient access to
+              community with diverse housing, older neighborhoods, and convenient access to
               employment corridors. Use this guide to orient your search, then explore live listings
               or talk with Dr. Jan Duffy about timing, offers, and pricing.
             </p>
@@ -250,7 +249,6 @@ export default function SpringValleyPage() {
 
         <BuyerEngagementStrip browseListingsHref="#featured-properties" />
 
-        <RealScoutListings />
 
         <div className="container mx-auto px-4">
           <section className="max-w-4xl mx-auto mb-14 prose prose-slate">

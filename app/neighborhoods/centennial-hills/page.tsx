@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Mountain, Users, ShoppingBag, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Centennial Hills Las Vegas Homes",
   description:
-    "Find Centennial Hills homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this established northwest community. Median price $495K. Call (702) 664-8424.",
+    "Find Centennial Hills homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this established northwest community. Median price $495K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Centennial Hills",
     "Centennial Hills homes for sale",
@@ -35,10 +34,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is Centennial Hills a good family neighborhood?",
+      name: "What amenities and schools serve Centennial Hills?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with highly-rated schools, safe streets, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
+        text: "Centennial Hills has nearby public schools, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
       },
     },
     {
@@ -46,7 +45,7 @@ const faqSchema = {
       name: "How far is Centennial Hills from the Las Vegas Strip?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Centennial Hills is approximately 20-25 minutes from the Strip via US-95. The community offers easy freeway access while maintaining a suburban, family-oriented atmosphere away from tourist areas.",
+        text: "Centennial Hills is approximately 20-25 minutes from the Strip via US-95. The community offers easy freeway access and a suburban setting away from tourist areas.",
       },
     },
     {
@@ -87,7 +86,7 @@ export default function CentennialHillsPage() {
               Centennial Hills Real Estate
             </h1>
             <p className="text-xl text-slate-600">
-              Family-friendly northwest Las Vegas living. Find your Centennial Hills home with Dr. Jan Duffy.
+              Northwest Las Vegas living near parks and trails. Find your Centennial Hills home with Dr. Jan Duffy.
             </p>
           </div>
 
@@ -120,12 +119,12 @@ export default function CentennialHillsPage() {
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Centennial Hills: Northwest Las Vegas's Established Family Community
+                Centennial Hills: Northwest Las Vegas's Established Master-Planned Community
               </h2>
               <p>
                 <strong>Centennial Hills</strong> represents the best of established northwest Las Vegas
                 living. While newer communities like Skye Canyon attract attention, Centennial Hills
-                offers something they can't: mature neighborhoods with proven schools, established
+                offers something they can't: older neighborhoods with proven schools, established
                 landscaping, and a genuine sense of community built over nearly two decades.
                 Dr. Jan Duffy helps families discover why
                 Centennial Hills remains one of the valley's most desirable addresses.
@@ -138,7 +137,7 @@ export default function CentennialHillsPage() {
                 Hills' urban conveniences would suggest.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, knows
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, knows
                 which streets offer the best mountain views, which school zones are most sought-after,
                 and which HOAs maintain their communities to the highest standards. This deep local
                 knowledge, combined with a commitment to client service, ensures Centennial
@@ -151,7 +150,7 @@ export default function CentennialHillsPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Established Family Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">Established Master-Planned Community</h4>
                   </div>
                   <p className="text-slate-600">
                     Centennial Hills has matured into a true community where neighbors know each other
@@ -178,7 +177,8 @@ export default function CentennialHillsPage() {
               <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Centennial Hills School Districts</h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Centennial Hills is served by established, well-regarded schools with proven track records:
+                  Centennial Hills is served by Clark County School District schools, including Arbor View,
+                  Centennial, and Shadow Ridge high schools, depending on the address:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
@@ -334,11 +334,10 @@ export default function CentennialHillsPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Is Centennial Hills a good family neighborhood?
+                  What amenities and schools serve Centennial Hills?
                 </h3>
                 <p className="text-slate-600">
-                  Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with
-                  highly-rated schools, safe streets, multiple parks including Centennial Hills
+                  Centennial Hills has nearby public schools, multiple parks including Centennial Hills
                   Park, and convenient shopping at Centennial Center.
                 </p>
               </div>
@@ -349,7 +348,7 @@ export default function CentennialHillsPage() {
                 <p className="text-slate-600">
                   Centennial Hills is approximately 20-25 minutes from the Strip via US-95.
                   The community offers easy freeway access while maintaining a suburban,
-                  family-oriented atmosphere away from tourist areas.
+                  suburban setting away from tourist areas.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -372,7 +371,7 @@ export default function CentennialHillsPage() {
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Centennial Hills expert,
-              for guidance in this established family community.
+              for guidance in this established master-planned community.
             </p>
             <a
               href="tel:+17026648424"
@@ -385,7 +384,6 @@ export default function CentennialHillsPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

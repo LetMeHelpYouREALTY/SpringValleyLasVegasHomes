@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
   Phone,
@@ -154,7 +153,7 @@ export default function HeritageAtStonebridgePage() {
                 <strong>Dr. Jan Duffy</strong>{" "}
                 helps buyers who value privacy and location over massive amenity
                 complexes. Dr. Jan Duffy understands why Heritage at Stonebridge
-                appeals to buyers seeking a more exclusive, intimate 55+
+                appeals to buyers seeking a smaller, guard-gated 55+
                 experience.
               </p>
             </div>
@@ -424,7 +423,6 @@ export default function HeritageAtStonebridgePage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -26,7 +26,7 @@ import {
   generateFAQSchema,
 } from "@/lib/gbp-schema";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
-import { googleBusinessReviewUrl, siteConfig } from "@/lib/site-config";
+import { agentStats, googleBusinessReviewUrl, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   alternates: {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Dr. Jan Duffy, REALTOR® | Las Vegas Real Estate",
-    description: "Trusted Las Vegas REALTOR® in real estate since 1983. Summerlin, Henderson, luxury homes, 55+ communities.",
+    description: "Trusted Las Vegas REALTOR® licensed since 2008 · 35 years in Las Vegas. Summerlin, Henderson, luxury homes, 55+ communities.",
     url: `${siteConfig.url}/google-business`,
     type: "profile",
   },
@@ -82,7 +82,7 @@ export default function GoogleBusinessPage() {
                     Dr. Jan Duffy
                   </h1>
                   <p className="text-xl text-blue-200 mb-2">REALTOR®</p>
-                  <p className="text-slate-300 mb-6">In real estate since 1983</p>
+                  <p className="text-slate-300 mb-6">Licensed since 2008 · 35 years in Las Vegas</p>
                   
                   {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">
@@ -123,8 +123,15 @@ export default function GoogleBusinessPage() {
                       <Star key={star} className="h-8 w-8 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-3xl font-bold mb-2">4.9 / 5.0</p>
-                  <p className="text-blue-200 mb-6">200+ Client Reviews</p>
+                  <p className="text-3xl font-bold mb-2">{agentStats.averageRating.toFixed(1)} / 5.0</p>
+                  <a
+                    href={agentStats.reviewSourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-6 block text-blue-200 hover:underline"
+                  >
+                    {agentStats.reviewCount} reviews on {agentStats.reviewSourceName}
+                  </a>
                   <a
                     href={`tel:${businessInfo.phone.tel}`}
                     className="inline-block w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-lg font-bold text-lg transition-colors"

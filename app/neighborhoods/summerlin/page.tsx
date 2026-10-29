@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, MapPin, TreePine, Mountain, GraduationCap, ShoppingBag } from "lucide-react";
 import type { Metadata } from "next";
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   },
   title: "Summerlin Luxury Real Estate",
   description:
-    "Find Summerlin homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She offers expert guidance in Las Vegas's premier master-planned community. Median price $625K. Call (702) 664-8424.",
+    "Find Summerlin homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She offers expert guidance in Las Vegas's premier master-planned community. Median price $625K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Summerlin",
     "Summerlin homes for sale",
@@ -42,7 +41,7 @@ const summerlinFaqs = [
   {
     question: "What makes Summerlin different from other Las Vegas communities?",
     answer:
-      "Summerlin offers 150+ parks, 150+ miles of trails, top-rated schools, and stunning Red Rock Canyon views. The Howard Hughes Corporation has developed Summerlin with careful planning since 1990, creating distinct villages each with unique character.",
+      "Summerlin offers 150+ parks, 150+ miles of trails, nearby public schools, and stunning Red Rock Canyon views. The Howard Hughes Corporation has developed Summerlin with careful planning since 1990, creating distinct villages each with unique character.",
   },
   {
     question: "Why should I use a local REALTOR® in Summerlin?",
@@ -57,7 +56,7 @@ const pageSchemas = combineSchemas(
     name: "Summerlin",
     slug: "summerlin",
     description:
-      "Premier master-planned community in Las Vegas featuring Red Rock Canyon views, 150+ parks, top-rated schools, and luxury homes from $400K to $10M+.",
+      "Premier master-planned community in Las Vegas featuring Red Rock Canyon views, 150+ parks, nearby public schools, and luxury homes from $400K to $10M+.",
     latitude: 36.1672,
     longitude: -115.331,
     containedIn: "Las Vegas",
@@ -129,7 +128,7 @@ export default function SummerlinPage() {
               <p>
                 When homebuyers search for the best neighborhoods in Las Vegas, <strong>Summerlin</strong> consistently
                 ranks at the top. As a local REALTOR® specializing in Summerlin
-                real estate, Dr. Jan Duffy has helped hundreds of families find their perfect home in this
+                real estate, Dr. Jan Duffy has helped hundreds of clients find their perfect home in this
                 award-winning master-planned community.
               </p>
               <p>
@@ -140,7 +139,7 @@ export default function SummerlinPage() {
                 enjoy an active, healthy lifestyle that's hard to find elsewhere in the desert Southwest.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong> understands the nuances of each Summerlin village—from the family-friendly atmosphere of
+                <strong>Dr. Jan Duffy</strong> understands the nuances of each Summerlin village—from the atmosphere of
                 The Paseos to the luxury estates of The Ridges. Whether you're a first-time buyer looking at
                 condos in Affinity or a move-up buyer seeking a custom home in Red Rock Country Club, Dr. Jan Duffy has the expertise to guide you through the process.
               </p>
@@ -163,13 +162,12 @@ export default function SummerlinPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <GraduationCap className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Top-Rated Schools</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">Nearby Public Schools</h4>
                   </div>
                   <p className="text-slate-600">
-                    Summerlin is home to some of Nevada's highest-performing schools. The community includes
-                    multiple Blue Ribbon schools, advanced STEM programs, and excellent private school options
-                    like The Meadows School and Bishop Gorman High School. Families consistently choose
-                    Summerlin for its exceptional educational opportunities.
+                    Summerlin is served by Clark County School District campuses, plus private options
+                    like The Meadows School and Bishop Gorman High School. School ratings are public
+                    on the Nevada Report Card, and Dr. Jan can share zoning for any address.
                   </p>
                 </div>
               </div>
@@ -276,7 +274,7 @@ export default function SummerlinPage() {
               <p>
                 Working with a <strong>local REALTOR®</strong> gives you access to listings
                 before they hit the market, expert negotiation skills, and the backing of a globally trusted brand.
-                Dr. Jan Duffy has been in real estate since 1983 and knows Summerlin, which means you'll have insights that online 
+                Dr. Jan Duffy has been licensed since 2008 (35 years in Las Vegas) and knows Summerlin, which means you'll have insights that online 
                 searches simply can't provide—from which streets have the best mountain views to which builders 
                 offer the best construction quality.
               </p>
@@ -287,8 +285,8 @@ export default function SummerlinPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Summerlin isn't just a neighborhood—it's a lifestyle. I've been in real estate since
-                1983, and I can tell you exactly which villages suit young families, which offer the
+                "Summerlin isn't just a neighborhood—it's a lifestyle. I've been licensed since 2008
+                (35 years in Las Vegas), and I can tell you exactly which villages have the floor plans you want, which offer the
                 best investment potential, and where you'll find the hidden gems. That local knowledge is
                 what sets Dr. Jan Duffy apart."
               </blockquote>
@@ -329,7 +327,7 @@ export default function SummerlinPage() {
                   What makes Summerlin different from other Las Vegas communities?
                 </h3>
                 <p className="text-slate-600">
-                  Summerlin offers 150+ parks, 150+ miles of trails, top-rated schools, and stunning
+                  Summerlin offers 150+ parks, 150+ miles of trails, nearby public schools, and stunning
                   Red Rock Canyon views. The Howard Hughes Corporation has developed Summerlin with
                   careful planning since 1990, creating distinct villages each with unique character.
                 </p>
@@ -368,7 +366,6 @@ export default function SummerlinPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

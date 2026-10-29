@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Waves, TreePine, GraduationCap, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Inspirada Henderson",
   description:
-    "Find Inspirada homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in Henderson's resort-style community. Median price $525K. Call (702) 664-8424.",
+    "Find Inspirada homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in Henderson's resort-style community. Median price $525K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Inspirada",
     "Inspirada homes for sale",
@@ -46,7 +45,7 @@ const faqSchema = {
       name: "How are the schools in Inspirada?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Inspirada is served by highly-rated Henderson schools including newer facilities built specifically for the growing community. The area attracts families specifically for its educational options and family-friendly environment.",
+        text: "Inspirada is served by Henderson public schools including newer facilities built for the growing community. Check CCSD and state school data for current ratings.",
       },
     },
     {
@@ -345,7 +344,7 @@ export default function InspiradaPage() {
                 <p className="text-slate-600">
                   Inspirada is served by highly-rated Henderson schools including newer facilities
                   built specifically for the growing community. The area attracts families specifically
-                  for its educational options and family-friendly environment.
+                  for its educational options and parks.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -381,7 +380,6 @@ export default function InspiradaPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -17,3 +17,11 @@ export function resolveCalendlyUrl(url: string): string {
   const slug = trimmed.replace(/^\/+/, "");
   return `https://calendly.com/drjanduffy/${slug}`;
 }
+
+/** Buyer consultation (30 min, phone or Zoom). */
+export const CALENDLY_BUYER_URL =
+  "https://calendly.com/drjanduffy/buyer-consultation-30-min";
+
+/** Listing / home value consultation for sellers (30 min). */
+export const CALENDLY_LISTING_URL =
+  "https://calendly.com/drjanduffy/listing-consultation";

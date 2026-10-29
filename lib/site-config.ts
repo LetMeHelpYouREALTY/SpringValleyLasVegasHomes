@@ -66,10 +66,10 @@ export const teamInfo = {
     name: "Dr. Jan Duffy",
     email: "DrDuffy@SpringValleyLasVegasHomes.com",
   },
+  // Dr. Gene Boyle is CA-licensed (KLB Consultants); no Nevada license is claimed here.
   buyerAgent: {
-    role: "Buyer Agent",
-    name: "Chance Fuller",
-    email: "Chance.Fuller@SpringValleyLasVegasHomes.com",
+    role: "Buyer Specialist",
+    name: "Dr. Gene Boyle",
     phone: "(702) 664-8424",
     phoneTel: "tel:+17026648424",
   },
@@ -78,16 +78,16 @@ export const teamInfo = {
 export const officeInfo = {
   name: "Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    street: "6787 W Tropicana Ave, 2nd Floor",
+    street: "6675 S Tenaya Way #200C",
     city: "Las Vegas",
     state: "NV",
-    zip: "89103",
+    zip: "89113",
     country: "US",
-    full: "6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103, USA",
+    full: "6675 S Tenaya Way #200C, Las Vegas, NV 89113, USA",
   },
   coordinates: {
-    lat: 36.0997,
-    lng: -115.2474,
+    lat: 36.067014,
+    lng: -115.252175,
   },
   phone: "(702) 664-8424",
   phoneTel: "tel:+17026648424",
@@ -110,22 +110,26 @@ export const googleMyMapViewerUrl =
  * Maps search helps users find the correct listing if no short link is set yet.
  */
 export const googleBusinessReviewUrl =
-  "https://www.google.com/maps/search/?api=1&query=6787+W+Tropicana+Ave+2nd+Floor+Las+Vegas+NV+89103+Berkshire+Hathaway+HomeServices";
+  "https://www.google.com/maps/search/?api=1&query=6675+S+Tenaya+Way+%23200C+Las+Vegas+NV+89113";
 
 /**
  * Las Vegas market snapshot — consumed by the homepage market section and related copy.
  * Update `lastUpdated` and `lasVegas` when refreshing figures from your approved MLS/MLS summary or broker stats.
  */
 export const marketStats = {
-  lastUpdated: "January 2026",
+  lastUpdated: "September 2026",
+  // Las Vegas REALTORS September 2026 report, released Oct 6, 2026:
+  // https://members.lasvegasrealtor.com/statistics/pdf/2026-09-GLVAR-Article.pdf
   lasVegas: {
-    medianPrice: 450000,
-    medianPriceFormatted: "$450,000",
-    yearOverYearChange: "+4.2%",
-    daysOnMarket: 28,
-    activeListings: 4850,
-    closedSales: 2340,
-    inventoryMonths: 2.1,
+    source: "Las Vegas REALTORS, September 2026 (released Oct 6, 2026)",
+    sourceUrl: "https://members.lasvegasrealtor.com/statistics/pdf/2026-09-GLVAR-Article.pdf",
+    medianPrice: 470000,
+    medianPriceFormatted: "$470,000",
+    yearOverYearChange: "0.0%",
+    soldWithin60Days: "75.9%",
+    listingsWithoutOffers: 7995,
+    closedSales: 2169,
+    inventoryMonths: 5,
   },
   henderson: {
     medianPrice: 485000,
@@ -151,22 +155,29 @@ export const marketStats = {
   },
 };
 
-/** Single source for hero + reviews aggregate — keep in sync with Google Business Profile when using counts/ratings in UI or JSON-LD */
+/**
+ * Single source for hero + reviews figures. The rating is the public Realtor.com
+ * profile (checked Oct 29, 2026), so every place it shows must name Realtor.com and link
+ * to `reviewSourceUrl`. Not emitted as `aggregateRating` JSON-LD: Google treats ratings a
+ * business shows about itself as self-serving and ineligible for review stars.
+ */
 export const agentStats = {
-  servingSince: 1983,
+  servingSince: 2008,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
-  averageRating: 4.9,
-  reviewCount: 200,
+  averageRating: 5.0,
+  reviewCount: 50,
+  reviewSourceName: "Realtor.com",
+  reviewSourceUrl: "https://www.realtor.com/realestateagents/63340593275bf055fedf5ff1",
 };
 
 // Value Propositions
 export const valuePropositions = {
-  main: "When you work with Dr. Jan Duffy, REALTOR®, you get an advisor in real estate since 1983 who stands for trust, ethical standards, and honest advice.",
+  main: "When you work with Dr. Jan Duffy, REALTOR®, you get an advisor licensed since 2008 · 35 years in Las Vegas who stands for trust, ethical standards, and honest advice.",
   trust:
     "Dr. Jan Duffy offers honest advice, transparent communication, and a referral network that makes relocations seamless.",
   expertise:
-    "In real estate since 1983 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with professional resources.",
+    "Licensed since 2008 · 35 years in Las Vegas with $127M+ in Dr. Duffy Group career sales, Dr. Jan Duffy combines deep local market knowledge with professional resources.",
 };
 
 // Neighborhoods served
@@ -174,16 +185,16 @@ export const neighborhoods = [
   {
     name: "Summerlin",
     slug: "summerlin",
-    description: "Master-planned community with parks, trails, and top-rated schools",
+    description: "Master-planned community with parks, trails, and nearby public schools",
     medianPrice: "$625,000",
-    highlights: ["Red Rock views", "150+ parks", "Top schools", "Golf courses"],
+    highlights: ["Red Rock views", "150+ parks", "Nearby public schools", "Golf courses"],
   },
   {
     name: "Henderson",
     slug: "henderson",
-    description: "Nevada's second-largest city with family-friendly neighborhoods",
+    description: "Nevada's second-largest city with master-planned neighborhoods",
     medianPrice: "$485,000",
-    highlights: ["Low crime rate", "Excellent schools", "Lake Las Vegas", "Green Valley"],
+    highlights: ["Public crime maps", "Nearby public schools", "Lake Las Vegas", "Green Valley"],
   },
   {
     name: "Green Valley",
@@ -211,28 +222,28 @@ export const neighborhoods = [
     slug: "north-las-vegas",
     description: "Rapidly growing area with affordable new construction",
     medianPrice: "$385,000",
-    highlights: ["New construction", "Affordable", "Growing area", "Family-friendly"],
+    highlights: ["New construction", "Affordable", "Growing area"],
   },
   {
     name: "Skye Canyon",
     slug: "skye-canyon",
     description: "Newer master-planned community in northwest Las Vegas",
     medianPrice: "$550,000",
-    highlights: ["New homes", "Mountain views", "Modern amenities", "Great schools"],
+    highlights: ["New homes", "Mountain views", "Modern amenities", "Nearby public schools"],
   },
   {
     name: "Centennial Hills",
     slug: "centennial-hills",
     description: "Northwest Las Vegas community with mountain proximity",
     medianPrice: "$495,000",
-    highlights: ["Mountain access", "Parks", "Shopping", "Family-friendly"],
+    highlights: ["Mountain access", "Parks", "Shopping"],
   },
   {
     name: "Inspirada",
     slug: "inspirada",
     description: "Henderson master-planned community with resort-style living",
     medianPrice: "$525,000",
-    highlights: ["Resort pools", "Walking trails", "New construction", "Great schools"],
+    highlights: ["Resort pools", "Walking trails", "New construction", "Nearby public schools"],
   },
   {
     name: "Mountains Edge",
@@ -318,7 +329,7 @@ export const expertQuotes = {
   investment: `"Las Vegas rental yields are among the best in the country right now. But you need to know which neighborhoods are appreciating and which have peaked."`,
   relocation: `"Moving to a new city is stressful enough. I handle everything from neighborhood tours to school research to contractor referrals so you can focus on your new beginning."`,
   newConstruction: `"Builders have sales agents who work for them, not you. Having your own representation costs you nothing but can save you tens of thousands in upgrades and negotiations."`,
-  valueProposition: `"When clients ask why they should choose me, I tell them: you're getting someone in real estate since 1983, world-class marketing, and an advisor who puts your interests first."`,
+  valueProposition: `"When clients ask why they should choose me, I tell them: you're getting someone licensed since 2008 · 35 years in Las Vegas, world-class marketing, and an advisor who puts your interests first."`,
 };
 
 // Common FAQs
@@ -327,7 +338,7 @@ export const commonFAQs = {
     {
       question: "Why should I choose a local REALTOR®?",
       answer:
-        "Dr. Jan Duffy has been in real estate since 1983 and brings ethical standards, honest advice, and a strong referral network. When you're making the biggest purchase of your life, that trust matters.",
+        "Dr. Jan Duffy has been licensed since 2008 (35 years in Las Vegas) and brings ethical standards, honest advice, and a strong referral network. When you're making the biggest purchase of your life, that trust matters.",
     },
     {
       question: "What areas does Dr. Jan Duffy cover?",
@@ -342,7 +353,7 @@ export const commonFAQs = {
     {
       question: "What is Dr. Jan Duffy's experience in Las Vegas real estate?",
       answer:
-        "Dr. Jan Duffy has been in real estate since 1983, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
+        "Dr. Jan Duffy has been licensed since 2008 (35 years in Las Vegas), with $127M+ in Dr. Duffy Group career sales and 500+ team sales. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
     },
   ],
   buying: [
@@ -366,7 +377,7 @@ export const commonFAQs = {
     {
       question: "What is my home worth in today's Las Vegas market?",
       answer:
-        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise in real estate since 1983.",
+        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise (licensed since 2008, 35 years in Las Vegas).",
     },
     {
       question: "How long will it take to sell my home?",

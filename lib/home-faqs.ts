@@ -18,7 +18,7 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "Is Spring Valley a good area to buy a home in Las Vegas?",
     answer:
-      "Many buyers choose Spring Valley for mature neighborhoods, central access to employment corridors, and a wide range of price points compared with some master-planned communities. Whether Spring Valley is right for you depends on schools, commute, HOA rules, and the specific block—not just the ZIP. We help you compare Spring Valley with nearby west valley options using real listings and market data.",
+      "Many buyers choose Spring Valley for older neighborhoods, central access to employment corridors, and a wide range of price points compared with some master-planned communities. Whether Spring Valley is right for you depends on schools, commute, HOA rules, and the specific block—not just the ZIP. We help you compare Spring Valley with nearby west valley options using real listings and market data.",
   },
   {
     question: "Do you help sellers list Spring Valley Las Vegas homes?",
@@ -33,6 +33,6 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "How do I contact Dr. Jan Duffy about Spring Valley real estate?",
     answer:
-      "Contact Team Leader Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com or buyer specialist Chance Fuller at Chance.Fuller@SpringValleyLasVegasHomes.com. Call or text (702) 664-8424. Office: 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103.",
+      "Contact Team Leader Dr. Jan Duffy at DrDuffy@SpringValleyLasVegasHomes.com or ask for buyer specialist Dr. Gene Boyle. Call or text (702) 664-8424. Office: 6675 S Tenaya Way #200C, Las Vegas, NV 89113.",
   },
 ];

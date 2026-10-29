@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
 import Link from "next/link";
 import {
@@ -61,7 +60,7 @@ const faqSchema = {
       name: "What neighborhoods are best for first-time buyers in Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Top neighborhoods for first-time buyers include North Las Vegas ($350K-$450K), Mountains Edge ($380K-$480K), and Centennial Hills ($398K median). These areas offer new construction options, good schools, and strong appreciation potential.",
+        text: "Top neighborhoods for first-time buyers include North Las Vegas ($350K-$450K), Mountains Edge ($380K-$480K), and Centennial Hills ($398K median). These areas offer new construction options, nearby public schools, and strong appreciation potential.",
       },
     },
     {
@@ -121,7 +120,6 @@ export default function FirstTimeBuyersPage() {
 
         <BuyerEngagementStrip browseListingsHref="#featured-properties" />
 
-        <RealScoutListings />
 
         <div className="container mx-auto px-4">
           {/* Financing Options */}
@@ -240,7 +238,7 @@ export default function FirstTimeBuyersPage() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Family-friendly
+                    Parks nearby
                   </li>
                 </ul>
                 <Link
@@ -254,17 +252,17 @@ export default function FirstTimeBuyersPage() {
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">Centennial Hills</h3>
-                  <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">Top Schools</span>
+                  <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">Nearby Public Schools</span>
                 </div>
                 <div className="text-2xl font-bold text-blue-600 mb-2">$398K Median</div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Northwest Las Vegas near Centennial Hills Hospital. Excellent schools,
-                  family parks, and Red Rock Canyon proximity.
+                  Northwest Las Vegas near Centennial Hills Hospital. Nearby public schools,
+                  neighborhood parks, and Red Rock Canyon proximity.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Highly-rated schools
+                    Nearby public schools
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -504,8 +502,8 @@ export default function FirstTimeBuyersPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Buying your first home is exciting AND overwhelming. My job is to make it less
                 overwhelming. I walk first-time buyers through every step, explain everything in
-                plain English, and make sure you're confident in your decision. In real estate since
-                1983, I have resources and connections that help first-time buyers succeed."
+                plain English, and make sure you're confident in your decision. Licensed since 2008 ·
+                35 years in Las Vegas, I have resources and connections that help first-time buyers succeed."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®

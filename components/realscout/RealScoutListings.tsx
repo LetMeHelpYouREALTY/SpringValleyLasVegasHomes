@@ -1,27 +1,44 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { realScoutConfig } from "@/lib/integrations";
 
+/**
+ * RealScout office listings band. Rendered site-wide from `Footer` (Dr. Jan's rule, 2026-10-29:
+ * office listings on every page); pages that already place it higher pass
+ * `showOfficeListings={false}` to Footer so it never appears twice.
+ */
 export default function RealScoutListings() {
   return (
-    <section id="featured-properties" className="py-16 md:py-24 bg-slate-50 scroll-mt-20">
+    <section
+      id="featured-properties"
+      className="scroll-mt-20 border-t border-bronze-100 bg-ivory py-16 md:py-24"
+      aria-labelledby="office-listings-heading"
+    >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Homes for sale — Las Vegas & Henderson
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-xs font-medium uppercase tracking-eyebrow text-bronze-700">
+              Office listings
+            </p>
+            <h2
+              id="office-listings-heading"
+              className="mb-4 text-3xl text-ink md:text-4xl lg:text-5xl"
+            >
+              Homes for sale — Las Vegas &amp; Henderson
             </h2>
-            <p className="text-slate-600 text-lg">
-              Explore live MLS listings with photos, prices, and map—tap a property to dive deeper or
-              adjust filters to match how you want to live.
+            <p className="text-base text-slate-600 md:text-lg">
+              Live MLS listings with photos, prices, and map. Tap a property for
+              details, or open the full search to set your own filters.
             </p>
           </div>
-          <Button asChild variant="outline" className="mt-4 md:mt-0">
-            <a href={`${realScoutConfig.portalUrl}/`} target="_blank" rel="noopener noreferrer">
-              Open full MLS search
-            </a>
-          </Button>
+          <a
+            href={`${realScoutConfig.portalUrl}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center border border-ink px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-ivory"
+          >
+            Open full MLS search
+          </a>
         </div>
 
         {/* RealScout Widget - using dangerouslySetInnerHTML per rules */}

@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Mountain, TreePine, DollarSign, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Mountains Edge Southwest Las Vegas",
   description:
-    "Find Mountains Edge homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this southwest Las Vegas community. Median price $475K. Call (702) 664-8424.",
+    "Find Mountains Edge homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this southwest Las Vegas community. Median price $475K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Mountains Edge",
     "Mountains Edge homes for sale",
@@ -141,7 +140,7 @@ export default function MountainsEdgePage() {
                 <strong>Dr. Jan Duffy</strong> serves Mountains
                 Edge buyers with the same commitment to excellence we bring to the valley's luxury
                 markets. Dr. Jan Duffy understands that value doesn't mean compromise—it means
-                finding the right home at the right price. For families priced out of Summerlin
+                finding the right home at the right price. For buyers priced out of Summerlin
                 or Henderson, Mountains Edge delivers comparable lifestyle at accessible prices.
               </p>
 
@@ -383,7 +382,6 @@ export default function MountainsEdgePage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

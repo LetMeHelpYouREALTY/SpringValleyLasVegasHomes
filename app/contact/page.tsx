@@ -1,7 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import AgentHeadshot from "@/components/shared/AgentHeadshot";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield } from "lucide-react";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
@@ -27,7 +26,7 @@ const officeMapQuery = encodeURIComponent(
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Dr. Jan Duffy's team. Team Leader and Buyer Agent contacts, office map, and Calendly. Call (702) 664-8424.",
+    "Contact Dr. Jan Duffy's team. Team Leader and Buyer Specialist contacts, office map, and Calendly. Call (702) 664-8424.",
   keywords: [
     "contact real estate agent Las Vegas",
     "Berkshire Hathaway contact",
@@ -60,9 +59,9 @@ const contactSchema = {
   },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
   const zipFromQuery = preferredZipFromCookie(
-    cookies().get(PREFERRED_ZIP_COOKIE)?.value,
+    (await cookies()).get(PREFERRED_ZIP_COOKIE)?.value,
   );
   const mailtoZip =
     zipFromQuery &&
@@ -122,8 +121,8 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h2>
               <p className="text-slate-700 mb-8">
                 Whether you're buying your first home, selling a luxury property, or exploring
-                investment opportunities, our team provides expert guidance. In real estate since 1983
-                with $127M+ in closed transactions.
+                investment opportunities, our team provides expert guidance. Licensed since 2008 · 35 years in Las Vegas
+                with $127M+ in Dr. Duffy Group career sales.
               </p>
 
               {/* Team */}
@@ -150,12 +149,6 @@ export default function ContactPage() {
                     {teamInfo.buyerAgent.role}
                   </p>
                   <p className="font-bold text-slate-900">{teamInfo.buyerAgent.name}</p>
-                  <a
-                    href={`mailto:${teamInfo.buyerAgent.email}`}
-                    className="text-blue-600 hover:text-blue-700 text-sm break-all"
-                  >
-                    {teamInfo.buyerAgent.email}
-                  </a>
                   <p className="mt-2 text-sm text-slate-600">
                     <a href={teamInfo.buyerAgent.phoneTel} className="font-medium text-blue-600">
                       {teamInfo.buyerAgent.phone}
@@ -264,7 +257,7 @@ export default function ContactPage() {
               <div className="p-4 bg-blue-50 rounded-lg">
                 <p className="text-sm text-slate-700">
                   <strong>Dr. Jan Duffy, REALTOR®</strong><br />
-                  In real estate since 1983
+                  Licensed since 2008 · 35 years in Las Vegas
                 </p>
               </div>
             </div>
@@ -290,13 +283,13 @@ export default function ContactPage() {
                   <div className="flex items-start">
                     <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Trusted Advisor:</strong> In real estate since 1983, with honest advice in every transaction.
+                      <strong className="text-white">Trusted Advisor:</strong> Licensed since 2008 · 35 years in Las Vegas, with honest advice in every transaction.
                     </p>
                   </div>
                   <div className="flex items-start">
                     <Star className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Proven Results:</strong> $127M+ in closed transactions in real estate since 1983.
+                      <strong className="text-white">Proven Results:</strong> $127M+ in Dr. Duffy Group career sales licensed since 2008 · 35 years in Las Vegas.
                     </p>
                   </div>
                   <div className="flex items-start">
@@ -407,7 +400,6 @@ export default function ContactPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );
