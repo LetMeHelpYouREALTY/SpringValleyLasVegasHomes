@@ -168,7 +168,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: `Call or text (702) 664-8424 or email ${agentInfo.email}. Buyer agent Chance Fuller: ${teamInfo.buyerAgent.email}. Office: ${officeInfo.address.full}.`,
+        a: `Call or text (702) 664-8424 or email ${agentInfo.email}. Buyer specialist: ${teamInfo.buyerAgent.name}. Office: ${officeInfo.address.full}.`,
       },
       {
         q: "What areas does Dr. Jan cover?",

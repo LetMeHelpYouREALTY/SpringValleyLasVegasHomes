@@ -26,7 +26,7 @@ const officeMapQuery = encodeURIComponent(
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Dr. Jan Duffy's team. Team Leader and Buyer Agent contacts, office map, and Calendly. Call (702) 664-8424.",
+    "Contact Dr. Jan Duffy's team. Team Leader and Buyer Specialist contacts, office map, and Calendly. Call (702) 664-8424.",
   keywords: [
     "contact real estate agent Las Vegas",
     "Berkshire Hathaway contact",
@@ -149,12 +149,6 @@ export default function ContactPage() {
                     {teamInfo.buyerAgent.role}
                   </p>
                   <p className="font-bold text-slate-900">{teamInfo.buyerAgent.name}</p>
-                  <a
-                    href={`mailto:${teamInfo.buyerAgent.email}`}
-                    className="text-blue-600 hover:text-blue-700 text-sm break-all"
-                  >
-                    {teamInfo.buyerAgent.email}
-                  </a>
                   <p className="mt-2 text-sm text-slate-600">
                     <a href={teamInfo.buyerAgent.phoneTel} className="font-medium text-blue-600">
                       {teamInfo.buyerAgent.phone}
