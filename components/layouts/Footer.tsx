@@ -146,7 +146,7 @@ export default function Footer({ showOfficeListings = true }: FooterProps) {
               </li>
             </ul>
             <p className="text-slate-400 text-xs font-semibold uppercase tracking-wide mb-2">
-              {teamInfo.buyerAgent.role}
+              {teamInfo.buyerAgent.role} · {teamInfo.buyerAgent.name}
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
@@ -156,15 +156,6 @@ export default function Footer({ showOfficeListings = true }: FooterProps) {
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
                   {teamInfo.buyerAgent.phone}
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-bronze-400 flex-shrink-0" />
-                <Link
-                  href={`mailto:${teamInfo.buyerAgent.email}`}
-                  className="text-slate-300 hover:text-white transition-colors text-sm break-all"
-                >
-                  {teamInfo.buyerAgent.email}
                 </Link>
               </li>
             </ul>

@@ -66,10 +66,10 @@ export const teamInfo = {
     name: "Dr. Jan Duffy",
     email: "DrDuffy@SpringValleyLasVegasHomes.com",
   },
+  // Dr. Gene Boyle is CA-licensed (KLB Consultants); no Nevada license is claimed here.
   buyerAgent: {
-    role: "Buyer Agent",
-    name: "Chance Fuller",
-    email: "Chance.Fuller@SpringValleyLasVegasHomes.com",
+    role: "Buyer Specialist",
+    name: "Dr. Gene Boyle",
     phone: "(702) 664-8424",
     phoneTel: "tel:+17026648424",
   },
