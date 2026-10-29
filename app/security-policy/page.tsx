@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Navbar from '@/components/layouts/Navbar'
+import Footer from '@/components/layouts/Footer'
 import { agentInfo, siteConfig } from '@/lib/site-config'
 
 const siteHost = new URL(siteConfig.url).hostname
@@ -17,7 +19,9 @@ export const metadata: Metadata = {
 
 export default function SecurityPolicyPage() {
   return (
-    <div className="min-h-screen bg-white py-12">
+    <>
+    <Navbar />
+    <main id="main-content" className="min-h-screen bg-white pb-12 pt-28">
       <div className="container mx-auto max-w-4xl px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">
           Security Policy
@@ -277,6 +281,8 @@ export default function SecurityPolicyPage() {
           </footer>
         </div>
       </div>
-    </div>
+    </main>
+    <Footer />
+    </>
   )
 }

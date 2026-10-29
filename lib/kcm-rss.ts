@@ -5,7 +5,7 @@
 
 import Parser from "rss-parser";
 import { kcmConfig } from "@/lib/integrations";
-import { absoluteMediaUrl, heroBackgroundSrcs } from "@/lib/site-media";
+import { absoluteMediaUrl, springValleyMarketingOgSrc } from "@/lib/site-media";
 
 /** Align with Next.js fetch cache for RSS (ISR-style refresh). */
 export const KCM_FEED_REVALIDATE_SECONDS = 3600;
@@ -90,7 +90,7 @@ export function kcmHubPreferredImage(items: KcmFeedItem[]): string {
   const first = items[0];
   const raw = first?.image?.trim();
   if (raw && /^https?:\/\//i.test(raw)) return raw;
-  return absoluteMediaUrl(heroBackgroundSrcs[0]);
+  return absoluteMediaUrl(springValleyMarketingOgSrc);
 }
 
 export async function getKcmFeedItems(limit = 9): Promise<KcmFeedItem[]> {

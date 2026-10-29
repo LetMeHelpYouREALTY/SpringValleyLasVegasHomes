@@ -78,16 +78,16 @@ export const teamInfo = {
 export const officeInfo = {
   name: "Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    street: "6787 W Tropicana Ave, 2nd Floor",
+    street: "6675 S Tenaya Way #200C",
     city: "Las Vegas",
     state: "NV",
-    zip: "89103",
+    zip: "89113",
     country: "US",
-    full: "6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103, USA",
+    full: "6675 S Tenaya Way #200C, Las Vegas, NV 89113, USA",
   },
   coordinates: {
-    lat: 36.0997,
-    lng: -115.2474,
+    lat: 36.067014,
+    lng: -115.252175,
   },
   phone: "(702) 664-8424",
   phoneTel: "tel:+17026648424",
@@ -110,7 +110,7 @@ export const googleMyMapViewerUrl =
  * Maps search helps users find the correct listing if no short link is set yet.
  */
 export const googleBusinessReviewUrl =
-  "https://www.google.com/maps/search/?api=1&query=6787+W+Tropicana+Ave+2nd+Floor+Las+Vegas+NV+89103+Berkshire+Hathaway+HomeServices";
+  "https://www.google.com/maps/search/?api=1&query=6675+S+Tenaya+Way+%23200C+Las+Vegas+NV+89113";
 
 /**
  * Las Vegas market snapshot — consumed by the homepage market section and related copy.

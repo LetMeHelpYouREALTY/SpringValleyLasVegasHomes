@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import BuyerEngagementStrip from "@/components/sections/BuyerEngagementStrip";
 import Link from "next/link";
 import {
@@ -151,7 +150,6 @@ export default function CaliforniaRelocatorPage() {
 
         <BuyerEngagementStrip browseListingsHref="#featured-properties" />
 
-        <RealScoutListings />
 
         <div className="container mx-auto px-4">
           {/* Tax Savings Comparison */}

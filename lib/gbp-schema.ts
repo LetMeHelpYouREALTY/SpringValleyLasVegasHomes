@@ -10,10 +10,10 @@ export const businessInfo = {
   // NAP - Must match GBP exactly
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    streetAddress: "6787 W Tropicana Ave, 2nd Floor",
+    streetAddress: "6675 S Tenaya Way #200C",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
-    postalCode: "89103",
+    postalCode: "89113",
     addressCountry: "US",
   },
   phone: {
@@ -167,7 +167,7 @@ Dr. Jan's approach is simple: treat every client like family, know the market in
 
 55+ active adult community specialization covers Sun City Summerlin (Nevada's largest 55+ community), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Investment property expertise spans single-family rentals, multi-family opportunities, and short-term rental analysis across the Las Vegas metro area.
 
-Office located at 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 664-8424 for a free consultation or visit ${siteHostname} to start your Las Vegas real estate journey today.`,
+Office located at 6675 S Tenaya Way #200C, Las Vegas, NV 89113. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 664-8424 for a free consultation or visit ${siteHostname} to start your Las Vegas real estate journey today.`,
 };
 
 // FAQ Schema for GBP Q&A section
@@ -206,7 +206,7 @@ export const gbpFAQs = [
   },
   {
     question: "How do I schedule a consultation with Dr. Jan Duffy?",
-    answer: `Call or text (702) 664-8424 for immediate assistance, or email ${agentInfo.email}. Office visits available at 6787 W Tropicana Ave, 2nd Floor, Las Vegas, NV 89103. Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday by appointment.`,
+    answer: `Call or text (702) 664-8424 for immediate assistance, or email ${agentInfo.email}. Office visits available at 6675 S Tenaya Way #200C, Las Vegas, NV 89113. Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday by appointment.`,
   },
   {
     question: "Does Dr. Jan help with investment properties in Las Vegas?",

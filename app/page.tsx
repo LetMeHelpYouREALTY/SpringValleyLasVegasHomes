@@ -7,6 +7,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
+import BookingSection from "@/components/sections/BookingSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -173,8 +174,10 @@ export default function Home() {
           </div>
         </section>
 
+        <BookingSection />
+
         {/* Market snapshot — figures from site-config `marketStats` (update with source of truth) */}
-        <section className="py-16 bg-slate-900 text-white" aria-labelledby="market-snapshot-heading">
+        <section className="py-16 bg-ink text-ivory" aria-labelledby="market-snapshot-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 id="market-snapshot-heading" className="text-3xl md:text-4xl font-bold mb-4">
@@ -294,31 +297,31 @@ export default function Home() {
         />
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-blue-600 text-white">
+        <section className="py-20 md:py-28 bg-ink text-ivory">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Work with Dr. Jan Duffy?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-ivory/80 mb-8 max-w-2xl mx-auto">
               Whether you're buying, selling, or investing in Las Vegas real estate, Dr. Jan Duffy
               is here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+17026648424"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center justify-center bg-ivory text-ink px-8 py-4 font-semibold text-lg hover:bg-bronze-100 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call (702) 664-8424
               </a>
               <Link
-                href="/contact"
-                className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
+                href="/#book-consultation"
+                className="inline-block border border-bronze-300 text-ivory hover:bg-bronze-700 px-8 py-4 font-semibold text-lg transition-colors"
               >
-                Send a Message
+                Book a Consultation
               </Link>
             </div>
-            <p className="mt-6 text-blue-200 text-sm">
+            <p className="mt-6 text-bronze-300 text-sm">
               Dr. Jan Duffy, REALTOR® | In real estate since 1983
             </p>
           </div>
@@ -329,7 +332,7 @@ export default function Home() {
           Last Updated: January 2026 | {siteConfig.name}
         </div>
       </main>
-      <Footer />
+      <Footer showOfficeListings={false} />
     </>
   );
 }
