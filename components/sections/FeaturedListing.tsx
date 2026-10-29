@@ -59,6 +59,9 @@ export default function FeaturedListing({ phone, phoneHref }: FeaturedListingPro
             </h2>
             <p className="text-2xl font-bold text-slate-900 md:text-3xl">{l.price}</p>
           </div>
+          <p className="mt-1 text-slate-700">
+            Listing offered by {l.listingOffice} · Listing agent Dr. Jan Duffy · MLS #{l.mlsNumber}
+          </p>
           <p className="mt-3 text-lg font-semibold text-slate-800">{l.headline}</p>
           <p className="mt-2 text-slate-700">{l.summary}</p>
           <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -82,12 +85,11 @@ export default function FeaturedListing({ phone, phoneHref }: FeaturedListingPro
               href={phoneHref}
               className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:bg-slate-100"
             >
-              Call {phone} to tour
+              Call Dr. Jan Duffy at {phone} to tour
             </a>
           </div>
           <p className="mt-4 text-xs text-slate-500">
-            Listing offered by {l.listingOffice} · MLS #{l.mlsNumber} · Source: GLVAR. Information
-            deemed reliable but not guaranteed.
+            Source: GLVAR. Information deemed reliable but not guaranteed.
           </p>
         </div>
       </div>
