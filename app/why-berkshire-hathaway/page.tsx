@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   title: "Why Work With Dr. Jan Duffy",
   description:
-    "Why work with Dr. Jan Duffy, REALTOR®: in real estate since 1983, $127M+ in closed transactions, and deep knowledge of Las Vegas, Henderson, and Summerlin neighborhoods.",
+    "Why work with Dr. Jan Duffy, REALTOR®: licensed since 2008 · 35 years in Las Vegas, $127M+ in Dr. Duffy Group career sales, and deep knowledge of Las Vegas, Henderson, and Summerlin neighborhoods.",
   keywords: [
     "Berkshire Hathaway HomeServices",
     "why choose BHHS",
@@ -51,14 +51,13 @@ export default function WhyBerkshireHathawayPage() {
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              In Real Estate Since 1983
+              Licensed Since 2008 · 35 Years in Las Vegas
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Why Work With Dr. Jan Duffy?
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              When you work with Dr. Jan Duffy, REALTOR®, you get an advisor who has been in real
-              estate since 1983 and who puts trust, ethical standards, and honest advice first.
+              When you work with Dr. Jan Duffy, REALTOR®, you get an advisor who has been licensed since 2008 (35 years in Las Vegas) and who puts trust, ethical standards, and honest advice first.
             </p>
           </div>
 
@@ -129,7 +128,7 @@ export default function WhyBerkshireHathawayPage() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Proven Results</h3>
                 <p className="text-slate-600">
-                  $127M+ in closed transactions and 500+ satisfied clients across Southern Nevada.
+                  $127M+ in Dr. Duffy Group career sales and 500+ team sales across Southern Nevada.
                 </p>
               </div>
             </div>
@@ -144,14 +143,14 @@ export default function WhyBerkshireHathawayPage() {
                 </h2>
                 <p className="text-lg text-slate-700 mb-6">
                   Dr. Jan Duffy serves Las Vegas, Henderson, Summerlin, and all of Southern Nevada.
-                  In real estate since 1983 with $127M+ in closed transactions, she pairs deep
+                  Licensed since 2008 · 35 years in Las Vegas with $127M+ in Dr. Duffy Group career sales, she pairs deep
                   experience with hometown expertise.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
-                    "In real estate since 1983",
-                    "$127M+ in closed transactions",
-                    "500+ satisfied clients",
+                    "Licensed since 2008 · 35 years in Las Vegas",
+                    "$127M+ in Dr. Duffy Group career sales",
+                    "500+ team sales",
                     "Specializing in luxury, investment, and relocation",
                     "Deep knowledge of every Las Vegas neighborhood",
                   ].map((item) => (
@@ -190,7 +189,7 @@ export default function WhyBerkshireHathawayPage() {
               {[
                 {
                   q: "How long has Dr. Jan Duffy been in real estate?",
-                  a: "Dr. Jan Duffy has been in real estate since 1983, with $127M+ in closed transactions and 500+ satisfied clients across Las Vegas, Henderson, and Summerlin.",
+                  a: "Dr. Jan Duffy has been licensed since 2008 (35 years in Las Vegas), with $127M+ in Dr. Duffy Group career sales and 500+ team sales across Las Vegas, Henderson, and Summerlin.",
                 },
                 {
                   q: "Does working with Dr. Jan cost more?",
@@ -215,7 +214,7 @@ export default function WhyBerkshireHathawayPage() {
               Experience the Difference
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Ready to work with a REALTOR® in real estate since 1983? Contact Dr. Jan Duffy today.
+              Ready to work with a REALTOR® licensed since 2008 · 35 years in Las Vegas? Contact Dr. Jan Duffy today.
             </p>
             <a
               href="tel:+17026648424"

@@ -298,7 +298,7 @@ export default async function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Tech corridor growth, safety rankings, and quality of life driving consistent demand.
+                  Tech corridor growth, 60+ city parks, and no state income tax driving consistent demand.
                   Expect continued 4-6% appreciation.
                 </p>
                 <div className="text-sm text-slate-500">

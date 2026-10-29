@@ -221,7 +221,7 @@ export default function ListingsPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Each Las Vegas neighborhood offers a unique lifestyle, from the resort-style living 
               of Summerlin to the communities of Henderson. Understanding these 
-              differences is crucial to finding a home that fits your needs. As a local REALTOR® in real estate since 1983, Dr. Jan Duffy provides 
+              differences is crucial to finding a home that fits your needs. As a local REALTOR® licensed since 2008 · 35 years in Las Vegas, Dr. Jan Duffy provides 
               expert guidance on which neighborhoods match your priorities—whether that's schools, 
               commute times, amenities, or investment potential.
             </p>
@@ -257,8 +257,7 @@ export default function ListingsPage() {
             </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               In today's competitive Las Vegas market, having expert representation can mean the 
-              difference between winning your dream home and losing out. Dr. Jan Duffy, in real
-              estate since 1983, brings deep local market knowledge to every search.
+              difference between winning your dream home and losing out. Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, brings deep local market knowledge to every search.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
@@ -276,7 +275,7 @@ export default function ListingsPage() {
                 </div>
                 <h3 className="font-bold mb-2">Expert Negotiation</h3>
                 <p className="text-slate-400 text-sm">
-                  $127M+ in closed transactions means proven negotiation skills on your behalf
+                  $127M+ in Dr. Duffy Group career sales means proven negotiation skills on your behalf
                 </p>
               </div>
               <div className="text-center">

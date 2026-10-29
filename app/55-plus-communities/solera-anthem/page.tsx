@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   title: "Solera at Anthem 55+ Homes",
   description:
-    "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, close-knit atmosphere. Dr. Jan Duffy, REALTOR®. Call (702) 664-8424.",
+    "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, about 1,200 homes. Dr. Jan Duffy, REALTOR®. Call (702) 664-8424.",
   keywords: [
     "Solera at Anthem homes for sale",
     "Solera Anthem Henderson",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Solera at Anthem - Intimate Guard-Gated 55+ in Henderson",
     description:
-      "Close-knit community with guard-gated security. Lower HOA fees, Henderson safety. From $380K. Dr. Jan Duffy, REALTOR®.",
+      "About 1,200 homes with a guard-gated entry. Lower HOA fees, Henderson location. From $380K. Dr. Jan Duffy, REALTOR®.",
     type: "website",
   },
 };
@@ -92,7 +92,7 @@ export default function SoleraAnthemPage() {
               Solera at Anthem
             </h1>
             <p className="text-xl text-slate-600">
-              The close-knit alternative to mega-communities. Guard-gated security
+              About 1,200 homes instead of 7,000+. Guard-gated entry
               in Henderson.
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function SoleraAnthemPage() {
                 rare in Las Vegas 55+ living—a genuinely intimate community where
                 neighbors become friends. With approximately 1,200 homes, Solera
                 is significantly smaller than Sun City's 7,000+ home developments,
-                creating a close-knit atmosphere that larger communities simply
+                creating a smaller-scale setting that larger communities simply
                 can't replicate.
               </p>
               <p>
@@ -260,12 +260,11 @@ export default function SoleraAnthemPage() {
                   <Shield className="h-6 w-6 text-teal-600 mr-3 flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">
-                      Top Safety Rankings
+                      Guard-Gated Entry
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Henderson Police publish a 90-day crime map online within the
-                      cities in America. Double security: Henderson's safety plus
-                      Solera's guard gate.
+                      Staffed guard gate at the community entrance. Henderson Police
+                      publish a 90-day crime map online.
                     </p>
                   </div>
                 </div>
@@ -350,8 +349,7 @@ export default function SoleraAnthemPage() {
                     Guard-gated entry in Henderson
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    Double layer of security: Henderson's safety record plus 24/7
-                    guard gate
+                    24/7 staffed guard gate at the community entrance
                   </p>
                 </div>
               </div>
@@ -393,7 +391,7 @@ export default function SoleraAnthemPage() {
               Experience Intimate 55+ Living
             </h2>
             <p className="text-xl text-teal-100 mb-8">
-              Discover why Solera at Anthem offers the close-knit community
+              Discover why Solera at Anthem offers a smaller-scale community
               experience larger developments can't match. Tour with Dr. Jan Duffy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">

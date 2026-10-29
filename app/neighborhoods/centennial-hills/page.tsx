@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Centennial Hills Las Vegas Homes",
   description:
-    "Find Centennial Hills homes with Dr. Jan Duffy, REALTOR®, in real estate since 1983. She specializes in this established northwest community. Median price $495K. Call (702) 664-8424.",
+    "Find Centennial Hills homes with Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. She specializes in this established northwest community. Median price $495K. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices Centennial Hills",
     "Centennial Hills homes for sale",
@@ -34,10 +34,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is Centennial Hills a good family neighborhood?",
+      name: "What amenities and schools serve Centennial Hills?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with nearby public schools, streets, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
+        text: "Centennial Hills has nearby public schools, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
       },
     },
     {
@@ -119,7 +119,7 @@ export default function CentennialHillsPage() {
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Centennial Hills: Northwest Las Vegas's Established Family Community
+                Centennial Hills: Northwest Las Vegas's Established Master-Planned Community
               </h2>
               <p>
                 <strong>Centennial Hills</strong> represents the best of established northwest Las Vegas
@@ -137,7 +137,7 @@ export default function CentennialHillsPage() {
                 Hills' urban conveniences would suggest.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, knows
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, knows
                 which streets offer the best mountain views, which school zones are most sought-after,
                 and which HOAs maintain their communities to the highest standards. This deep local
                 knowledge, combined with a commitment to client service, ensures Centennial
@@ -150,7 +150,7 @@ export default function CentennialHillsPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Established Family Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">Established Master-Planned Community</h4>
                   </div>
                   <p className="text-slate-600">
                     Centennial Hills has matured into a true community where neighbors know each other
@@ -177,7 +177,8 @@ export default function CentennialHillsPage() {
               <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Centennial Hills School Districts</h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Centennial Hills is served by established, well-regarded schools with proven track records:
+                  Centennial Hills is served by Clark County School District schools, including Arbor View,
+                  Centennial, and Shadow Ridge high schools, depending on the address:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
@@ -333,11 +334,10 @@ export default function CentennialHillsPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Is Centennial Hills a good family neighborhood?
+                  What amenities and schools serve Centennial Hills?
                 </h3>
                 <p className="text-slate-600">
-                  Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with
-                  nearby public schools, streets, multiple parks including Centennial Hills
+                  Centennial Hills has nearby public schools, multiple parks including Centennial Hills
                   Park, and convenient shopping at Centennial Center.
                 </p>
               </div>
@@ -371,7 +371,7 @@ export default function CentennialHillsPage() {
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Centennial Hills expert,
-              for guidance in this established family community.
+              for guidance in this established master-planned community.
             </p>
             <a
               href="tel:+17026648424"

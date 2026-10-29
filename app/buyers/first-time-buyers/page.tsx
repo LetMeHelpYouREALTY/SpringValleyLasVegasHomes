@@ -257,7 +257,7 @@ export default function FirstTimeBuyersPage() {
                 <div className="text-2xl font-bold text-blue-600 mb-2">$398K Median</div>
                 <p className="text-slate-600 text-sm mb-4">
                   Northwest Las Vegas near Centennial Hills Hospital. Nearby public schools,
-                  family parks, and Red Rock Canyon proximity.
+                  neighborhood parks, and Red Rock Canyon proximity.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
@@ -502,8 +502,8 @@ export default function FirstTimeBuyersPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Buying your first home is exciting AND overwhelming. My job is to make it less
                 overwhelming. I walk first-time buyers through every step, explain everything in
-                plain English, and make sure you're confident in your decision. In real estate since
-                1983, I have resources and connections that help first-time buyers succeed."
+                plain English, and make sure you're confident in your decision. Licensed since 2008 ·
+                35 years in Las Vegas, I have resources and connections that help first-time buyers succeed."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®

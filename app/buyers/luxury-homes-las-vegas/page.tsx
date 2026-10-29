@@ -48,7 +48,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What are the most exclusive luxury communities in Las Vegas?",
+      name: "Which Las Vegas luxury communities are guard-gated?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "The Ridges in Summerlin ($1.5M-$10M+) is the valley's most prestigious address. MacDonald Highlands and Ascaya in Henderson ($2M-$15M) offer Strip views. For high-rise luxury, Waldorf Astoria, Veer Towers, and Panorama Towers dominate the Strip corridor.",
@@ -223,7 +223,7 @@ export default function LuxuryHomesPage() {
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Henderson safety & schools
+                      Foothill and Coronado high school zones
                     </li>
                   </ul>
                   <Link
@@ -378,7 +378,7 @@ export default function LuxuryHomesPage() {
               <blockquote className="text-lg italic mb-4">
                 "Luxury buyers expect discretion, market expertise, and flawless execution. In this
                 price range, one wrong move can cost hundreds of thousands of dollars. My clients
-                trust me because I've closed $127M+ in transactions and understand that their time
+                trust me because I've led the Dr. Duffy Group to $127M+ in career sales and understand that their time
                 and privacy are worth more than any commission. Dr. Jan Duffy provides the global resources and credibility that luxury transactions demand."
               </blockquote>
               <cite className="text-slate-300 font-semibold">

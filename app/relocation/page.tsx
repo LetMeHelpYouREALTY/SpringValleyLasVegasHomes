@@ -67,7 +67,7 @@ const popularRelocationAreas = [
   },
   {
     name: "Green Valley",
-    best: "Established families",
+    best: "Move-up buyers",
     highlights: "Mature landscaping, championship golf, shopping and dining, Henderson location",
     from: "$480K",
   },
@@ -195,7 +195,7 @@ export default function RelocationPage() {
                 make Las Vegas feel like home before you even arrive."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
+                — Dr. Jan Duffy, REALTOR® | Licensed Since 2008 · 35 Years in Las Vegas
               </cite>
             </div>
           </section>
@@ -403,7 +403,7 @@ export default function RelocationPage() {
                   a: "Absolutely. Dr. Jan provides virtual tours, video walkthroughs, and detailed neighborhood analysis so you can purchase confidently before relocating. Many clients buy their Las Vegas home without ever visiting in person until closing day.",
                 },
                 {
-                  q: "What are the best areas for families relocating to Las Vegas?",
+                  q: "Which Las Vegas areas have the most parks and newer schools?",
                   a: "Summerlin, Henderson (especially Green Valley and Inspirada), and Skye Canyon are popular for their parks, trails, and newer schools. School ratings and police crime maps are public, and Dr. Jan can match you with the right area based on your specific priorities—commute, budget, size, and lifestyle.",
                 },
                 {
@@ -419,7 +419,7 @@ export default function RelocationPage() {
                   a: "Las Vegas has diversified beyond gaming and hospitality. Major growth sectors include healthcare (Intermountain Health, UMC), technology (Switch, various startups), sports (Raiders, Golden Knights, Aces), logistics (Amazon), and professional services. The economy is growing faster than the national average.",
                 },
                 {
-                  q: "Is Las Vegas safe for families?",
+                  q: "Where can I check crime data for Las Vegas neighborhoods?",
                   a: "Henderson Police and LVMPD both publish crime data online, so you can compare Summerlin, Green Valley, Inspirada, and any other neighborhood yourself. Dr. Jan can point you to those sources for any area you're considering.",
                 },
               ].map((faq, index) => (

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "The Ridges Luxury Estates",
   description:
-    "Find luxury homes in The Ridges with Dr. Jan Duffy, who specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 664-8424.",
+    "Find luxury homes in The Ridges, Summerlin's guard-gated custom-home community, with Dr. Jan Duffy. Median price $2.5M. Call (702) 664-8424.",
   keywords: [
     "Berkshire Hathaway HomeServices The Ridges",
     "The Ridges homes for sale",
@@ -34,7 +34,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How exclusive is The Ridges community?",
+      name: "How private is The Ridges community?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "The Ridges is a guard-gated Summerlin community with 24/7 staffed entry, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
@@ -123,7 +123,7 @@ export default function TheRidgesPage() {
               </h2>
               <p>
                 <strong>The Ridges</strong> represents the pinnacle of Las Vegas luxury living. Nestled
-                within Summerlin along the foothills of Red Rock Canyon, this ultra-exclusive guard-gated
+                within Summerlin along the foothills of Red Rock Canyon, this guard-gated luxury
                 community offers estate-quality homes with panoramic views of the Las Vegas Strip, the
                 surrounding mountains, and the pristine desert landscape. When the most discerning buyers
                 search for Las Vegas luxury, they turn to an advisor who matches The Ridges' standard
@@ -138,7 +138,7 @@ export default function TheRidgesPage() {
                 aesthetic throughout.
               </p>
               <p>
-                <strong>Dr. Jan Duffy</strong>, in real estate since 1983, understands that
+                <strong>Dr. Jan Duffy</strong>, licensed since 2008 · 35 years in Las Vegas, understands that
                 luxury transactions require more than market knowledge—they demand discretion, sophisticated
                 marketing, and access to qualified buyers worldwide, connecting The Ridges properties with
                 high-net-worth individuals actively seeking premier real estate investments in Las Vegas.
@@ -196,7 +196,7 @@ export default function TheRidgesPage() {
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-5">
                   <h5 className="font-bold text-slate-900 mb-2">Silver Ridge</h5>
-                  <p className="text-slate-600 text-sm">Exclusive custom lot community. Architectural masterpieces. $3M-$15M.</p>
+                  <p className="text-slate-600 text-sm">Custom lot community. Architectural masterpieces. $3M-$15M.</p>
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-5">
                   <h5 className="font-bold text-slate-900 mb-2">Eagle Hills</h5>
@@ -328,7 +328,7 @@ export default function TheRidgesPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  How exclusive is The Ridges community?
+                  How private is The Ridges community?
                 </h3>
                 <p className="text-slate-600">
                   The Ridges is a guard-gated Summerlin community with 24/7 staffed entry,
