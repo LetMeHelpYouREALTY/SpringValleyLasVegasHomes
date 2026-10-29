@@ -33,9 +33,11 @@ interface ReviewsSectionProps {
 }
 
 export default function ReviewsSection({
-  reviews = defaultHomeReviews,
+  // Named testimonials are held until each one is confirmed as a real client (Oct 29, 2026).
+  // Pass `reviews` explicitly to show verified quotes.
+  reviews = [],
   title = "What Our Clients Say",
-  subtitle = "Real testimonials from satisfied clients across Las Vegas and Henderson",
+  subtitle = "Read verified client reviews on Realtor.com and Google",
   googleReviewsUrl = googleBusinessReviewUrl,
   className = "",
 }: ReviewsSectionProps) {
@@ -70,57 +72,68 @@ export default function ReviewsSection({
               rel="noopener noreferrer"
               className="text-slate-600 underline-offset-2 hover:underline"
             >
-              ({aggregateRating.reviewCount} reviews on {agentStats.reviewSourceName})
+              ({aggregateRating.reviewCount} reviews on{" "}
+              {agentStats.reviewSourceName})
             </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {reviews.map((review) => (
-            <div
-              key={review.id}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-            >
-              <div className="flex items-center mb-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
-                  {review.image ? (
-                    <Image
-                      src={review.image}
-                      alt={review.name}
-                      fill
-                      className="object-cover"
-                      unoptimized={review.image ? isCfDeliveryUrl(review.image) : false}
+        {reviews.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {reviews.map((review) => (
+              <div
+                key={review.id}
+                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
+                    {review.image ? (
+                      <Image
+                        src={review.image}
+                        alt={review.name}
+                        fill
+                        className="object-cover"
+                        unoptimized={
+                          review.image ? isCfDeliveryUrl(review.image) : false
+                        }
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-slate-200 flex items-center justify-center">
+                        <span className="text-slate-400 text-sm">
+                          {review.name[0]}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">{review.name}</h3>
+                    <p className="text-sm text-slate-600">{review.location}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 ${
+                        i < review.rating
+                          ? "text-yellow-400 fill-yellow-400"
+                          : "text-slate-300"
+                      }`}
                     />
-                  ) : (
-                    <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                      <span className="text-slate-400 text-sm">{review.name[0]}</span>
-                    </div>
-                  )}
+                  ))}
                 </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">{review.name}</h3>
-                  <p className="text-sm text-slate-600">{review.location}</p>
+
+                <div className="relative">
+                  <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
+                  <p className="text-slate-700 relative z-10 pl-4">
+                    {review.text}
+                  </p>
                 </div>
               </div>
-
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-5 w-5 ${
-                      i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-300"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <div className="relative">
-                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
-                <p className="text-slate-700 relative z-10 pl-4">{review.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Google Reviews CTA */}
         <div className="text-center mt-12">
