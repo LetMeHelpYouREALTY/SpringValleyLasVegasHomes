@@ -9,12 +9,18 @@
   }
 
   a {
-    @apply text-emerald-500 underline hover:bg-emerald-100
-        outline-0 focus:ring-2 focus:ring-offset-1 focus:ring-emerald-500;
+    @apply text-bronze-700 no-underline outline-0
+        focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-bronze-500;
+  }
+
+  /* Inline links in running text keep an underline so they stay identifiable */
+  p a,
+  li a:not([class]) {
+    @apply underline decoration-bronze-300 underline-offset-4 hover:decoration-bronze-600;
   }
 
   ::selection {
-    @apply bg-emerald-200 text-emerald-950;
+    @apply bg-bronze-200 text-ink;
   }
 
   label,
@@ -28,6 +34,12 @@
   h3,
   h4 {
     @apply text-balance;
+  }
+
+  /* Editorial serif headlines site-wide; body copy stays Geist Sans */
+  h1,
+  h2 {
+    @apply font-serif font-semibold tracking-tight;
   }
 
   p {
@@ -54,7 +66,7 @@ realscout-simple-search {
 
 /* RealScout Office Listings */
 realscout-office-listings {
-  --rs-listing-divider-color: #2563eb;
+  --rs-listing-divider-color: #8a5d30;
   width: 100%;
 }
 

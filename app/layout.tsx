@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
+import { Cormorant_Garamond } from "next/font/google";
 import { cn } from "lib/utils";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
@@ -26,6 +27,14 @@ import { siteConfig } from "@/lib/site-config";
 import { faviconAppleSrc, faviconSrc } from "@/lib/site-media";
 import { seoKeywordVariations, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+
+/** Editorial serif for headlines (luxury theme); body stays Geist Sans. */
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-serif",
+});
 
 const title = siteConfig.name;
 const description = siteConfig.description;
@@ -147,7 +156,8 @@ export default function RootLayout({
       <body
         className={cn(
           GeistSans.variable,
-          "antialiased bg-white text-sm md:text-base text-slate-800",
+          serif.variable,
+          "antialiased bg-ivory font-sans text-sm md:text-base text-slate-800",
         )}
       >
         <a
@@ -159,7 +169,7 @@ export default function RootLayout({
         {children}
         <GoogleAnalytics gaId={gaMeasurementId} />
         <AIChatWidget />
-        <CalendlyBadge />
+        <CalendlyBadge text="Book a private consultation" color="#14120f" textColor="#faf7f2" />
         <VercelAnalytics />
       </body>
     </html>

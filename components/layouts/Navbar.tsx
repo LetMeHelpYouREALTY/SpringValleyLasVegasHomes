@@ -32,7 +32,7 @@ export default function Navbar() {
     <nav
       aria-label="Primary"
       data-rs-nav-search={showNavSimpleSearch ? "1" : "0"}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-bronze-100 bg-ivory/95 backdrop-blur-sm transition-all duration-300 ${
         isScrolled ? "py-2" : "py-3"
       }`}
     >
@@ -40,8 +40,11 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Brand Logo */}
           <Link href="/" className="flex flex-col max-w-[min(100%,20rem)] sm:max-w-none">
-            <span className="text-sm sm:text-base md:text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors leading-snug">
+            <span className="font-serif text-lg sm:text-xl md:text-2xl font-semibold text-ink hover:text-bronze-700 transition-colors leading-snug">
               {siteConfig.name}
+            </span>
+            <span className="hidden sm:block text-[0.65rem] font-medium uppercase tracking-eyebrow text-bronze-700">
+              Dr. Jan Duffy · BHHS Nevada Properties
             </span>
           </Link>
 
@@ -113,7 +116,14 @@ export default function Navbar() {
               )}
             </div>
 
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
+            <Link
+              href="/#book-consultation"
+              className="border border-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-ink hover:text-ivory"
+            >
+              Book
+            </Link>
+
+            <Button asChild className="rounded-none bg-ink text-ivory hover:bg-bronze-700">
               <Link href="tel:+17026648424" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="hidden xl:inline">(702) 664-8424</span>
@@ -124,7 +134,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-3">
-            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
+            <Button asChild size="sm" className="rounded-none bg-ink text-ivory hover:bg-bronze-700">
               <Link href="tel:+17026648424">
                 <Phone className="h-4 w-4" />
               </Link>
@@ -186,7 +196,14 @@ export default function Navbar() {
               </div>
 
               <div className="pt-4">
-                <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
+                <Link
+                  href="/#book-consultation"
+                  className="mb-3 block w-full border border-ink py-2.5 text-center text-xs font-semibold uppercase tracking-[0.16em] text-ink"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Book a private consultation
+                </Link>
+                <Button asChild className="w-full rounded-none bg-ink text-ivory hover:bg-bronze-700">
                   <Link
                     href="tel:+17026648424"
                     className="flex items-center justify-center gap-2"
@@ -202,7 +219,7 @@ export default function Navbar() {
       </div>
 
       {showNavSimpleSearch ? (
-        <div className="border-t border-slate-200 bg-white/95 backdrop-blur-sm">
+        <div className="border-t border-bronze-100 bg-ivory/95 backdrop-blur-sm">
           <RealScoutSimpleSearch />
         </div>
       ) : null}
