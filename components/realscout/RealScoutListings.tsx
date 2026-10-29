@@ -27,8 +27,8 @@ export default function RealScoutListings() {
               Homes for sale — Las Vegas &amp; Henderson
             </h2>
             <p className="text-base text-slate-600 md:text-lg">
-              Live MLS listings with photos, prices, and map. Tap a property for details, or open
-              the full search to set your own filters.
+              Live MLS listings with photos, prices, and map. Tap a property for
+              details, or open the full search to set your own filters.
             </p>
           </div>
           <a

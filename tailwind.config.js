@@ -39,7 +39,12 @@ module.exports = {
         sand: "#efe7da",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: [
+          "var(--font-geist-sans)",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
         serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
       },
       letterSpacing: {

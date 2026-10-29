@@ -21,7 +21,8 @@ const OPTIONS = [
     icon: KeyRound,
     label: "Buying",
     title: "Buyer consultation",
-    detail: "30 minutes by phone or Zoom. What's selling in your target area this week, and whether your budget and timing fit.",
+    detail:
+      "30 minutes by phone or Zoom. What's selling in your target area this week, and whether your budget and timing fit.",
     url: CALENDLY_BUYER_URL,
   },
   {
@@ -29,7 +30,8 @@ const OPTIONS = [
     icon: Home,
     label: "Selling",
     title: "Listing consultation",
-    detail: "30 minutes on your home. Recent comparable sales with addresses, prices, and days on market, plus three pricing strategies.",
+    detail:
+      "30 minutes on your home. Recent comparable sales with addresses, prices, and days on market, plus three pricing strategies.",
     url: CALENDLY_LISTING_URL,
   },
   {
@@ -37,13 +39,16 @@ const OPTIONS = [
     icon: CalendarDays,
     label: "Touring",
     title: "Private showing",
-    detail: "30 minutes at the property. Comps pulled before we walk in, and a clear next step after.",
+    detail:
+      "30 minutes at the property. Comps pulled before we walk in, and a clear next step after.",
     url: CALENDLY_SHOWING_URL,
   },
 ] as const;
 
 export default function BookingSection() {
-  const [selected, setSelected] = useState<(typeof OPTIONS)[number]["id"] | null>(null);
+  const [selected, setSelected] = useState<
+    (typeof OPTIONS)[number]["id"] | null
+  >(null);
   const active = OPTIONS.find((o) => o.id === selected);
 
   return (
@@ -64,7 +69,8 @@ export default function BookingSection() {
             Book time with Dr. Jan Duffy
           </h2>
           <p className="text-base text-slate-700 md:text-lg">
-            Pick the conversation you need and choose a time that works. Prefer to talk now? Call{" "}
+            Pick the conversation you need and choose a time that works. Prefer
+            to talk now? Call{" "}
             <a href={agentInfo.phoneTel} className="font-semibold text-ink">
               {agentInfo.phone}
             </a>
@@ -72,7 +78,11 @@ export default function BookingSection() {
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3" role="tablist" aria-label="Consultation type">
+        <div
+          className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3"
+          role="tablist"
+          aria-label="Consultation type"
+        >
           {OPTIONS.map((o) => {
             const Icon = o.icon;
             const isActive = o.id === selected;
@@ -101,13 +111,19 @@ export default function BookingSection() {
                 >
                   {o.label}
                 </span>
-                <span className="mb-3 font-serif text-2xl font-semibold">{o.title}</span>
-                <span className={`text-sm leading-relaxed ${isActive ? "text-ivory/80" : "text-slate-600"}`}>
+                <span className="mb-3 font-serif text-2xl font-semibold">
+                  {o.title}
+                </span>
+                <span
+                  className={`text-sm leading-relaxed ${isActive ? "text-ivory/80" : "text-slate-600"}`}
+                >
                   {o.detail}
                 </span>
                 <span
                   className={`mt-6 text-xs font-semibold uppercase tracking-[0.18em] ${
-                    isActive ? "text-ivory" : "text-ink group-hover:text-bronze-700"
+                    isActive
+                      ? "text-ivory"
+                      : "text-ink group-hover:text-bronze-700"
                   }`}
                 >
                   {isActive ? "Choose a time below" : "See open times →"}
@@ -117,7 +133,11 @@ export default function BookingSection() {
           })}
         </div>
 
-        <div id="booking-scheduler" role="tabpanel" className="mx-auto mt-8 max-w-5xl">
+        <div
+          id="booking-scheduler"
+          role="tabpanel"
+          className="mx-auto mt-8 max-w-5xl"
+        >
           {active ? (
             <div className="border border-bronze-200 bg-white">
               <CalendlyWidget key={active.id} url={active.url} height="680px" />
