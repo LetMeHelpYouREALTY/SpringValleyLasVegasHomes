@@ -56,8 +56,8 @@ export default function HeroSectionInteractive({
             <span>Serving Las Vegas</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-semibold">{agentStats.averageRating}★</span>
-            <span>Average Rating</span>
+            <span className="font-semibold">{agentStats.averageRating.toFixed(1)}★</span>
+            <span>on {agentStats.reviewSourceName}</span>
           </div>
         </div>
       </div>
