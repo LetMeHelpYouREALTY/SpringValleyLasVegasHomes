@@ -4,7 +4,6 @@ import React from "react";
 import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
 import { Cormorant_Garamond } from "next/font/google";
 import { cn } from "lib/utils";
@@ -132,8 +131,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
       <head>
         <meta name="color-scheme" content="light" />
-        {/* Early connections for third-party origins (reduces LCP / script latency) */}
-        <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        {/* RealScout loads after the load event, so a DNS hint is enough (a preconnect would go unused) */}
+        <link rel="dns-prefetch" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         {homebotPrefetchOrigin ? (
           <link rel="dns-prefetch" href={homebotPrefetchOrigin} />
@@ -141,11 +140,11 @@ export default function RootLayout({
         {/* Site-wide JSON-LD Schema: RealEstateAgent + WebSite */}
         <SchemaScript schema={siteWideSchemas} id="site-schema" />
         <AutoBreadcrumbSchema />
-        {/* RealScout: once globally; afterInteractive avoids blocking first paint (vs beforeInteractive) */}
+        {/* RealScout (~410 KB): once globally, after the load event so it doesn't compete with the hero for bandwidth on mobile */}
         <Script
           src={realScoutConfig.widgetScriptSrc}
           type="module"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         {/* Calendly: idle load — badge still works; reduces contention with LCP/interaction */}
         <Script
@@ -167,7 +166,14 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
-        <GoogleAnalytics gaId={gaMeasurementId} />
+        {/* GA4 after the load event: keeps ~180 KB of gtag off the mobile LCP path */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          strategy="lazyOnload"
+        />
+        <Script id="ga4-init" strategy="lazyOnload">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaMeasurementId}');`}
+        </Script>
         <AIChatWidget />
         <CalendlyBadge text="Book a private consultation" color="#14120f" textColor="#faf7f2" />
         <VercelAnalytics />

@@ -5,6 +5,8 @@
  * the listing changes, or set `active: false` to hide the band and the page.
  */
 
+import Image from "next/image";
+
 export const FEATURED_LISTING = {
   active: true,
   slug: "9528-rainfall-avenue",
@@ -235,12 +237,12 @@ export default function FeaturedListing({
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8">
           {l.image ? (
             <figure className="mb-5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+                <Image
                 src={l.image}
                 alt={l.imageAlt}
                 width={1600}
                 height={1200}
+                sizes="(min-width: 1024px) 960px, 100vw"
                 className="aspect-[16/9] w-full rounded-xl object-cover"
               />
               <figcaption className="mt-1 text-xs text-slate-500">
@@ -322,12 +324,12 @@ export function FeaturedListingPageBody({
         </p>
         {l.image ? (
           <figure className="mt-6">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={l.image}
               alt={l.imageAlt}
               width={1600}
               height={1200}
+              sizes="(min-width: 1024px) 960px, 100vw"
               className="w-full rounded-2xl object-cover"
             />
             <figcaption className="mt-2 text-xs text-slate-500">

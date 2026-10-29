@@ -51,14 +51,17 @@ export default function CalendlyBadge({
 
   return (
     <>
-      <link
-        href="https://assets.calendly.com/assets/external/widget.css"
-        rel="stylesheet"
-      />
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="lazyOnload"
         onLoad={() => {
+          // Stylesheet joins the script after load so it never blocks first paint
+          if (!document.querySelector('link[href$="calendly.com/assets/external/widget.css"]')) {
+            const css = document.createElement("link");
+            css.rel = "stylesheet";
+            css.href = "https://assets.calendly.com/assets/external/widget.css";
+            document.head.appendChild(css);
+          }
           if (window.Calendly) {
             window.Calendly.initBadgeWidget({
               url: calendlyUrl,
