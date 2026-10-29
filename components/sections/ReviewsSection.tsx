@@ -62,7 +62,7 @@ export default function ReviewsSection({
               ))}
             </div>
             <span className="text-lg font-semibold text-slate-900">
-              {aggregateRating.ratingValue}
+              {aggregateRating.ratingValue.toFixed(1)}
             </span>
             <a
               href={agentStats.reviewSourceUrl}
