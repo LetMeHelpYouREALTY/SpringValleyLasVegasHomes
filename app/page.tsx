@@ -78,7 +78,11 @@ export default function Home() {
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
 
-        <FeaturedListing phone={agentInfo.phone} phoneHref={agentInfo.phoneTel} />
+        <FeaturedListing
+          phone={agentInfo.phone}
+          phoneHref={agentInfo.phoneTel}
+          siteHost="springvalleylasvegashomes.com"
+        />
 
         <div
           className="border-b border-slate-200 bg-slate-50 py-2.5"
