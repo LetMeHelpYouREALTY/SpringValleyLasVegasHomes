@@ -18,7 +18,7 @@ export const homePageFaqs: FAQItem[] = [
   {
     question: "Is Spring Valley a good area to buy a home in Las Vegas?",
     answer:
-      "Many buyers choose Spring Valley for mature neighborhoods, central access to employment corridors, and a wide range of price points compared with some master-planned communities. Whether Spring Valley is right for you depends on schools, commute, HOA rules, and the specific block—not just the ZIP. We help you compare Spring Valley with nearby west valley options using real listings and market data.",
+      "Many buyers choose Spring Valley for older neighborhoods, central access to employment corridors, and a wide range of price points compared with some master-planned communities. Whether Spring Valley is right for you depends on schools, commute, HOA rules, and the specific block—not just the ZIP. We help you compare Spring Valley with nearby west valley options using real listings and market data.",
   },
   {
     question: "Do you help sellers list Spring Valley Las Vegas homes?",
