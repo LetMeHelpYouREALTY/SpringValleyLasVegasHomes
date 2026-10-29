@@ -10,13 +10,26 @@ const DEFAULT_REALSCOUT_AGENT_ID = "QWdlbnQtMjI1MDUw";
 const DEFAULT_REALSCOUT_SPRING_VALLEY_MAP_URL =
   "https://drjanduffy.realscout.com/homesearch/map?geo_type=city&geo_id=3268585";
 
+/**
+ * RealScout web components need the *encoded* agent id (base64 of "Agent-<number>").
+ * Accept a bare number from env too (e.g. "225050") and encode it, so a raw id
+ * in Vercel settings can't silently break every widget.
+ */
+function normalizeRealScoutAgentId(raw: string | undefined): string {
+  const value = raw?.trim();
+  if (!value) return DEFAULT_REALSCOUT_AGENT_ID;
+  if (/^\d+$/.test(value)) {
+    return btoa(`Agent-${value}`);
+  }
+  return value;
+}
+
 export const realScoutConfig = {
   /** Base URL for “View all properties” / MLS portal (HTTPS). */
   portalUrl: (
     process.env.NEXT_PUBLIC_REALSCOUT_PORTAL_URL ?? "https://drjanduffy.realscout.com"
   ).replace(/\/$/, ""),
-  agentEncodedId:
-    process.env.NEXT_PUBLIC_REALSCOUT_AGENT_ID ?? DEFAULT_REALSCOUT_AGENT_ID,
+  agentEncodedId: normalizeRealScoutAgentId(process.env.NEXT_PUBLIC_REALSCOUT_AGENT_ID),
   widgetScriptSrc:
     "https://em.realscout.com/widgets/realscout-web-components.umd.js",
   /**
