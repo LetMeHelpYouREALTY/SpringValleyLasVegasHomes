@@ -261,7 +261,7 @@ export default function LasVegasZipCodeMapPage() {
           <h3 className="mt-8 text-lg font-bold text-slate-900">Las Vegas (89101–89166)</h3>
           <p className="text-slate-700">
             The City of Las Vegas covers a wide range of zip codes. Downtown anchors the urban
-            core; westward you will find established neighborhoods and Summerlin across multiple
+            core; westward you will find older neighborhoods and Summerlin across multiple
             zips. The southwest corridor includes Southern Highlands, Rhodes Ranch, and
             Mountain&apos;s Edge—among the valley&apos;s active markets.
           </p>
