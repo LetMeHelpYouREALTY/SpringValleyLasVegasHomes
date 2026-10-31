@@ -23,6 +23,7 @@ import { siteConfig } from "@/lib/site-config";
 import { faviconAppleSrc, faviconSrc } from "@/lib/site-media";
 import { seoKeywordVariations, seoPrimaryKeyword } from "@/lib/seo";
 import { realScoutConfig } from "@/lib/integrations";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 /** Editorial serif for headlines (luxury theme); body stays Geist Sans. */
 const serif = Cormorant_Garamond({
@@ -178,6 +179,7 @@ export default function RootLayout({
         <AIChatWidget />
         <CalendlyBadge text="Book a private consultation" color="#14120f" textColor="#faf7f2" />
         <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
