@@ -1,23 +1,31 @@
-import { headers } from "next/headers";
-import SchemaScript from "@/components/SchemaScript";
+"use client";
+
+import { usePathname } from "next/navigation";
 import { breadcrumbsFromPathname } from "@/lib/breadcrumb-from-path";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, schemaToJsonLd } from "@/lib/schema";
 
 /**
- * Server-rendered BreadcrumbList JSON-LD for all inner pages (pathname from middleware).
+ * BreadcrumbList JSON-LD for all inner pages.
+ *
+ * Client component on purpose: `usePathname()` is resolved during prerender, so
+ * the JSON-LD still ships in the initial HTML, but the root layout no longer
+ * calls `headers()` — which forced every route to render dynamically
+ * (`Cache-Control: private, no-store`, no CDN cache, slow mobile TTFB).
  */
-export default async function AutoBreadcrumbSchema() {
-  const headerList = await headers();
-  const pathname = headerList.get("x-pathname") ?? "/";
+export default function AutoBreadcrumbSchema() {
+  const pathname = usePathname() ?? "/";
   const items = breadcrumbsFromPathname(pathname);
   if (!items || items.length < 2) {
     return null;
   }
 
   return (
-    <SchemaScript
-      schema={generateBreadcrumbSchema(items)}
+    <script
       id="auto-breadcrumb-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: schemaToJsonLd(generateBreadcrumbSchema(items)),
+      }}
     />
   );
 }
